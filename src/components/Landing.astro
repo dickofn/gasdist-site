@@ -1,0 +1,808 @@
+---
+// The landing page, in either language. src/pages/index.astro and
+// src/pages/en/index.astro only pick the language.
+import { Image } from "astro:assets";
+import logo from "../assets/logo.svg";
+import printId from "../assets/shots/id/print-a4.png";
+import printEn from "../assets/shots/en/print-a4.png";
+import Shot from "./Shot.astro";
+
+interface Props {
+  lang: "id" | "en";
+}
+const { lang } = Astro.props;
+const base = import.meta.env.BASE_URL.replace(/\/?$/, "/");
+const home = lang === "en" ? `${base}en/` : base;
+const guide = `${home}panduan/mulai/tentang/`;
+const other = lang === "en" ? base : `${base}en/`;
+
+const T = {
+  id: {
+    title: "GasDist: stok LPG dan surat jalan",
+    description: "Aplikasi desktop offline untuk distributor LPG: stok dalam kg, surat jalan dalam tabung, dicetak siap ditandatangani.",
+    navGuide: "Panduan",
+    otherLang: "English",
+    h1: "Dari gudang sampai tanda tangan pelanggan.",
+    lede: "GasDist mencatat stok LPG dalam kg, membuat surat jalan dalam tabung, dan mencetaknya siap ditandatangani. Berjalan di satu PC, tanpa internet.",
+    ctaGuide: "Baca panduan",
+    ctaShots: "Lihat tampilan",
+    flowTitle: "Satu pengiriman, lima langkah",
+    flow: [
+      ["Terima stok", "Kiriman dari SPBE dicatat per tabung atau per kg."],
+      ["Buat surat jalan", "Pilih pelanggan dan isi jumlah tabung. Sisa stok terlihat sebelum disimpan."],
+      ["Posting", "Nomor diberikan otomatis dan stok langsung berkurang."],
+      ["Cetak", "Kertas A4 atau continuous. Cetak ulang ditandai SALINAN."],
+      ["Ditandatangani", "Sopir dan penerima menandatangani di kotak yang sudah disediakan."],
+    ],
+    features: [
+      {
+        shot: "home",
+        alt: "Layar stok dengan empat produk LPG, dua bertanda Menipis",
+        title: "Stok dalam kg, terbaca dalam tabung",
+        body: "Setiap produk punya saldo dalam kg dan setara tabung penuh. Produk di bawah batasnya diberi tanda Menipis, dan kartu stok menunjukkan setiap pergerakan dengan saldo berjalan.",
+        link: "stok/ringkasan/",
+      },
+      {
+        shot: "sj-form-negative",
+        alt: "Formulir surat jalan dengan baris stok minus berwarna merah",
+        title: "Surat jalan yang memeriksa stok sendiri",
+        body: "Kolom Stok setelah berubah oranye saat stok menipis dan merah saat tidak cukup. Posting dikunci sampai jumlahnya benar, jadi stok di catatan tidak pernah minus diam-diam.",
+        link: "surat-jalan/membuat/",
+      },
+      {
+        shot: "print-window",
+        max: 600,
+        alt: "Jendela pratinjau cetak surat jalan dengan pilihan kertas",
+        title: "Kertas yang siap ditandatangani",
+        body: "Kop perusahaan dengan logo, tiga kotak tanda tangan, dan pernyataan penerimaan barang. Draf dicetak dengan tanda air DRAFT, cetak ulang bertanda SALINAN.",
+        link: "cetak/mencetak/",
+      },
+      {
+        shot: "users-list",
+        alt: "Daftar pengguna dengan peran masing-masing",
+        title: "Setiap orang melihat menu yang sesuai",
+        body: "Lima peran: Owner, Admin, Gudang, Penjualan, dan Pemantau. Gudang menerima stok, Penjualan membuat surat jalan, Pemantau hanya melihat laporan.",
+        link: "mulai/peran/",
+      },
+    ],
+    more: "Selengkapnya di panduan",
+    extrasTitle: "Juga ada",
+    extras: [
+      "Backup terenkripsi, bisa disalin ke flashdisk",
+      "Ekspor kartu stok dan daftar surat jalan ke Excel",
+      "Format nomor surat jalan sesuai kebiasaan kantor",
+      "Pintasan keyboard untuk input cepat",
+      "Bahasa Indonesia dan Inggris, per pengguna",
+      "Layar terkunci otomatis saat ditinggal",
+    ],
+    safetyTitle: "Data tetap aman di PC Anda",
+    safety: [
+      ["Database terenkripsi", "Isi database dikunci dengan kunci yang disimpan oleh sistem operasi. Menyalin filenya saja tidak cukup untuk membacanya."],
+      ["Backup dengan kata sandi sendiri", "File backup aman dibawa di flashdisk. Tanpa kata sandi backup, isinya tidak bisa dibuka."],
+      ["Riwayat yang tidak bisa diubah", "Pergerakan stok hanya bisa ditambah. Kesalahan dibetulkan dengan catatan baru, tidak dengan menghapus yang lama."],
+      ["Jejak audit berantai", "Setiap catatan audit membawa sidik catatan sebelumnya, sehingga perubahan diam-diam akan ketahuan."],
+    ],
+    specTitle: "Di balik layar",
+    specIntro: "GasDist adalah proyek pribadi yang dibangun dengan standar aplikasi produksi.",
+    spec: [
+      ["Aplikasi", "Tauri 2: inti dalam Rust, antarmuka React"],
+      ["Database", "SQLite dengan SQLCipher, terenkripsi penuh"],
+      ["Aturan bisnis", "Ditulis test-first, tanpa akses file atau jaringan"],
+      ["Pengujian", "Lebih dari 530 tes otomatis, wajib lulus sebelum rilis"],
+      ["Pemasang", "Windows (dengan WebView2 offline), Linux .deb dan .AppImage"],
+      ["Rilis", "11 rilis, versi saat ini 0.6.0"],
+    ],
+    galleryTitle: "Tampilan aplikasi",
+    footer: "GasDist dibuat oleh Dicko. Perusahaan, pelanggan, dan angka di tangkapan layar adalah contoh fiktif.",
+  },
+  en: {
+    title: "GasDist: LPG stock and surat jalan",
+    description: "An offline desktop app for LPG distributors: stock in kg, surat jalan (delivery notes) in tabung, printed ready to sign.",
+    navGuide: "Guide",
+    otherLang: "Bahasa Indonesia",
+    h1: "From the warehouse to the customer's signature.",
+    lede: "GasDist keeps LPG stock in kg, writes surat jalan (delivery notes) in tabung, and prints them ready to sign. It runs on one PC, with no internet.",
+    ctaGuide: "Read the guide",
+    ctaShots: "See the screens",
+    flowTitle: "One delivery, five steps",
+    flow: [
+      ["Receive stock", "Deliveries from the filling plant are entered by tabung or by kg."],
+      ["Create a surat jalan", "Pick the customer and enter the tabung. The remaining stock shows before you save."],
+      ["Post", "The number is assigned automatically and stock goes down at once."],
+      ["Print", "A4 or continuous paper. Reprints are marked SALINAN."],
+      ["Signed", "The driver and the receiver sign in the boxes provided."],
+    ],
+    features: [
+      {
+        shot: "home",
+        alt: "Stock screen with four LPG products, two marked low",
+        title: "Stock in kg, read in tabung",
+        body: "Every product has a balance in kg and its equivalent in full tabung. Products under their limit are marked low, and the kartu stok lists every movement with a running balance.",
+        link: "stok/ringkasan/",
+      },
+      {
+        shot: "sj-form-negative",
+        alt: "Surat jalan form with a negative stock line shown in red",
+        title: "A surat jalan that checks the stock itself",
+        body: "The stock-after column turns amber when stock runs low and red when it runs out. Posting stays locked until the numbers are right, so the books never go negative by accident.",
+        link: "surat-jalan/membuat/",
+      },
+      {
+        shot: "print-window",
+        max: 600,
+        alt: "Surat jalan print preview window with the paper choice",
+        title: "Paper that is ready to sign",
+        body: "Company letterhead with logo, three signature boxes and a receipt statement. Drafts print with a DRAFT watermark, reprints are marked SALINAN.",
+        link: "cetak/mencetak/",
+      },
+      {
+        shot: "users-list",
+        alt: "User list with each user's role",
+        title: "Everyone sees the menu that fits their job",
+        body: "Five roles: Owner, Admin, Warehouse, Sales and Viewer. Warehouse receives stock, Sales writes surat jalan, Viewer only reads the reports.",
+        link: "mulai/peran/",
+      },
+    ],
+    more: "More in the guide",
+    extrasTitle: "Also included",
+    extras: [
+      "Encrypted backups you can copy to a USB stick",
+      "Kartu stok and surat jalan lists exported to Excel",
+      "Surat jalan numbers in the office's own format",
+      "Keyboard shortcuts for fast entry",
+      "Indonesian and English, per user",
+      "The screen locks itself when left alone",
+    ],
+    safetyTitle: "The data stays safe on your PC",
+    safety: [
+      ["Encrypted database", "The database is locked with a key the operating system keeps. Copying the file alone is not enough to read it."],
+      ["Backups with their own password", "Backup files are safe to carry on a USB stick. Without the backup password they cannot be opened."],
+      ["History that cannot be changed", "Stock movements can only be added. A mistake is corrected with a new entry, never by deleting the old one."],
+      ["Chained audit trail", "Each audit entry carries a fingerprint of the one before it, so a quiet change would show."],
+    ],
+    specTitle: "Under the hood",
+    specIntro: "GasDist is a personal project built to the standard of a production app.",
+    spec: [
+      ["App", "Tauri 2: a Rust core with a React interface"],
+      ["Database", "SQLite with SQLCipher, fully encrypted"],
+      ["Business rules", "Written test-first, with no file or network access"],
+      ["Testing", "Over 530 automated tests, all green before every release"],
+      ["Installers", "Windows (with offline WebView2), Linux .deb and .AppImage"],
+      ["Releases", "11 releases, currently version 0.6.0"],
+    ],
+    galleryTitle: "Screens",
+    footer: "GasDist is built by Dicko. The company, customers and figures in the screenshots are fictional.",
+  },
+}[lang];
+
+const gallery: [string, string][] = (
+  {
+    id: [
+      ["home", "Layar stok"],
+      ["sj-list", "Daftar surat jalan"],
+      ["sj-form-filled", "Surat jalan baru"],
+      ["sj-detail-posted", "Surat jalan diposting"],
+      ["stock-receive-filled", "Terima stok"],
+      ["stock-opname", "Stok opname"],
+      ["stock-card", "Kartu stok"],
+      ["customers-list", "Pelanggan"],
+      ["master-products", "Produk"],
+      ["settings-company", "Pengaturan"],
+      ["account-login", "Masuk"],
+      ["home.dark", "Mode gelap"],
+    ],
+    en: [
+      ["home", "Stock"],
+      ["sj-list", "Surat jalan list"],
+      ["sj-form-filled", "New surat jalan"],
+      ["sj-detail-posted", "Posted surat jalan"],
+      ["stock-receive-filled", "Receive stock"],
+      ["stock-opname", "Stok opname"],
+      ["stock-card", "Kartu stok"],
+      ["customers-list", "Customers"],
+      ["master-products", "Products"],
+      ["settings-company", "Settings"],
+      ["account-login", "Sign in"],
+      ["home.dark", "Dark mode"],
+    ],
+  } as const
+)[lang].map(([a, b]) => [a, b]);
+const paper = lang === "en" ? printEn : printId;
+---
+
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{T.title}</title>
+    <meta name="description" content={T.description} />
+    <link rel="icon" href={`${base}favicon.svg`} type="image/svg+xml" />
+    <link rel="alternate" hreflang="id" href={`https://dickofn.github.io${base}`} />
+    <link rel="alternate" hreflang="en" href={`https://dickofn.github.io${base}en/`} />
+    <meta property="og:title" content={T.title} />
+    <meta property="og:description" content={T.description} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@112..125,600..900&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <header class="bar">
+      <a class="brand" href={home}><Image src={logo} alt="" width={30} height={30} />GasDist</a>
+      <nav>
+        <a href={guide}>{T.navGuide}</a>
+        <a href={other} hreflang={lang === "en" ? "id" : "en"}>{T.otherLang}</a>
+        <a href="https://github.com/dickofn">GitHub</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-copy">
+          <h1>{T.h1}</h1>
+          <p class="lede">{T.lede}</p>
+          <p class="ctas">
+            <a class="btn btn-solid" href={guide}>{T.ctaGuide}</a>
+            <a class="btn" href="#tampilan">{T.ctaShots}</a>
+          </p>
+        </div>
+        <div class="hero-art" aria-hidden="true">
+          <div class="window">
+            <span class="window-dots"><i></i><i></i><i></i></span>
+            <Shot name="sj-form-filled" lang={lang} alt="" marks={false} eager class="window-shot" />
+          </div>
+          <div class="paper">
+            <Image src={paper} alt="" widths={[480, 980]} sizes="(max-width: 900px) 60vw, 34vw" loading="eager" />
+          </div>
+        </div>
+      </section>
+
+      <section class="flow">
+        <h2>{T.flowTitle}</h2>
+        <ol>
+          {
+            T.flow.map(([title, body]) => (
+              <li>
+                <h3>{title}</h3>
+                <p>{body}</p>
+              </li>
+            ))
+          }
+        </ol>
+      </section>
+
+      <section class="features">
+        {
+          T.features.map((f) => (
+            <article class="feature">
+              <div class="feature-copy">
+                <h2>{f.title}</h2>
+                <p>{f.body}</p>
+                <a href={`${home}panduan/${f.link}`}>{T.more}</a>
+              </div>
+              <Shot name={f.shot} lang={lang} alt={f.alt} marks={false} max={f.max} class="feature-shot" />
+            </article>
+          ))
+        }
+        <div class="extras">
+          <h2>{T.extrasTitle}</h2>
+          <ul>
+            {T.extras.map((e) => <li>{e}</li>)}
+          </ul>
+        </div>
+      </section>
+
+      <section class="safety">
+        <h2>{T.safetyTitle}</h2>
+        <dl>
+          {
+            T.safety.map(([k, v]) => (
+              <div>
+                <dt>{k}</dt>
+                <dd>{v}</dd>
+              </div>
+            ))
+          }
+        </dl>
+      </section>
+
+      <section class="spec">
+        <div class="spec-head">
+          <h2>{T.specTitle}</h2>
+          <p>{T.specIntro}</p>
+        </div>
+        <table>
+          <tbody>
+            {
+              T.spec.map(([k, v]) => (
+                <tr>
+                  <th scope="row">{k}</th>
+                  <td>{v}</td>
+                </tr>
+              ))
+            }
+          </tbody>
+        </table>
+      </section>
+
+      <section class="gallery" id="tampilan">
+        <h2>{T.galleryTitle}</h2>
+        <div class="gallery-grid">
+          {gallery.map(([name, label]) => <Shot name={name} lang={lang} alt={label} caption={label} marks={false} max={9999} />)}
+        </div>
+      </section>
+    </main>
+
+    <footer class="foot">
+      <p>{T.footer}</p>
+      <p><a href={guide}>{T.navGuide}</a> <a href={other}>{T.otherLang}</a> <a href="https://github.com/dickofn">GitHub</a></p>
+    </footer>
+  </body>
+</html>
+
+<style is:global>
+  @font-face {
+    font-family: "Inter";
+    font-display: swap;
+    font-weight: 100 900;
+    src: url("/gasdist-site/fonts/inter-latin-wght-normal.woff2") format("woff2");
+  }
+
+  :root {
+    --ink: #0f1a33;
+    --ink-soft: #46536d;
+    --blue: #1d4ed8;
+    --blue-deep: #142f86;
+    --sheet: #ffffff;
+    --desk: #e7ecf4;
+    --amber: #f59e0b;
+    --melon: #7cb342;
+    --line: #c9d2e1;
+    --pad: clamp(16px, 2.4vw, 52px);
+    --display: "Archivo", "Inter", system-ui, sans-serif;
+    color-scheme: light dark;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ink: #e8edf7;
+      --ink-soft: #a7b3c9;
+      --blue: #6f95ff;
+      --blue-deep: #0f1f4d;
+      --sheet: #121a2e;
+      --desk: #0a1122;
+      --line: #27324a;
+    }
+  }
+  :root[data-theme="dark"] {
+    --ink: #e8edf7;
+    --ink-soft: #a7b3c9;
+    --blue: #6f95ff;
+    --blue-deep: #0f1f4d;
+    --sheet: #121a2e;
+    --desk: #0a1122;
+    --line: #27324a;
+  }
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+  body {
+    margin: 0;
+    background: var(--desk);
+    color: var(--ink);
+    font:
+      400 17px/1.6 "Inter",
+      system-ui,
+      sans-serif;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: clip;
+  }
+  a {
+    color: var(--blue);
+  }
+  a:focus-visible,
+  .btn:focus-visible {
+    outline: 3px solid var(--amber);
+    outline-offset: 3px;
+  }
+  h1,
+  h2,
+  h3 {
+    font-family: var(--display);
+    font-stretch: 118%;
+    font-weight: 800;
+    line-height: 1.08;
+    letter-spacing: -0.01em;
+    margin: 0;
+    text-wrap: balance;
+  }
+  h2 {
+    font-size: clamp(1.6rem, 1.1rem + 1.6vw, 2.4rem);
+  }
+  p {
+    margin: 0;
+  }
+
+  .bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 14px var(--pad);
+    background: var(--sheet);
+    border-bottom: 1px solid var(--line);
+  }
+  .brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    color: var(--ink);
+    text-decoration: none;
+    font: 800 1.2rem/1 var(--display);
+    font-stretch: 118%;
+  }
+  .bar nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 0.4rem 1.4rem;
+    font-weight: 600;
+    font-size: 0.95rem;
+  }
+  .bar nav a {
+    color: var(--ink);
+    text-decoration: none;
+  }
+  .bar nav a:hover {
+    color: var(--blue);
+  }
+
+  section {
+    padding: clamp(48px, 7vw, 112px) var(--pad);
+  }
+
+  /* Hero: the app on the desk, the printed sheet it produces lying on top. */
+  .hero {
+    overflow-x: clip;
+    display: grid;
+    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+    gap: clamp(32px, 4vw, 80px);
+    align-items: center;
+    background: var(--sheet);
+    padding-bottom: clamp(64px, 9vw, 150px);
+  }
+  .hero h1 {
+    font-size: clamp(2.2rem, 1.1rem + 3.2vw, 4.4rem);
+    font-stretch: 112%;
+    font-weight: 900;
+    max-width: 15ch;
+  }
+  .lede {
+    margin-top: 1.4rem;
+    font-size: clamp(1.05rem, 0.95rem + 0.4vw, 1.3rem);
+    color: var(--ink-soft);
+    max-width: 46ch;
+  }
+  .ctas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 2rem;
+  }
+  .btn {
+    display: inline-block;
+    padding: 0.8rem 1.3rem;
+    border-radius: 8px;
+    border: 2px solid var(--blue);
+    font-weight: 700;
+    text-decoration: none;
+    transition: background 0.15s;
+  }
+  .btn-solid {
+    background: var(--blue);
+    color: #fff;
+  }
+  .btn:not(.btn-solid):hover {
+    background: color-mix(in srgb, var(--blue) 10%, transparent);
+  }
+  .btn-solid:hover {
+    background: var(--blue-deep);
+    border-color: var(--blue-deep);
+  }
+
+  .hero-art {
+    position: relative;
+    padding-bottom: 18%;
+  }
+  .window {
+    position: relative;
+    border-radius: 12px;
+    background: #dfe5ee;
+    padding-top: 28px;
+    box-shadow:
+      0 2px 4px rgb(15 26 51 / 0.08),
+      0 30px 60px -20px rgb(15 26 51 / 0.35);
+  }
+  .window-dots {
+    position: absolute;
+    top: 9px;
+    left: 12px;
+    display: flex;
+    gap: 6px;
+  }
+  .window-dots i {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #aab4c4;
+  }
+  .window .shot {
+    margin: 0;
+    max-width: none;
+  }
+  .window .shot-frame {
+    border: 0;
+    border-radius: 0 0 12px 12px;
+    box-shadow: none;
+    cursor: default;
+    pointer-events: none;
+  }
+  .paper {
+    position: absolute;
+    right: -2%;
+    bottom: 0;
+    width: 46%;
+    aspect-ratio: 794 / 700;
+    overflow: hidden;
+    background: #fff;
+    transform: rotate(3deg);
+    transform-origin: 80% 100%;
+    box-shadow:
+      0 1px 2px rgb(15 26 51 / 0.12),
+      0 24px 40px -12px rgb(15 26 51 / 0.45);
+  }
+  /* Crops the preview window down to the sheet: drops the toolbar and the grey margins. */
+  .paper img {
+    display: block;
+    width: 123.4%;
+    max-width: none;
+    height: auto;
+    margin: -9.7% 0 0 -11.7%;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .paper {
+      animation: lay-down 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) 0.25s both;
+    }
+    @keyframes lay-down {
+      from {
+        transform: translate(4%, -10%) rotate(9deg);
+        opacity: 0;
+      }
+    }
+  }
+
+  /* The sequence of one delivery. */
+  .flow h2 {
+    max-width: 24ch;
+  }
+  .flow ol {
+    list-style: none;
+    counter-reset: step;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr));
+    gap: 3rem 0;
+    margin: 2.5rem 0 0;
+    padding: 0;
+  }
+  .flow li {
+    counter-increment: step;
+    position: relative;
+    padding: 3.4rem 1.5rem 0 0;
+    border-top: 3px solid var(--ink);
+  }
+  .flow li::before {
+    content: counter(step);
+    position: absolute;
+    top: -1.15rem;
+    left: 0;
+    width: 2.1rem;
+    height: 2.1rem;
+    border-radius: 50%;
+    background: var(--amber);
+    color: #1c1917;
+    font: 800 1rem/2.1rem var(--display);
+    text-align: center;
+  }
+  .flow li:last-child::before {
+    background: var(--melon);
+  }
+  .flow h3 {
+    font-size: 1.25rem;
+  }
+  .flow li p {
+    margin-top: 0.5rem;
+    color: var(--ink-soft);
+    max-width: 30ch;
+  }
+
+  /* Feature rows: wide screenshot beside short copy, alternating sides. */
+  .features {
+    background: var(--sheet);
+    display: grid;
+    gap: clamp(56px, 8vw, 128px);
+  }
+  .feature {
+    display: grid;
+    grid-template-columns: minmax(0, 4fr) minmax(0, 8fr);
+    gap: clamp(24px, 4vw, 72px);
+    align-items: center;
+  }
+  .feature:nth-of-type(even) {
+    grid-template-columns: minmax(0, 8fr) minmax(0, 4fr);
+  }
+  .feature:nth-of-type(even) .feature-copy {
+    order: 2;
+  }
+  .feature-copy p {
+    margin: 1rem 0 1.2rem;
+    color: var(--ink-soft);
+    max-width: 46ch;
+  }
+  .feature-copy a {
+    font-weight: 700;
+  }
+  .feature .shot {
+    margin: 0;
+    justify-self: center;
+  }
+  .extras {
+    border-top: 1px solid var(--line);
+    padding-top: clamp(32px, 4vw, 56px);
+    display: grid;
+    grid-template-columns: minmax(0, 4fr) minmax(0, 8fr);
+    gap: clamp(24px, 4vw, 72px);
+  }
+  .extras h2 {
+    font-size: 1.5rem;
+  }
+  .extras ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(260px, 100%), 1fr));
+    gap: 0.9rem 2rem;
+  }
+  .extras li {
+    padding-left: 1.4rem;
+    position: relative;
+  }
+  .extras li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.55em;
+    width: 0.6rem;
+    height: 0.6rem;
+    border-radius: 2px;
+    background: var(--melon);
+  }
+
+  /* Data safety on the app's own blue. */
+  .safety {
+    background: var(--blue-deep);
+    color: #fff;
+  }
+  .safety h2 {
+    max-width: 22ch;
+  }
+  .safety dl {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr));
+    gap: 2rem clamp(24px, 3vw, 56px);
+    margin: 2.5rem 0 0;
+  }
+  .safety dt {
+    font: 800 1.15rem/1.2 var(--display);
+    font-stretch: 112%;
+    padding-top: 1rem;
+    border-top: 2px solid rgb(255 255 255 / 0.35);
+  }
+  .safety dd {
+    margin: 0.6rem 0 0;
+    color: #cfdaf7;
+    max-width: 40ch;
+  }
+
+  /* Spec sheet, like the label on a cylinder. */
+  .spec {
+    display: grid;
+    grid-template-columns: minmax(0, 4fr) minmax(0, 8fr);
+    gap: clamp(24px, 4vw, 72px);
+    align-items: start;
+  }
+  .spec-head p {
+    margin-top: 1rem;
+    color: var(--ink-soft);
+    max-width: 36ch;
+  }
+  .spec table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--sheet);
+    border: 2px solid var(--ink);
+  }
+  .spec th,
+  .spec td {
+    text-align: left;
+    padding: 0.85rem 1.1rem;
+    border-bottom: 1px solid var(--line);
+    vertical-align: top;
+  }
+  .spec th {
+    width: 32%;
+    font-weight: 700;
+    border-right: 1px solid var(--line);
+  }
+
+  .gallery {
+    background: var(--sheet);
+  }
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(340px, 100%), 1fr));
+    gap: clamp(20px, 2vw, 36px);
+    margin-top: 2.5rem;
+  }
+  .gallery .shot {
+    margin: 0;
+    max-width: none;
+  }
+  .gallery figcaption {
+    font-weight: 600;
+    color: var(--ink-soft);
+  }
+
+  .foot {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 1rem 2rem;
+    padding: 32px var(--pad) 48px;
+    color: var(--ink-soft);
+    font-size: 0.95rem;
+  }
+  .foot p:last-child {
+    display: flex;
+    gap: 1.4rem;
+  }
+  .foot p:first-child {
+    max-width: 70ch;
+  }
+
+  @media (max-width: 900px) {
+    .hero,
+    .feature,
+    .extras,
+    .spec {
+      grid-template-columns: minmax(0, 1fr);
+    }
+    .feature:nth-of-type(even) {
+      grid-template-columns: minmax(0, 1fr);
+    }
+    .feature:nth-of-type(even) .feature-copy {
+      order: 0;
+    }
+    .hero-art {
+      padding-bottom: 22%;
+    }
+  }
+  @media (max-width: 480px) {
+    .bar nav {
+      gap: 0.3rem 1rem;
+      font-size: 0.875rem;
+    }
+  }
+</style>

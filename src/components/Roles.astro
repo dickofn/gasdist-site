@@ -1,0 +1,48 @@
+---
+// Who may do this: one badge per role, in the app's own role names.
+//   <Roles can={["OWNER", "ADMIN", "PENJUALAN"]} />
+type Role = "OWNER" | "ADMIN" | "GUDANG" | "PENJUALAN" | "VIEWER";
+interface Props {
+  can: Role[];
+}
+
+const NAMES: Record<"id" | "en", Record<Role, string>> = {
+  id: { OWNER: "Owner", ADMIN: "Admin", GUDANG: "Gudang", PENJUALAN: "Penjualan", VIEWER: "Pemantau" },
+  en: { OWNER: "Owner", ADMIN: "Admin", GUDANG: "Warehouse", PENJUALAN: "Sales", VIEWER: "Viewer" },
+};
+const ORDER: Role[] = ["OWNER", "ADMIN", "GUDANG", "PENJUALAN", "VIEWER"];
+
+const lang = Astro.locals.starlightRoute?.lang === "en" ? "en" : "id";
+const { can } = Astro.props;
+const all = can.length === ORDER.length;
+const label = lang === "en" ? "Who can do this" : "Siapa yang bisa";
+const everyone = lang === "en" ? "Every role" : "Semua peran";
+---
+
+<p class="roles not-content">
+  <span class="roles-label">{label}</span>
+  {all ? <span class="role">{everyone}</span> : ORDER.filter((r) => can.includes(r)).map((r) => <span class="role">{NAMES[lang][r]}</span>)}
+</p>
+
+<style>
+  .roles {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.4rem;
+    margin: 0.75rem 0 1.25rem;
+    font-size: var(--sl-text-sm);
+  }
+  .roles-label {
+    color: var(--sl-color-gray-3);
+    margin-right: 0.2rem;
+  }
+  .role {
+    padding: 0.1rem 0.6rem;
+    border-radius: 999px;
+    background: var(--sl-color-accent-low);
+    color: var(--sl-color-accent-high);
+    font-weight: 600;
+    white-space: nowrap;
+  }
+</style>
