@@ -1,0 +1,67 @@
+---
+title: SALINAN dan DRAFT
+description: Kenali lembar asli, cetak ulang bertanda SALINAN, dan pratinjau draf bertanda air DRAFT.
+sidebar:
+  order: 2
+---
+
+import { Aside } from "@astrojs/starlight/components";
+import Shot from "../../../../components/Shot.astro";
+import Roles from "../../../../components/Roles.astro";
+
+GasDist menandai setiap lembar surat jalan, sehingga lembar asli selalu bisa dibedakan dari cetak ulang, dan draf tidak pernah beredar sebagai surat jalan sungguhan.
+
+<Roles can={["OWNER", "ADMIN", "PENJUALAN"]} />
+
+Peran lain bisa membuka pratinjau semua lembar di halaman ini, tetapi tidak bisa mencetaknya.
+
+## Empat tanda di jendela cetak
+
+Di kiri atas jendela cetak, sesudah nomor surat jalan, tertulis tanda lembar yang akan dicetak:
+
+| Tanda | Kapan | Di lembarnya | Bisa dicetak? |
+|---|---|---|---|
+| **Asli** | Surat jalan diposting dan belum pernah dicetak | Tanpa tanda tambahan | ✅ |
+| **Salinan** | Surat jalan diposting dan sudah pernah dicetak | Kotak **SALINAN** di bawah judul SURAT JALAN | ✅ |
+| **Draf** | Surat jalan masih draf | Tanda air miring **DRAFT**, **No.** berisi `-` | ❌ hanya pratinjau |
+| **Dibatalkan** | Surat jalan sudah dibatalkan | Tanda air **DIBATALKAN** | ❌ hanya pratinjau |
+
+## Asli dan SALINAN
+
+Cetakan pertama adalah lembar **asli**. Setiap kali surat jalan yang sama dicetak lagi, lembarnya otomatis diberi kotak **SALINAN** tepat di bawah judul **SURAT JALAN**, dan tanda di jendela cetak menjadi **Salinan**.
+
+<Shot name="print-copy" alt="Cetak ulang surat jalan SJ/2026/10/0029 dengan kotak SALINAN di bawah judul SURAT JALAN" />
+
+Dengan begitu hanya ada satu lembar asli yang beredar. Bila lembar yang ditandatangani hilang lalu dicetak ulang, semua orang tahu bahwa lembar baru itu salinan.
+
+Untuk melihat berapa kali sebuah surat jalan sudah dicetak:
+
+- Buka surat jalannya: halaman detail menampilkan **Jumlah cetak: ...**.
+- Di lembar yang dicetak, tulisan kecil di bawah kotak tanda tangan menunjukkan cetakan keberapa, misalnya **Cetakan ke-2**.
+- File ekspor [daftar surat jalan](/gasdist-site/panduan/surat-jalan/daftar/) punya kolom **Dicetak**.
+
+<Aside type="caution" title="Menutup dialog cetak tetap terhitung">
+Cetakan dihitung begitu Anda mengklik **Cetak**, sebelum dialog cetak terbuka. Bila dialog cetak ditutup tanpa mencetak, cetakan berikutnya sudah bertanda SALINAN. Siapkan printer dan kertas dulu sebelum mengklik **Cetak**.
+</Aside>
+
+## Pratinjau draf (DRAFT)
+
+Draf bisa dilihat tampilan cetaknya lewat **Pratinjau** di formulir surat jalan (atau <kbd>Ctrl</kbd>+<kbd>P</kbd>). Pratinjau menyimpan draf lebih dulu, lalu membuka jendela cetak.
+
+<Shot name="print-draft" alt="Pratinjau draf surat jalan dengan tanda air DRAFT besar dan nomor kosong" />
+
+Lembar draf mudah dikenali:
+
+- Tanda air besar **DRAFT** melintang di tengah lembar.
+- **No.** berisi `-`, karena draf belum bernomor.
+- Di kiri atas jendela tertulis **Draf · Draf**, dan di kanan atas **Draf tidak bisa dicetak. Posting dulu agar mendapat nomor.** Tombol **Cetak** tidak ada.
+
+Gunakan pratinjau draf untuk memeriksa isi dan tata letak sebelum memposting. Setelah [diposting](/gasdist-site/panduan/surat-jalan/membuat/), surat jalan mendapat nomor dan cetakan pertamanya menjadi lembar asli.
+
+## Surat jalan yang dibatalkan
+
+Surat jalan yang sudah [dibatalkan](/gasdist-site/panduan/surat-jalan/membatalkan/) masih bisa dibuka lewat **Pratinjau**, dengan tanda air **DIBATALKAN** dan pesan **Surat jalan yang dibatalkan tidak dicetak lagi.** Lembar ini tidak bisa dicetak.
+
+<Aside type="note">
+Tulisan SALINAN, DRAFT, dan DIBATALKAN mengikuti bahasa bawaan perusahaan, sama seperti seluruh lembar surat jalan. Bila bahasa bawaannya English, tulisannya menjadi COPY, DRAFT, dan CANCELLED.
+</Aside>

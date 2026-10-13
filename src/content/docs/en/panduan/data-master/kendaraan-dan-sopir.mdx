@@ -1,0 +1,76 @@
+---
+title: Vehicles and drivers
+description: Register delivery vehicles and drivers so they can be chosen on a surat jalan.
+sidebar:
+  order: 2
+---
+
+import { Steps, Aside } from "@astrojs/starlight/components";
+import Shot from "../../../../../components/Shot.astro";
+import Roles from "../../../../../components/Roles.astro";
+
+Registered vehicles and drivers can be chosen when making a surat jalan, and are printed on it. Neither is required: a surat jalan can still be made with **No vehicle** and **No driver**.
+
+<Roles can={["OWNER", "ADMIN"]} />
+
+## Vehicles
+
+<Steps>
+
+1. Open **Master Data** in the sidebar, then click the **Vehicles** tab.
+
+2. Click **Add vehicle** <span class="pin">1</span>.
+
+   <Shot name="master-vehicles" alt="The Vehicles tab with three active vehicles" />
+
+3. Fill in the **Plate number**, for example `B 9123 KXA`, and, if useful, a **Description**, for example the type of vehicle and its load. Click **Save**.
+
+</Steps>
+
+A plate number may contain letters, digits, spaces or hyphens, up to 15 characters, and is always written in capitals.
+
+## Drivers
+
+<Steps>
+
+1. In **Master Data**, click the **Drivers** tab.
+
+2. Click **Add driver** <span class="pin">1</span>.
+
+   <Shot name="master-drivers" alt="The Drivers tab with three active drivers" />
+
+3. Fill in the **Driver name** (required) and **Phone** (optional). Click **Save**.
+
+</Steps>
+
+To correct a vehicle or driver, click **Edit** on its row.
+
+<Aside type="caution">
+A surat jalan shows the current plate number and driver name, including when an old surat jalan is printed again. Use **Edit** only to fix typos. When a vehicle is replaced or a new driver joins, add a new entry and deactivate the old one.
+</Aside>
+
+## Deactivating a vehicle or driver
+
+Vehicles and drivers cannot be deleted. When a vehicle is sold or a driver leaves, deactivate them instead.
+
+<Steps>
+
+1. Click **Deactivate** on the vehicle's or driver's row.
+
+2. Read the confirmation: the entry can no longer be chosen for new transactions, but its history is kept. Click **Deactivate**.
+
+   <Shot name="master-deactivate" alt="Confirmation dialog to deactivate Supriyadi" />
+
+</Steps>
+
+The row stays in the list with the status **Inactive**. To use it again, click **Activate** on the same row.
+
+| | Inactive |
+|---|---|
+| Can be chosen on a new surat jalan | ❌ |
+| Old surat jalan that used it | Stay intact and can still be printed |
+| Drafts that still use it | Cannot be saved or posted until it is changed, or reactivated |
+
+<Aside type="tip">
+Don't know the vehicle or driver yet when making a surat jalan? Choose **No vehicle** or **No driver**, save it as a draft, and fill them in before posting. See [Making a surat jalan](/gasdist-site/en/panduan/surat-jalan/membuat/).
+</Aside>

@@ -1,0 +1,54 @@
+---
+title: Getting to know GasDist
+description: What GasDist is and the parts of its main window, from the sidebar menu to the Lock button.
+sidebar:
+  order: 1
+---
+
+import { Steps, Aside } from "@astrojs/starlight/components";
+import Shot from "../../../../../components/Shot.astro";
+import Roles from "../../../../../components/Roles.astro";
+
+GasDist keeps a distributor's LPG stock in kg and its surat jalan in tabung. It works fully **offline** on one PC: no internet is needed, and all data stays on that PC, **encrypted**. This page walks you through the main window so you know where to find each feature.
+
+<Roles can={["OWNER", "ADMIN", "GUDANG", "PENJUALAN", "VIEWER"]} />
+
+## The main window
+
+After you sign in, GasDist always opens the **Stock** page. The main window has a sidebar menu on the left and a top bar on the right.
+
+<Shot name="home" alt="The GasDist main window: sidebar menu on the left, company name and account buttons at the top, a stock card per product in the middle" />
+
+| Part | What it is for |
+|---|---|
+| Sidebar menu <span class="pin">1</span> | Moves between pages. Which items you see depends on your [role](/gasdist-site/en/panduan/mulai/peran/). The GasDist version is shown at the bottom. |
+| Company name | On the left of the top bar, for example **PT Sumber Gas Sejahtera**. The Owner changes it in [Settings](/gasdist-site/en/panduan/pengaturan/perusahaan/). |
+| **Language** <span class="pin">2</span> | Choose **Bahasa Indonesia** or **English**. The choice is saved for your own account, so other users are not affected. |
+| Name and role | Who is signed in, for example **Hendra Wijaya · Owner**. |
+| **Change password** | Changes your own password. See [Signing in, locking and passwords](/gasdist-site/en/panduan/mulai/masuk-dan-kunci/). |
+| **Lock** <span class="pin">3</span> | Locks the screen while you are away from your desk. You stay signed in; your password opens it again. |
+| **Sign out** | Ends your session and returns to the sign-in screen. |
+
+The Stock page itself has buttons such as **Receive stock** <span class="pin">4</span>, a backup card and one card per product. The **Low** badge <span class="pin">5</span> marks a product whose stock is below its threshold. The full story is in [Stock overview](/gasdist-site/en/panduan/stok/ringkasan/).
+
+## The sidebar menu
+
+| Menu | What it is for | Guide |
+|---|---|---|
+| **Stock** | The start page: each product's stock in kg and tabung, backup status, receiving stock, stok opname | [Stock overview](/gasdist-site/en/panduan/stok/ringkasan/) |
+| **Surat Jalan** | The surat jalan list; making, posting, printing and cancelling them | [Surat jalan list and export](/gasdist-site/en/panduan/surat-jalan/daftar/) |
+| **Customers** | Pangkalan and other customers, search, each customer's surat jalan history | [Customer list and search](/gasdist-site/en/panduan/pelanggan/daftar/) |
+| **Master Data** | Products, vehicles and drivers | [Products](/gasdist-site/en/panduan/data-master/produk/) |
+| **Reports** | The kartu stok per product, exportable to Excel or CSV | [Kartu stok](/gasdist-site/en/panduan/stok/kartu-stok/) |
+| **Users** | Adding accounts, resetting passwords | [Adding users](/gasdist-site/en/panduan/pengguna/menambah/) |
+| **Settings** | Company details, number format, negative stock, auto-lock, language, backup | [Company and logo](/gasdist-site/en/panduan/pengaturan/perusahaan/) |
+
+<Aside type="note">
+Missing one of the menus above? That is expected: a menu is hidden when your role may not use it. See [User roles](/gasdist-site/en/panduan/mulai/peran/).
+</Aside>
+
+## Light and dark theme
+
+GasDist follows your operating system's theme. When Windows (or Linux) is in dark mode, GasDist turns dark too; everything is in the same place, only the colours change. There is no separate theme setting inside GasDist.
+
+<Shot name="home.dark" alt="The GasDist main window in the dark theme" marks={false} />

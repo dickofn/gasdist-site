@@ -1,0 +1,113 @@
+---
+title: Membuat dan menyalin backup
+description: Pahami backup otomatis, buat backup kapan saja, dan simpan salinannya di flashdisk atau folder lain.
+sidebar:
+  order: 2
+---
+
+import { Steps, Aside } from "@astrojs/starlight/components";
+import Shot from "../../../../components/Shot.astro";
+import Roles from "../../../../components/Roles.astro";
+
+Backup adalah satu file berisi **seluruh** data GasDist: stok dan riwayatnya, surat jalan, pelanggan, produk, kendaraan, sopir, pengguna, serta pengaturan termasuk logo. File itu dikunci dengan [kata sandi backup](/gasdist-site/panduan/backup/kata-sandi-backup/) dan bisa dipulihkan di PC mana pun, juga di PC dengan sistem operasi lain.
+
+<Roles can={["OWNER", "ADMIN"]} />
+
+<Aside type="note">
+Backup baru dibuat setelah Owner mengatur [kata sandi backup](/gasdist-site/panduan/backup/kata-sandi-backup/). Sebelum itu, tidak ada backup sama sekali.
+</Aside>
+
+## Backup otomatis
+
+Setelah kata sandi backup diatur, GasDist membuat backup sendiri:
+
+- setiap kali aplikasi ditutup, dan
+- sekali sehari selama aplikasi terbuka, begitu backup terakhir sudah berumur satu hari.
+
+Backup disimpan di **folder backup utama** di PC ini. Lokasinya tertulis di kotak **Backup dan pemulihan** di halaman **Pengaturan**.
+
+## Kotak Backup di halaman Stok
+
+Di halaman **Stok**, layar pertama setelah masuk, ada kotak **Backup** yang menunjukkan kapan backup terakhir dibuat. Warnanya memberi tahu apakah Anda perlu bertindak.
+
+<Shot name="home-backup-card" alt="Kotak Backup berwarna hijau dengan tulisan Backup terakhir 13/10/2026 11.55 dan tombol Backup sekarang" />
+
+| Warna | Kapan | Tulisan di kotak |
+|---|---|---|
+| Hijau | Backup terakhir paling lama 3 hari lalu | **Backup terakhir** dengan tanggal dan jam |
+| Kuning | Backup terakhir lebih dari 3 hari, sampai 7 hari lalu | Ditambah **Sudah ... hari tanpa backup.** |
+| Merah | Backup terakhir lebih dari 7 hari lalu | Ditambah **Sudah ... hari tanpa backup.** |
+| Merah | Belum pernah ada backup | **Belum pernah ada backup.** |
+| Merah | Kata sandi backup belum diatur | **Backup belum aktif: belum ada kata sandi backup.** |
+
+Kuning atau merah berarti sudah lama tidak ada backup baru. Klik **Backup sekarang** agar kotaknya hijau lagi.
+
+## Membuat backup sekarang
+
+Buat backup sendiri sebelum pekerjaan besar, misalnya sebelum stok opname atau sebelum mengubah banyak data.
+
+<Steps>
+
+1. Klik **Backup sekarang** <span class="pin">1</span> di kotak **Backup** di halaman **Stok**. Owner juga bisa memakai tombol **Backup sekarang** <span class="pin">2</span> di kotak **Backup dan pemulihan** di halaman **Pengaturan**.
+
+   <Shot name="settings-backup" alt="Kotak Backup dan pemulihan di halaman Pengaturan dengan tombol Backup sekarang dan Simpan salinan ke" marks={[null, 2, 3, null]} />
+
+2. Tunggu sebentar. Muncul pesan **Backup dibuat:** diikuti nama file backup, dan kotak **Backup** di halaman **Stok** kembali hijau.
+
+</Steps>
+
+## Menyimpan salinan ke flashdisk atau folder lain
+
+<Roles can={["OWNER"]} />
+
+Backup di folder utama ikut hilang bila PC rusak atau hilang. Simpan salinan di tempat lain secara rutin, misalnya seminggu sekali ke flashdisk yang disimpan di luar kantor.
+
+<Steps>
+
+1. Colokkan flashdisk. Buka **Pengaturan**, gulir ke paling bawah, lalu klik **Simpan salinan ke…** <span class="pin">3</span> di kotak **Backup dan pemulihan** (lihat gambar di atas).
+
+2. Jendela penyimpanan file terbuka dengan nama file berisi tanggal hari ini, misalnya `GasDist-2026-10-13.gasbak`. Pilih flashdisk atau folder tujuan, lalu simpan.
+
+3. GasDist membuat backup baru di folder utama dan menyalinnya ke tempat yang Anda pilih. Pesannya diakhiri **Salinan disimpan di** dan lokasinya.
+
+</Steps>
+
+Bila salinan gagal ditulis, misalnya flashdisk tercabut, muncul pesan **Salinan ke ... tidak bisa ditulis. Backup tetap ada di folder backup.** Backup-nya tetap ada; coba simpan salinan lagi.
+
+<Aside type="tip">
+Salinan yang Anda simpan lewat **Simpan salinan ke…** tidak pernah dihapus oleh GasDist. Hapus sendiri salinan lama di flashdisk bila tempatnya sudah penuh.
+</Aside>
+
+## Folder backup kedua
+
+<Roles can={["OWNER"]} />
+
+Agar setiap backup, termasuk yang otomatis, langsung punya salinan di tempat lain, pilih folder backup kedua. Misalnya flashdisk yang selalu tercolok, atau folder di hard disk lain.
+
+<Steps>
+
+1. Buka **Pengaturan** dan cari bagian **Backup**.
+
+2. Di bawah **Folder backup kedua**, klik **Pilih folder**, lalu pilih folder tujuan.
+
+3. Gulir ke paling bawah dan klik **Simpan**.
+
+</Steps>
+
+Setiap kali folder itu tersedia, salinan backup juga disimpan di sana. Bila folder itu tidak ditemukan (misalnya flashdisk sedang tidak tercolok), backup tetap dibuat di folder utama dan kotak **Backup** di halaman **Stok** menulis **Folder backup kedua tidak ditemukan:** diikuti lokasinya. Untuk berhenti memakai folder kedua, klik **Hapus pilihan folder**, lalu **Simpan**.
+
+## Berapa banyak backup yang disimpan
+
+Isian **Simpan berapa backup** di bagian **Backup** menentukan jumlahnya. Bawaannya 14, boleh diisi 1 sampai 365.
+
+Jumlah itu berlaku **untuk tiap jenis** backup **di tiap folder**. Backup yang lebih lama dari itu dihapus otomatis.
+
+| Jenis backup | Dibuat saat | Dengan bawaan 14, yang disimpan |
+|---|---|---|
+| otomatis | Aplikasi ditutup, dan sekali sehari | 14 backup otomatis terbaru |
+| manual | **Backup sekarang** atau **Simpan salinan ke…** diklik | 14 backup manual terbaru |
+| sebelum pemulihan | Tepat sebelum [memulihkan dari backup](/gasdist-site/panduan/backup/memulihkan/) | 14 backup sebelum pemulihan terbaru |
+
+<Aside type="note">
+Setiap kali GasDist ditutup, satu backup otomatis dibuat. Bila aplikasi ditutup beberapa kali sehari, 14 backup otomatis bisa mencakup kurang dari 14 hari. Naikkan angkanya bila Anda ingin menyimpan riwayat lebih panjang.
+</Aside>

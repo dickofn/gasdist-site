@@ -1,0 +1,67 @@
+---
+title: SALINAN and DRAFT
+description: Tell the original sheet from a SALINAN reprint and from a draft preview with its DRAFT watermark.
+sidebar:
+  order: 2
+---
+
+import { Aside } from "@astrojs/starlight/components";
+import Shot from "../../../../../components/Shot.astro";
+import Roles from "../../../../../components/Roles.astro";
+
+GasDist marks every surat jalan sheet, so the original can always be told apart from a reprint, and a draft never goes out as a real surat jalan.
+
+<Roles can={["OWNER", "ADMIN", "PENJUALAN"]} />
+
+The other roles can open the preview of every sheet on this page, but cannot print it.
+
+## Four marks in the print window
+
+At the top left of the print window, after the surat jalan number, the window shows the mark of the sheet about to print:
+
+| Mark | When | On the sheet | Can it print? |
+|---|---|---|---|
+| **Original** | Posted and never printed | No extra mark | ✅ |
+| **Copy** | Posted and printed before | A **SALINAN** box under the SURAT JALAN title | ✅ |
+| **Draft** | Still a draft | A slanted **DRAFT** watermark, **No.** shows `-` | ❌ preview only |
+| **Cancelled** | Already cancelled | A **DIBATALKAN** watermark | ❌ preview only |
+
+## Original and SALINAN
+
+The first print is the **original**. Every later print of the same surat jalan automatically gets a **SALINAN** (copy) box just under the **SURAT JALAN** title, and the mark in the print window becomes **Copy**.
+
+<Shot name="print-copy" alt="A reprint of surat jalan SJ/2026/10/0029 with a SALINAN box under the SURAT JALAN title" />
+
+That way only one original is ever in circulation. If a signed sheet goes missing and is printed again, everyone can see the new sheet is a copy.
+
+To see how many times a surat jalan has been printed:
+
+- Open the surat jalan: its detail page shows **Times printed: ...**.
+- On the printed sheet, a small line under the signature boxes says which print it is, for example **Cetakan ke-2** (print no. 2).
+- The export of the [surat jalan list](/gasdist-site/en/panduan/surat-jalan/daftar/) has a **Printed** column.
+
+<Aside type="caution" title="Closing the print dialog still counts">
+A print counts as soon as you click **Print**, before the print dialog opens. If you close the print dialog without printing, the next print is already marked SALINAN. Get the printer and paper ready before you click **Print**.
+</Aside>
+
+## Draft preview (DRAFT)
+
+You can see how a draft will look on paper with **Preview** in the surat jalan form (or <kbd>Ctrl</kbd>+<kbd>P</kbd>). Preview saves the draft first, then opens the print window.
+
+<Shot name="print-draft" alt="A draft surat jalan preview with a large DRAFT watermark and no number" />
+
+A draft sheet is easy to spot:
+
+- A large **DRAFT** watermark runs across the middle of the sheet.
+- **No.** shows `-`, because a draft has no number yet.
+- The top left of the window says **Draft · Draft**, and the top right says **A draft cannot be printed. Post it first to give it a number.** There is no **Print** button.
+
+Use the draft preview to check the contents and layout before posting. Once [posted](/gasdist-site/en/panduan/surat-jalan/membuat/), the surat jalan gets its number and its first print becomes the original.
+
+## A cancelled surat jalan
+
+A [cancelled](/gasdist-site/en/panduan/surat-jalan/membatalkan/) surat jalan can still be opened with **Preview**, with a **DIBATALKAN** watermark and the message **A cancelled surat jalan is not printed again.** This sheet cannot be printed.
+
+<Aside type="note">
+The words SALINAN, DRAFT and DIBATALKAN follow the company's default language, like the rest of the sheet. When the default language is English, they read COPY, DRAFT and CANCELLED instead.
+</Aside>

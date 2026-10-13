@@ -1,0 +1,62 @@
+---
+title: Stok minus, kunci otomatis, bahasa
+description: Tentukan apakah surat jalan boleh membuat stok minus, berapa menit sebelum layar terkunci sendiri, dan bahasa bawaan kantor.
+sidebar:
+  order: 3
+---
+
+import { Steps, Aside } from "@astrojs/starlight/components";
+import Shot from "../../../../components/Shot.astro";
+import Roles from "../../../../components/Roles.astro";
+
+Tiga pengaturan ini berlaku untuk semua pengguna di kantor: apakah stok boleh minus, kapan layar terkunci sendiri, dan bahasa bawaan. Semuanya ada di halaman **Pengaturan**, di bawah bagian **Perusahaan** dan **Dokumen**.
+
+<Roles can={["OWNER"]} />
+
+<Shot name="settings-stock-security" alt="Bagian Stok dengan kotak centang stok minus, bagian Bahasa dengan pilihan Bahasa Indonesia, dan bagian Tentang" marks={[1, null, 2, null]} />
+
+Setelah mengubah apa pun di halaman ini, gulir ke paling bawah dan klik **Simpan**. Muncul pesan **Pengaturan disimpan.**
+
+## Stok minus
+
+Di bagian **Stok** ada kotak centang **Izinkan stok minus saat posting surat jalan** <span class="pin">1</span>. Bawaannya tidak dicentang.
+
+| Kotak centang | Bila stok tidak cukup untuk sebuah surat jalan |
+|---|---|
+| Tidak dicentang (bawaan) | Baris itu merah bertanda **Minus** dan tombol **Posting** dikunci. Kurangi jumlahnya dulu. ✅ Disarankan |
+| Dicentang | Baris itu tetap merah bertanda **Minus**, tetapi surat jalan tetap bisa diposting. GasDist hanya memberi peringatan, lalu stok produk itu menjadi minus |
+
+Lihat juga [Membuat surat jalan](/gasdist-site/panduan/surat-jalan/membuat/) untuk arti warna di kolom **Stok setelah**.
+
+<Aside type="caution">
+Stok minus berarti catatan di GasDist sudah tidak cocok dengan isi gudang. Biasanya penyebabnya penerimaan stok yang belum dicatat. Lebih baik [catat penerimaan stok](/gasdist-site/panduan/stok/terima-stok/) dulu, atau perbaiki dengan [stok opname](/gasdist-site/panduan/stok/stok-opname/), daripada mengizinkan stok minus.
+</Aside>
+
+## Kunci otomatis
+
+Di bagian **Keamanan** (di sebelah kanan bagian **Stok**) ada kolom **Kunci otomatis setelah (menit)**. Bila GasDist tidak dipakai selama itu, layar terkunci sendiri dan pengguna harus memasukkan kata sandinya untuk melanjutkan. Sebaiknya simpan dulu draf atau isian yang sedang dikerjakan sebelum meninggalkan komputer. Cara membuka kunci dijelaskan di [Masuk, kunci layar, dan kata sandi](/gasdist-site/panduan/mulai/masuk-dan-kunci/).
+
+| Kunci otomatis | Menit |
+|---|---|
+| Bawaan | 15 |
+| Yang boleh diisi | 1 sampai 240 |
+
+<Aside type="tip">
+Komputer di meja yang ramai dilewati orang sebaiknya memakai waktu pendek, misalnya 5 menit. Siapa pun juga bisa mengunci layar kapan saja dengan tombol **Kunci** di bagian atas layar.
+</Aside>
+
+## Bahasa bawaan
+
+Di bagian **Bahasa**, pilih **Bahasa bawaan** <span class="pin">2</span>: **Bahasa Indonesia** atau **English**.
+
+| Tempat | Bahasa yang dipakai |
+|---|---|
+| Layar masuk | Bahasa bawaan |
+| Pengguna dengan bahasa **Ikuti bawaan perusahaan** | Bahasa bawaan |
+| Pengguna yang memilih bahasanya sendiri | Bahasa pilihannya, apa pun bahasa bawaannya |
+
+Bahasa per pengguna diatur di halaman **Pengguna** (lihat [Menambah pengguna](/gasdist-site/panduan/pengguna/menambah/)), atau oleh pengguna itu sendiri lewat pilihan **Bahasa** di bagian atas layar.
+
+## Folder backup kedua
+
+Bagian **Backup** di halaman yang sama berisi **Folder backup kedua** dan **Simpan berapa backup**. Keduanya dijelaskan di [Membuat dan menyalin backup](/gasdist-site/panduan/backup/membuat-backup/).

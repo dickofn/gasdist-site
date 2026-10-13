@@ -1,0 +1,89 @@
+---
+title: Kartu stok
+description: Lihat setiap keluar-masuk stok satu produk beserta saldonya, lalu ekspor ke Excel atau CSV.
+sidebar:
+  order: 4
+---
+
+import { Steps, Aside } from "@astrojs/starlight/components";
+import Shot from "../../../../components/Shot.astro";
+import Roles from "../../../../components/Roles.astro";
+
+Kartu stok adalah riwayat stok satu produk: setiap penerimaan, surat jalan, pembatalan, dan penyesuaian, lengkap dengan saldo setelah setiap baris. Pakai kartu stok untuk menelusuri dari mana angka stok berasal.
+
+<Roles can={["OWNER", "ADMIN", "GUDANG", "PENJUALAN", "VIEWER"]} />
+
+## Membuka kartu stok
+
+Ada dua jalan:
+
+| Dari | Caranya |
+|---|---|
+| Halaman **Stok** | Klik **Kartu stok** di kartu produk yang ingin dilihat. Tekan **Kembali** untuk kembali ke halaman Stok. |
+| Menu **Laporan** | Pilih produk di kolom **Produk**. Cocok bila Anda ingin berpindah dari satu produk ke produk lain. |
+
+### Dari halaman Stok
+
+<Steps>
+
+1. Klik **Kartu stok** <span class="pin">3</span> di kartu produk.
+
+   <Shot name="home-stock-card" alt="Kartu produk LPG 5,5 kg dengan tombol Kartu stok" marks={[null, null, 3]} />
+
+2. Kartu stok produk itu terbuka, mulai tanggal 1 bulan ini sampai hari ini. Ubah **Dari tanggal** dan **Sampai tanggal** <span class="pin">1</span> untuk melihat periode lain. Ringkasannya dimulai dari **Saldo awal** <span class="pin">3</span>, dan tombol ekspor <span class="pin">2</span> ada di sebelah tanggal.
+
+   <Shot name="stock-card" alt="Kartu stok LPG 3 kg periode 1 sampai 13 Oktober 2026 dengan saldo awal 4.620 kg" marks={[1, 2, 3, null]} />
+
+</Steps>
+
+### Dari menu Laporan
+
+Buka **Laporan** di menu samping. Pilih produk di **Produk** <span class="pin">1</span>, lalu atur **Dari tanggal** dan **Sampai tanggal** <span class="pin">2</span>. Produk yang sudah nonaktif tetap ada di daftar, dengan tanda **(Nonaktif)**. Tombol ekspor <span class="pin">3</span> sama seperti di halaman Stok.
+
+Bila **Sampai tanggal** adalah hari ini, **Saldo akhir** <span class="pin">4</span> sama dengan angka di kartu produk di halaman Stok. Pada gambar, keduanya 77 kg.
+
+<Shot name="reports-stock-card" alt="Halaman Laporan menampilkan kartu stok LPG 5,5 kg dengan saldo akhir 77 kg" />
+
+## Membaca kartu stok
+
+Di atas tabel ada empat angka ringkasan:
+
+| Angka | Artinya |
+|---|---|
+| **Saldo awal** | Stok pada awal periode, sebelum baris pertama di tabel |
+| **Masuk** | Jumlah semua stok masuk dalam periode |
+| **Keluar** | Jumlah semua stok keluar dalam periode |
+| **Saldo akhir** | Stok pada akhir periode. Saldo awal + Masuk − Keluar. |
+
+Setiap baris tabel adalah satu pergerakan stok. Kolom **Saldo** adalah sisa stok setelah baris itu, jadi Anda bisa mengikuti naik-turunnya stok dari baris ke baris. Kolom **Oleh** menunjukkan siapa yang mencatatnya.
+
+| Jenis | Dari mana | Efek pada stok |
+|---|---|---|
+| **Penerimaan** | [Terima stok](/gasdist-site/panduan/stok/terima-stok/). Referensi = nomor referensi, mis. nomor DO. | Masuk |
+| **Surat jalan** | Surat jalan yang [diposting](/gasdist-site/panduan/surat-jalan/membuat/). Referensi = nomor surat jalan. | Keluar |
+| **Pembatalan** | Surat jalan yang [dibatalkan](/gasdist-site/panduan/surat-jalan/membatalkan/) | Masuk, mengembalikan stok surat jalan itu |
+| **Penyesuaian** | [Stok opname](/gasdist-site/panduan/stok/stok-opname/). Alasannya tampil di **Keterangan**. | Masuk atau keluar, sesuai selisih |
+
+<Aside type="note">
+Baris di kartu stok tidak bisa diubah atau dihapus. Kesalahan selalu diperbaiki dengan baris baru (pembatalan atau penyesuaian), sehingga kartu stok menunjukkan riwayat yang lengkap dan jujur.
+</Aside>
+
+## Mengekspor kartu stok
+
+<Steps>
+
+1. Atur produk dan periodenya dulu. Yang diekspor adalah persis yang tampil di layar.
+
+2. Klik **Ekspor Excel** <span class="pin">2</span> untuk berkas `.xlsx`, atau **Ekspor CSV** untuk berkas `.csv`.
+
+   <Shot name="stock-card" alt="Tombol Ekspor Excel dan Ekspor CSV di kartu stok" marks={[null, 2, null, null]} />
+
+3. Jendela simpan berkas dari komputer Anda muncul, dengan nama berkas yang sudah terisi, misalnya `kartu-stok-LPG-3-2026-10-01-2026-10-13.xlsx`. Pilih folder lalu simpan.
+
+4. Muncul pesan **Kartu stok disimpan ke** diikuti lokasi berkasnya.
+
+</Steps>
+
+<Aside type="tip">
+Pilih **Ekspor Excel** bila berkasnya akan dibuka dan dirapikan di Excel. Pilih **Ekspor CSV** bila akan dimasukkan ke program lain.
+</Aside>

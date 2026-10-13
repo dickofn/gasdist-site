@@ -1,0 +1,71 @@
+---
+title: Memulihkan dari backup
+description: Kembalikan data GasDist dari sebuah backup, misalnya setelah PC rusak atau saat pindah ke PC baru.
+sidebar:
+  order: 3
+---
+
+import { Steps, Aside } from "@astrojs/starlight/components";
+import Shot from "../../../../components/Shot.astro";
+import Roles from "../../../../components/Roles.astro";
+
+Memulihkan berarti **mengganti semua data GasDist sekarang** dengan isi sebuah backup. Lakukan ini bila data rusak atau terhapus, bila Anda pindah ke PC lain, atau bila Anda benar-benar perlu kembali ke keadaan pada tanggal backup itu.
+
+<Roles can={["OWNER"]} />
+
+## Apa yang terjadi saat memulihkan
+
+| Hal | Sesudah memulihkan |
+|---|---|
+| Semua data: stok, surat jalan, pelanggan, data master, pengaturan | Persis seperti saat backup dibuat. Semua yang dicatat sesudah tanggal backup tidak ada lagi di data yang dipakai |
+| Data sebelum pemulihan | Disimpan dulu sebagai backup jenis **sebelum pemulihan**, jadi masih bisa dikembalikan |
+| Pengguna dan kata sandi masuk | Akun yang ada di backup. Semua orang masuk lagi dengan akun dan kata sandi dari backup |
+| Kata sandi backup | Yang tersimpan di data backup itu, yaitu kata sandi yang Anda ketik untuk membukanya |
+| Backup dari GasDist versi lebih lama | Diperbarui otomatis, tidak perlu tindakan apa pun |
+
+## Memulihkan sebuah backup
+
+<Steps>
+
+1. Buka **Pengaturan**, gulir ke paling bawah, lalu klik **Pulihkan dari backup…** <span class="pin">1</span> di kotak **Backup dan pemulihan**.
+
+   <Shot name="settings-backup" alt="Kotak Backup dan pemulihan dengan tombol Pulihkan dari backup" marks={[null, null, null, 1]} />
+
+2. Jendela **Pulihkan dari backup** menampilkan **Backup yang ditemukan** di folder utama dan folder kedua, yang terbaru di atas. Setiap baris berisi tanggal dan jam, jenis backup (**otomatis**, **manual**, atau **sebelum pemulihan**), ukurannya, dan tulisan **folder kedua** bila berasal dari folder kedua. Pilih satu.
+
+   Backup ada di flashdisk atau di tempat lain? Klik **Pilih file lain…**, lalu pilih file `.gasbak` di jendela pemilih file.
+
+3. Isi **Kata sandi backup**, yaitu kata sandi backup yang berlaku **saat backup itu dibuat**, lalu klik **Periksa**. Langkah ini hanya membuka dan memeriksa backup; belum ada data yang diganti.
+
+4. GasDist menampilkan isi backup: **Perusahaan**, **Dibuat** (tanggal dan jam, oleh siapa atau **otomatis**), dan **Versi**. Pastikan ini backup yang benar. Bila salah pilih, klik **Kembali**.
+
+5. Baca peringatan berwarna kuning: semua data sekarang akan diganti, backup data sekarang dibuat dulu, dan semua pengguna masuk lagi dengan akun yang ada di backup.
+
+6. Isi **Kata sandi Anda**, yaitu kata sandi yang Anda pakai untuk masuk ke GasDist, lalu klik **Pulihkan**.
+
+7. GasDist membuat backup data sekarang, mengganti datanya, lalu kembali ke layar masuk. Masuk dengan akun yang ada di backup itu.
+
+</Steps>
+
+<Aside type="caution" title="Tanpa kata sandi backup, backup tidak bisa dibuka">
+Backup hanya bisa dibuka dengan kata sandi backup yang dipakai saat backup itu dibuat. Bila kata sandi itu hilang, backup tersebut **tidak bisa dipulihkan sama sekali**, oleh siapa pun. Kode pemulihan Owner dan kata sandi masuk tidak bisa menggantikannya. Lihat [Kata sandi backup](/gasdist-site/panduan/backup/kata-sandi-backup/).
+</Aside>
+
+## Bila ada pesan kesalahan
+
+| Pesan | Artinya | Yang dilakukan |
+|---|---|---|
+| **Kata sandi backup salah, atau file backup telah berubah.** | Kata sandi tidak cocok dengan backup ini, atau filenya rusak | Coba kata sandi backup yang berlaku saat backup dibuat (mungkin kata sandi lama). Bila tetap gagal, pilih backup lain |
+| **File ini bukan backup GasDist, atau file backup rusak.** | File yang dipilih bukan backup, atau rusak saat disalin | Pilih file lain, atau salin ulang dari flashdisk |
+| **Backup ini dibuat oleh GasDist yang lebih baru. Perbarui aplikasi dulu, lalu pulihkan.** | Backup berasal dari GasDist versi lebih baru | Pasang versi GasDist terbaru, lalu ulangi |
+| **Kata sandi Anda salah.** | Kata sandi masuk di langkah 6 salah | Ketik ulang kata sandi Anda. Ini bukan kata sandi backup |
+
+Semua pesan ini muncul **sebelum** data diganti. Data Anda sekarang tetap utuh.
+
+## Membatalkan pemulihan
+
+Salah memulihkan backup? Data sebelum pemulihan tersimpan sebagai backup jenis **sebelum pemulihan**. Ulangi langkah di atas dan pilih backup itu. Backup itu dikunci dengan kata sandi backup yang berlaku di PC ini sebelum pemulihan. Bila PC ini belum punya kata sandi backup, backup itu dikunci dengan kata sandi backup yang Anda ketik saat memulihkan.
+
+## Memulihkan di PC baru
+
+Pada PC baru yang belum disiapkan, layar penyiapan awal menawarkan **Pindah dari PC lain? Pulihkan backup-nya, tanpa mengisi formulir ini.** Pilih file backup dari flashdisk, isi kata sandi backup, lalu pulihkan. Di PC baru, GasDist tidak menanyakan kata sandi masuk karena belum ada data yang diganti. Setelah itu masuk dengan akun yang ada di backup. Lihat juga [Pemasangan dan penyiapan awal](/gasdist-site/panduan/mulai/penyiapan-awal/).

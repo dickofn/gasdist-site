@@ -1,0 +1,71 @@
+---
+title: Adding and editing customers
+description: Register a new customer or correct the details of an existing one.
+sidebar:
+  order: 2
+---
+
+import { Steps, Aside } from "@astrojs/starlight/components";
+import Shot from "../../../../../components/Shot.astro";
+import Roles from "../../../../../components/Roles.astro";
+
+A customer has to be registered before you can choose them on a surat jalan. What you enter here, such as the name and address, is printed on the surat jalan.
+
+<Roles can={["OWNER", "ADMIN", "PENJUALAN"]} />
+
+## Adding a customer
+
+<Steps>
+
+1. Open **Customers** in the sidebar, then click **Add customer**.
+
+2. Fill in **Customer code** <span class="pin">1</span> and **Customer name**. Both are required.
+
+3. Choose the **Customer type** <span class="pin">2</span>: **Pangkalan**, **Retail**, **Industry** or **Other**. The type is used to filter the customer list.
+
+4. Fill in whatever else you know, then click **Save**.
+
+   <Shot name="customers-add" alt="Add customer form for Pangkalan Sinar Harapan with code P-009" />
+
+</Steps>
+
+## Each field
+
+| Field | Required? | Notes |
+|---|---|---|
+| **Customer code** | ✅ | 1 to 20 letters, digits, dots, underscores, hyphens or slashes, no spaces. Must differ from every other customer. |
+| **Customer name** | ✅ | The name printed on the surat jalan |
+| **Customer type** | ✅ | Pangkalan, Retail, Industry or Other |
+| **City** | | Searchable |
+| **Phone** | | Searchable |
+| **Contact person** | | The person you usually deal with |
+| **NPWP** | | |
+| **NIK** | | If filled in, it must be 16 digits |
+| **Address** | | Delivery address |
+| **Notes** | | Free notes for your team |
+
+<Aside type="tip">
+Use a code pattern that is easy to remember, for example `P-` for pangkalan and `I-` for industry. On a surat jalan you can find a customer just by typing the code.
+</Aside>
+
+If the code is already used by another customer, GasDist refuses to save and tells you which code clashes. Choose another code.
+
+## Editing a customer
+
+<Steps>
+
+1. In the customer list, click the customer you want to change. The [customer details](/gasdist-site/en/panduan/pelanggan/detail/) open.
+
+2. Click **Edit**. The same form opens, already filled in.
+
+3. Correct the details, then click **Save**.
+
+</Steps>
+
+<Aside type="caution">
+A surat jalan always shows the customer's current details, including when an old surat jalan is printed again. So edit a customer only to correct or update that same customer. Do not rename one customer into a different business: add a new customer for that.
+</Aside>
+
+## Deleting a customer?
+
+Customers cannot be deleted. A customer you no longer serve is deactivated, so their surat jalan history stays intact. See [Customer details](/gasdist-site/en/panduan/pelanggan/detail/).

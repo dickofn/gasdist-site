@@ -1,0 +1,137 @@
+---
+title: Signing in, locking and passwords
+description: How to sign in, recover the Owner password, lock the screen and change your own password.
+sidebar:
+  order: 3
+---
+
+import { Steps, Aside } from "@astrojs/starlight/components";
+import Shot from "../../../../../components/Shot.astro";
+import Roles from "../../../../../components/Roles.astro";
+
+Everyone signs in to GasDist with their own account, so every surat jalan and stock change is recorded under the right name. This page explains how to sign in, what happens when a password is forgotten or typed wrong too often, and how to lock the screen.
+
+<Roles can={["OWNER", "ADMIN", "GUDANG", "PENJUALAN", "VIEWER"]} />
+
+## Signing in
+
+<Steps>
+
+1. Type your **Username** <span class="pin">1</span> and **Password** <span class="pin">2</span>. The company name is shown under the **Sign in** heading.
+
+2. Click **Sign in** <span class="pin">3</span> or press <kbd>Enter</kbd>.
+
+   <Shot name="account-login" alt="The Sign in screen with the username dewi and a password filled in, the Sign in button and the Forgot the Owner password link" />
+
+</Steps>
+
+The **Forgot the Owner password?** link <span class="pin">4</span> is for Owners only; see [Forgotten password](#forgotten-password) below.
+
+The sign-in screen uses the company's default language. Once you are signed in, GasDist switches to the language you chose for your account, if you ever chose one.
+
+If you see **Wrong username or password.**, check the spelling and <kbd>Caps Lock</kbd>, then try again. If you see **This account has been deactivated. Contact an Admin.**, an Admin or the Owner has switched your account off.
+
+## Forgotten password
+
+What to do depends on who forgot:
+
+| Who forgot | What to do |
+|---|---|
+| Warehouse, Sales or Viewer | Ask an Admin or the Owner to reset your password. |
+| Admin | Ask the Owner to reset your password. |
+| An Owner, and there is another Owner | Ask the other Owner to reset your password. |
+| An Owner, and nobody can help | Use the **recovery code** from first-run setup (steps below). |
+
+A reset by an Admin or Owner gives you a temporary password that you must change when you sign in. How they do it is in [Password resets and the recovery code](/gasdist-site/en/panduan/pengguna/kata-sandi-dan-kode-pemulihan/).
+
+### Recovering the Owner account with the recovery code
+
+<Steps>
+
+1. On the **Sign in** screen, click the **Forgot the Owner password?** link to the right of the **Sign in** button.
+
+2. Type the **Recovery code** <span class="pin">1</span> from the paper you kept at [first-run setup](/gasdist-site/en/panduan/mulai/penyiapan-awal/). Upper or lower case does not matter, spaces and hyphens may be typed or left out, and the letter O is read as the digit 0.
+
+   <Shot name="account-recover" alt="The Recover the Owner account screen with the Recovery code, Username, New password and Repeat password fields" />
+
+3. Enter the Owner account's **Username**, then the **New password** and **Repeat password**.
+
+4. Click **Reset the password**.
+
+5. GasDist immediately shows a **new recovery code**, because the old one is used up. Write the new code on paper, tick **I have written this code down**, then click **Continue**.
+
+6. Sign in as usual with the new password.
+
+</Steps>
+
+<Aside type="caution">
+The recovery code works only for an active **Owner** account. If the code is wrong or has been used before, you see **The recovery code is wrong or has already been used.** Without the right code and without another Owner, the Owner password cannot be recovered.
+</Aside>
+
+## Changing the password at first sign-in
+
+When your account is new or your password has just been reset, you hold a temporary password. After you sign in, GasDist asks for a new password straight away and opens nothing else until that is done.
+
+<Steps>
+
+1. Enter the temporary password you were given under **Current password**.
+
+2. Enter a **New password** <span class="pin">1</span> and **Repeat password**. The new password must differ from the temporary one.
+
+   <Shot name="account-forced-change" alt="The Change your password screen with the Current password, New password and Repeat password fields" />
+
+3. Click **Save**. The main window opens.
+
+</Steps>
+
+Not ready to change it now? Click **Sign out** below the form. The screen comes back next time you sign in.
+
+## Locking the screen
+
+Lock the screen whenever you leave the PC, so nobody else works under your name. Click **Lock** in the top bar. GasDist also locks by itself when there has been no typing or mouse movement for a while: 15 minutes by default, and the Owner can change it (1 to 240 minutes) in [Settings](/gasdist-site/en/panduan/pengaturan/stok-dan-keamanan/). Working in the print window counts as activity too.
+
+<Shot name="account-lock" alt="The screen locked for Hendra Wijaya, with a password field and the Unlock and Switch user buttons" />
+
+| To | Do this |
+|---|---|
+| Carry on working | Type your password <span class="pin">1</span>, then click **Unlock** <span class="pin">2</span>. |
+| Hand over to a colleague | Click **Switch user** <span class="pin">3</span>. Your session ends and the **Sign in** screen opens for your colleague. |
+
+<Aside type="caution" title="Save before you walk away">
+When the screen locks, anything not yet saved is not kept. After unlocking, GasDist goes back to the Stock page. In the middle of a surat jalan? Click **Save draft** (<kbd>Ctrl</kbd>+<kbd>S</kbd>) before you leave your desk.
+</Aside>
+
+## Too many wrong passwords
+
+After **5** wrong passwords in a row, the account is locked for **5 minutes**. You see **Too many failed attempts. The account is locked; try again in ... min.**
+
+This count applies wherever a password is asked for: the sign-in screen, the lock screen, changing your password and confirming a surat jalan cancellation. If the account locks while you are using GasDist, your session ends and you are back at the sign-in screen.
+
+Wait until the time is up, then try again. If you really have forgotten the password, ask an Admin or the Owner to reset it: a reset also unlocks the account at once. In the **Users** list, a locked account is marked **Locked**.
+
+## Changing your own password
+
+<Steps>
+
+1. Click **Change password** in the top bar.
+
+2. Fill in **Current password**, **New password** and **Repeat password**.
+
+   <Shot name="account-change-password" alt="The Change password dialog with three password fields and the Cancel and Save buttons" />
+
+3. Click **Save**. The new password works from that moment on.
+
+</Steps>
+
+## Password rules
+
+| Rule | Message when it is broken |
+|---|---|
+| At least 8 characters | **At least 8 characters.** |
+| At most 128 characters | **At most 128 characters.** |
+| **Repeat password** must match exactly | **The passwords differ.** |
+| The new password must differ from the current one | **The new password must differ from the current one.** |
+
+<Aside type="tip">
+A short phrase you can remember, three or four words for example, is safer and easier to type than a short, complicated word. Do not stick passwords on the monitor.
+</Aside>

@@ -1,0 +1,73 @@
+---
+title: Backup password
+description: Set the password that locks every backup. Without it GasDist makes no backups at all.
+sidebar:
+  order: 1
+---
+
+import { Steps, Aside } from "@astrojs/starlight/components";
+import Shot from "../../../../../components/Shot.astro";
+import Roles from "../../../../../components/Roles.astro";
+
+Every GasDist backup is locked (encrypted) with the backup password. That way, someone who finds the USB stick with your backups cannot read the data. The same password is needed to restore that backup on any PC.
+
+<Roles can={["OWNER"]} />
+
+<Aside type="caution" title="Set the backup password first">
+Until a backup password is set, GasDist makes **no backups at all**, automatic or by hand. The **Backup** box on the **Stock** page is red and says **Backups are off: no backup password is set yet.**
+</Aside>
+
+## Setting the backup password for the first time
+
+<Steps>
+
+1. Click **Set backup password**. This button is in the **Backup** box on the **Stock** page (the first screen after signing in), and also in the **Backup and restore** box at the very bottom of the **Settings** page.
+
+2. Read the text in the **Backup password** window, then fill in **Backup password** and type it again in **Repeat password**. At least 8 characters.
+
+3. Click **Save**. The message **Backup password saved. Automatic backups are now on.** appears.
+
+4. Write the password on paper and keep it somewhere safe, for example with the company's important documents.
+
+</Steps>
+
+From then on GasDist makes automatic backups. Users other than the Owner who see the red box only get the message **Ask the Owner to set a backup password.**
+
+## Changing the backup password
+
+<Steps>
+
+1. Open **Settings**, scroll to the very bottom, then click **Change backup password** <span class="pin">1</span> in the **Backup and restore** box.
+
+   <Shot name="settings-backup" alt="The Backup and restore box with four buttons" marks={[1, null, null, null]} />
+
+2. The **Backup password** window opens. The bold sentence in the middle reminds you that older backups keep their old password.
+
+   <Shot name="backup-password" alt="The Backup password window with its explanation and two password fields" />
+
+3. Fill in the new **Backup password**, type it again in **Repeat password**, then click **Save**.
+
+</Steps>
+
+The new password only applies to backups made after the change:
+
+| Backup | Opens with |
+|---|---|
+| Made before the password was changed | The **old** backup password |
+| Made after the password was changed | The **new** backup password |
+
+So do not throw away the note of the old password while you still keep old backups, for example on a USB stick.
+
+## The backup password is not your sign-in password
+
+| Kind | What it is for | Who has it |
+|---|---|---|
+| Sign-in password | Signing in to GasDist and unlocking a locked screen | Every user has their own |
+| Recovery code | Resetting an Owner password that was forgotten | The Owner |
+| **Backup password** | Locking and opening backup files | One for the whole office, set by the Owner |
+
+The recovery code **cannot** open a backup, and GasDist cannot show the backup password again.
+
+<Aside type="caution" title="A lost backup password means the backup cannot be opened">
+There is no way to open a backup without its password, not even for the makers of GasDist. If the backup password is lost, every backup locked with it is useless. Keep the note apart from the backup USB stick, and make sure more than one trusted person knows where it is.
+</Aside>

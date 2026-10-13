@@ -1,0 +1,64 @@
+---
+title: Customer list and search
+description: Find a customer by searching code, name, phone or city, and filter by customer type.
+sidebar:
+  order: 1
+---
+
+import { Steps, Aside } from "@astrojs/starlight/components";
+import Shot from "../../../../../components/Shot.astro";
+import Roles from "../../../../../components/Roles.astro";
+
+The **Customers** page holds everyone you deliver tabung to: pangkalan, retail shops, industry and others. From here you search for customers, open their details and add new ones.
+
+<Roles can={["OWNER", "ADMIN", "GUDANG", "PENJUALAN", "VIEWER"]} />
+
+Every role can see and search customers. Only Owner, Admin and Sales see the **Add customer** button and can change customer data.
+
+## Reading the customer list
+
+Open **Customers** in the sidebar. The list is sorted by name.
+
+<Shot name="customers-list" alt="Customer list with columns for code, name, type, city, phone and status" />
+
+| Part | What it does |
+|---|---|
+| **Add customer** <span class="pin">1</span> | Opens the new customer form, see [Adding and editing customers](/gasdist-site/en/panduan/pelanggan/menambah/) |
+| **Search** <span class="pin">2</span> | Searches by code, name, phone or city |
+| **Type** <span class="pin">3</span> | Shows one customer type only |
+| **Show inactive** <span class="pin">4</span> | Also lists customers that have been deactivated |
+
+Click a row to open the [customer details](/gasdist-site/en/panduan/pelanggan/detail/).
+
+## Searching for a customer
+
+<Steps>
+
+1. Type part of a code, name, phone number or city in **Search** <span class="pin">1</span>. The list filters as you type; there is no need to press <kbd>Enter</kbd>.
+
+2. If needed, choose one type under **Type** <span class="pin">2</span>. In the picture, the word `bekasi` with the type **Pangkalan** leaves four pangkalan in Bekasi.
+
+   <Shot name="customers-search" alt="Searching bekasi with type Pangkalan shows four pangkalan" />
+
+3. To get the full list back, clear the search and choose **All types**.
+
+</Steps>
+
+If nothing matches, **No matching customers** appears. Try a shorter word, or check the **Type** filter.
+
+## Customer types
+
+| Type | Example |
+|---|---|
+| **Pangkalan** | An LPG pangkalan selling to households |
+| **Retail** | A small shop or kiosk |
+| **Industry** | A business that uses the gas itself, e.g. catering, laundry, a bakery |
+| **Other** | Anything outside the three above, e.g. a cooperative canteen |
+
+## Inactive customers
+
+Inactive customers are hidden from the list. Tick **Show inactive** to see them; the **Status** column then shows **Inactive**. How to deactivate and reactivate a customer is in [Customer details](/gasdist-site/en/panduan/pelanggan/detail/).
+
+<Aside type="note">
+The list shows at most 500 customers at a time. If you have more, a message says how many are shown. Narrow the search to find the rest.
+</Aside>

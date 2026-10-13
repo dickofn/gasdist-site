@@ -1,0 +1,109 @@
+---
+title: Error screens
+description: What the error messages you may meet in GasDist mean, and what to do about them.
+sidebar:
+  order: 1
+---
+
+import { Steps, Aside } from "@astrojs/starlight/components";
+import Roles from "../../../../../components/Roles.astro";
+
+When something cannot be done, GasDist shows a red message next to the button you clicked, or right under the field that needs fixing. This page collects the messages you are most likely to meet, grouped by where they appear. Words in italics in the message column stand for the real name or number.
+
+<Roles can={["OWNER", "ADMIN", "GUDANG", "PENJUALAN", "VIEWER"]} />
+
+## Signing in and accounts
+
+| Message | What it means | What to do |
+|---|---|---|
+| Wrong username or password. | One of the two does not match. | Check the spelling and <kbd>Caps Lock</kbd>, then try again. After 5 wrong tries the account is locked for a while. |
+| Too many failed attempts. The account is locked; try again in *n* min. | The password was wrong 5 times in a row. | Wait until the time is up, or ask an Admin or the Owner to reset your password. See [Signing in, locking and passwords](/gasdist-site/en/panduan/mulai/masuk-dan-kunci/). |
+| This account has been deactivated. Contact an Admin. | Your account has been switched off. | Contact an Admin or the Owner. |
+| Wrong password. | The password typed on the lock screen or when cancelling a surat jalan does not match. | Type it again. These mistakes count toward the account lock too. |
+| Your session has ended. Please sign in again. | Your session was closed, for example because the account was locked or deactivated. | Sign in again. |
+| The screen is locked. Enter your password to continue. | The screen locked by itself or through the **Lock** button. | Unlock it in the main GasDist window with your password. |
+| The recovery code is wrong or has already been used. | The code does not match, or it was used before and replaced by a new one. | Check the code on your paper. Make sure it is the newest one. |
+| The password needs at least 8 characters. | The new password is too short. | Use a longer password. |
+| The new password must differ from the current one. | The new password is the same as the old one. | Choose another password. |
+| The passwords differ. | **Repeat password** differs from the new password. | Type both again carefully. |
+| You are not allowed to do this. | Your role may not do this, for example because your role was just changed. | Ask someone with the right role. See [User roles](/gasdist-site/en/panduan/mulai/peran/). |
+
+### When managing users
+
+| Message | What it means | What to do |
+|---|---|---|
+| The username *name* is already taken. | Another account has that username. | Choose another username. |
+| There must always be at least one active Owner. | You tried to deactivate the last Owner or give them another role. | Make another user an Owner first. |
+| You cannot change the role of, deactivate or reset the password of your own account here. | Changes to your own account must be made by someone else. | Ask an Admin or another Owner. Your own password is changed with **Change password** in the top bar. |
+
+## Stock and surat jalan
+
+| Message | What it means | What to do |
+|---|---|---|
+| Not enough stock on the lines marked Negative. Posting is locked: ... | The tabung on the red line are more than the stock on hand. | Lower the quantity or remove the line. See [Making a surat jalan](/gasdist-site/en/panduan/surat-jalan/membuat/). |
+| Not enough stock of *product*. | At posting, that product's stock turned out to be too low. | Check the stock on the **Stock** page, then lower the quantity. |
+| Number *number* is already used by another surat jalan. Change the number format in Settings, then post again. | The number format produced a number that already exists, usually after the format was changed. | Ask the Owner to check the [number format](/gasdist-site/en/panduan/pengaturan/format-nomor/), then post again. |
+| This cannot be done in the document's current status. | For example, trying to cancel a surat jalan that is already cancelled. | Go back to the list and check the surat jalan's status. |
+| The physical count matches the recorded stock, so there is nothing to adjust. | The stok opname count is the same as the record. | Nothing to do: the stock already matches. |
+| *name* is inactive. | The customer, product, vehicle or driver you chose has been deactivated. | Choose another, or ask an Admin to activate it again in [Master Data](/gasdist-site/en/panduan/data-master/kendaraan-dan-sopir/) or [Customers](/gasdist-site/en/panduan/pelanggan/menambah/). |
+| *field* *value* is already in use. | The same code or number already exists, for example a customer code. | Use another code. |
+| The date cannot be after today. | The date entered is in the future. | Enter today's date or an earlier one. |
+| Not found. | What you opened no longer exists, for example a draft that was deleted. | Go back to the list and open it again. |
+
+### When printing
+
+| Message | What it means | What to do |
+|---|---|---|
+| A draft cannot be printed. Post it first to give it a number. | A draft can only be previewed. | Post the surat jalan, then print. See [SALINAN and DRAFT](/gasdist-site/en/panduan/cetak/salinan-dan-draf/). |
+| A cancelled surat jalan is not printed again. | A cancelled surat jalan must not go out again. | Print its replacement. |
+| You can view this surat jalan but not print it. | Your role may not print. | Ask Sales, an Admin or the Owner. |
+| The session is locked or signed out. Unlock it in the main GasDist window ... | The screen locked while the print window was open. | Unlock in the main window, then open the print window again. |
+| Print no. *n* is on record, but the print dialog did not open. ... | The print was counted, but the printer dialog failed to appear. | Click **Print** again. The next print is marked COPY. See [Printing a surat jalan](/gasdist-site/en/panduan/cetak/mencetak/). |
+
+## Backup and restore
+
+| Message | What it means | What to do |
+|---|---|---|
+| Backups are off: no backup password is set yet. | No backups at all are being made, automatic ones included. | The Owner sets a [backup password](/gasdist-site/en/panduan/backup/kata-sandi-backup/) right away. |
+| No backup password is set yet. The Owner sets it on Home or in Settings. | As above, shown when trying to make a backup. | Ask the Owner to set the backup password. |
+| *n* days without a backup. | The last backup is old. The backup card turns amber after 3 days and red after 7. | Click **Back up now**. See [Making and copying backups](/gasdist-site/en/panduan/backup/membuat-backup/). |
+| The backup could not be made. Nothing was changed. | Writing the backup failed, for example because the disk is full. | Check the free disk space, then try again. |
+| The second backup folder is not there: *folder*. Backups are still saved in the main folder. | The USB stick or second folder is not connected. | Plug the USB stick in. The backups in the main folder are safe. |
+| The copy to *location* could not be written. The backup is still in the backup folder. | The destination is full, locked or unplugged. | Choose another place with **Save a copy to…**. |
+| This file is not a GasDist backup, or the backup file is damaged. | The chosen file is wrong or damaged. | Choose another backup file. See [Restoring from a backup](/gasdist-site/en/panduan/backup/memulihkan/). |
+| The backup password is wrong, or the backup file was changed. | The password does not match that backup. | Remember: older backups keep their old password. Try the backup password that was in use when that backup was made. |
+| This backup was made by a newer GasDist. Update the app first, then restore. | The GasDist on this PC is older than the one that made the backup. | Install the latest GasDist, then restore again. |
+| Your password is wrong. | The Owner's sign-in password, asked for before a restore, does not match. | Type your sign-in password (not the backup password). |
+
+## When GasDist starts
+
+If the database cannot be opened, GasDist does not show the sign-in screen. Instead it shows **GasDist cannot open** with a message, the line **Contact whoever manages this app and quote the code below.**, a **Technical detail** link and a code such as `DB_CORRUPT`.
+
+<Steps>
+
+1. Write the code down, or take a photo of the screen with your phone.
+
+2. Click **Technical detail** and photograph that text too. It helps whoever manages the app find the cause.
+
+3. Try the advice in the table below. If it does not help, contact whoever manages the app with the code and the photos.
+
+</Steps>
+
+| Code | Message | What to do |
+|---|---|---|
+| `ALREADY_RUNNING` | GasDist is already open in another window. | Find the GasDist window that is already open on the taskbar and use that one. |
+| `DB_KEY_UNAVAILABLE` | The system key storage cannot be reached, ... Your data is not lost ... | Your data is safe. On Linux, unlock your desktop's keyring (wallet). On Windows, restart the PC and sign in with your usual Windows account. Then open GasDist again. |
+| `DB_KEY_MISSING` | The database exists, but its key is not on this computer. Restore from a backup. | Make sure you are signed in to Windows with the account normally used for GasDist. If it still appears, contact whoever manages the app: the data has to be restored from a backup. |
+| `DB_KEY_INVALID` | The key does not match the database, or the database file is damaged. | Contact whoever manages the app. The data is restored from the latest backup. |
+| `DB_CORRUPT` | The database file is damaged. Restore from a backup. | Contact whoever manages the app. The data is restored from the latest backup. |
+| `SCHEMA_TOO_NEW` | This database was made by a newer app ... Install the latest version. | An older GasDist has been installed. Install the latest version. |
+| `MIGRATION_FAILED` | Updating the database to version *n* failed. The database was not changed. | Your data is unchanged. Contact whoever manages the app with the code and the technical detail. |
+| `STORAGE` | App files cannot be read or written. | Check the free disk space, restart the PC, then open GasDist again. |
+
+<Aside type="caution" title="Do not delete or move GasDist's files yourself">
+The GasDist database is encrypted with a key kept on that PC. Copying or moving its files to another PC will not open. The safe way to move data is always a [backup](/gasdist-site/en/panduan/backup/membuat-backup/) and a [restore](/gasdist-site/en/panduan/backup/memulihkan/).
+</Aside>
+
+### Warning on Linux without key storage
+
+On some Linux systems without a system key storage (Secret Service), GasDist still opens but shows a yellow strip at the top: **This system has no key storage (Secret Service). The database key is kept in a private file, db.key, in the app folder. ...** Click **Close** to hide it. Never delete the `db.key` file, and never copy the database without it. This warning never appears on Windows.

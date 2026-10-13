@@ -1,0 +1,69 @@
+---
+title: Listing and exporting surat jalan
+description: Find surat jalan by date, customer, status or number, then export the list to xlsx or csv.
+sidebar:
+  order: 1
+---
+
+import { Steps, Aside } from "@astrojs/starlight/components";
+import Shot from "../../../../../components/Shot.astro";
+import Roles from "../../../../../components/Roles.astro";
+
+The **Surat Jalan** page lists every surat jalan, newest first. Use it to find an old surat jalan, check its status, open its details, and save the list to a file for reporting.
+
+<Roles can={["OWNER", "ADMIN", "GUDANG", "PENJUALAN", "VIEWER"]} />
+
+Every role can view and export this list. The **New surat jalan** button <span class="pin">1</span> only appears for the Owner, Admin and Sales roles (see [Making a surat jalan](/gasdist-site/en/panduan/surat-jalan/membuat/)).
+
+<Shot name="sj-list" alt="This month's surat jalan list with the date, customer, status and number search filters" marks={[1, 2, 3, 4, null]} />
+
+## Filtering the list
+
+When it opens, the list shows surat jalan from the 1st of this month up to today. Change the filters above the table; the list follows straight away.
+
+| Filter | What it does |
+|---|---|
+| **From** <span class="pin">2</span> and **To** | The range of surat jalan dates. **To** cannot be before **From**. |
+| **Customer** | Type a code, name, phone or city, then pick one customer. |
+| **Status** <span class="pin">3</span> | **All statuses**, or a single status, such as **Cancelled**. |
+| **Search number** <span class="pin">4</span> | Type part of a number, for example `0029`. |
+
+<Aside type="tip" title="Search number ignores the dates">
+As soon as you type in **Search number**, the search covers every date (the hint **The number is searched across all dates.** appears). So a surat jalan from last month is still found without touching the date filter. Drafts have no number yet, so a number search does not show them.
+</Aside>
+
+The example below shows every cancelled surat jalan since 1 September: **Status** <span class="pin">1</span> is set to **Cancelled**, and **From** is moved back.
+
+<Shot name="sj-list-cancelled" alt="The surat jalan list filtered on Cancelled status, every number struck through" />
+
+The list shows at most 1,000 rows. When there are more matches, the message **Showing ... of ...** appears: narrow the dates or another filter to see the rest.
+
+## What the status colours mean
+
+| Status | How it looks in the list | Meaning |
+|---|---|---|
+| **Draft** | Grey label, the number column says *Draft* in italics | Not posted yet: no number, stock not reduced, contents can still change |
+| **Posted** | Blue label, full number shown | Numbered, and stock has gone down |
+| **Cancelled** | Red label, number and status struck through | Cancelled; its stock has been returned and the number stays on record |
+
+Click a row to open it. A draft opens in the form so you can carry on (for the Owner, Admin and Sales roles); a posted or cancelled surat jalan opens on its detail page.
+
+## Exporting the list
+
+<Steps>
+
+1. Set the filters until the list holds the surat jalan you need.
+
+2. Click **Export xlsx** <span class="pin">1</span> for an Excel file, or **Export csv** next to it for a text file other programs can open.
+
+   <Shot name="sj-list" alt="The Export xlsx and Export csv buttons at the top right of the surat jalan list" marks={[null, null, null, null, 1]} />
+
+3. Choose a folder and file name in the save window, then save. The message **List saved to ...** shows where the file went.
+
+</Steps>
+
+The file holds every surat jalan that matches the filters, including any beyond the 1,000 rows shown on screen. Its columns are: Number, Date, Customer code, Customer, Vehicle, Driver, Status, Tabung, Weight (kg) and Printed (how many times that surat jalan was printed).
+
+<Aside type="note">
+Column titles and statuses in the file follow the language you are using in the app. An English csv file uses commas between columns and a full stop for decimals; an Indonesian one uses semicolons and a decimal comma, to suit Indonesian Excel.
+</Aside>

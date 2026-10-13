@@ -1,0 +1,62 @@
+---
+title: Negative stock, automatic lock, language
+description: Decide whether a surat jalan may push stock below zero, how many minutes pass before the screen locks itself, and the office's default language.
+sidebar:
+  order: 3
+---
+
+import { Steps, Aside } from "@astrojs/starlight/components";
+import Shot from "../../../../../components/Shot.astro";
+import Roles from "../../../../../components/Roles.astro";
+
+These three settings apply to every user in the office: whether stock may go negative, when the screen locks itself, and the default language. They are all on the **Settings** page, below the **Company** and **Documents** sections.
+
+<Roles can={["OWNER"]} />
+
+<Shot name="settings-stock-security" alt="The Stock section with the negative stock checkbox, the Language section set to Bahasa Indonesia, and the About section" marks={[1, null, 2, null]} />
+
+After changing anything on this page, scroll to the very bottom and click **Save**. The message **Settings saved.** appears.
+
+## Negative stock
+
+The **Stock** section has the checkbox **Allow negative stock when posting a surat jalan** <span class="pin">1</span>. It is unticked by default.
+
+| Checkbox | When the stock is not enough for a surat jalan |
+|---|---|
+| Unticked (default) | The line turns red with **Negative** and the **Post** button is locked. Lower the quantity first. ✅ Recommended |
+| Ticked | The line is still red with **Negative**, but the surat jalan can be posted. GasDist only warns, and that product's stock goes below zero |
+
+See also [Making a surat jalan](/gasdist-site/en/panduan/surat-jalan/membuat/) for what the colours in the **Stock after** column mean.
+
+<Aside type="caution">
+Negative stock means the records in GasDist no longer match the warehouse. The usual cause is a stock receipt that was not recorded. It is better to [record the stock receipt](/gasdist-site/en/panduan/stok/terima-stok/) first, or correct it with a [stok opname](/gasdist-site/en/panduan/stok/stok-opname/), than to allow negative stock.
+</Aside>
+
+## Automatic lock
+
+The **Security** section (to the right of the **Stock** section) has the field **Lock after (minutes)**. When GasDist is not used for that long, the screen locks itself and the user must enter their password to continue. Save any draft or form you are working on before leaving the computer. How to unlock is explained in [Signing in, locking and passwords](/gasdist-site/en/panduan/mulai/masuk-dan-kunci/).
+
+| Automatic lock | Minutes |
+|---|---|
+| Default | 15 |
+| Allowed | 1 to 240 |
+
+<Aside type="tip">
+A computer on a busy desk is better off with a short time, for example 5 minutes. Anyone can also lock the screen at any time with the **Lock** button at the top of the screen.
+</Aside>
+
+## Default language
+
+In the **Language** section, choose the **Default language** <span class="pin">2</span>: **Bahasa Indonesia** or **English**.
+
+| Where | Language used |
+|---|---|
+| The sign-in screen | The default language |
+| Users whose language is **Company default** | The default language |
+| Users who chose their own language | Their own choice, whatever the default is |
+
+The language for each user is set on the **Users** page (see [Adding users](/gasdist-site/en/panduan/pengguna/menambah/)), or by the user themselves with the **Language** choice at the top of the screen.
+
+## Second backup folder
+
+The **Backup** section on the same page holds **Second backup folder** and **Backups to keep**. Both are explained in [Making and copying backups](/gasdist-site/en/panduan/backup/membuat-backup/).

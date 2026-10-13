@@ -1,0 +1,89 @@
+---
+title: Making a surat jalan
+description: Start a new surat jalan, fill in the tabung lines, then save it as a draft or post it.
+sidebar:
+  order: 2
+---
+
+import { Steps, Aside } from "@astrojs/starlight/components";
+import Shot from "../../../../../components/Shot.astro";
+import Roles from "../../../../../components/Roles.astro";
+
+A surat jalan goes with every delivery of tabung to a customer. While it is still a **draft**, you can change anything and stock does not move. Once it is **posted**, the surat jalan gets its number and stock goes down straight away.
+
+<Roles can={["OWNER", "ADMIN", "PENJUALAN"]} />
+
+## Filling in a new surat jalan
+
+<Steps>
+
+1. Open **Surat Jalan** in the side menu, then click **New surat jalan** (or press <kbd>F2</kbd>). The date is already set to today <span class="pin">1</span>. The keyboard shortcut line <span class="pin">2</span> is always shown above the form.
+
+   <Shot name="sj-form-empty" alt="An empty new surat jalan form" marks={[1, null, 2]} />
+
+2. Type part of the customer's code, name, phone number or city in the **Customer** field <span class="pin">1</span>. Pick from the list <span class="pin">2</span> with the up/down arrows and <kbd>Enter</kbd>, or click it.
+
+   <Shot name="sj-form-customer" alt="The customer field showing the customers that match the word sri" />
+
+3. Choose the **Vehicle** and **Driver** if you already know them. Both can be left empty.
+
+4. Fill in the lines: choose the **Product** <span class="pin">1</span> and type the number of **Tabung** <span class="pin">2</span>. Click **Add line** for the next product; pressing <kbd>Enter</kbd> on the last line also adds a line.
+
+   The **Stock after** column <span class="pin">3</span> shows how much of that product is left if this surat jalan is posted. The total tabung and kg <span class="pin">4</span> update as you type.
+
+   <Shot name="sj-form-filled" alt="A surat jalan form with two lines: LPG 3 kg 200 tabung and LPG 5,5 kg 10 tabung" marks={[1, 2, 3, 4, null]} />
+
+</Steps>
+
+### What the colours in Stock after mean
+
+| Looks like | Meaning | Can you post? |
+|---|---|---|
+| Black, e.g. `6,234 kg` | Stock is fine | ✅ |
+| Orange, `22 kg (Low)` | What is left is below that product's low-stock level | ✅, but reorder soon |
+| Red, `-250 kg (Negative)` | Not enough stock for this line | ❌ the **Post** button is locked |
+
+<Shot name="sj-form-negative" alt="The LPG 50 kg line in red with the word Negative and a message that posting is locked" />
+
+The red line <span class="pin">1</span> comes with a message <span class="pin">2</span>, and the **Post** button <span class="pin">3</span> cannot be clicked. Lower the quantity or remove the line with the **×** button.
+
+<Aside type="note">
+The Owner can allow negative stock in [Settings](/gasdist-site/en/panduan/pengaturan/stok-dan-keamanan/). Usually it is better not to: negative stock means the records and the warehouse no longer agree.
+</Aside>
+
+## Saving a draft
+
+Click **Save draft** (<kbd>Ctrl</kbd>+<kbd>S</kbd>) when the delivery is not certain yet. The message **Draft saved.** <span class="pin">1</span> appears. A draft has no number and does not reduce stock. With **Preview** <span class="pin">2</span> you can see how it will look on paper, with a DRAFT watermark. A draft cannot be printed yet: post it first so it gets a number (see [SALINAN and DRAFT](/gasdist-site/en/panduan/cetak/salinan-dan-draf/)).
+
+<Shot name="sj-form-saved" alt="The surat jalan form after it was saved as a draft" />
+
+## Posting
+
+<Steps>
+
+1. Click **Post** (<kbd>Ctrl</kbd>+<kbd>Enter</kbd>). The app shows a summary: customer, date, contents and total.
+
+   <Shot name="sj-post-dialog" alt="The post confirmation dialog with a summary of customer, date, contents and total" marks={false} />
+
+2. Check the summary, then click **Post** once more. The surat jalan gets its number <span class="pin">1</span>, for example `SJ/2026/10/0031`, and its status becomes **Posted** <span class="pin">4</span>.
+
+   <Shot name="sj-detail-posted" alt="A posted surat jalan page with its number and the Print and Cancel buttons" />
+
+   From this page you can **Print** <span class="pin">2</span> right away or, if something is wrong, **Cancel surat jalan** <span class="pin">3</span>.
+
+</Steps>
+
+<Aside type="caution" title="A posted surat jalan cannot be changed">
+Wrong quantity or wrong customer? [Cancel](/gasdist-site/en/panduan/surat-jalan/membatalkan/) that surat jalan and make a new one. Cancelling returns the stock and stays on record, so the history can always be traced.
+</Aside>
+
+## Keyboard shortcuts
+
+| Key | What it does |
+|---|---|
+| <kbd>F2</kbd> | New surat jalan |
+| <kbd>Ctrl</kbd>+<kbd>S</kbd> | Save draft |
+| <kbd>Ctrl</kbd>+<kbd>Enter</kbd> | Post |
+| <kbd>Ctrl</kbd>+<kbd>P</kbd> | Print preview |
+| <kbd>Enter</kbd> on the last line | Add line |
+| <kbd>Esc</kbd> | Back |

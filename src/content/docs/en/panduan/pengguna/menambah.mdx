@@ -1,0 +1,94 @@
+---
+title: Adding users
+description: Make an account for each employee, choose their role, and deactivate accounts that are no longer used.
+sidebar:
+  order: 1
+---
+
+import { Steps, Aside } from "@astrojs/starlight/components";
+import Shot from "../../../../../components/Shot.astro";
+import Roles from "../../../../../components/Roles.astro";
+
+Everyone who uses GasDist should have their own account. That way their role decides what they may do, and every surat jalan or stock receipt is recorded under the right person's name.
+
+<Roles can={["OWNER", "ADMIN"]} />
+
+## The user list
+
+Open **Users** in the sidebar. The table shows each account's username, full name, role, language and status. The **Add user** button <span class="pin">1</span> is at the top right.
+
+<Shot name="users-list" alt="The Users page with five accounts, one of them marked Must change password" />
+
+The **Status** column can show these badges:
+
+| Badge | Meaning |
+|---|---|
+| **Active** (green) | The account can sign in |
+| **Inactive** (grey) | The account is switched off and cannot sign in |
+| **Locked** (red) | The password was wrong 5 times in a row. The account unlocks by itself after 5 minutes, or at once when its password is [reset](/gasdist-site/en/panduan/pengguna/kata-sandi-dan-kode-pemulihan/) |
+| **Must change password** <span class="pin">2</span> (yellow) | The account still has a temporary password. Its owner must change it at the next sign-in |
+
+At the right end of each row are **Edit**, **Reset password** <span class="pin">3</span> and **Deactivate**.
+
+### Who can manage whom
+
+| You are signed in as | You can manage | You cannot manage |
+|---|---|---|
+| Owner | Every role: Owner, Admin, Warehouse, Sales, Viewer | The status and password of your own account |
+| Admin | Warehouse, Sales, Viewer | Owner and Admin accounts (their rows show no buttons) |
+
+Your own row has only **Edit**, like the `hendra` row in the picture above. With it you can change your full name and language, but not your own role. To change your own password, use **Change password** at the top of the screen (see [Signing in, locking and passwords](/gasdist-site/en/panduan/mulai/masuk-dan-kunci/)).
+
+## Adding a new user
+
+<Steps>
+
+1. Click **Add user**. The **Add user** window opens.
+
+2. Fill in **Username**, the name typed when signing in, for example `wawan`. It takes 3 to 32 letters, digits, dots, underscores or hyphens, with no spaces. A username cannot be changed after saving.
+
+3. Fill in **Full name**. This name shows at the top of the screen when that person is signed in.
+
+4. Choose the **Role** <span class="pin">1</span>. It starts on **Viewer**, the role with the fewest rights, so make sure you pick the right one. Each role is explained in [User roles](/gasdist-site/en/panduan/mulai/peran/).
+
+5. Choose the **Language**. Leave **Company default** if this person uses the same language as the office, or choose **Bahasa Indonesia** or **English** for them alone.
+
+6. Fill in **Temporary password** <span class="pin">2</span> and type it again in **Repeat password**. At least 8 characters.
+
+   <Shot name="users-add" alt="The Add user window for wawan with the Warehouse role and a temporary password filled in" />
+
+7. Click **Save**. The new account appears in the list with the **Must change password** badge.
+
+8. Give the person their username and temporary password. At their first sign-in GasDist asks them to make their own password. After that the **Must change password** badge goes away.
+
+</Steps>
+
+<Aside type="tip">
+Pass the temporary password on in person or by phone, not on a note stuck to the monitor. It only works until the person signs in for the first time.
+</Aside>
+
+If the message **The username ... is already taken.** appears, choose another username. A username that belongs to a deactivated account still counts as taken, and capital and small letters count as the same.
+
+## Changing a role, name or language
+
+Click **Edit** on that person's row, change **Full name**, **Role** or **Language**, then click **Save**.
+
+Everyone can also change their own language with the **Language** choice at the top of the screen. The choice is saved to their account and applies again the next time they sign in. The language for accounts set to **Company default** is chosen by the Owner in [Settings](/gasdist-site/en/panduan/pengaturan/stok-dan-keamanan/).
+
+## Deactivating a user
+
+An employee left or moved to another job? Deactivate their account. The account is not deleted, so everything they ever did stays recorded under their name.
+
+<Steps>
+
+1. Click **Deactivate** on that person's row.
+
+2. GasDist says that the person cannot sign in until activated again. Click **Deactivate** to go ahead.
+
+</Steps>
+
+The status changes to **Inactive**, and the button becomes **Activate**. Click **Activate** if the person needs to sign in again.
+
+<Aside type="caution">
+You cannot deactivate your own account. GasDist also refuses to deactivate or demote the last active Owner, because there must always be at least one active Owner.
+</Aside>

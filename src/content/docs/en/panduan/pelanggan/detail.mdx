@@ -1,0 +1,66 @@
+---
+title: Customer details
+description: See one customer's full details and their recent surat jalan, then edit or deactivate them if needed.
+sidebar:
+  order: 3
+---
+
+import { Steps, Aside } from "@astrojs/starlight/components";
+import Shot from "../../../../../components/Shot.astro";
+import Roles from "../../../../../components/Roles.astro";
+
+The customer details window puts one customer in one place: their data, the latest surat jalan sent to them, and the buttons to edit or deactivate them.
+
+<Roles can={["OWNER", "ADMIN", "GUDANG", "PENJUALAN", "VIEWER"]} />
+
+## Opening a customer
+
+On the **Customers** page, click the customer's row. The details open over the list. Click **Close** to go back to the list.
+
+<Shot name="customers-detail" alt="Details of Pangkalan Bu Sri with the customer data and the five latest surat jalan" />
+
+The top part shows the customer data. Empty fields are not shown; in the picture, NPWP and notes are missing because they were never filled in.
+
+## Recent surat jalan
+
+The **Recent surat jalan** table <span class="pin">1</span> lists up to 10 of the latest surat jalan for this customer, newest first.
+
+| Column | Contents |
+|---|---|
+| **Number** | The surat jalan number. A draft has no number yet, so it reads **Draft**. |
+| **Date** | The surat jalan date |
+| **Status** | **Draft**, **Posted** or **Cancelled** |
+| **Quantity** | Total tabung on that surat jalan |
+| **kg** | Total kg on that surat jalan |
+
+To see all of this customer's surat jalan, open **Surat Jalan** in the sidebar and filter by customer, see [Surat jalan list and export](/gasdist-site/en/panduan/surat-jalan/daftar/).
+
+## Editing and deactivating
+
+The **Edit** and **Deactivate** buttons only appear for Owner, Admin and Sales. **Edit** opens the customer form, see [Adding and editing customers](/gasdist-site/en/panduan/pelanggan/menambah/).
+
+### Deactivating a customer
+
+Customers cannot be deleted. When you no longer serve a customer, deactivate them instead.
+
+<Steps>
+
+1. Open the customer's details and click **Deactivate**.
+
+2. GasDist asks you to confirm: the customer can no longer be chosen for new transactions, but their history is kept. Click **Deactivate** to go ahead, or **Cancel**.
+
+</Steps>
+
+| | Inactive | Active |
+|---|---|---|
+| Shown in the customer list | Only with **Show inactive** ticked | ✅ |
+| Can be chosen on a new surat jalan | ❌ | ✅ |
+| Old surat jalan and kartu stok | Stay intact | Stay intact |
+
+### Reactivating
+
+In the customer list, tick **Show inactive**, open the customer's details, then click **Activate** and confirm. The customer can be chosen on a surat jalan again straight away.
+
+<Aside type="note">
+A draft surat jalan for a customer who has been deactivated cannot be saved or posted. Reactivate the customer, or change the customer on the draft.
+</Aside>

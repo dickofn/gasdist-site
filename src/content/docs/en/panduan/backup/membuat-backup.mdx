@@ -1,0 +1,113 @@
+---
+title: Making and copying backups
+description: Understand automatic backups, make a backup at any time, and keep a copy on a USB stick or in another folder.
+sidebar:
+  order: 2
+---
+
+import { Steps, Aside } from "@astrojs/starlight/components";
+import Shot from "../../../../../components/Shot.astro";
+import Roles from "../../../../../components/Roles.astro";
+
+A backup is one file holding **all** GasDist data: stock and its history, surat jalan, customers, products, vehicles, drivers, users, and the settings including the logo. The file is locked with the [backup password](/gasdist-site/en/panduan/backup/kata-sandi-backup/) and can be restored on any PC, even one with a different operating system.
+
+<Roles can={["OWNER", "ADMIN"]} />
+
+<Aside type="note">
+Backups are only made once the Owner has set the [backup password](/gasdist-site/en/panduan/backup/kata-sandi-backup/). Before that, there are no backups at all.
+</Aside>
+
+## Automatic backups
+
+Once the backup password is set, GasDist makes backups by itself:
+
+- every time the app is closed, and
+- once a day while the app is open, as soon as the last backup is a day old.
+
+Backups are kept in the **main backup folder** on this PC. Its location is written in the **Backup and restore** box on the **Settings** page.
+
+## The Backup box on the Stock page
+
+On the **Stock** page, the first screen after signing in, a **Backup** box shows when the last backup was made. Its colour tells you whether you need to act.
+
+<Shot name="home-backup-card" alt="A green Backup box saying when the last backup was made, with a Back up now button" />
+
+| Colour | When | Text in the box |
+|---|---|---|
+| Green | The last backup is at most 3 days old | **Last backup** with the date and time |
+| Yellow | The last backup is more than 3 and up to 7 days old | Plus **... days without a backup.** |
+| Red | The last backup is more than 7 days old | Plus **... days without a backup.** |
+| Red | No backup has been made yet | **No backup has been made yet.** |
+| Red | No backup password is set | **Backups are off: no backup password is set yet.** |
+
+Yellow or red means there has been no new backup for a while. Click **Back up now** to make the box green again.
+
+## Backing up now
+
+Make a backup yourself before a big job, for example before a stok opname or before changing a lot of data.
+
+<Steps>
+
+1. Click **Back up now** <span class="pin">1</span> in the **Backup** box on the **Stock** page. The Owner can also use the **Back up now** button <span class="pin">2</span> in the **Backup and restore** box on the **Settings** page.
+
+   <Shot name="settings-backup" alt="The Backup and restore box on the Settings page with the Back up now and Save a copy to buttons" marks={[null, 2, 3, null]} />
+
+2. Wait a moment. The message **Backup made:** followed by the backup's file name appears, and the **Backup** box on the **Stock** page turns green again.
+
+</Steps>
+
+## Saving a copy to a USB stick or another folder
+
+<Roles can={["OWNER"]} />
+
+Backups in the main folder are lost along with the PC if it breaks or goes missing. Keep a copy somewhere else regularly, for example once a week on a USB stick kept outside the office.
+
+<Steps>
+
+1. Plug in the USB stick. Open **Settings**, scroll to the very bottom, then click **Save a copy to…** <span class="pin">3</span> in the **Backup and restore** box (see the picture above).
+
+2. A save window opens with a file name holding today's date, for example `GasDist-2026-10-13.gasbak`. Choose the USB stick or the folder you want, then save.
+
+3. GasDist makes a new backup in the main folder and copies it to the place you chose. The message ends with **Copy saved to** and the location.
+
+</Steps>
+
+If the copy cannot be written, for example because the USB stick was pulled out, the message **The copy to ... could not be written. The backup is still in the backup folder.** appears. The backup itself is still there; try saving a copy again.
+
+<Aside type="tip">
+Copies you save with **Save a copy to…** are never deleted by GasDist. Delete old copies on the USB stick yourself when it gets full.
+</Aside>
+
+## Second backup folder
+
+<Roles can={["OWNER"]} />
+
+To give every backup, automatic ones included, a copy somewhere else straight away, choose a second backup folder. For example a USB stick that stays plugged in, or a folder on another hard disk.
+
+<Steps>
+
+1. Open **Settings** and find the **Backup** section.
+
+2. Under **Second backup folder**, click **Choose folder**, then pick the folder.
+
+3. Scroll to the very bottom and click **Save**.
+
+</Steps>
+
+Whenever that folder is available, backup copies are saved there too. If the folder cannot be found (for example the USB stick is not plugged in), the backup is still made in the main folder and the **Backup** box on the **Stock** page says **The second backup folder is not there:** followed by its location. To stop using the second folder, click **Clear folder**, then **Save**.
+
+## How many backups are kept
+
+The **Backups to keep** field in the **Backup** section sets the number. The default is 14, and it accepts 1 to 365.
+
+That number applies **to each kind** of backup **in each folder**. Backups older than that are deleted automatically.
+
+| Kind of backup | Made when | With the default of 14, what is kept |
+|---|---|---|
+| automatic | The app is closed, and once a day | The 14 newest automatic backups |
+| by hand | **Back up now** or **Save a copy to…** is clicked | The 14 newest backups made by hand |
+| before a restore | Just before [restoring from a backup](/gasdist-site/en/panduan/backup/memulihkan/) | The 14 newest before-restore backups |
+
+<Aside type="note">
+Every time GasDist is closed, one automatic backup is made. If the app is closed several times a day, 14 automatic backups can cover fewer than 14 days. Raise the number if you want a longer history.
+</Aside>

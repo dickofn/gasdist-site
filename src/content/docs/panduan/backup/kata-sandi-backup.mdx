@@ -1,0 +1,73 @@
+---
+title: Kata sandi backup
+description: Atur kata sandi yang mengunci setiap backup. Tanpa kata sandi ini GasDist tidak membuat backup sama sekali.
+sidebar:
+  order: 1
+---
+
+import { Steps, Aside } from "@astrojs/starlight/components";
+import Shot from "../../../../components/Shot.astro";
+import Roles from "../../../../components/Roles.astro";
+
+Setiap backup GasDist dikunci (dienkripsi) dengan kata sandi backup. Dengan begitu, orang yang menemukan flashdisk berisi backup Anda tidak bisa membaca datanya. Kata sandi yang sama diperlukan untuk memulihkan backup itu di PC mana pun.
+
+<Roles can={["OWNER"]} />
+
+<Aside type="caution" title="Atur kata sandi backup lebih dulu">
+Selama kata sandi backup belum diatur, GasDist **tidak membuat backup apa pun**, baik otomatis maupun manual. Kotak **Backup** di halaman **Stok** berwarna merah dan menulis **Backup belum aktif: belum ada kata sandi backup.**
+</Aside>
+
+## Mengatur kata sandi backup pertama kali
+
+<Steps>
+
+1. Klik **Atur kata sandi backup**. Tombol ini ada di kotak **Backup** di halaman **Stok** (layar pertama setelah masuk), dan juga di kotak **Backup dan pemulihan** di paling bawah halaman **Pengaturan**.
+
+2. Baca penjelasan di jendela **Kata sandi backup**, lalu isi **Kata sandi backup** dan ketik sekali lagi di **Ulangi kata sandi**. Minimal 8 karakter.
+
+3. Klik **Simpan**. Muncul pesan **Kata sandi backup disimpan. Backup otomatis kini aktif.**
+
+4. Tulis kata sandi itu di kertas dan simpan di tempat yang aman, misalnya bersama dokumen penting perusahaan.
+
+</Steps>
+
+Sejak saat itu GasDist membuat backup otomatis. Pengguna selain Owner yang melihat kotak merah tadi hanya mendapat pesan **Minta Pemilik mengatur kata sandi backup.**
+
+## Mengganti kata sandi backup
+
+<Steps>
+
+1. Buka **Pengaturan**, gulir ke paling bawah, lalu klik **Ganti kata sandi backup** <span class="pin">1</span> di kotak **Backup dan pemulihan**.
+
+   <Shot name="settings-backup" alt="Kotak Backup dan pemulihan dengan empat tombol" marks={[1, null, null, null]} />
+
+2. Jendela **Kata sandi backup** terbuka. Kalimat tebal di tengahnya mengingatkan bahwa backup lama tetap memakai kata sandi lamanya.
+
+   <Shot name="backup-password" alt="Jendela Kata sandi backup dengan penjelasan dan dua kolom kata sandi" />
+
+3. Isi **Kata sandi backup** yang baru, ketik lagi di **Ulangi kata sandi**, lalu klik **Simpan**.
+
+</Steps>
+
+Kata sandi baru hanya berlaku untuk backup yang dibuat sesudahnya:
+
+| Backup | Dibuka dengan |
+|---|---|
+| Dibuat sebelum kata sandi diganti | Kata sandi backup yang **lama** |
+| Dibuat sesudah kata sandi diganti | Kata sandi backup yang **baru** |
+
+Jadi jangan buang catatan kata sandi lama selama backup lama masih Anda simpan, misalnya di flashdisk.
+
+## Kata sandi backup bukan kata sandi masuk
+
+| Jenis | Untuk apa | Siapa yang punya |
+|---|---|---|
+| Kata sandi masuk | Masuk ke GasDist dan membuka layar terkunci | Setiap pengguna punya sendiri |
+| Kode pemulihan | Mengatur ulang kata sandi Owner yang terlupa | Owner |
+| **Kata sandi backup** | Mengunci dan membuka file backup | Satu untuk seluruh kantor, diatur Owner |
+
+Kode pemulihan **tidak bisa** membuka backup, dan kata sandi backup tidak bisa ditampilkan lagi oleh GasDist.
+
+<Aside type="caution" title="Kata sandi backup hilang berarti backup tidak bisa dibuka">
+Tidak ada cara untuk membuka backup tanpa kata sandinya, juga tidak oleh pembuat GasDist. Bila kata sandi backup hilang, semua backup yang dikunci dengannya tidak berguna lagi. Simpan catatannya terpisah dari flashdisk backup, dan pastikan lebih dari satu orang yang dipercaya tahu tempatnya.
+</Aside>

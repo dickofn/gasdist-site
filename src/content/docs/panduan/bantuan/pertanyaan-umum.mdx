@@ -1,0 +1,87 @@
+---
+title: Pertanyaan umum
+description: Jawaban singkat untuk pertanyaan yang sering muncul saat memakai GasDist sehari-hari.
+sidebar:
+  order: 2
+---
+
+import { Steps, Aside } from "@astrojs/starlight/components";
+import Roles from "../../../../components/Roles.astro";
+
+Jawaban singkat untuk pertanyaan yang paling sering ditanyakan staf kantor dan gudang. Setiap jawaban menautkan ke panduan lengkapnya.
+
+<Roles can={["OWNER", "ADMIN", "GUDANG", "PENJUALAN", "VIEWER"]} />
+
+## Bisakah surat jalan yang sudah diposting diubah?
+
+Tidak. Begitu diposting, surat jalan mendapat nomor, stok berkurang, dan isinya terkunci. Ini disengaja, supaya kertas yang sudah ditandatangani selalu cocok dengan catatan di GasDist.
+
+Bila ada yang salah (jumlah, produk, atau pelanggan), Owner atau Admin [membatalkan](/gasdist-site/panduan/surat-jalan/membatalkan/) surat jalan itu dengan alasan dan kata sandi. Stok kembali, nomornya tetap tercatat sebagai batal. Setelah itu [buat surat jalan baru](/gasdist-site/panduan/surat-jalan/membuat/) dengan isi yang benar.
+
+Selama masih **draf**, surat jalan bebas diubah atau dihapus.
+
+## Saya sudah menyimpan surat jalan, kenapa stok belum berkurang?
+
+Karena yang Anda simpan masih draf. **Simpan draf** tidak mengubah stok dan belum memberi nomor. Stok baru berkurang setelah Anda klik **Posting** dan mengonfirmasinya. Lihat [Membuat surat jalan](/gasdist-site/panduan/surat-jalan/membuat/).
+
+## Kenapa saya tidak bisa memposting?
+
+Ada beberapa kemungkinan:
+
+| Yang terlihat | Penyebab | Jalan keluar |
+|---|---|---|
+| Ada baris merah bertanda **Minus**, tombol **Posting** tidak bisa diklik | Stok produk itu tidak cukup | Kurangi jumlahnya atau hapus barisnya. Bila tabungnya memang sudah datang, [catat penerimaan stok](/gasdist-site/panduan/stok/terima-stok/) dulu. |
+| Tidak ada tombol **Posting** atau **Buat surat jalan** sama sekali | Peran Anda (Gudang atau Pemantau) tidak boleh membuat surat jalan | Minta staf Penjualan, Admin, atau Owner. |
+| Muncul pesan **Nomor ... sudah dipakai surat jalan lain** | Format nomor menghasilkan nomor yang sudah ada | Minta Owner memeriksa [format nomor](/gasdist-site/panduan/pengaturan/format-nomor/). |
+
+## Kenapa ada menu atau tombol yang tidak muncul di layar saya?
+
+GasDist menyembunyikan menu dan tombol yang tidak boleh dipakai oleh peran Anda. Misalnya, Gudang tidak melihat **Buat surat jalan**, dan hanya Owner yang melihat menu **Pengaturan**. Daftar lengkapnya ada di [Peran pengguna](/gasdist-site/panduan/mulai/peran/). Bila Anda memang perlu izin itu, minta Admin atau Owner mengubah peran Anda.
+
+## Kenapa layar tiba-tiba terkunci?
+
+GasDist mengunci layar sendiri bila tidak ada ketikan atau gerakan mouse selama waktu tertentu (bawaannya 15 menit). Ketik kata sandi Anda, lalu klik **Buka**. Owner bisa mengubah lamanya di [Pengaturan](/gasdist-site/panduan/pengaturan/stok-dan-keamanan/). Isian yang belum disimpan tidak ikut tersimpan, jadi biasakan menyimpan draf sebelum meninggalkan meja. Lihat [Masuk, kunci layar, dan kata sandi](/gasdist-site/panduan/mulai/masuk-dan-kunci/).
+
+## Di mana data saya disimpan?
+
+Semua data tersimpan di PC tempat GasDist terpasang, tidak di internet. Datanya terenkripsi, dan kuncinya disimpan oleh sistem operasi PC itu (di Windows: Credential Manager milik akun Windows Anda). Akibatnya:
+
+- Data hanya bisa dibuka oleh GasDist di PC itu.
+- Menyalin berkas database ke PC lain tidak akan bisa dibuka. Untuk memindahkan data, selalu pakai [backup](/gasdist-site/panduan/backup/membuat-backup/).
+- Backup tersimpan di folder backup GasDist. Lokasinya tertulis di **Pengaturan**, bagian backup, dan Owner bisa menambah folder kedua, misalnya flashdisk.
+
+## Bagaimana kalau PC-nya rusak atau hilang?
+
+Data bisa dikembalikan dari backup, asal tiga hal ini sudah disiapkan sebelumnya:
+
+| Persiapan | Kenapa penting |
+|---|---|
+| [Kata sandi backup](/gasdist-site/panduan/backup/kata-sandi-backup/) sudah diatur | Tanpa kata sandi backup, GasDist tidak membuat backup sama sekali. |
+| Ada salinan backup di luar PC, misalnya flashdisk | Backup yang hanya ada di PC yang rusak ikut hilang. Pakai folder backup kedua atau **Simpan salinan ke…**. Lihat [Membuat dan menyalin backup](/gasdist-site/panduan/backup/membuat-backup/). |
+| Kata sandi backup dicatat di tempat aman | GasDist tidak bisa menampilkannya lagi, dan backup tidak bisa dibuka tanpanya. |
+
+Di PC baru, pasang GasDist. Di layar penyiapan awal, jangan isi formulirnya, tetapi klik **Pulihkan dari backup…**, pilih file backup, dan masukkan kata sandi backupnya. Lihat [Memulihkan dari backup](/gasdist-site/panduan/backup/memulihkan/).
+
+## Bisakah dua PC memakai data yang sama?
+
+Tidak. GasDist dirancang untuk satu PC per database dan tidak menyinkronkan data lewat jaringan. Bila GasDist dipasang di dua PC, masing-masing punya data sendiri yang tidak saling terhubung dan tidak bisa digabung. Untuk pindah ke PC lain, buat backup di PC lama lalu pulihkan di PC baru.
+
+## Bagaimana cara menyimpan surat jalan sebagai PDF?
+
+<Steps>
+
+1. Buka surat jalan yang sudah diposting, lalu klik **Cetak**. Jendela cetak terbuka.
+
+2. Pilih ukuran **Kertas**, lalu klik **Cetak** di jendela itu.
+
+3. Di dialog cetak sistem, pilih printer PDF sebagai tujuan, misalnya **Microsoft Print to PDF** di Windows, lalu simpan berkasnya.
+
+</Steps>
+
+<Aside type="caution">
+Menyimpan ke PDF dihitung sebagai satu kali cetak. Bila Anda menyimpan PDF dulu, kertas yang dicetak sesudahnya bertanda **SALINAN**. Lihat [Mencetak surat jalan](/gasdist-site/panduan/cetak/mencetak/) dan [SALINAN dan DRAFT](/gasdist-site/panduan/cetak/salinan-dan-draf/).
+</Aside>
+
+## Saya lupa kata sandi. Apa yang harus dilakukan?
+
+Minta Admin atau Owner mengatur ulang kata sandi Anda. Anda akan menerima kata sandi sementara yang wajib diganti saat masuk. Owner yang lupa kata sandinya bisa memakai kode pemulihan. Lihat [Masuk, kunci layar, dan kata sandi](/gasdist-site/panduan/mulai/masuk-dan-kunci/).

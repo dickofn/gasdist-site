@@ -1,0 +1,64 @@
+---
+title: Cancelling a surat jalan
+description: Cancel a posted surat jalan with a reason and your password, and its stock comes back.
+sidebar:
+  order: 3
+---
+
+import { Steps, Aside } from "@astrojs/starlight/components";
+import Shot from "../../../../../components/Shot.astro";
+import Roles from "../../../../../components/Roles.astro";
+
+A posted surat jalan cannot be changed. When its contents are wrong or the delivery is called off, you cancel it: the stock comes back, and the number stays on record as cancelled, so the history can always be traced.
+
+<Roles can={["OWNER", "ADMIN"]} />
+
+The Sales role can make and post a surat jalan but cannot cancel one. If one needs cancelling, ask the Owner or an Admin.
+
+## Cancelling a surat jalan
+
+<Steps>
+
+1. Open a surat jalan with the status **Posted**, for example from the [surat jalan list](/gasdist-site/en/panduan/surat-jalan/daftar/), then click the red **Cancel surat jalan** button at the top right.
+
+2. Write the reason in the **Reason** field <span class="pin">1</span>, for example `Pelanggan menunda pengiriman` (the customer postponed the delivery). A reason is required, up to 200 characters.
+
+3. Type your own password, the one you sign in to GasDist with, in the **Password** field <span class="pin">2</span>.
+
+   <Shot name="sj-cancel-dialog" alt="The Cancel surat jalan SJ/2026/10/0031 dialog with the Reason and Password fields" />
+
+4. Click **Cancel surat jalan**. Click **Cancel** if you change your mind; nothing changes.
+
+</Steps>
+
+If the password is wrong, the message **Wrong password.** appears and the surat jalan is not cancelled. Type it again and retry.
+
+## After cancelling
+
+The message **Surat jalan ... cancelled.** appears, the status becomes **Cancelled** <span class="pin">1</span>, and a red box <span class="pin">2</span> records who cancelled it, when, and why.
+
+<Shot name="sj-detail-cancelled" alt="A cancelled surat jalan page with the Cancelled status and a note of who cancelled it and why" />
+
+| Item | Before cancelling | After cancelling |
+|---|---|---|
+| Status | **Posted** (blue) | **Cancelled** (red, struck through) |
+| Number | `SJ/2026/10/0031` | Still `SJ/2026/10/0031`, never reused |
+| Stock | Reduced | Returned |
+| Buttons | **Print**, **Cancel surat jalan** | Only **Preview** |
+| Printing | Possible | No longer possible |
+
+### Where the stock goes back
+
+Each line of the surat jalan returns to stock as a **Cancellation** line in the [kartu stok](/gasdist-site/en/panduan/stok/kartu-stok/), dated the day you cancel, not the date of the surat jalan. That way the records of earlier days, stok opname results included, stay as they were.
+
+### Previewing a cancelled surat jalan
+
+**Preview** still opens so you can read the contents. The page carries a DIBATALKAN watermark (CANCELLED when the company's default language is English), and the bar above it says **A cancelled surat jalan is not printed again.** There is no **Print** button.
+
+<Aside type="caution" title="A cancellation cannot be undone">
+A cancelled surat jalan cannot be brought back. If the delivery goes ahead after all, [make a new surat jalan](/gasdist-site/en/panduan/surat-jalan/membuat/); it gets the next number.
+</Aside>
+
+<Aside type="tip" title="Drafts are deleted, not cancelled">
+A draft has no number and has not reduced stock, so there is nothing to cancel. The Owner, Admin or Sales role just opens the draft, clicks **Delete draft**, then clicks **Delete draft** again in the **Delete this draft?** dialog. A deleted draft cannot be brought back.
+</Aside>

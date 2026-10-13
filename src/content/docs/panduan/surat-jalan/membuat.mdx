@@ -1,0 +1,89 @@
+---
+title: Membuat surat jalan
+description: Buat surat jalan baru, isi baris tabung, lalu simpan sebagai draf atau posting.
+sidebar:
+  order: 2
+---
+
+import { Steps, Aside } from "@astrojs/starlight/components";
+import Shot from "../../../../components/Shot.astro";
+import Roles from "../../../../components/Roles.astro";
+
+Surat jalan menyertai setiap pengiriman tabung ke pelanggan. Selama masih **draf**, isinya bebas diubah dan stok belum berkurang. Begitu **diposting**, surat jalan mendapat nomor dan stok langsung berkurang.
+
+<Roles can={["OWNER", "ADMIN", "PENJUALAN"]} />
+
+## Mengisi surat jalan baru
+
+<Steps>
+
+1. Buka **Surat Jalan** di menu samping, lalu klik **Buat surat jalan** (atau tekan <kbd>F2</kbd>). Tanggal terisi hari ini <span class="pin">1</span>. Baris pintasan keyboard <span class="pin">2</span> selalu tampil di atas formulir.
+
+   <Shot name="sj-form-empty" alt="Formulir surat jalan baru yang masih kosong" marks={[1, null, 2]} />
+
+2. Ketik sebagian kode, nama, nomor telepon, atau kota pelanggan di kolom **Pelanggan** <span class="pin">1</span>. Pilih dari daftar <span class="pin">2</span> dengan panah atas/bawah lalu <kbd>Enter</kbd>, atau klik.
+
+   <Shot name="sj-form-customer" alt="Kolom pelanggan menampilkan daftar pelanggan yang cocok dengan kata sri" />
+
+3. Pilih **Kendaraan** dan **Sopir** bila sudah diketahui. Keduanya boleh dikosongkan.
+
+4. Isi baris barang: pilih **Produk** <span class="pin">1</span> dan ketik jumlah **Tabung** <span class="pin">2</span>. Klik **Tambah baris** untuk produk berikutnya; menekan <kbd>Enter</kbd> di baris terakhir juga menambah baris.
+
+   Kolom **Stok setelah** <span class="pin">3</span> menunjukkan sisa stok produk itu jika surat jalan ini diposting. Total tabung dan kg <span class="pin">4</span> ikut berubah saat Anda mengetik.
+
+   <Shot name="sj-form-filled" alt="Formulir surat jalan dengan dua baris: LPG 3 kg 200 tabung dan LPG 5,5 kg 10 tabung" marks={[1, 2, 3, 4, null]} />
+
+</Steps>
+
+### Arti warna di kolom Stok setelah
+
+| Tampilan | Artinya | Bisa diposting? |
+|---|---|---|
+| Hitam, mis. `6.234 kg` | Stok masih aman | ✅ |
+| Oranye, `22 kg (Menipis)` | Sisa stok di bawah batas stok menipis produk itu | ✅, tapi segera pesan ulang |
+| Merah, `-250 kg (Minus)` | Stok tidak cukup untuk baris ini | ❌ tombol **Posting** dikunci |
+
+<Shot name="sj-form-negative" alt="Baris LPG 50 kg berwarna merah dengan tulisan Minus dan pesan bahwa posting dikunci" />
+
+Baris merah <span class="pin">1</span> disertai pesan <span class="pin">2</span>, dan tombol **Posting** <span class="pin">3</span> tidak bisa diklik. Kurangi jumlahnya atau hapus barisnya dengan tombol **×**.
+
+<Aside type="note">
+Owner dapat mengizinkan stok minus di [Pengaturan](/gasdist-site/panduan/pengaturan/stok-dan-keamanan/). Biasanya lebih baik tidak: stok minus berarti catatan dan gudang sudah tidak cocok.
+</Aside>
+
+## Menyimpan draf
+
+Klik **Simpan draf** (<kbd>Ctrl</kbd>+<kbd>S</kbd>) bila pengiriman belum pasti. Muncul pesan **Draf tersimpan.** <span class="pin">1</span>. Draf belum punya nomor dan tidak mengurangi stok. Lewat **Pratinjau** <span class="pin">2</span> Anda bisa melihat tampilan cetaknya, dengan tanda air DRAFT. Draf belum bisa dicetak: posting dulu agar mendapat nomor (lihat [SALINAN dan DRAFT](/gasdist-site/panduan/cetak/salinan-dan-draf/)).
+
+<Shot name="sj-form-saved" alt="Formulir surat jalan setelah disimpan sebagai draf" />
+
+## Memposting
+
+<Steps>
+
+1. Klik **Posting** (<kbd>Ctrl</kbd>+<kbd>Enter</kbd>). Aplikasi menampilkan ringkasan: pelanggan, tanggal, isi, dan total.
+
+   <Shot name="sj-post-dialog" alt="Dialog konfirmasi posting dengan ringkasan pelanggan, tanggal, isi dan total" marks={false} />
+
+2. Periksa ringkasannya, lalu klik **Posting** sekali lagi. Surat jalan mendapat nomor <span class="pin">1</span>, misalnya `SJ/2026/10/0031`, dan statusnya menjadi **Diposting** <span class="pin">4</span>.
+
+   <Shot name="sj-detail-posted" alt="Halaman surat jalan yang sudah diposting dengan nomor, tombol Cetak dan Batalkan" />
+
+   Dari halaman ini Anda bisa langsung **Cetak** <span class="pin">2</span> atau, bila ada kesalahan, **Batalkan surat jalan** <span class="pin">3</span>.
+
+</Steps>
+
+<Aside type="caution" title="Isi surat jalan yang sudah diposting tidak bisa diubah">
+Salah jumlah atau salah pelanggan? [Batalkan](/gasdist-site/panduan/surat-jalan/membatalkan/) surat jalan itu lalu buat yang baru. Pembatalan mengembalikan stok dan tetap tercatat, sehingga riwayatnya selalu bisa ditelusuri.
+</Aside>
+
+## Pintasan keyboard
+
+| Tombol | Fungsi |
+|---|---|
+| <kbd>F2</kbd> | Surat jalan baru |
+| <kbd>Ctrl</kbd>+<kbd>S</kbd> | Simpan draf |
+| <kbd>Ctrl</kbd>+<kbd>Enter</kbd> | Posting |
+| <kbd>Ctrl</kbd>+<kbd>P</kbd> | Pratinjau cetak |
+| <kbd>Enter</kbd> di baris terakhir | Tambah baris |
+| <kbd>Esc</kbd> | Kembali |

@@ -1,0 +1,59 @@
+---
+title: Stock overview
+description: Read the Stock page, the first screen in GasDist, which shows what is left of each product in kg and in tabung.
+sidebar:
+  order: 1
+---
+
+import { Steps, Aside } from "@astrojs/starlight/components";
+import Shot from "../../../../../components/Shot.astro";
+import Roles from "../../../../../components/Roles.astro";
+
+The **Stock** page is the first screen after you sign in. It shows how much of each product is left, when the last backup was made, and the buttons for receiving stock and for a stock opname.
+
+<Roles can={["OWNER", "ADMIN", "GUDANG", "PENJUALAN", "VIEWER"]} />
+
+## Reading the Stock page
+
+Open **Stock** in the sidebar. Each product has its own card. A card that needs attention carries a **Low** badge <span class="pin">2</span>. The **Receive stock** <span class="pin">1</span> and **Stock opname** buttons at the top right only appear for Owner, Admin and Warehouse.
+
+<Shot name="home" alt="The Stock page with the backup card and four LPG product cards" marks={[null, null, null, 1, 2]} />
+
+## What is on a product card
+
+<Shot name="home-stock-card" alt="Product card for LPG 5,5 kg: 77 kg, equal to 14 tabung, with a Low badge" />
+
+| Part of the card | What it means |
+|---|---|
+| Product name, e.g. **LPG 5,5 kg** | The product being counted |
+| `LPG-5.5 · 5.5 kg per tabung` | Product code and the gas in one full tabung |
+| Large number, e.g. `77 kg` | The recorded stock, in kg |
+| `= 14 tabung` <span class="pin">2</span> | How many full tabung that stock equals |
+| **Low** badge <span class="pin">1</span> | Stock is below this product's low-stock threshold |
+| **Kartu stok** button <span class="pin">3</span> | Opens the history of stock in and out for this product, see [Kartu stok](/gasdist-site/en/panduan/stok/kartu-stok/) |
+
+### Why is stock in kg rather than tabung?
+
+GasDist keeps stock in **kg**, because gas from the SPBE does not always arrive in whole tabung. The tabung number on the card is only a calculation: the stock in kg divided by the gas in one tabung, rounded down.
+
+Example: 80 kg of LPG 5,5 kg in stock. 80 ÷ 5.5 = 14.5, so the card shows `= 14 tabung`. The remaining 3 kg is not enough for a full tabung, but it still counts in the kg figure.
+
+## What the badges mean
+
+| Badge | What it means |
+|---|---|
+| No badge | Enough stock |
+| **Low** (yellow) | Some stock is left, but less than the product's low-stock threshold. Time to reorder. |
+| **Empty** (grey) | Stock is exactly 0 kg |
+| **Negative** (red) | Stock is below 0. The records and the warehouse no longer match: do a [stock opname](/gasdist-site/en/panduan/stok/stok-opname/). |
+| **Inactive** | The product has been deactivated but still holds stock |
+
+The low-stock threshold is set per product by an Owner or Admin, under **Master Data** › **Products** › **Edit**, in **Low-stock threshold (kg)**. Enter 0 if the product never needs the badge. See [Products](/gasdist-site/en/panduan/data-master/produk/).
+
+<Aside type="tip">
+In the example above, the threshold for LPG 5,5 kg is 165 kg (30 tabung). The stock of 77 kg is below it, so the card shows **Low**.
+</Aside>
+
+## What changes the stock figure
+
+Stock changes for only four reasons: [receiving stock](/gasdist-site/en/panduan/stok/terima-stok/), [posting a surat jalan](/gasdist-site/en/panduan/surat-jalan/membuat/), [cancelling a surat jalan](/gasdist-site/en/panduan/surat-jalan/membatalkan/), and a [stock opname](/gasdist-site/en/panduan/stok/stok-opname/). A draft surat jalan does not change stock.

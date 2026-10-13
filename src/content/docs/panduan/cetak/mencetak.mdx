@@ -1,0 +1,86 @@
+---
+title: Mencetak surat jalan
+description: Cetak surat jalan yang sudah diposting di kertas A4 atau continuous, atau simpan sebagai PDF.
+sidebar:
+  order: 1
+---
+
+import { Steps, Aside } from "@astrojs/starlight/components";
+import Shot from "../../../../components/Shot.astro";
+import Roles from "../../../../components/Roles.astro";
+
+Surat jalan dicetak lalu ditandatangani dengan tangan oleh pembuatnya, sopir, dan penerima. Hanya surat jalan yang sudah **diposting** yang bisa dicetak, karena hanya surat jalan itu yang sudah bernomor.
+
+<Roles can={["OWNER", "ADMIN", "PENJUALAN"]} />
+
+Peran lain (Gudang dan Pemantau) tetap bisa membuka **Pratinjau** untuk melihat lembarnya, tetapi tidak ada tombol **Cetak**. Di jendelanya tertulis **Anda bisa melihat surat jalan ini, tetapi tidak mencetaknya.**
+
+## Mencetak
+
+<Steps>
+
+1. Buka surat jalan yang berstatus **Diposting**, lalu klik **Cetak** di kanan atas (atau tekan <kbd>Ctrl</kbd>+<kbd>P</kbd>). Jendela cetak terbuka dan menampilkan lembar surat jalan persis seperti yang akan dicetak. Di kiri atas tertulis nomornya dan **Asli** bila surat jalan ini belum pernah dicetak.
+
+2. Pilih ukuran **Kertas** <span class="pin">1</span>: **A4** atau **Kertas continuous 9,5 × 11 inci**. Pilihan ini hanya untuk cetakan kali ini; ukuran bawaannya diatur Owner di menu **Pengaturan**, bagian **Dokumen**, kolom **Ukuran kertas**.
+
+3. Klik **Cetak** <span class="pin">2</span> (atau tekan <kbd>Ctrl</kbd>+<kbd>P</kbd> di jendela ini).
+
+   <Shot name="print-window" alt="Jendela cetak surat jalan SJ/2026/10/0031 bertanda Asli, dengan pilihan kertas A4 dan tombol Cetak" />
+
+4. Dialog cetak dari sistem komputer terbuka. Pilih printernya, lalu cetak. Untuk menyimpan file, pilih printer PDF, misalnya **Simpan sebagai PDF** atau **Microsoft Print to PDF** (namanya tergantung komputer Anda), lalu tentukan tempat menyimpannya.
+
+5. Di jendela cetak muncul pesan **Cetakan ke-1 dikirim ke dialog cetak. Cetak lagi akan bertanda SALINAN.** Lembar ini siap dibawa sopir untuk ditandatangani.
+
+</Steps>
+
+<Aside type="caution" title="Cetakan dihitung saat tombol Cetak diklik">
+GasDist mencatat cetakan begitu Anda mengklik **Cetak**, sebelum dialog cetak terbuka. Bila dialog cetak lalu ditutup tanpa mencetak, cetakan itu tetap terhitung, dan cetakan berikutnya bertanda SALINAN. Jadi siapkan printer dan kertasnya dulu, baru klik **Cetak**. Lihat [SALINAN dan DRAFT](/gasdist-site/panduan/cetak/salinan-dan-draf/).
+</Aside>
+
+## Memilih kertas
+
+| Pilihan **Kertas** | Untuk | Ukuran halaman |
+|---|---|---|
+| **A4** | Printer biasa (inkjet atau laser), juga untuk menyimpan PDF | 210 × 297 mm |
+| **Kertas continuous 9,5 × 11 inci** | Printer dot-matrix dengan kertas continuous (kertas sambung berlubang) | 9,5 × 11 inci |
+
+Isi lembarnya sama untuk kedua kertas; hanya ukuran halaman dan batas tepinya yang berbeda. Pratinjau langsung berubah saat Anda mengganti pilihan kertas.
+
+<Shot name="print-a4" alt="Lembar surat jalan di kertas A4" />
+
+<Shot name="print-continuous" alt="Lembar surat jalan yang sama di kertas continuous 9,5 × 11 inci" />
+
+## Isi lembar surat jalan
+
+Dari atas ke bawah, lembar surat jalan berisi:
+
+| Bagian | Isinya |
+|---|---|
+| Kepala | Logo, nama, alamat, telepon, dan NPWP perusahaan, diambil dari [Pengaturan perusahaan](/gasdist-site/panduan/pengaturan/perusahaan/) |
+| Judul | **SURAT JALAN**, **No.** (nomor surat jalan), dan **Tanggal** |
+| **KEPADA** | Nama dan kode pelanggan, alamat, kota, dan telepon |
+| Kendaraan dan Sopir | Nomor polisi kendaraan dan nama sopir, atau `-` bila dikosongkan |
+| Tabel barang | **No**, **Produk** (dengan kodenya), **Jumlah (tabung)**, **Isi per tabung**, **Berat (kg)**, lalu baris **Total** |
+| Catatan | Isi kolom **Catatan**, hanya bila diisi |
+| Pernyataan | *Barang diterima dalam keadaan baik dan jumlah sesuai.* |
+| Tiga kotak tanda tangan | Lihat tabel berikutnya |
+
+### Tiga kotak tanda tangan
+
+| Kotak | Nama yang tercetak | Yang mengisi |
+|---|---|---|
+| **DIBUAT OLEH** | Nama pengguna yang memposting surat jalan, dalam kurung | Orang kantor itu menandatangani di atas namanya dan menulis tanggal |
+| **SOPIR** | Nama sopir yang dipilih; kurung kosong bila sopir tidak dipilih | Sopir menandatangani saat membawa barang dan menulis tanggal |
+| **PENERIMA** | Tidak ada; kotak ini untuk pelanggan | Penerima memberi cap pada kotak garis putus-putus **Cap / stempel**, menandatangani, menulis **Nama jelas** dan **Tanggal** |
+
+Pernyataan *Barang diterima dalam keadaan baik dan jumlah sesuai.* tercetak tepat di atas kotak tanda tangan. Dengan menandatangani kotak **PENERIMA**, pelanggan menyatakan tabung sudah diterima dalam keadaan baik dan jumlahnya cocok dengan tabel. Minta penerima menghitung tabungnya dulu sebelum tanda tangan.
+
+Di bawah kotak tanda tangan, lembar yang dicetak memuat tulisan kecil **Cetakan ke-1**, **Cetakan ke-2**, dan seterusnya. Tulisan ini tidak tampil di pratinjau sebelum Anda mengklik **Cetak**.
+
+<Aside type="note" title="Bahasa lembar surat jalan">
+Lembar surat jalan dicetak dalam bahasa bawaan perusahaan, bukan bahasa yang sedang Anda pakai, karena lembar ini untuk pelanggan. Bahasa bawaan diatur Owner di [Pengaturan](/gasdist-site/panduan/pengaturan/stok-dan-keamanan/).
+</Aside>
+
+<Aside type="note" title="Jendela cetak ikut terkunci">
+Bila layar GasDist dikunci atau Anda keluar, jendela cetak menyembunyikan lembarnya dan menampilkan **Sesi terkunci atau sudah keluar.** Buka kunci di jendela utama, lalu lembarnya tampil lagi.
+</Aside>

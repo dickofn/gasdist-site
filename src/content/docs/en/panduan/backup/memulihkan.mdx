@@ -1,0 +1,71 @@
+---
+title: Restoring from a backup
+description: Bring GasDist data back from a backup, for example after a PC breaks or when moving to a new PC.
+sidebar:
+  order: 3
+---
+
+import { Steps, Aside } from "@astrojs/starlight/components";
+import Shot from "../../../../../components/Shot.astro";
+import Roles from "../../../../../components/Roles.astro";
+
+Restoring means **replacing all current GasDist data** with what a backup holds. Do it when data was damaged or deleted, when you move to another PC, or when you really need to go back to how things were on the date of that backup.
+
+<Roles can={["OWNER"]} />
+
+## What happens when you restore
+
+| Item | After the restore |
+|---|---|
+| All data: stock, surat jalan, customers, master data, settings | Exactly as it was when the backup was made. Everything recorded after the backup date is no longer in the data in use |
+| The data from before the restore | Saved first as a backup of the kind **before a restore**, so it can still be brought back |
+| Users and sign-in passwords | The accounts in the backup. Everyone signs in again with the accounts and passwords from the backup |
+| Backup password | The one stored in that backup's data, which is the password you typed to open it |
+| A backup from an older GasDist version | Updated automatically, nothing for you to do |
+
+## Restoring a backup
+
+<Steps>
+
+1. Open **Settings**, scroll to the very bottom, then click **Restore from a backup…** <span class="pin">1</span> in the **Backup and restore** box.
+
+   <Shot name="settings-backup" alt="The Backup and restore box with the Restore from a backup button" marks={[null, null, null, 1]} />
+
+2. The **Restore from a backup** window lists **Backups found** in the main and the second folder, newest first. Each line has the date and time, the kind of backup (**automatic**, **by hand** or **before a restore**), its size, and **second folder** when it comes from the second folder. Choose one.
+
+   Is the backup on a USB stick or somewhere else? Click **Choose another file…**, then pick the `.gasbak` file in the file picker.
+
+3. Fill in **Backup password**, the backup password that was in use **when that backup was made**, then click **Check**. This step only opens and checks the backup; no data is replaced yet.
+
+4. GasDist shows what the backup holds: **Company**, **Made** (date and time, by whom or **automatic**), and **Version**. Make sure it is the right backup. If you picked the wrong one, click **Back**.
+
+5. Read the yellow warning: all current data will be replaced, a backup of the current data is made first, and everyone signs in again with the accounts in the backup.
+
+6. Fill in **Your password**, the password you use to sign in to GasDist, then click **Restore**.
+
+7. GasDist backs up the current data, replaces it, then returns to the sign-in screen. Sign in with an account that is in that backup.
+
+</Steps>
+
+<Aside type="caution" title="Without the backup password, a backup cannot be opened">
+A backup only opens with the backup password that was in use when it was made. If that password is lost, the backup **cannot be restored at all**, by anyone. The Owner recovery code and sign-in passwords cannot stand in for it. See [Backup password](/gasdist-site/en/panduan/backup/kata-sandi-backup/).
+</Aside>
+
+## If an error message appears
+
+| Message | Meaning | What to do |
+|---|---|---|
+| **The backup password is wrong, or the backup file was changed.** | The password does not match this backup, or the file is damaged | Try the backup password that was in use when the backup was made (perhaps an old one). If it still fails, choose another backup |
+| **This file is not a GasDist backup, or the backup file is damaged.** | The chosen file is not a backup, or it was damaged when copied | Choose another file, or copy it again from the USB stick |
+| **This backup was made by a newer GasDist. Update the app first, then restore.** | The backup comes from a newer GasDist version | Install the latest GasDist, then try again |
+| **Your password is wrong.** | The sign-in password in step 6 is wrong | Type your own password again. It is not the backup password |
+
+All of these messages appear **before** any data is replaced. Your current data stays as it is.
+
+## Undoing a restore
+
+Restored the wrong backup? The data from before the restore was saved as a backup of the kind **before a restore**. Repeat the steps above and choose that backup. It is locked with the backup password that was in use on this PC before the restore. If this PC had no backup password yet, it is locked with the backup password you typed while restoring.
+
+## Restoring on a new PC
+
+On a new PC that has not been set up yet, the first-run setup screen offers **Moving from another PC? Restore its backup instead of filling in this form.** Choose the backup file from the USB stick, fill in the backup password, then restore. On a new PC GasDist does not ask for a sign-in password, because there is no data to replace. Afterwards, sign in with an account in the backup. See also [Installation and first-run setup](/gasdist-site/en/panduan/mulai/penyiapan-awal/).

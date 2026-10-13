@@ -1,0 +1,64 @@
+---
+title: Membatalkan surat jalan
+description: Batalkan surat jalan yang sudah diposting dengan alasan dan kata sandi, lalu stoknya kembali.
+sidebar:
+  order: 3
+---
+
+import { Steps, Aside } from "@astrojs/starlight/components";
+import Shot from "../../../../components/Shot.astro";
+import Roles from "../../../../components/Roles.astro";
+
+Surat jalan yang sudah diposting tidak bisa diubah. Bila isinya salah atau pengirimannya batal, surat jalan itu dibatalkan: stoknya kembali, dan nomornya tetap tercatat sebagai batal sehingga riwayatnya selalu bisa ditelusuri.
+
+<Roles can={["OWNER", "ADMIN"]} />
+
+Penjualan bisa membuat dan memposting surat jalan, tetapi tidak bisa membatalkannya. Bila perlu membatalkan, minta Owner atau Admin.
+
+## Membatalkan surat jalan
+
+<Steps>
+
+1. Buka surat jalan yang berstatus **Diposting**, misalnya lewat [daftar surat jalan](/gasdist-site/panduan/surat-jalan/daftar/), lalu klik tombol merah **Batalkan surat jalan** di kanan atas.
+
+2. Tulis alasannya di kolom **Alasan** <span class="pin">1</span>, misalnya `Pelanggan menunda pengiriman`. Alasan wajib diisi, paling banyak 200 huruf.
+
+3. Ketik kata sandi Anda sendiri, yang dipakai untuk masuk ke GasDist, di kolom **Kata sandi** <span class="pin">2</span>.
+
+   <Shot name="sj-cancel-dialog" alt="Dialog Batalkan surat jalan SJ/2026/10/0031 dengan kolom Alasan dan Kata sandi" />
+
+4. Klik **Batalkan surat jalan**. Klik **Batal** bila Anda berubah pikiran; tidak ada yang berubah.
+
+</Steps>
+
+Bila kata sandinya keliru, muncul pesan **Kata sandi salah.** dan surat jalan belum dibatalkan. Ketik ulang lalu coba lagi.
+
+## Setelah dibatalkan
+
+Muncul pesan **Surat jalan ... dibatalkan.**, statusnya menjadi **Dibatalkan** <span class="pin">1</span>, dan kotak merah <span class="pin">2</span> mencatat siapa yang membatalkan, kapan, dan alasannya.
+
+<Shot name="sj-detail-cancelled" alt="Halaman surat jalan yang dibatalkan dengan status Dibatalkan dan catatan siapa yang membatalkan beserta alasannya" />
+
+| Hal | Sebelum dibatalkan | Sesudah dibatalkan |
+|---|---|---|
+| Status | **Diposting** (biru) | **Dibatalkan** (merah, dicoret) |
+| Nomor | `SJ/2026/10/0031` | Tetap `SJ/2026/10/0031`, tidak dipakai ulang |
+| Stok | Sudah berkurang | Dikembalikan |
+| Tombol | **Cetak**, **Batalkan surat jalan** | Hanya **Pratinjau** |
+| Cetak | Bisa | Tidak bisa lagi |
+
+### Ke mana stoknya kembali
+
+Setiap baris surat jalan dikembalikan ke stok sebagai baris **Pembatalan** di [kartu stok](/gasdist-site/panduan/stok/kartu-stok/), bertanggal hari pembatalan, bukan tanggal surat jalan. Dengan begitu, catatan hari-hari sebelumnya, termasuk hasil stok opname, tidak berubah.
+
+### Pratinjau surat jalan yang dibatalkan
+
+**Pratinjau** masih bisa dibuka untuk melihat isinya. Halamannya diberi tanda air DIBATALKAN (CANCELLED bila bahasa bawaan perusahaan adalah English), dan di atasnya tertulis **Surat jalan yang dibatalkan tidak dicetak lagi.** Tombol **Cetak** tidak ada.
+
+<Aside type="caution" title="Pembatalan tidak bisa diurungkan">
+Surat jalan yang sudah dibatalkan tidak bisa diaktifkan lagi. Bila pengirimannya ternyata jadi, [buat surat jalan baru](/gasdist-site/panduan/surat-jalan/membuat/); surat jalan baru itu mendapat nomor berikutnya.
+</Aside>
+
+<Aside type="tip" title="Draf tidak dibatalkan, tetapi dihapus">
+Draf belum bernomor dan belum mengurangi stok, jadi tidak perlu dibatalkan. Owner, Admin, atau Penjualan cukup membuka drafnya, klik **Hapus draf**, lalu klik **Hapus draf** sekali lagi di dialog **Hapus draf ini?**. Draf yang dihapus tidak bisa dikembalikan.
+</Aside>

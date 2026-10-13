@@ -1,0 +1,69 @@
+---
+title: Daftar dan ekspor surat jalan
+description: Cari surat jalan dengan filter tanggal, pelanggan, status, atau nomor, lalu ekspor daftarnya ke xlsx atau csv.
+sidebar:
+  order: 1
+---
+
+import { Steps, Aside } from "@astrojs/starlight/components";
+import Shot from "../../../../components/Shot.astro";
+import Roles from "../../../../components/Roles.astro";
+
+Halaman **Surat Jalan** menampilkan semua surat jalan, yang terbaru di atas. Dari sini Anda mencari surat jalan lama, memeriksa statusnya, membuka detailnya, dan menyimpan daftarnya ke file untuk laporan.
+
+<Roles can={["OWNER", "ADMIN", "GUDANG", "PENJUALAN", "VIEWER"]} />
+
+Semua peran bisa melihat dan mengekspor daftar ini. Tombol **Buat surat jalan** <span class="pin">1</span> hanya muncul untuk Owner, Admin, dan Penjualan (lihat [Membuat surat jalan](/gasdist-site/panduan/surat-jalan/membuat/)).
+
+<Shot name="sj-list" alt="Daftar surat jalan bulan ini dengan filter tanggal, pelanggan, status, dan cari nomor" marks={[1, 2, 3, 4, null]} />
+
+## Menyaring daftar
+
+Saat dibuka, daftar menampilkan surat jalan dari tanggal 1 bulan ini sampai hari ini. Ubah filter di atas tabel; daftar langsung menyesuaikan.
+
+| Filter | Gunanya |
+|---|---|
+| **Dari tanggal** <span class="pin">2</span> dan **Sampai tanggal** | Rentang tanggal surat jalan. **Sampai tanggal** tidak boleh sebelum **Dari tanggal**. |
+| **Pelanggan** | Ketik kode, nama, telepon, atau kota, lalu pilih satu pelanggan. |
+| **Status** <span class="pin">3</span> | **Semua status**, atau hanya satu status, misalnya **Dibatalkan**. |
+| **Cari nomor** <span class="pin">4</span> | Ketik sebagian nomor, misalnya `0029`. |
+
+<Aside type="tip" title="Cari nomor mengabaikan tanggal">
+Begitu Anda mengetik di **Cari nomor**, pencarian berlaku untuk semua tanggal (muncul keterangan **Nomor dicari di semua tanggal.**). Jadi surat jalan bulan lalu tetap ketemu tanpa mengubah filter tanggal. Draf belum bernomor, sehingga tidak muncul dalam pencarian nomor.
+</Aside>
+
+Contoh di bawah menampilkan semua surat jalan yang dibatalkan sejak 1 September: **Status** <span class="pin">1</span> diubah menjadi **Dibatalkan**, dan **Dari tanggal** dimundurkan.
+
+<Shot name="sj-list-cancelled" alt="Daftar surat jalan yang disaring dengan status Dibatalkan, dengan nomor yang dicoret" />
+
+Daftar menampilkan paling banyak 1.000 baris. Bila hasilnya lebih banyak, muncul pesan **Menampilkan ... dari ...**: persempit tanggal atau filter lain untuk melihat sisanya.
+
+## Arti warna status
+
+| Status | Tampilan di daftar | Artinya |
+|---|---|---|
+| **Draf** | Label abu-abu, kolom nomor bertuliskan *Draf* miring | Belum diposting: belum bernomor, stok belum berkurang, isi masih bisa diubah |
+| **Diposting** | Label biru, nomor tampil lengkap | Sudah bernomor dan stok sudah berkurang |
+| **Dibatalkan** | Label merah, nomor dan status dicoret | Sudah dibatalkan; stoknya sudah dikembalikan, nomornya tetap tercatat |
+
+Klik sebuah baris untuk membukanya. Draf terbuka di formulir sehingga bisa dilanjutkan (bagi Owner, Admin, dan Penjualan); surat jalan yang sudah diposting atau dibatalkan terbuka di halaman detail.
+
+## Mengekspor daftar
+
+<Steps>
+
+1. Atur filter sampai daftar berisi surat jalan yang Anda perlukan.
+
+2. Klik **Ekspor xlsx** <span class="pin">1</span> untuk file Excel, atau **Ekspor csv** di sebelahnya untuk file teks yang bisa dibuka program lain.
+
+   <Shot name="sj-list" alt="Tombol Ekspor xlsx dan Ekspor csv di kanan atas daftar surat jalan" marks={[null, null, null, null, 1]} />
+
+3. Pilih folder dan nama file di jendela simpan, lalu simpan. Muncul pesan **Daftar tersimpan di ...** berisi lokasi filenya.
+
+</Steps>
+
+File berisi semua surat jalan yang cocok dengan filter, termasuk yang tidak tampil karena batas 1.000 baris. Kolomnya: Nomor, Tanggal, Kode pelanggan, Pelanggan, Kendaraan, Sopir, Status, Tabung, Berat (kg), dan Dicetak (berapa kali surat jalan itu dicetak).
+
+<Aside type="note">
+Judul kolom dan status di file mengikuti bahasa yang sedang Anda pakai di aplikasi. File csv berbahasa Indonesia memakai titik koma sebagai pemisah dan koma sebagai tanda desimal, sesuai Excel berbahasa Indonesia.
+</Aside>

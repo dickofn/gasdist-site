@@ -1,0 +1,72 @@
+---
+title: Password resets and the recovery code
+description: Give a temporary password to an employee who forgot theirs, and make a new Owner recovery code when needed.
+sidebar:
+  order: 2
+---
+
+import { Steps, Aside } from "@astrojs/starlight/components";
+import Shot from "../../../../../components/Shot.astro";
+import Roles from "../../../../../components/Roles.astro";
+
+An employee forgot their password, or their account is locked? Reset the password from the **Users** page. They get a temporary password and must make a new one when signing in.
+
+<Roles can={["OWNER", "ADMIN"]} />
+
+## Resetting an employee's password
+
+<Steps>
+
+1. Open **Users** in the sidebar, then click **Reset password** <span class="pin">1</span> on that person's row.
+
+   <Shot name="users-list" alt="The Users page with a Reset password button on each row" marks={[null, null, 1]} />
+
+2. The **Reset the password of** window names the person's username and full name. Fill in **Temporary password** <span class="pin">1</span>, at least 8 characters, and type it again in **Repeat password**.
+
+   <Shot name="users-reset" alt="The Reset the password of bambang window with a temporary password filled in" />
+
+3. Click **Save**. The person's row now shows **Must change password**.
+
+4. Give the temporary password to the person. At their next sign-in GasDist asks them straight away to make a new password. How that works is in [Signing in, locking and passwords](/gasdist-site/en/panduan/mulai/masuk-dan-kunci/).
+
+</Steps>
+
+Resetting a password also unlocks an account that is **Locked** after 5 wrong passwords, so the person does not have to wait 5 minutes.
+
+| Situation | What to do |
+|---|---|
+| An employee (Warehouse, Sales, Viewer) forgot their password | The Owner or an Admin resets it, as above |
+| An Admin forgot their password | The Owner resets it |
+| You want to change your own password | Use **Change password** at the top of the screen. **Reset password** does not appear on your own row |
+| An Owner forgot their password | Another Owner can reset it. If there is none, use the recovery code on the sign-in screen (see [Signing in, locking and passwords](/gasdist-site/en/panduan/mulai/masuk-dan-kunci/)) |
+
+## Making a new recovery code
+
+<Roles can={["OWNER"]} />
+
+The recovery code resets an Owner password that was forgotten. It is shown once, when GasDist is first set up. Below the user table, the Owner sees an **Owner recovery code** box with a **Make a new code** button.
+
+Make a new code when:
+
+- the paper with the recovery code is lost, or
+- someone else may know the code.
+
+<Steps>
+
+1. Click **Make a new code** in the **Owner recovery code** box.
+
+2. Fill in **Password** with your own password, then click **Make a new code**.
+
+   <Shot name="users-recovery-new" alt="The Make a new code window asking for the Owner's password" />
+
+3. The new code shows in a coloured box. Write it on paper exactly as shown.
+
+4. Tick **I have written this code down**, then click **Continue**. **Continue** can only be clicked once the box is ticked.
+
+</Steps>
+
+<Aside type="caution" title="The old code stops working at once">
+As soon as a new code is made, the old one can no longer be used. The new code is shown only once and GasDist cannot show it again. Keep the paper somewhere safe, away from the computer.
+</Aside>
+
+After the recovery code is used on the sign-in screen, GasDist gives you a new one automatically. Write that one down too.

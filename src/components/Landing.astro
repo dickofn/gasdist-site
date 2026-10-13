@@ -54,14 +54,14 @@ const T = {
         max: 600,
         alt: "Jendela pratinjau cetak surat jalan dengan pilihan kertas",
         title: "Kertas yang siap ditandatangani",
-        body: "Kop perusahaan dengan logo, tiga kotak tanda tangan, dan pernyataan penerimaan barang. Draf dicetak dengan tanda air DRAFT, cetak ulang bertanda SALINAN.",
+        body: "Kop perusahaan dengan logo, tiga kotak tanda tangan, dan pernyataan penerimaan barang. Draf bisa dipratinjau dengan tanda air DRAFT, dan cetak ulang bertanda SALINAN.",
         link: "cetak/mencetak/",
       },
       {
         shot: "users-list",
         alt: "Daftar pengguna dengan peran masing-masing",
-        title: "Setiap orang melihat menu yang sesuai",
-        body: "Lima peran: Owner, Admin, Gudang, Penjualan, dan Pemantau. Gudang menerima stok, Penjualan membuat surat jalan, Pemantau hanya melihat laporan.",
+        title: "Setiap orang mengerjakan bagiannya",
+        body: "Lima peran: Owner, Admin, Gudang, Penjualan, dan Pemantau. Gudang menerima stok, Penjualan membuat surat jalan, Pemantau hanya melihat. Tombol yang bukan bagiannya tidak muncul.",
         link: "mulai/peran/",
       },
     ],
@@ -132,14 +132,14 @@ const T = {
         max: 600,
         alt: "Surat jalan print preview window with the paper choice",
         title: "Paper that is ready to sign",
-        body: "Company letterhead with logo, three signature boxes and a receipt statement. Drafts print with a DRAFT watermark, reprints are marked SALINAN.",
+        body: "Company letterhead with logo, three signature boxes and a receipt statement. Drafts can be previewed with a DRAFT watermark, and reprints are marked SALINAN.",
         link: "cetak/mencetak/",
       },
       {
         shot: "users-list",
         alt: "User list with each user's role",
-        title: "Everyone sees the menu that fits their job",
-        body: "Five roles: Owner, Admin, Warehouse, Sales and Viewer. Warehouse receives stock, Sales writes surat jalan, Viewer only reads the reports.",
+        title: "Everyone does their own part",
+        body: "Five roles: Owner, Admin, Warehouse, Sales and Viewer. Warehouse receives stock, Sales writes surat jalan, Viewer only looks. Buttons for someone else's job do not appear.",
         link: "mulai/peran/",
       },
     ],
@@ -232,7 +232,7 @@ const paper = lang === "en" ? printEn : printId;
       <nav>
         <a href={guide}>{T.navGuide}</a>
         <a href={other} hreflang={lang === "en" ? "id" : "en"}>{T.otherLang}</a>
-        <a href="https://github.com/dickofn">GitHub</a>
+        <a href="mailto:dickofn@gmail.com">dickofn@gmail.com</a>
       </nav>
     </header>
 
@@ -335,7 +335,7 @@ const paper = lang === "en" ? printEn : printId;
 
     <footer class="foot">
       <p>{T.footer}</p>
-      <p><a href={guide}>{T.navGuide}</a> <a href={other}>{T.otherLang}</a> <a href="https://github.com/dickofn">GitHub</a></p>
+      <p><a href={guide}>{T.navGuide}</a> <a href={other}>{T.otherLang}</a> <a href="mailto:dickofn@gmail.com">dickofn@gmail.com</a></p>
     </footer>
   </body>
 </html>

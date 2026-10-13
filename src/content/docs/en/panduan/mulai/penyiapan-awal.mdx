@@ -1,0 +1,103 @@
+---
+title: Installing and first-run setup
+description: Install GasDist, enter the company details and the Owner account, keep the recovery code, then try the example data if you like.
+sidebar:
+  order: 2
+---
+
+import { Steps, Aside } from "@astrojs/starlight/components";
+import Shot from "../../../../../components/Shot.astro";
+import Roles from "../../../../../components/Roles.astro";
+
+First-run setup happens once per PC: install the app, enter the company details and create the first Owner account. Whoever sets GasDist up becomes the **Owner**, the role with every permission.
+
+<Roles can={["OWNER"]} />
+
+## Installing GasDist
+
+The installer comes as a single file, for example on a USB stick. Installing needs no internet, and there is no database or other program to install.
+
+| System | File | How to install |
+|---|---|---|
+| Windows 10 (21H2 or later) or Windows 11, 64-bit | `GasDist_<version>_x64-setup.exe` | Double-click the file and follow the steps on screen. Everything it needs is inside the installer. |
+| Linux (Ubuntu 22.04+ or Debian 12+) | `GasDist_<version>_amd64.deb` | Open it with the system's package installer. |
+| Linux, without installing | `GasDist_<version>_amd64.AppImage` | Allow the file to run as a program, then double-click it. |
+
+Once installed, open **GasDist** from the Start menu (or the applications menu on Linux).
+
+## Entering the company and the Owner account
+
+The first time it opens, GasDist shows the **Welcome to GasDist** screen. Choose the language under **Language** at the top right first, if needed.
+
+<Shot name="setup-empty" alt="The Welcome to GasDist screen with an empty company and Owner account form" />
+
+<Steps>
+
+1. Under **Company**, enter the **Company name** <span class="pin">1</span>. **Phone**, **Address** and **NPWP** can be entered now or later in [Settings](/gasdist-site/en/panduan/pengaturan/perusahaan/). These details print at the top of the surat jalan.
+
+2. Under **Owner account**, fill in **Full name**, **Username** <span class="pin">2</span>, **Password** and **Repeat password**.
+
+   - Username: 3 to 32 letters, digits, dots, underscores or hyphens, no spaces.
+   - Password: at least 8 characters.
+
+   <Shot name="setup-filled" alt="The setup form filled in for PT Sumber Gas Sejahtera with Owner Hendra Wijaya" />
+
+3. Check it once more, then click **Finish and sign in** <span class="pin">3</span>.
+
+</Steps>
+
+<Aside type="tip" title="Moving from another PC?">
+Do not fill in this form. Click **Restore from a backup…** below the form and choose the backup file from the old PC. Afterwards, sign in with the accounts in the backup. See [Restoring from a backup](/gasdist-site/en/panduan/backup/memulihkan/).
+</Aside>
+
+## Keeping the recovery code
+
+Once the form is sent, GasDist shows a **recovery code**, once only. This code is the only way to reset the Owner password if it is forgotten.
+
+<Shot name="setup-recovery-code" alt="The Keep the recovery code screen with the code, the I have written this code down tick box and the Continue button" />
+
+<Steps>
+
+1. Read the explanation <span class="pin">1</span>, then **write the code in the yellow box on paper**. It has four groups of five letters or digits.
+
+2. Keep the paper somewhere safe, away from the PC. Do not save it in a file on the same PC: if the PC breaks, the code is gone with it.
+
+3. Tick **I have written this code down** <span class="pin">2</span>. The **Continue** button <span class="pin">3</span> only works once this box is ticked.
+
+4. Click **Continue**. You go straight to the main window.
+
+</Steps>
+
+<Aside type="caution" title="The code is not shown again">
+If you skip past this step without writing the code down, there is no way to see it again. The Owner can make a new code at any time from the **Users** menu (the old code stops working at once). See [Password resets and the recovery code](/gasdist-site/en/panduan/pengguna/kata-sandi-dan-kode-pemulihan/).
+</Aside>
+
+Each time the code is used to recover a password, GasDist immediately gives a new code on this same screen. Write that one down too.
+
+## Trying the example data
+
+While the database is still empty, the **Stock** page shows the **Try GasDist with example data** card <span class="pin">1</span>. Only the Owner sees it.
+
+<Shot name="home-empty-demo" alt="The empty Stock page with the Try GasDist with example data card and its Hide and Fill in example data buttons" />
+
+There are two choices, and both ask you to confirm first:
+
+| Button | What happens |
+|---|---|
+| **Fill in example data** | GasDist fills in example products, customers, vehicles, drivers, stock and a few surat jalan. Only once. |
+| **Hide** | The card goes away and never comes back. |
+
+<Aside type="caution" title="Example data cannot be deleted">
+Example data stays in the stock history, surat jalan numbers and audit log for good. Example master data can only be deactivated. Use it to practise, not on the database you will use for real. For real use, click **Hide**.
+</Aside>
+
+The offer is only there while the database is empty. Once you enter your own data, the card no longer appears.
+
+## Next steps
+
+The red **Backup** card above it means backups are off. Set a backup password first with **Set backup password**, before real data goes in. See [Backup password](/gasdist-site/en/panduan/backup/kata-sandi-backup/). Then:
+
+1. Add [products](/gasdist-site/en/panduan/data-master/produk/), then [vehicles and drivers](/gasdist-site/en/panduan/data-master/kendaraan-dan-sopir/).
+2. Add [customers](/gasdist-site/en/panduan/pelanggan/menambah/).
+3. Create accounts for your staff in [Adding users](/gasdist-site/en/panduan/pengguna/menambah/).
+4. Record the opening stock with [Receiving stock](/gasdist-site/en/panduan/stok/terima-stok/).

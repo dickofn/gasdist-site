@@ -1,0 +1,92 @@
+---
+title: Produk
+description: Tambah dan ubah produk LPG, termasuk kapasitas per tabung dan batas stok menipis.
+sidebar:
+  order: 1
+---
+
+import { Steps, Aside } from "@astrojs/starlight/components";
+import Shot from "../../../../components/Shot.astro";
+import Roles from "../../../../components/Roles.astro";
+
+Produk adalah jenis tabung yang Anda jual, misalnya LPG 3 kg atau LPG 12 kg. Stok dihitung per produk, dan kapasitas produk menentukan berapa kg gas dalam satu tabung.
+
+<Roles can={["OWNER", "ADMIN"]} />
+
+Menu **Master Data** hanya tampil untuk Owner dan Admin.
+
+## Daftar produk
+
+Buka **Master Data** di menu samping. Tab **Produk** terbuka lebih dulu; tab **Kendaraan** dan **Sopir** ada di sebelahnya <span class="pin">1</span>.
+
+<Shot name="master-products" alt="Tab Produk di Master Data dengan empat produk LPG" />
+
+Setiap baris menampilkan kode, nama, kapasitas, **Batas stok menipis (kg)** <span class="pin">3</span>, urutan, dan status. Di kolom **Tindakan** ada **Ubah** dan **Nonaktifkan**.
+
+## Menambah produk
+
+<Steps>
+
+1. Klik **Tambah produk** <span class="pin">2</span>.
+
+2. Isi kolom-kolomnya (lihat tabel di bawah), lalu klik **Simpan**.
+
+</Steps>
+
+## Mengubah produk
+
+<Steps>
+
+1. Klik **Ubah** di baris produk itu.
+
+2. Ubah yang perlu. Di bawah setiap kolom kg, GasDist menulis ulang angka yang Anda ketik, misalnya `= 5,5 kg`, supaya Anda yakin angkanya terbaca benar.
+
+   <Shot name="master-product-edit" alt="Formulir Ubah LPG 5,5 kg dengan kapasitas 5,5 kg dan batas stok menipis 165 kg" />
+
+3. Klik **Simpan**.
+
+</Steps>
+
+| Kolom | Wajib? | Keterangan |
+|---|---|---|
+| **Kode produk** | ✅ | 1 sampai 20 huruf, angka, titik, garis bawah, tanda hubung, atau garis miring, tanpa spasi. Tidak boleh sama dengan produk lain. |
+| **Nama produk** | ✅ | Nama yang tampil di layar dan tercetak di surat jalan |
+| **Kapasitas (kg)** <span class="pin">1</span> | ✅ | Isi gas satu tabung penuh, dalam kg. Dipakai untuk mengubah jumlah tabung menjadi kg. |
+| **Berat tabung kosong (kg)** | | Berat tabung tanpa isi, sebagai catatan. Boleh dikosongkan; tidak dipakai untuk menghitung stok. |
+| **Batas stok menipis (kg)** <span class="pin">2</span> | ✅ | Bila stok di bawah angka ini, kartu produk di halaman Stok ditandai **Menipis**. Isi 0 bila tidak perlu. |
+| **Urutan** | ✅ | Angka kecil tampil lebih dulu, di halaman Stok dan di daftar pilihan produk |
+
+Untuk kolom kg, pakai koma untuk desimal, misalnya `5,5`.
+
+## Batas stok menipis
+
+Batas ditulis dalam kg, bukan tabung. Untuk menghitungnya, kalikan jumlah tabung minimum dengan kapasitas. Contoh: Anda ingin diingatkan bila LPG 5,5 kg tinggal kurang dari 30 tabung, maka isi 30 × 5,5 = `165`.
+
+Tanda **Menipis** muncul di kartu produk di [halaman Stok](/gasdist-site/panduan/stok/ringkasan/) dan di kolom **Stok setelah** saat [membuat surat jalan](/gasdist-site/panduan/surat-jalan/membuat/).
+
+## Mengubah kapasitas
+
+Kapasitas tetap bisa diubah setelah produk dipakai. Akibatnya:
+
+| Yang terpengaruh | Setelah kapasitas diubah |
+|---|---|
+| Surat jalan yang sudah diposting | Tidak berubah. Setiap baris menyimpan kapasitas saat diposting. |
+| Draf surat jalan | Memakai kapasitas baru saat diposting |
+| Stok dalam kg | Tidak berubah |
+| Angka `= … tabung` di halaman Stok | Dihitung ulang dengan kapasitas baru |
+| Penerimaan dan stok opname berikutnya dalam tabung | Dihitung dengan kapasitas baru |
+
+<Aside type="caution">
+Ubah kapasitas hanya untuk memperbaiki salah ketik. Bila Anda mulai menjual ukuran tabung lain, buat produk baru, jangan mengubah produk lama. Dengan begitu stok dan riwayat kedua ukuran tetap terpisah.
+</Aside>
+
+## Menonaktifkan produk
+
+Produk tidak bisa dihapus. Produk yang tidak dijual lagi dinonaktifkan: klik **Nonaktifkan** di barisnya, lalu konfirmasi. Untuk mengaktifkan lagi, klik **Aktifkan** di baris yang sama.
+
+| | Produk nonaktif |
+|---|---|
+| Bisa dipilih di surat jalan, terima stok | ❌ |
+| Tampil di halaman Stok | Hanya bila masih punya stok, dengan tanda **Nonaktif** |
+| Kartu stok di menu Laporan | ✅, dengan tanda **(Nonaktif)** |
+| Surat jalan dan riwayat lama | Tetap utuh |

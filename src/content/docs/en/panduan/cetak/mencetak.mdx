@@ -1,0 +1,86 @@
+---
+title: Printing a surat jalan
+description: Print a posted surat jalan on A4 or continuous paper, or save it as a PDF.
+sidebar:
+  order: 1
+---
+
+import { Steps, Aside } from "@astrojs/starlight/components";
+import Shot from "../../../../../components/Shot.astro";
+import Roles from "../../../../../components/Roles.astro";
+
+A surat jalan is printed and then signed by hand by the person who made it, the driver, and the receiver. Only a **posted** surat jalan can be printed, because only a posted one has a number.
+
+<Roles can={["OWNER", "ADMIN", "PENJUALAN"]} />
+
+The other roles (Warehouse and Viewer) can still open **Preview** to look at the page, but there is no **Print** button. The window says **You can view this surat jalan but not print it.**
+
+## Printing
+
+<Steps>
+
+1. Open a surat jalan with the status **Posted**, then click **Print** at the top right (or press <kbd>Ctrl</kbd>+<kbd>P</kbd>). The print window opens and shows the surat jalan exactly as it will print. The top left shows its number and **Original** if it has never been printed.
+
+2. Choose the **Paper** size <span class="pin">1</span>: **A4** or **Continuous paper 9.5 × 11 in**. This choice is for this print only; the default is set by the Owner under **Settings**, section **Documents**, field **Paper size**.
+
+3. Click **Print** <span class="pin">2</span> (or press <kbd>Ctrl</kbd>+<kbd>P</kbd> in this window).
+
+   <Shot name="print-window" alt="The print window for surat jalan SJ/2026/10/0031 marked Original, with the A4 paper choice and the Print button" />
+
+4. Your computer's own print dialog opens. Choose the printer, then print. To keep a file instead, choose a PDF printer, such as **Save as PDF** or **Microsoft Print to PDF** (the name depends on your computer), then pick where to save it.
+
+5. The print window shows **Print no. 1 went to the print dialog. Printing again marks it COPY.** The sheet is ready for the driver to take along and have signed.
+
+</Steps>
+
+<Aside type="caution" title="A print counts the moment you click Print">
+GasDist records the print as soon as you click **Print**, before the print dialog opens. If you then close the print dialog without printing, that print still counts, and the next one is marked as a copy. So get the printer and paper ready first, then click **Print**. See [SALINAN and DRAFT](/gasdist-site/en/panduan/cetak/salinan-dan-draf/).
+</Aside>
+
+## Choosing the paper
+
+| **Paper** choice | For | Page size |
+|---|---|---|
+| **A4** | Ordinary printers (inkjet or laser), and for saving a PDF | 210 × 297 mm |
+| **Continuous paper 9.5 × 11 in** | Dot-matrix printers with continuous form (perforated fanfold paper) | 9.5 × 11 in |
+
+The contents are the same on both papers; only the page size and margins differ. The preview changes as soon as you switch paper.
+
+<Shot name="print-a4" alt="A surat jalan sheet on A4 paper" />
+
+<Shot name="print-continuous" alt="The same surat jalan sheet on continuous 9.5 × 11 in paper" />
+
+## What is on the sheet
+
+The sheet is printed in the company's default language. With Indonesian, as in these screenshots, it reads as follows, from top to bottom:
+
+| Part | What it holds |
+|---|---|
+| Header | The company's logo, name, address, phone and NPWP, taken from [the company settings](/gasdist-site/en/panduan/pengaturan/perusahaan/) |
+| Title | **SURAT JALAN**, **No.** (the surat jalan number) and **Tanggal** (date) |
+| **KEPADA** (to) | Customer name and code, address, city and phone |
+| Kendaraan and Sopir | The vehicle's plate and the driver's name, or `-` if left empty |
+| Lines table | **No**, **Produk** (with its code), **Jumlah (tabung)**, **Isi per tabung**, **Berat (kg)**, then a **Total** row |
+| Notes | What was typed in **Notes**, only when filled in |
+| Statement | *Barang diterima dalam keadaan baik dan jumlah sesuai.* (goods received in good condition and in the stated quantity) |
+| Three signature boxes | See the next table |
+
+### The three signature boxes
+
+| Box | Name printed in it | Who fills it in |
+|---|---|---|
+| **DIBUAT OLEH** (prepared by) | The user who posted the surat jalan, in brackets | That office person signs above their name and writes the date |
+| **SOPIR** (driver) | The chosen driver; empty brackets if no driver was chosen | The driver signs when taking the goods and writes the date |
+| **PENERIMA** (receiver) | None; this box is for the customer | The receiver stamps the dashed **Cap / stempel** (stamp) area, signs, and writes **Nama jelas** (name in full) and **Tanggal** (date) |
+
+The statement *Barang diterima dalam keadaan baik dan jumlah sesuai.* is printed just above the signature boxes. By signing the **PENERIMA** box, the customer confirms the tabung arrived in good condition and the quantity matches the table. Ask the receiver to count the tabung before signing.
+
+Below the signature boxes, the printed sheet carries a small **Cetakan ke-1** (print no. 1), **Cetakan ke-2**, and so on. This line does not show in the preview before you click **Print**.
+
+<Aside type="note" title="The sheet's language">
+The surat jalan sheet is printed in the company's default language, not the language you are using, because the sheet is for the customer. When the default language is English, the labels are printed in English too. The Owner sets the default language in [Settings](/gasdist-site/en/panduan/pengaturan/stok-dan-keamanan/).
+</Aside>
+
+<Aside type="note" title="The print window locks too">
+When GasDist is locked or you sign out, the print window hides the sheet and shows **The session is locked or signed out.** Unlock in the main window and the sheet comes back.
+</Aside>

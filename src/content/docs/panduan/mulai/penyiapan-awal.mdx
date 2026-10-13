@@ -1,0 +1,103 @@
+---
+title: Pemasangan dan penyiapan awal
+description: Pasang GasDist, isi data perusahaan dan akun Owner, simpan kode pemulihan, lalu coba data contoh bila mau.
+sidebar:
+  order: 2
+---
+
+import { Steps, Aside } from "@astrojs/starlight/components";
+import Shot from "../../../../components/Shot.astro";
+import Roles from "../../../../components/Roles.astro";
+
+Penyiapan awal hanya dilakukan sekali per PC: memasang aplikasi, mengisi data perusahaan, dan membuat akun Owner pertama. Orang yang menyiapkan GasDist otomatis menjadi **Owner**, peran yang punya semua izin.
+
+<Roles can={["OWNER"]} />
+
+## Memasang GasDist
+
+Installer diberikan sebagai satu berkas, misalnya lewat flashdisk. Pemasangan tidak butuh internet dan tidak perlu memasang database atau program lain.
+
+| Sistem | Berkas | Cara memasang |
+|---|---|---|
+| Windows 10 (21H2 atau lebih baru) atau Windows 11, 64-bit | `GasDist_<versi>_x64-setup.exe` | Klik dua kali berkasnya, lalu ikuti langkah di layar. Semua yang dibutuhkan sudah ada di dalam installer. |
+| Linux (Ubuntu 22.04+ atau Debian 12+) | `GasDist_<versi>_amd64.deb` | Buka dengan pemasang paket bawaan sistem. |
+| Linux, tanpa memasang | `GasDist_<versi>_amd64.AppImage` | Izinkan berkas dijalankan sebagai program, lalu klik dua kali. |
+
+Setelah terpasang, buka **GasDist** dari menu Start (atau menu aplikasi di Linux).
+
+## Mengisi data perusahaan dan akun Owner
+
+Saat dibuka pertama kali, GasDist menampilkan layar **Selamat datang di GasDist**. Pilih dulu bahasanya di **Bahasa** kanan atas bila perlu.
+
+<Shot name="setup-empty" alt="Layar Selamat datang di GasDist dengan formulir perusahaan dan akun Owner yang masih kosong" />
+
+<Steps>
+
+1. Di bagian **Perusahaan**, isi **Nama perusahaan** <span class="pin">1</span>. **Telepon**, **Alamat**, dan **NPWP** boleh diisi sekarang atau nanti di [Pengaturan](/gasdist-site/panduan/pengaturan/perusahaan/). Data ini tercetak di kepala surat jalan.
+
+2. Di bagian **Akun Owner**, isi **Nama lengkap**, **Nama pengguna** <span class="pin">2</span>, **Kata sandi**, dan **Ulangi kata sandi**.
+
+   - Nama pengguna: 3 sampai 32 huruf, angka, titik, garis bawah atau tanda hubung, tanpa spasi.
+   - Kata sandi: minimal 8 karakter.
+
+   <Shot name="setup-filled" alt="Formulir penyiapan yang sudah terisi untuk PT Sumber Gas Sejahtera dengan Owner Hendra Wijaya" />
+
+3. Periksa sekali lagi, lalu klik **Selesai dan masuk** <span class="pin">3</span>.
+
+</Steps>
+
+<Aside type="tip" title="Pindah dari PC lain?">
+Jangan isi formulir ini. Klik **Pulihkan dari backup…** di bawah formulir dan pilih file backup dari PC lama. Setelah itu masuk dengan akun yang ada di backup. Lihat [Memulihkan dari backup](/gasdist-site/panduan/backup/memulihkan/).
+</Aside>
+
+## Menyimpan kode pemulihan
+
+Setelah formulir dikirim, GasDist menampilkan **kode pemulihan** satu kali saja. Kode ini adalah satu-satunya jalan untuk mengatur ulang kata sandi Owner bila terlupa.
+
+<Shot name="setup-recovery-code" alt="Layar Simpan kode pemulihan dengan kode pemulihan, kotak centang Saya sudah mencatat kode ini, dan tombol Lanjut" />
+
+<Steps>
+
+1. Baca penjelasannya <span class="pin">1</span>, lalu **tulis kode di kotak kuning di atas kertas**. Kode terdiri dari empat kelompok berisi lima huruf atau angka.
+
+2. Simpan kertas itu di tempat yang aman, jauh dari PC. Jangan simpan di berkas di PC yang sama: bila PC rusak, kodenya ikut hilang.
+
+3. Centang **Saya sudah mencatat kode ini** <span class="pin">2</span>. Tombol **Lanjut** <span class="pin">3</span> baru bisa diklik setelah kotak ini dicentang.
+
+4. Klik **Lanjut**. Anda langsung masuk ke jendela utama.
+
+</Steps>
+
+<Aside type="caution" title="Kode ini tidak ditampilkan lagi">
+Bila Anda melewatkan langkah ini tanpa mencatat kodenya, tidak ada cara melihatnya kembali. Owner bisa membuat kode baru kapan saja dari menu **Pengguna** (kode lama langsung tidak berlaku). Lihat [Reset kata sandi dan kode pemulihan](/gasdist-site/panduan/pengguna/kata-sandi-dan-kode-pemulihan/).
+</Aside>
+
+Setiap kali kode dipakai untuk memulihkan kata sandi, GasDist langsung memberi kode baru dengan layar yang sama. Catat kode baru itu juga.
+
+## Mencoba data contoh
+
+Selama database masih kosong, halaman **Stok** menampilkan kartu **Coba GasDist dengan data contoh** <span class="pin">1</span>. Kartu ini hanya tampil untuk Owner.
+
+<Shot name="home-empty-demo" alt="Halaman Stok yang masih kosong dengan kartu Coba GasDist dengan data contoh, tombol Sembunyikan dan Isi data contoh" />
+
+Ada dua pilihan, dan keduanya meminta konfirmasi dulu:
+
+| Tombol | Hasilnya |
+|---|---|
+| **Isi data contoh** | GasDist mengisi produk, pelanggan, kendaraan, sopir, stok, dan beberapa surat jalan contoh. Hanya bisa sekali. |
+| **Sembunyikan** | Kartu hilang dan tidak akan muncul lagi. |
+
+<Aside type="caution" title="Data contoh tidak bisa dihapus">
+Data contoh tercatat permanen di riwayat stok, nomor surat jalan, dan audit. Data master contoh hanya bisa dinonaktifkan. Pakai data contoh untuk berlatih, bukan pada database yang akan dipakai sungguhan. Untuk dipakai sungguhan, klik **Sembunyikan**.
+</Aside>
+
+Pilihan ini hanya tersedia selama database masih kosong. Begitu Anda mengisi data sendiri, kartunya tidak muncul lagi.
+
+## Langkah berikutnya
+
+Kartu merah **Backup** di atasnya menandakan backup belum aktif. Atur kata sandi backup lebih dulu lewat **Atur kata sandi backup**, sebelum data sungguhan masuk. Lihat [Kata sandi backup](/gasdist-site/panduan/backup/kata-sandi-backup/). Setelah itu:
+
+1. Isi [produk](/gasdist-site/panduan/data-master/produk/), lalu [kendaraan dan sopir](/gasdist-site/panduan/data-master/kendaraan-dan-sopir/).
+2. Tambahkan [pelanggan](/gasdist-site/panduan/pelanggan/menambah/).
+3. Buat akun untuk staf di [Menambah pengguna](/gasdist-site/panduan/pengguna/menambah/).
+4. Catat stok awal dengan [Menerima stok](/gasdist-site/panduan/stok/terima-stok/).

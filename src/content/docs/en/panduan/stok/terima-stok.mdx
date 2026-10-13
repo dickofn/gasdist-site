@@ -1,0 +1,62 @@
+---
+title: Receiving stock
+description: Record full tabung arriving from the SPBE or a supplier, by tabung or in kg.
+sidebar:
+  order: 2
+---
+
+import { Steps, Aside } from "@astrojs/starlight/components";
+import Shot from "../../../../../components/Shot.astro";
+import Roles from "../../../../../components/Roles.astro";
+
+Whenever full tabung arrive from the SPBE or a supplier, record them in **Receive stock**. As soon as you save, the product's stock goes up.
+
+<Roles can={["OWNER", "ADMIN", "GUDANG"]} />
+
+## Recording a receipt
+
+<Steps>
+
+1. On the **Stock** page, click **Receive stock**. The form opens with today's **Date**. You may pick an earlier date, but not one after today.
+
+   <Shot name="stock-receive-empty" alt="The empty Receive stock form with one line" />
+
+2. Fill in **Supplier** <span class="pin">1</span>, for example the SPBE's name, and **Reference number**, for example the DO number. Both may be left blank, but a reference number makes the receipt easy to find in the kartu stok later.
+
+3. Fill in the lines: choose a **Product**, choose a **Unit** <span class="pin">2</span> (**tabung** or **kg**), then type the **Quantity**. The **Line kg** column shows straight away how many kg will come in.
+
+   Click **Add line** for the next product. The **×** button removes a line.
+
+   <Shot name="stock-receive-filled" alt="Receive stock form with LPG 3 kg 560 tabung and LPG 50 kg 987.5 kg, total 2,667.5 kg" />
+
+4. Check the **Total** <span class="pin">3</span>, then click **Save** <span class="pin">4</span>. You return to the **Stock** page with the message **Receipt saved: 2,667.5 kg.**
+
+</Steps>
+
+## Choosing the unit: tabung or kg
+
+| Unit | When to use it | Example from the picture |
+|---|---|---|
+| **tabung** | Full tabung counted one by one. The quantity must be a whole number. | 560 tabung of LPG 3 kg = 560 × 3 kg = 1,680 kg |
+| **kg** | Amounts that are not whole tabung, for example the weight on the SPBE's paperwork. Use a dot for decimals, such as `987.5`; the app also reads `987,5`, as in the picture. | 987.5 kg of LPG 50 kg (less than 20 full tabung) |
+
+Whichever unit you choose, stock is always kept in kg.
+
+<Aside type="note">
+Each product may appear on one line only. If you choose the same product twice, the message **This product is already on another line.** appears. Put the whole amount on one line. Only active products can be chosen.
+</Aside>
+
+## Recorded a receipt wrongly?
+
+<Aside type="caution" title="A saved receipt cannot be changed or deleted">
+GasDist's stock records can only be added to, never edited or deleted. This is on purpose, so the stock history can always be traced. A mistake is fixed with a new record, not by removing the old one.
+</Aside>
+
+How to fix it:
+
+| Mistake | Fix |
+|---|---|
+| A receipt was missed, or recorded too low | Record a new receipt for the missing amount |
+| Too much recorded, wrong product, or recorded twice | Do a [stock opname](/gasdist-site/en/panduan/stok/stok-opname/) for that product with a clear reason, for example `DO-4830 typo correction`. The difference is recorded as an adjustment. |
+
+Both fixes leave a trace in the [kartu stok](/gasdist-site/en/panduan/stok/kartu-stok/), so anyone can see what was corrected and why.

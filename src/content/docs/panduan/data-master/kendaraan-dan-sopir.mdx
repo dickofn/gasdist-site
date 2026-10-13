@@ -1,0 +1,76 @@
+---
+title: Kendaraan dan sopir
+description: Daftarkan kendaraan pengiriman dan sopir agar bisa dipilih di surat jalan.
+sidebar:
+  order: 2
+---
+
+import { Steps, Aside } from "@astrojs/starlight/components";
+import Shot from "../../../../components/Shot.astro";
+import Roles from "../../../../components/Roles.astro";
+
+Kendaraan dan sopir yang terdaftar bisa dipilih saat membuat surat jalan, dan ikut tercetak di surat jalan. Keduanya tidak wajib: surat jalan tetap bisa dibuat dengan **Tanpa kendaraan** dan **Tanpa sopir**.
+
+<Roles can={["OWNER", "ADMIN"]} />
+
+## Kendaraan
+
+<Steps>
+
+1. Buka **Master Data** di menu samping, lalu klik tab **Kendaraan**.
+
+2. Klik **Tambah kendaraan** <span class="pin">1</span>.
+
+   <Shot name="master-vehicles" alt="Tab Kendaraan dengan tiga kendaraan aktif" />
+
+3. Isi **Nomor polisi**, misalnya `B 9123 KXA`, dan bila perlu **Keterangan**, misalnya jenis kendaraan dan muatannya. Klik **Simpan**.
+
+</Steps>
+
+Nomor polisi boleh berisi huruf, angka, spasi, atau tanda hubung, paling banyak 15 karakter, dan selalu ditulis dengan huruf besar.
+
+## Sopir
+
+<Steps>
+
+1. Di **Master Data**, klik tab **Sopir**.
+
+2. Klik **Tambah sopir** <span class="pin">1</span>.
+
+   <Shot name="master-drivers" alt="Tab Sopir dengan tiga sopir aktif" />
+
+3. Isi **Nama sopir** (wajib) dan **Telepon** (boleh kosong). Klik **Simpan**.
+
+</Steps>
+
+Untuk memperbaiki data kendaraan atau sopir, klik **Ubah** di barisnya.
+
+<Aside type="caution">
+Surat jalan menampilkan nomor polisi dan nama sopir yang terbaru, juga saat surat jalan lama dicetak ulang. Pakai **Ubah** hanya untuk memperbaiki salah ketik. Bila kendaraan diganti atau sopir baru masuk, tambahkan data baru dan nonaktifkan yang lama.
+</Aside>
+
+## Menonaktifkan kendaraan atau sopir
+
+Kendaraan dan sopir tidak bisa dihapus. Bila kendaraan dijual atau sopir berhenti, nonaktifkan saja.
+
+<Steps>
+
+1. Klik **Nonaktifkan** di baris kendaraan atau sopir itu.
+
+2. Baca konfirmasinya: data itu tidak bisa dipilih lagi untuk transaksi baru, tetapi riwayatnya tetap tersimpan. Klik **Nonaktifkan**.
+
+   <Shot name="master-deactivate" alt="Dialog konfirmasi Nonaktifkan Supriyadi" />
+
+</Steps>
+
+Baris itu tetap ada di daftar dengan status **Nonaktif**. Untuk memakainya lagi, klik **Aktifkan** di baris yang sama.
+
+| | Nonaktif |
+|---|---|
+| Bisa dipilih di surat jalan baru | ❌ |
+| Surat jalan lama yang memakainya | Tetap utuh dan tetap bisa dicetak |
+| Draf yang masih memakainya | Tidak bisa disimpan atau diposting sebelum diganti, atau sebelum diaktifkan lagi |
+
+<Aside type="tip">
+Belum tahu kendaraan atau sopirnya saat membuat surat jalan? Pilih **Tanpa kendaraan** atau **Tanpa sopir**, simpan sebagai draf, dan lengkapi sebelum diposting. Lihat [Membuat surat jalan](/gasdist-site/panduan/surat-jalan/membuat/).
+</Aside>

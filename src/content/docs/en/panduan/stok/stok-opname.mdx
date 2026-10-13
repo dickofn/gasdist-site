@@ -1,0 +1,62 @@
+---
+title: Stock opname
+description: Count the physical stock in the warehouse and let GasDist record the difference as an adjustment.
+sidebar:
+  order: 3
+---
+
+import { Steps, Aside } from "@astrojs/starlight/components";
+import Shot from "../../../../../components/Shot.astro";
+import Roles from "../../../../../components/Roles.astro";
+
+A stock opname matches the records to what is actually in the warehouse. You only enter what you counted. GasDist works out the difference from the recorded stock and saves it as an **adjustment**, together with your reason.
+
+<Roles can={["OWNER", "ADMIN", "GUDANG"]} />
+
+## Doing a stock opname
+
+<Steps>
+
+1. On the **Stock** page, click **Stock opname**. Every product is listed with its **Recorded** stock on the chosen date.
+
+2. Check the **Date**. If you counted yesterday and are entering it today, pick yesterday: the **Recorded** column follows, showing the stock on that date.
+
+3. Fill in the **Reason** <span class="pin">1</span>, for example `Stok opname akhir bulan` (month-end count). The reason is required and appears in the kartu stok.
+
+4. For each product you counted, choose the **Unit** and type the **Physical count** <span class="pin">2</span>. Leave products you did not count blank: their stock is not touched.
+
+5. Look at the **Difference** column <span class="pin">3</span>. In the picture, LPG 3 kg was counted at 2276 tabung = 6,828 kg, while 6,834 kg is recorded. The difference is `-6 kg`, meaning the warehouse is 2 tabung short.
+
+   <Shot name="stock-opname" alt="Stock opname form with a reason filled in and a difference of -6 kg on LPG 3 kg" />
+
+6. Click **Save** <span class="pin">4</span>. You return to the **Stock** page with a **Stock opname saved:** message that says how many products were adjusted.
+
+</Steps>
+
+## What the Difference column means
+
+| Shown | What it means |
+|---|---|
+| `-` | No physical count entered, the product is skipped |
+| `0 kg` | The count matches the records, nothing changes |
+| Red, e.g. `-6 kg` | Less in the warehouse than recorded. Stock will go down. |
+| Green, e.g. `12 kg` | More in the warehouse than recorded. Stock will go up. |
+
+If there is no difference at all, **Save** cannot be clicked and the line **No difference to save yet.** appears.
+
+## Counting in tabung or kg
+
+| Unit | When to use it |
+|---|---|
+| **tabung** | Every tabung you counted is full. Enter a whole number; GasDist multiplies it by the gas in one tabung. |
+| **kg** | Some tabung are not full, or you weighed the stock. Type the weight in kg, with a dot for decimals. |
+
+In the picture, LPG 12 kg is counted in **kg** (2436) and the other products in **tabung**. Each product can use its own unit.
+
+<Aside type="tip">
+A stock opname is also how you correct a receipt that was recorded wrongly, since receipts cannot be changed or deleted. Write a clear reason, for example `DO-4830 typo correction`, so it makes sense to whoever reads the [kartu stok](/gasdist-site/en/panduan/stok/kartu-stok/) later.
+</Aside>
+
+<Aside type="caution">
+A saved adjustment cannot be deleted either. If it was wrong, do another stock opname with the correct count.
+</Aside>

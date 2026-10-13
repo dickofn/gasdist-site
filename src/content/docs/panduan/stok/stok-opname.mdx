@@ -1,0 +1,62 @@
+---
+title: Stok opname
+description: Hitung stok fisik di gudang, lalu biarkan GasDist mencatat selisihnya sebagai penyesuaian.
+sidebar:
+  order: 3
+---
+
+import { Steps, Aside } from "@astrojs/starlight/components";
+import Shot from "../../../../components/Shot.astro";
+import Roles from "../../../../components/Roles.astro";
+
+Stok opname mencocokkan catatan dengan isi gudang. Anda cukup mengisi hasil hitungan fisik. GasDist menghitung selisihnya dengan stok tercatat, lalu mencatat selisih itu sebagai **penyesuaian** beserta alasannya.
+
+<Roles can={["OWNER", "ADMIN", "GUDANG"]} />
+
+## Melakukan stok opname
+
+<Steps>
+
+1. Di halaman **Stok**, klik **Stok opname**. Semua produk tampil dengan stok **Tercatat** pada tanggal yang dipilih.
+
+2. Periksa **Tanggal**. Bila Anda menghitung kemarin dan baru mencatatnya hari ini, pilih tanggal kemarin: kolom **Tercatat** ikut menyesuaikan dengan stok pada tanggal itu.
+
+3. Isi **Alasan** <span class="pin">1</span>, misalnya `Stok opname akhir bulan`. Alasan wajib diisi dan akan tampil di kartu stok.
+
+4. Untuk setiap produk yang dihitung, pilih **Satuan** lalu ketik **Jumlah fisik** <span class="pin">2</span>. Produk yang tidak dihitung biarkan kosong: stoknya tidak diubah.
+
+5. Lihat kolom **Selisih** <span class="pin">3</span>. Pada gambar, LPG 3 kg dihitung 2276 tabung = 6.828 kg, sedangkan tercatat 6.834 kg. Selisihnya `-6 kg`, artinya 2 tabung kurang di gudang.
+
+   <Shot name="stock-opname" alt="Formulir Stok opname dengan alasan terisi dan selisih -6 kg pada LPG 3 kg" />
+
+6. Klik **Simpan** <span class="pin">4</span>. Anda kembali ke halaman **Stok** dengan pesan, misalnya, **Stok opname disimpan: 1 produk disesuaikan.**
+
+</Steps>
+
+## Arti kolom Selisih
+
+| Tampilan | Artinya |
+|---|---|
+| `-` | Jumlah fisik belum diisi, produk ini dilewati |
+| `0 kg` | Hitungan cocok dengan catatan, tidak ada yang diubah |
+| Merah, mis. `-6 kg` | Barang di gudang lebih sedikit dari catatan. Stok akan dikurangi. |
+| Hijau, mis. `12 kg` | Barang di gudang lebih banyak dari catatan. Stok akan ditambah. |
+
+Bila tidak ada satu pun selisih, tombol **Simpan** tidak bisa diklik dan muncul tulisan **Belum ada selisih untuk disimpan.**
+
+## Menghitung dalam tabung atau kg
+
+| Satuan | Kapan dipakai |
+|---|---|
+| **tabung** | Semua tabung yang dihitung penuh. Isi bilangan bulat; GasDist mengalikannya dengan isi satu tabung. |
+| **kg** | Ada tabung yang tidak penuh, atau Anda menimbang. Ketik beratnya dalam kg, pakai koma untuk desimal. |
+
+Pada gambar, LPG 12 kg dihitung dalam **kg** (2436), sedangkan produk lain dalam **tabung**. Satuan boleh berbeda untuk tiap produk.
+
+<Aside type="tip">
+Stok opname juga dipakai untuk memperbaiki penerimaan yang salah catat, karena penerimaan tidak bisa diubah atau dihapus. Tulis alasan yang jelas, misalnya `Koreksi DO-4830 salah ketik`, supaya mudah dipahami saat membaca [kartu stok](/gasdist-site/panduan/stok/kartu-stok/).
+</Aside>
+
+<Aside type="caution">
+Penyesuaian yang sudah disimpan juga tidak bisa dihapus. Bila salah, lakukan stok opname lagi dengan hitungan yang benar.
+</Aside>

@@ -1,0 +1,71 @@
+---
+title: Menambah dan mengubah pelanggan
+description: Daftarkan pelanggan baru atau perbaiki data pelanggan yang sudah ada.
+sidebar:
+  order: 2
+---
+
+import { Steps, Aside } from "@astrojs/starlight/components";
+import Shot from "../../../../components/Shot.astro";
+import Roles from "../../../../components/Roles.astro";
+
+Pelanggan harus terdaftar dulu sebelum bisa dipilih di surat jalan. Data yang Anda isi di sini, seperti nama dan alamat, ikut tercetak di surat jalan.
+
+<Roles can={["OWNER", "ADMIN", "PENJUALAN"]} />
+
+## Menambah pelanggan
+
+<Steps>
+
+1. Buka **Pelanggan** di menu samping, lalu klik **Tambah pelanggan**.
+
+2. Isi **Kode pelanggan** <span class="pin">1</span> dan **Nama pelanggan**. Keduanya wajib.
+
+3. Pilih **Jenis pelanggan** <span class="pin">2</span>: **Pangkalan**, **Pengecer**, **Industri**, atau **Lainnya**. Jenis ini dipakai untuk menyaring daftar pelanggan.
+
+4. Lengkapi kolom lain yang Anda ketahui, lalu klik **Simpan**.
+
+   <Shot name="customers-add" alt="Formulir Tambah pelanggan untuk Pangkalan Sinar Harapan dengan kode P-009" />
+
+</Steps>
+
+## Isi setiap kolom
+
+| Kolom | Wajib? | Keterangan |
+|---|---|---|
+| **Kode pelanggan** | ✅ | 1 sampai 20 huruf, angka, titik, garis bawah, tanda hubung, atau garis miring, tanpa spasi. Tidak boleh sama dengan pelanggan lain. |
+| **Nama pelanggan** | ✅ | Nama yang tercetak di surat jalan |
+| **Jenis pelanggan** | ✅ | Pangkalan, Pengecer, Industri, atau Lainnya |
+| **Kota** | | Bisa dipakai untuk mencari |
+| **Telepon** | | Bisa dipakai untuk mencari |
+| **Kontak** | | Nama orang yang biasa dihubungi |
+| **NPWP** | | |
+| **NIK** | | Bila diisi, harus 16 angka |
+| **Alamat** | | Alamat pengiriman |
+| **Catatan** | | Catatan bebas untuk tim Anda |
+
+<Aside type="tip">
+Buat pola kode yang mudah diingat, misalnya `P-` untuk pangkalan dan `I-` untuk industri. Di surat jalan, Anda bisa mencari pelanggan cukup dengan mengetik kodenya.
+</Aside>
+
+Bila kode sudah dipakai pelanggan lain, GasDist menolak menyimpan dan memberi tahu kode mana yang bentrok. Pilih kode lain.
+
+## Mengubah data pelanggan
+
+<Steps>
+
+1. Di daftar pelanggan, klik pelanggan yang ingin diubah. [Detail pelanggan](/gasdist-site/panduan/pelanggan/detail/) terbuka.
+
+2. Klik **Ubah**. Formulir yang sama terbuka dengan data yang sudah terisi.
+
+3. Perbaiki datanya, lalu klik **Simpan**.
+
+</Steps>
+
+<Aside type="caution">
+Surat jalan selalu menampilkan data pelanggan yang terbaru, juga saat surat jalan lama dicetak ulang. Jadi ubah data hanya untuk memperbaiki atau memperbarui pelanggan yang sama. Jangan mengganti nama dan alamat satu pelanggan menjadi usaha lain: tambahkan pelanggan baru untuk itu.
+</Aside>
+
+## Menghapus pelanggan?
+
+Pelanggan tidak bisa dihapus. Pelanggan yang tidak lagi dilayani dinonaktifkan, sehingga riwayat surat jalannya tetap utuh. Caranya ada di [Detail pelanggan](/gasdist-site/panduan/pelanggan/detail/).

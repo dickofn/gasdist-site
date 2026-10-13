@@ -1,0 +1,62 @@
+---
+title: Menerima stok
+description: Catat tabung isi yang datang dari SPBE atau pemasok, per tabung atau dalam kg.
+sidebar:
+  order: 2
+---
+
+import { Steps, Aside } from "@astrojs/starlight/components";
+import Shot from "../../../../components/Shot.astro";
+import Roles from "../../../../components/Roles.astro";
+
+Setiap kali tabung isi datang dari SPBE atau pemasok, catat di **Terima stok**. Begitu disimpan, stok produk itu langsung bertambah.
+
+<Roles can={["OWNER", "ADMIN", "GUDANG"]} />
+
+## Mencatat penerimaan
+
+<Steps>
+
+1. Di halaman **Stok**, klik **Terima stok**. Formulir terbuka dengan **Tanggal** hari ini. Anda boleh memilih tanggal yang sudah lewat, tetapi tidak tanggal setelah hari ini.
+
+   <Shot name="stock-receive-empty" alt="Formulir Terima stok yang masih kosong dengan satu baris" />
+
+2. Isi **Pemasok** <span class="pin">1</span>, misalnya nama SPBE, dan **Nomor referensi**, misalnya nomor DO. Keduanya boleh dikosongkan, tetapi nomor referensi memudahkan pencarian di kartu stok nanti.
+
+3. Isi baris barang: pilih **Produk**, pilih **Satuan** <span class="pin">2</span> (**tabung** atau **kg**), lalu ketik **Jumlah**. Kolom **kg baris** langsung menunjukkan berapa kg yang akan masuk.
+
+   Klik **Tambah baris** untuk produk berikutnya. Tombol **×** menghapus baris.
+
+   <Shot name="stock-receive-filled" alt="Formulir Terima stok berisi LPG 3 kg 560 tabung dan LPG 50 kg 987,5 kg, total 2.667,5 kg" />
+
+4. Periksa **Total** <span class="pin">3</span>, lalu klik **Simpan** <span class="pin">4</span>. Anda kembali ke halaman **Stok** dengan pesan **Penerimaan disimpan: 2.667,5 kg.**
+
+</Steps>
+
+## Memilih satuan: tabung atau kg
+
+| Satuan | Kapan dipakai | Contoh dari gambar |
+|---|---|---|
+| **tabung** | Tabung isi penuh yang dihitung per buah. Jumlahnya harus bilangan bulat. | 560 tabung LPG 3 kg = 560 × 3 kg = 1.680 kg |
+| **kg** | Jumlah yang tidak bulat, misalnya berat dari surat SPBE. Pakai koma untuk desimal. | 987,5 kg LPG 50 kg (kurang dari 20 tabung penuh) |
+
+Apa pun satuan yang dipilih, stok selalu disimpan dalam kg.
+
+<Aside type="note">
+Setiap produk hanya boleh muncul di satu baris. Bila produk yang sama dipilih dua kali, muncul pesan **Produk ini sudah ada di baris lain.** Gabungkan jumlahnya di satu baris. Hanya produk aktif yang bisa dipilih.
+</Aside>
+
+## Salah mencatat penerimaan?
+
+<Aside type="caution" title="Penerimaan yang sudah disimpan tidak bisa diubah atau dihapus">
+Catatan stok GasDist hanya bisa ditambah, tidak bisa diedit atau dihapus. Ini sengaja, supaya riwayat stok selalu bisa ditelusuri. Kesalahan diperbaiki dengan catatan baru, bukan dengan menghapus yang lama.
+</Aside>
+
+Cara memperbaikinya:
+
+| Kesalahan | Perbaikan |
+|---|---|
+| Penerimaan belum dicatat atau kurang | Catat penerimaan baru untuk kekurangannya |
+| Jumlah terlalu banyak, produk salah, atau tercatat dua kali | Lakukan [stok opname](/gasdist-site/panduan/stok/stok-opname/) untuk produk itu dengan alasan yang jelas, misalnya `Koreksi DO-4830 salah ketik`. Selisihnya tercatat sebagai penyesuaian. |
+
+Kedua cara ini meninggalkan jejak di [kartu stok](/gasdist-site/panduan/stok/kartu-stok/), jadi siapa pun bisa melihat apa yang diperbaiki dan kenapa.

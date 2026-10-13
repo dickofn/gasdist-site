@@ -3,6 +3,7 @@ import starlight from "@astrojs/starlight";
 import { defineConfig } from "astro/config";
 import starlightLinksValidator from "starlight-links-validator";
 
+/** @param {string} label @param {Record<string, string>} translations @param {string} dir */
 const section = (label, translations, dir) => ({ label, translations, items: [{ autogenerate: { directory: `panduan/${dir}` } }] });
 
 export default defineConfig({
@@ -20,7 +21,7 @@ export default defineConfig({
         root: { label: "Bahasa Indonesia", lang: "id" },
         en: { label: "English", lang: "en" },
       },
-      social: [{ icon: "github", label: "GitHub", href: "https://github.com/dickofn/gasdist-site" }],
+      social: [{ icon: "email", label: "dickofn@gmail.com", href: "mailto:dickofn@gmail.com" }],
       customCss: ["./src/styles/guide.css"],
       lastUpdated: false,
       // Steps pages are short; the space goes to the screenshots instead.

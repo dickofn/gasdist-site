@@ -1,0 +1,59 @@
+---
+title: Ringkasan stok
+description: Baca halaman Stok, layar pertama GasDist, yang menampilkan sisa stok tiap produk dalam kg dan dalam tabung.
+sidebar:
+  order: 1
+---
+
+import { Steps, Aside } from "@astrojs/starlight/components";
+import Shot from "../../../../components/Shot.astro";
+import Roles from "../../../../components/Roles.astro";
+
+Halaman **Stok** adalah layar pertama setelah Anda masuk. Di sini terlihat sisa stok setiap produk, kapan backup terakhir dibuat, dan tombol untuk menerima stok atau melakukan stok opname.
+
+<Roles can={["OWNER", "ADMIN", "GUDANG", "PENJUALAN", "VIEWER"]} />
+
+## Membaca halaman Stok
+
+Buka **Stok** di menu samping. Setiap produk punya satu kartu. Kartu yang perlu perhatian diberi tanda **Menipis** <span class="pin">2</span>. Tombol **Terima stok** <span class="pin">1</span> dan **Stok opname** di kanan atas hanya muncul untuk Owner, Admin, dan Gudang.
+
+<Shot name="home" alt="Halaman Stok dengan kartu backup dan empat kartu produk LPG" marks={[null, null, null, 1, 2]} />
+
+## Isi satu kartu produk
+
+<Shot name="home-stock-card" alt="Kartu stok LPG 5,5 kg: 77 kg, sama dengan 14 tabung, dengan tanda Menipis" />
+
+| Bagian kartu | Artinya |
+|---|---|
+| Nama produk, mis. **LPG 5,5 kg** | Produk yang dihitung |
+| `LPG-5.5 · 5,5 kg per tabung` | Kode produk dan isi gas satu tabung penuh |
+| Angka besar, mis. `77 kg` | Sisa stok yang tercatat, dalam kg |
+| `= 14 tabung` <span class="pin">2</span> | Jumlah tabung penuh yang setara dengan stok itu |
+| Tanda **Menipis** <span class="pin">1</span> | Stok di bawah batas stok menipis produk ini |
+| Tombol **Kartu stok** <span class="pin">3</span> | Membuka riwayat keluar-masuk stok produk ini, lihat [Kartu stok](/gasdist-site/panduan/stok/kartu-stok/) |
+
+### Kenapa stok dalam kg, bukan tabung?
+
+GasDist menyimpan stok dalam **kg**, karena gas dari SPBE tidak selalu datang dalam tabung yang bulat. Angka tabung di kartu hanyalah hitungan: stok dalam kg dibagi isi satu tabung, lalu dibulatkan ke bawah.
+
+Contoh: stok LPG 5,5 kg sebanyak 80 kg. 80 ÷ 5,5 = 14,5, jadi kartu menampilkan `= 14 tabung`. Sisanya (3 kg) tidak cukup untuk satu tabung penuh, tetapi tetap tercatat di angka kg.
+
+## Arti tanda di kartu
+
+| Tanda | Artinya |
+|---|---|
+| Tidak ada tanda | Stok cukup |
+| **Menipis** (kuning) | Stok masih ada, tetapi di bawah batas stok menipis produk itu. Saatnya memesan ulang. |
+| **Habis** (abu-abu) | Stok tepat 0 kg |
+| **Minus** (merah) | Stok di bawah 0. Catatan dan isi gudang sudah tidak cocok, lakukan [stok opname](/gasdist-site/panduan/stok/stok-opname/). |
+| **Nonaktif** | Produk sudah dinonaktifkan tetapi masih punya sisa stok |
+
+Batas stok menipis diatur per produk oleh Owner atau Admin, di **Master Data** › **Produk** › **Ubah**, kolom **Batas stok menipis (kg)**. Isi 0 bila produk itu tidak perlu ditandai. Lihat [Produk](/gasdist-site/panduan/data-master/produk/).
+
+<Aside type="tip">
+Pada contoh di atas, batas LPG 5,5 kg adalah 165 kg (30 tabung). Stok 77 kg berada di bawahnya, jadi kartu ditandai **Menipis**.
+</Aside>
+
+## Yang mengubah angka stok
+
+Angka stok hanya berubah karena empat hal: [menerima stok](/gasdist-site/panduan/stok/terima-stok/), [memposting surat jalan](/gasdist-site/panduan/surat-jalan/membuat/), [membatalkan surat jalan](/gasdist-site/panduan/surat-jalan/membatalkan/), dan [stok opname](/gasdist-site/panduan/stok/stok-opname/). Draf surat jalan tidak mengubah stok.

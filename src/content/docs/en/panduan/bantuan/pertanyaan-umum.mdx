@@ -1,0 +1,87 @@
+---
+title: Frequently asked questions
+description: Short answers to the questions that come up most in day-to-day use of GasDist.
+sidebar:
+  order: 2
+---
+
+import { Steps, Aside } from "@astrojs/starlight/components";
+import Roles from "../../../../../components/Roles.astro";
+
+Short answers to the questions office and warehouse staff ask most. Each answer links to the full guide.
+
+<Roles can={["OWNER", "ADMIN", "GUDANG", "PENJUALAN", "VIEWER"]} />
+
+## Can I edit a surat jalan after it is posted?
+
+No. Once posted, a surat jalan gets its number, the stock goes down and its contents are locked. This is on purpose, so the signed paper always matches the record in GasDist.
+
+If something is wrong (quantity, product or customer), the Owner or an Admin [cancels](/gasdist-site/en/panduan/surat-jalan/membatalkan/) that surat jalan with a reason and their password. The stock comes back, and the number stays on record as cancelled. Then [make a new surat jalan](/gasdist-site/en/panduan/surat-jalan/membuat/) with the right contents.
+
+As long as it is still a **draft**, a surat jalan can be changed or deleted freely.
+
+## I saved a surat jalan, so why has the stock not gone down?
+
+Because what you saved is still a draft. **Save draft** does not change stock and gives no number yet. The stock goes down only after you click **Post** and confirm. See [Making a surat jalan](/gasdist-site/en/panduan/surat-jalan/membuat/).
+
+## Why can't I post?
+
+There are a few possible reasons:
+
+| What you see | Cause | Way out |
+|---|---|---|
+| A red line marked **Negative**, and the **Post** button does not respond | Not enough stock of that product | Lower the quantity or remove the line. If the tabung really have arrived, [record the stock receipt](/gasdist-site/en/panduan/stok/terima-stok/) first. |
+| No **Post** or **New surat jalan** button at all | Your role (Warehouse or Viewer) may not make surat jalan | Ask Sales, an Admin or the Owner. |
+| The message **Number ... is already used by another surat jalan** | The number format produced a number that already exists | Ask the Owner to check the [number format](/gasdist-site/en/panduan/pengaturan/format-nomor/). |
+
+## Why is a menu or button missing on my screen?
+
+GasDist hides the menus and buttons your role may not use. For example, Warehouse does not see **New surat jalan**, and only the Owner sees the **Settings** menu. The full list is in [User roles](/gasdist-site/en/panduan/mulai/peran/). If you really need that permission, ask an Admin or the Owner to change your role.
+
+## Why did the screen suddenly lock?
+
+GasDist locks the screen by itself when there has been no typing or mouse movement for a while (15 minutes by default). Type your password, then click **Unlock**. The Owner can change the time in [Settings](/gasdist-site/en/panduan/pengaturan/stok-dan-keamanan/). Anything not yet saved is not kept, so make a habit of saving the draft before you leave your desk. See [Signing in, locking and passwords](/gasdist-site/en/panduan/mulai/masuk-dan-kunci/).
+
+## Where is my data kept?
+
+All data is kept on the PC where GasDist is installed, not on the internet. It is encrypted, and the key is kept by that PC's operating system (on Windows: the Credential Manager of your Windows account). This means:
+
+- Only GasDist on that PC can open the data.
+- Copying the database file to another PC will not open. To move data, always use a [backup](/gasdist-site/en/panduan/backup/membuat-backup/).
+- Backups go to the GasDist backup folder. Its location is shown in **Settings**, in the backup part, and the Owner can add a second folder, a USB stick for example.
+
+## What if the PC breaks down or is lost?
+
+The data can be brought back from a backup, as long as these three things were prepared beforehand:
+
+| Preparation | Why it matters |
+|---|---|
+| A [backup password](/gasdist-site/en/panduan/backup/kata-sandi-backup/) is set | Without a backup password, GasDist makes no backups at all. |
+| There is a backup copy outside the PC, on a USB stick for example | A backup kept only on the broken PC is lost with it. Use the second backup folder or **Save a copy to…**. See [Making and copying backups](/gasdist-site/en/panduan/backup/membuat-backup/). |
+| The backup password is written down somewhere safe | GasDist cannot show it again, and a backup cannot be opened without it. |
+
+On the new PC, install GasDist. On the first-run setup screen, do not fill in the form; click **Restore from a backup…** instead, choose the backup file and enter its backup password. See [Restoring from a backup](/gasdist-site/en/panduan/backup/memulihkan/).
+
+## Can two PCs share the same data?
+
+No. GasDist is built for one PC per database and does not sync data over a network. If GasDist is installed on two PCs, each has its own data, unconnected, and the two cannot be merged. To move to another PC, make a backup on the old PC and restore it on the new one.
+
+## How do I save a surat jalan as a PDF?
+
+<Steps>
+
+1. Open a posted surat jalan and click **Print**. The print window opens.
+
+2. Choose the **Paper** size, then click **Print** in that window.
+
+3. In the system print dialog, choose a PDF printer as the destination, for example **Microsoft Print to PDF** on Windows, and save the file.
+
+</Steps>
+
+<Aside type="caution">
+Saving to PDF counts as one print. If you save the PDF first, the paper printed after it is marked as a copy (**SALINAN**, or **COPY** when the company language is English). See [Printing a surat jalan](/gasdist-site/en/panduan/cetak/mencetak/) and [SALINAN and DRAFT](/gasdist-site/en/panduan/cetak/salinan-dan-draf/).
+</Aside>
+
+## I forgot my password. What do I do?
+
+Ask an Admin or the Owner to reset your password. You get a temporary password that you must change when you sign in. An Owner who forgot their password can use the recovery code. See [Signing in, locking and passwords](/gasdist-site/en/panduan/mulai/masuk-dan-kunci/).

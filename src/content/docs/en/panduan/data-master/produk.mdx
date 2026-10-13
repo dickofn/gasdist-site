@@ -1,0 +1,92 @@
+---
+title: Products
+description: Add and edit LPG products, including the capacity per tabung and the low-stock threshold.
+sidebar:
+  order: 1
+---
+
+import { Steps, Aside } from "@astrojs/starlight/components";
+import Shot from "../../../../../components/Shot.astro";
+import Roles from "../../../../../components/Roles.astro";
+
+A product is a kind of tabung you sell, for example LPG 3 kg or LPG 12 kg. Stock is kept per product, and the product's capacity says how many kg of gas are in one tabung.
+
+<Roles can={["OWNER", "ADMIN"]} />
+
+The **Master Data** menu only appears for Owner and Admin.
+
+## The product list
+
+Open **Master Data** in the sidebar. The **Products** tab opens first; the **Vehicles** and **Drivers** tabs sit next to it <span class="pin">1</span>.
+
+<Shot name="master-products" alt="The Products tab in Master Data with four LPG products" />
+
+Each row shows the code, name, capacity, **Low-stock threshold (kg)** <span class="pin">3</span>, order and status. The **Actions** column holds **Edit** and **Deactivate**.
+
+## Adding a product
+
+<Steps>
+
+1. Click **Add product** <span class="pin">2</span>.
+
+2. Fill in the fields (see the table below), then click **Save**.
+
+</Steps>
+
+## Editing a product
+
+<Steps>
+
+1. Click **Edit** on the product's row.
+
+2. Change what you need. Under each kg field, GasDist repeats the number it read, for example `= 5.5 kg`, so you can be sure it was understood correctly.
+
+   <Shot name="master-product-edit" alt="Edit LPG 5,5 kg form with a capacity of 5.5 kg and a low-stock threshold of 165 kg" />
+
+3. Click **Save**.
+
+</Steps>
+
+| Field | Required? | Notes |
+|---|---|---|
+| **Product code** | ✅ | 1 to 20 letters, digits, dots, underscores, hyphens or slashes, no spaces. Must differ from every other product. |
+| **Product name** | ✅ | The name shown on screen and printed on the surat jalan |
+| **Capacity (kg)** <span class="pin">1</span> | ✅ | The gas in one full tabung, in kg. Used to turn tabung counts into kg. |
+| **Empty tabung weight (kg)** | | The weight of the tabung without gas, for reference. May be left blank; it is not used in any stock calculation. |
+| **Low-stock threshold (kg)** <span class="pin">2</span> | ✅ | When stock falls below this, the product's card on the Stock page shows **Low**. Enter 0 to turn it off. |
+| **Order** | ✅ | Smaller numbers come first, on the Stock page and in product lists |
+
+For kg fields, use a dot for decimals, for example `5.5`.
+
+## The low-stock threshold
+
+The threshold is in kg, not tabung. To work it out, multiply the minimum number of tabung by the capacity. Example: you want a warning when LPG 5,5 kg drops below 30 tabung, so enter 30 × 5.5 = `165`.
+
+The **Low** badge appears on the product's card on the [Stock page](/gasdist-site/en/panduan/stok/ringkasan/) and in the **Stock after** column while [making a surat jalan](/gasdist-site/en/panduan/surat-jalan/membuat/).
+
+## Changing the capacity
+
+The capacity can still be changed after a product has been used. What happens:
+
+| What is affected | After the capacity changes |
+|---|---|
+| Posted surat jalan | Unchanged. Each line keeps the capacity it was posted with. |
+| Draft surat jalan | Use the new capacity when posted |
+| Stock in kg | Unchanged |
+| The `= … tabung` figure on the Stock page | Recalculated with the new capacity |
+| Later receipts and stock opname in tabung | Calculated with the new capacity |
+
+<Aside type="caution">
+Change the capacity only to fix a typo. If you start selling a different tabung size, add a new product rather than changing the old one. That keeps the stock and history of the two sizes apart.
+</Aside>
+
+## Deactivating a product
+
+Products cannot be deleted. A product you no longer sell is deactivated: click **Deactivate** on its row and confirm. To bring it back, click **Activate** on the same row.
+
+| | Inactive product |
+|---|---|
+| Can be chosen on a surat jalan or in Receive stock | ❌ |
+| Shown on the Stock page | Only while it still holds stock, with an **Inactive** badge |
+| Kartu stok in the Reports menu | ✅, marked **(Inactive)** |
+| Old surat jalan and history | Stay intact |

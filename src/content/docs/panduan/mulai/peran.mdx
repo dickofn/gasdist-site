@@ -1,0 +1,65 @@
+---
+title: Peran pengguna
+description: Lima peran di GasDist, menu yang dilihat masing-masing, dan siapa boleh melakukan apa.
+sidebar:
+  order: 4
+---
+
+import { Steps, Aside } from "@astrojs/starlight/components";
+import Shot from "../../../../components/Shot.astro";
+import Roles from "../../../../components/Roles.astro";
+
+Setiap akun punya satu peran. Peran menentukan menu dan tombol apa yang tampil, sehingga setiap orang hanya melihat yang memang menjadi tugasnya. Peran dipilih oleh Admin atau Owner saat [menambah pengguna](/gasdist-site/panduan/pengguna/menambah/).
+
+<Roles can={["OWNER", "ADMIN", "GUDANG", "PENJUALAN", "VIEWER"]} />
+
+## Lima peran
+
+| Peran | Cocok untuk | Singkatnya |
+|---|---|---|
+| **Owner** | Pemilik usaha | Semua izin, termasuk pengaturan dan pemulihan backup |
+| **Admin** | Kepala kantor | Hampir semua pekerjaan harian, kecuali pengaturan dan pemulihan backup |
+| **Gudang** | Petugas gudang | Menerima stok dan stok opname |
+| **Penjualan** | Staf penjualan atau admin surat jalan | Membuat, memposting, dan mencetak surat jalan; mengurus data pelanggan |
+| **Pemantau** | Siapa pun yang hanya perlu melihat | Melihat dan mengekspor, tanpa mengubah apa pun |
+
+## Menu yang dilihat tiap peran
+
+Menu yang tidak boleh dipakai disembunyikan dari menu samping:
+
+<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(160px,100%),1fr));gap:1rem">
+  <Shot name="role-owner" alt="Menu samping Owner: Stok, Surat Jalan, Pelanggan, Master Data, Laporan, Pengguna, Pengaturan" caption="Owner" marks={false} />
+  <Shot name="role-admin" alt="Menu samping Admin: Stok, Surat Jalan, Pelanggan, Master Data, Laporan, Pengguna" caption="Admin" marks={false} />
+  <Shot name="role-gudang" alt="Menu samping Gudang: Stok, Surat Jalan, Pelanggan, Laporan" caption="Gudang" marks={false} />
+  <Shot name="role-penjualan" alt="Menu samping Penjualan: Stok, Surat Jalan, Pelanggan, Laporan" caption="Penjualan" marks={false} />
+  <Shot name="role-viewer" alt="Menu samping Pemantau: Stok, Surat Jalan, Pelanggan, Laporan" caption="Pemantau" marks={false} />
+</div>
+
+Gudang, Penjualan, dan Pemantau melihat menu yang sama. Bedanya ada di tombol di dalam halaman: Gudang melihat **Terima stok** dan **Stok opname** di halaman Stok, Penjualan melihat **Buat surat jalan** di halaman Surat Jalan, dan Pemantau hanya bisa melihat.
+
+## Siapa boleh melakukan apa
+
+| Pekerjaan | Owner | Admin | Gudang | Penjualan | Pemantau |
+|---|---|---|---|---|---|
+| Melihat stok, surat jalan, pelanggan, dan kartu stok; mengekspor ke Excel atau CSV | ✅ | ✅ | ✅ | ✅ | ✅ |
+| [Menerima stok](/gasdist-site/panduan/stok/terima-stok/) dan [stok opname](/gasdist-site/panduan/stok/stok-opname/) | ✅ | ✅ | ✅ | ❌ | ❌ |
+| [Membuat, memposting](/gasdist-site/panduan/surat-jalan/membuat/), dan [mencetak](/gasdist-site/panduan/cetak/mencetak/) surat jalan | ✅ | ✅ | ❌ | ✅ | ❌ |
+| [Membatalkan](/gasdist-site/panduan/surat-jalan/membatalkan/) surat jalan yang sudah diposting | ✅ | ✅ | ❌ | ❌ | ❌ |
+| [Menambah dan mengubah pelanggan](/gasdist-site/panduan/pelanggan/menambah/) | ✅ | ✅ | ❌ | ✅ | ❌ |
+| Produk, kendaraan, dan sopir di [Master Data](/gasdist-site/panduan/data-master/produk/) | ✅ | ✅ | ❌ | ❌ | ❌ |
+| [Membuat backup](/gasdist-site/panduan/backup/membuat-backup/) | ✅ | ✅ | ❌ | ❌ | ❌ |
+| Mengelola akun Gudang, Penjualan, dan Pemantau | ✅ | ✅ | ❌ | ❌ | ❌ |
+| Mengelola akun Admin dan Owner | ✅ | ❌ | ❌ | ❌ | ❌ |
+| [Pengaturan](/gasdist-site/panduan/pengaturan/perusahaan/), termasuk [kata sandi backup](/gasdist-site/panduan/backup/kata-sandi-backup/) | ✅ | ❌ | ❌ | ❌ | ❌ |
+| [Memulihkan dari backup](/gasdist-site/panduan/backup/memulihkan/) | ✅ | ❌ | ❌ | ❌ | ❌ |
+
+Setiap orang, apa pun perannya, boleh mengganti kata sandinya sendiri dan memilih bahasanya sendiri. Lihat [Masuk, kunci layar, dan kata sandi](/gasdist-site/panduan/mulai/masuk-dan-kunci/).
+
+<Aside type="note" title="Aturan yang berlaku untuk semua">
+- Tidak ada yang bisa mengubah peran, menonaktifkan, atau mengatur ulang kata sandi akunnya sendiri dari menu **Pengguna**. Minta pengguna lain yang berwenang.
+- Harus selalu ada minimal satu Owner yang aktif, jadi Owner terakhir tidak bisa dinonaktifkan atau diubah perannya.
+</Aside>
+
+<Aside type="tip">
+Satu orang sebaiknya punya satu akun, dan akun tidak dipakai bergantian. Riwayat stok dan surat jalan mencatat siapa yang mengerjakan apa, dan catatan itu hanya berguna bila namanya benar.
+</Aside>

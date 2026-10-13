@@ -1,0 +1,64 @@
+---
+title: Perusahaan dan logo
+description: Isi nama, alamat, telepon, NPWP, dan logo perusahaan yang tercetak di kepala setiap surat jalan.
+sidebar:
+  order: 1
+---
+
+import { Steps, Aside } from "@astrojs/starlight/components";
+import Shot from "../../../../components/Shot.astro";
+import Roles from "../../../../components/Roles.astro";
+
+Data perusahaan tercetak di kepala setiap surat jalan, jadi pastikan isinya benar dan lengkap. Semua ini diatur di halaman **Pengaturan**, yang hanya muncul di menu samping untuk Owner.
+
+<Roles can={["OWNER"]} />
+
+## Mengubah data perusahaan
+
+<Steps>
+
+1. Buka **Pengaturan** di menu samping. Bagian **Perusahaan** ada di kiri atas.
+
+   <Shot name="settings-company" alt="Halaman Pengaturan dengan bagian Perusahaan dan Dokumen" marks={[1, 2, 3, null]} />
+
+2. Ubah **Nama perusahaan** <span class="pin">1</span>, **Alamat**, **Telepon**, atau **NPWP** sesuai kebutuhan.
+
+3. Gulir ke bawah halaman, lalu klik **Simpan**. Muncul pesan **Pengaturan disimpan.**
+
+</Steps>
+
+<Aside type="note">
+Hanya ada satu tombol **Simpan** untuk seluruh halaman, di paling bawah. Tombol itu menyimpan semua isian sekaligus, termasuk [format nomor](/gasdist-site/panduan/pengaturan/format-nomor/), [stok minus, kunci otomatis, dan bahasa](/gasdist-site/panduan/pengaturan/stok-dan-keamanan/), serta folder backup. Bila Anda pindah halaman sebelum mengklik **Simpan**, perubahan tidak tersimpan.
+</Aside>
+
+### Di mana data ini tampil
+
+| Isian | Tampil di |
+|---|---|
+| **Nama perusahaan** | Kepala surat jalan, pojok kiri atas layar GasDist, dan jendela pemulihan backup |
+| **Alamat** | Kepala surat jalan, di bawah nama perusahaan |
+| **Telepon** dan **NPWP** | Kepala surat jalan, satu baris di bawah alamat. Yang kosong tidak dicetak |
+
+## Memasang logo
+
+<Steps>
+
+1. Klik **Pilih logo** <span class="pin">2</span> di bagian **Perusahaan**.
+
+2. Jendela pemilih file terbuka dan hanya menampilkan file PNG dan JPEG. Pilih file logo, lalu konfirmasi pilihan Anda.
+
+3. Logo langsung tampil di atas tombol dan langsung dipakai. Untuk logo, Anda tidak perlu mengklik **Simpan**.
+
+</Steps>
+
+Logo harus berupa gambar **PNG atau JPEG, paling besar 512 KB**. File lain ditolak dengan pesan bahwa logo harus berupa gambar PNG atau JPEG. Logo tercetak di kiri nama perusahaan pada kepala surat jalan.
+
+Untuk mengganti logo, klik **Pilih logo** lagi dan pilih file baru. Untuk membuangnya, klik **Hapus logo**. Tanpa logo, bagian itu menampilkan **Belum ada logo. Logo tercetak di kepala surat jalan.**
+
+<Aside type="tip">
+Logo berlatar putih atau transparan terlihat paling rapi di kertas. Bila file logo Anda lebih dari 512 KB, perkecil ukurannya dulu dengan program pengolah gambar.
+</Aside>
+
+## Bagian lain di halaman Pengaturan
+
+Di sebelah kanan ada bagian **Dokumen** <span class="pin">3</span>. Di sana Anda mengatur [format nomor surat jalan](/gasdist-site/panduan/pengaturan/format-nomor/) dan ukuran kertas. Di bawahnya ada bagian **Stok**, **Keamanan**, **Bahasa**, dan **Backup**, lalu **Tentang** yang menampilkan versi GasDist. Paling bawah ada kotak **Backup dan pemulihan** (lihat [Membuat dan menyalin backup](/gasdist-site/panduan/backup/membuat-backup/)).

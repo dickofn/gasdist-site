@@ -1,0 +1,64 @@
+---
+title: Company and logo
+description: Fill in the company name, address, phone, NPWP and logo printed at the top of every surat jalan.
+sidebar:
+  order: 1
+---
+
+import { Steps, Aside } from "@astrojs/starlight/components";
+import Shot from "../../../../../components/Shot.astro";
+import Roles from "../../../../../components/Roles.astro";
+
+The company details print at the top of every surat jalan, so make sure they are correct and complete. All of this is set on the **Settings** page, which appears in the sidebar for the Owner only.
+
+<Roles can={["OWNER"]} />
+
+## Changing the company details
+
+<Steps>
+
+1. Open **Settings** in the sidebar. The **Company** section is at the top left.
+
+   <Shot name="settings-company" alt="The Settings page with the Company and Documents sections" marks={[1, 2, 3, null]} />
+
+2. Change **Company name** <span class="pin">1</span>, **Address**, **Phone** or **NPWP** as needed.
+
+3. Scroll to the bottom of the page and click **Save**. The message **Settings saved.** appears.
+
+</Steps>
+
+<Aside type="note">
+There is one **Save** button for the whole page, at the very bottom. It saves every field at once, including the [number format](/gasdist-site/en/panduan/pengaturan/format-nomor/), [negative stock, the automatic lock and language](/gasdist-site/en/panduan/pengaturan/stok-dan-keamanan/), and the backup folder. If you leave the page before clicking **Save**, your changes are not kept.
+</Aside>
+
+### Where these details show
+
+| Field | Shows on |
+|---|---|
+| **Company name** | The top of the surat jalan, the top-left corner of the GasDist window, and the restore window for backups |
+| **Address** | The top of the surat jalan, under the company name |
+| **Phone** and **NPWP** | The top of the surat jalan, on one line under the address. Empty ones are not printed |
+
+## Adding a logo
+
+<Steps>
+
+1. Click **Choose logo** <span class="pin">2</span> in the **Company** section.
+
+2. A file picker opens that shows only PNG and JPEG files. Pick the logo file and confirm.
+
+3. The logo shows above the buttons and is used straight away. For the logo you do not need to click **Save**.
+
+</Steps>
+
+The logo must be a **PNG or JPEG image of at most 512 KB**. Other files are refused with a message saying the logo must be a PNG or JPEG image. The logo prints to the left of the company name at the top of the surat jalan.
+
+To change the logo, click **Choose logo** again and pick a new file. To drop it, click **Remove logo**. Without a logo, the section says **No logo yet. The logo prints at the top of the surat jalan.**
+
+<Aside type="tip">
+A logo on a white or transparent background looks neatest on paper. If your logo file is over 512 KB, make it smaller first in an image editor.
+</Aside>
+
+## Other parts of the Settings page
+
+On the right is the **Documents** section <span class="pin">3</span>. There you set the [surat jalan number format](/gasdist-site/en/panduan/pengaturan/format-nomor/) and the paper size. Below are the **Stock**, **Security**, **Language** and **Backup** sections, then **About**, which shows the GasDist version. At the very bottom is the **Backup and restore** box (see [Making and copying backups](/gasdist-site/en/panduan/backup/membuat-backup/)).

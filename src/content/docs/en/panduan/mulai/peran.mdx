@@ -1,0 +1,65 @@
+---
+title: User roles
+description: The five roles in GasDist, the menus each one sees, and who may do what.
+sidebar:
+  order: 4
+---
+
+import { Steps, Aside } from "@astrojs/starlight/components";
+import Shot from "../../../../../components/Shot.astro";
+import Roles from "../../../../../components/Roles.astro";
+
+Every account has one role. The role decides which menus and buttons appear, so everyone sees only what their job needs. An Admin or the Owner picks the role when [adding a user](/gasdist-site/en/panduan/pengguna/menambah/).
+
+<Roles can={["OWNER", "ADMIN", "GUDANG", "PENJUALAN", "VIEWER"]} />
+
+## The five roles
+
+| Role | Suits | In short |
+|---|---|---|
+| **Owner** | The business owner | Every permission, including settings and restoring backups |
+| **Admin** | The office head | Almost all daily work, except settings and restoring backups |
+| **Warehouse** | Warehouse staff | Receiving stock and stok opname |
+| **Sales** | Sales staff or whoever writes the surat jalan | Making, posting and printing surat jalan; looking after customer data |
+| **Viewer** | Anyone who only needs to look | Viewing and exporting, without changing anything |
+
+## The menus each role sees
+
+Menus a role may not use are hidden from the sidebar:
+
+<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(160px,100%),1fr));gap:1rem">
+  <Shot name="role-owner" alt="The Owner's sidebar: Stock, Surat Jalan, Customers, Master Data, Reports, Users, Settings" caption="Owner" marks={false} />
+  <Shot name="role-admin" alt="The Admin's sidebar: Stock, Surat Jalan, Customers, Master Data, Reports, Users" caption="Admin" marks={false} />
+  <Shot name="role-gudang" alt="The Warehouse sidebar: Stock, Surat Jalan, Customers, Reports" caption="Warehouse" marks={false} />
+  <Shot name="role-penjualan" alt="The Sales sidebar: Stock, Surat Jalan, Customers, Reports" caption="Sales" marks={false} />
+  <Shot name="role-viewer" alt="The Viewer's sidebar: Stock, Surat Jalan, Customers, Reports" caption="Viewer" marks={false} />
+</div>
+
+Warehouse, Sales and Viewer see the same menus. The difference is in the buttons inside the pages: Warehouse sees **Receive stock** and **Stock opname** on the Stock page, Sales sees **New surat jalan** on the Surat Jalan page, and Viewer can only look.
+
+## Who may do what
+
+| Task | Owner | Admin | Warehouse | Sales | Viewer |
+|---|---|---|---|---|---|
+| View stock, surat jalan, customers and the kartu stok; export to Excel or CSV | ✅ | ✅ | ✅ | ✅ | ✅ |
+| [Receive stock](/gasdist-site/en/panduan/stok/terima-stok/) and do a [stok opname](/gasdist-site/en/panduan/stok/stok-opname/) | ✅ | ✅ | ✅ | ❌ | ❌ |
+| [Make, post](/gasdist-site/en/panduan/surat-jalan/membuat/) and [print](/gasdist-site/en/panduan/cetak/mencetak/) a surat jalan | ✅ | ✅ | ❌ | ✅ | ❌ |
+| [Cancel](/gasdist-site/en/panduan/surat-jalan/membatalkan/) a posted surat jalan | ✅ | ✅ | ❌ | ❌ | ❌ |
+| [Add and edit customers](/gasdist-site/en/panduan/pelanggan/menambah/) | ✅ | ✅ | ❌ | ✅ | ❌ |
+| Products, vehicles and drivers in [Master Data](/gasdist-site/en/panduan/data-master/produk/) | ✅ | ✅ | ❌ | ❌ | ❌ |
+| [Make a backup](/gasdist-site/en/panduan/backup/membuat-backup/) | ✅ | ✅ | ❌ | ❌ | ❌ |
+| Manage Warehouse, Sales and Viewer accounts | ✅ | ✅ | ❌ | ❌ | ❌ |
+| Manage Admin and Owner accounts | ✅ | ❌ | ❌ | ❌ | ❌ |
+| [Settings](/gasdist-site/en/panduan/pengaturan/perusahaan/), including the [backup password](/gasdist-site/en/panduan/backup/kata-sandi-backup/) | ✅ | ❌ | ❌ | ❌ | ❌ |
+| [Restore from a backup](/gasdist-site/en/panduan/backup/memulihkan/) | ✅ | ❌ | ❌ | ❌ | ❌ |
+
+Everyone, whatever their role, may change their own password and choose their own language. See [Signing in, locking and passwords](/gasdist-site/en/panduan/mulai/masuk-dan-kunci/).
+
+<Aside type="note" title="Rules that apply to everyone">
+- Nobody can change the role of, deactivate or reset the password of their own account from the **Users** menu. Ask another user who is allowed to.
+- There must always be at least one active Owner, so the last Owner cannot be deactivated or given another role.
+</Aside>
+
+<Aside type="tip">
+Give each person one account, and do not share accounts. The stock and surat jalan history records who did what, and that record is only useful when the name is right.
+</Aside>

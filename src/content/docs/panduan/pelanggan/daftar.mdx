@@ -1,0 +1,64 @@
+---
+title: Daftar dan pencarian pelanggan
+description: Temukan pelanggan dengan mencari kode, nama, telepon, atau kota, dan saring menurut jenisnya.
+sidebar:
+  order: 1
+---
+
+import { Steps, Aside } from "@astrojs/starlight/components";
+import Shot from "../../../../components/Shot.astro";
+import Roles from "../../../../components/Roles.astro";
+
+Halaman **Pelanggan** memuat semua pelanggan yang Anda kirimi tabung: pangkalan, pengecer, industri, dan lainnya. Dari sini Anda mencari pelanggan, membuka detailnya, dan menambah pelanggan baru.
+
+<Roles can={["OWNER", "ADMIN", "GUDANG", "PENJUALAN", "VIEWER"]} />
+
+Semua peran bisa melihat dan mencari pelanggan. Hanya Owner, Admin, dan Penjualan yang melihat tombol **Tambah pelanggan** dan bisa mengubah data pelanggan.
+
+## Membaca daftar pelanggan
+
+Buka **Pelanggan** di menu samping. Daftar diurutkan menurut nama.
+
+<Shot name="customers-list" alt="Daftar pelanggan dengan kolom kode, nama, jenis, kota, telepon dan status" />
+
+| Bagian | Fungsinya |
+|---|---|
+| **Tambah pelanggan** <span class="pin">1</span> | Membuka formulir pelanggan baru, lihat [Menambah dan mengubah pelanggan](/gasdist-site/panduan/pelanggan/menambah/) |
+| **Cari** <span class="pin">2</span> | Mencari berdasarkan kode, nama, telepon, atau kota |
+| **Jenis** <span class="pin">3</span> | Menampilkan satu jenis pelanggan saja |
+| **Tampilkan yang nonaktif** <span class="pin">4</span> | Ikut menampilkan pelanggan yang sudah dinonaktifkan |
+
+Klik satu baris untuk membuka [detail pelanggan](/gasdist-site/panduan/pelanggan/detail/).
+
+## Mencari pelanggan
+
+<Steps>
+
+1. Ketik sebagian kode, nama, nomor telepon, atau kota di **Cari** <span class="pin">1</span>. Daftar langsung menyaring sambil Anda mengetik, tanpa perlu menekan <kbd>Enter</kbd>.
+
+2. Bila perlu, pilih satu jenis di **Jenis** <span class="pin">2</span>. Pada gambar, kata `bekasi` dengan jenis **Pangkalan** menyisakan empat pangkalan di Bekasi.
+
+   <Shot name="customers-search" alt="Pencarian bekasi dengan jenis Pangkalan menampilkan empat pangkalan" />
+
+3. Untuk kembali ke daftar lengkap, hapus kata pencarian dan pilih **Semua jenis**.
+
+</Steps>
+
+Bila tidak ada yang cocok, muncul **Tidak ada pelanggan yang cocok**. Coba kata yang lebih pendek, atau periksa filter **Jenis**.
+
+## Jenis pelanggan
+
+| Jenis | Contoh |
+|---|---|
+| **Pangkalan** | Pangkalan LPG yang menjual ke rumah tangga |
+| **Pengecer** | Warung atau toko pengecer |
+| **Industri** | Usaha yang memakai gas sendiri, mis. katering, laundry, pabrik roti |
+| **Lainnya** | Yang tidak masuk ketiga jenis di atas, mis. kantin koperasi |
+
+## Pelanggan nonaktif
+
+Pelanggan nonaktif disembunyikan dari daftar. Centang **Tampilkan yang nonaktif** untuk melihatnya; kolom **Status** menunjukkan **Nonaktif**. Cara menonaktifkan dan mengaktifkan lagi ada di [Detail pelanggan](/gasdist-site/panduan/pelanggan/detail/).
+
+<Aside type="note">
+Daftar menampilkan paling banyak 500 pelanggan sekaligus. Bila pelanggan Anda lebih banyak, muncul pesan berapa yang ditampilkan. Persempit pencarian untuk menemukan sisanya.
+</Aside>

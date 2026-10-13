@@ -1,0 +1,98 @@
+---
+title: Surat jalan number format
+description: Set the shape of surat jalan numbers with year, month, day and running-number symbols, and see an example as you type.
+sidebar:
+  order: 2
+---
+
+import { Steps, Aside } from "@astrojs/starlight/components";
+import Shot from "../../../../../components/Shot.astro";
+import Roles from "../../../../../components/Roles.astro";
+
+Every surat jalan gets a number when it is posted, for example `SJ/2026/10/0031`. You can choose the shape of that number yourself. The default is `SJ/{YYYY}/{MM}/{0000}`.
+
+<Roles can={["OWNER"]} />
+
+## Changing the number format
+
+<Steps>
+
+1. Open **Settings** in the sidebar. Find the **Documents** section on the right.
+
+2. Change **Surat jalan number format** <span class="pin">1</span>. You can type directly, or put the cursor where you want it and click a symbol button below, for example **`{DD}` day** <span class="pin">3</span>. The symbol goes in at the cursor.
+
+   <Shot name="settings-number-format" alt="The Documents section with the format SJ-{YY}{MM}{DD}-{000} and the example number SJ-261013-001" />
+
+3. Check the lines under the field as you type:
+   - **Example number** shows the first number for today, for example `SJ-261013-001`.
+   - The next sentence <span class="pin">2</span> says when numbers start again from 1.
+   - The **Fits ... numbers** sentence says how many numbers fit before they grow one digit longer.
+
+4. Scroll to the bottom of the page and click **Save**. The new format applies to surat jalan posted after that.
+
+</Steps>
+
+If the example lines suddenly disappear, the format you typed is not valid yet. When you click **Save**, GasDist also shows the rules under the field. See [Format rules](#format-rules) below.
+
+## What each symbol means
+
+The examples in the table use 13 October 2026.
+
+| Symbol | Meaning | Result |
+|---|---|---|
+| `{YYYY}` | year, 4 digits | `2026` |
+| `{YY}` | year, 2 digits | `26` |
+| `{MM}` | month | `10` |
+| `{DD}` | day | `13` |
+| `{0000}` | running number; the zeros are the minimum digits | `0001`. With `{000}` it is `001`, with `{00000}` it is `00001` |
+| Any other text, such as `SJ`, `/`, `-` | Written as it is | `SJ`, `/`, `-` |
+
+The year, month and day come from the **date of the surat jalan**, not from the day you click **Post**.
+
+## When numbers start again from 1
+
+The running number starts again from 1 by the **smallest** date symbol in your format:
+
+| Smallest date symbol in the format | Numbers start again from 1 | Sentence on screen |
+|---|---|---|
+| `{DD}` | every day | **Numbers start again from 1 every day.** |
+| `{MM}` | every month | **Numbers start again from 1 every month.** |
+| `{YYYY}` or `{YY}` | every year | **Numbers start again from 1 every year.** |
+| No date symbol | never | **Numbers never start again from 1.** |
+
+The number of zeros in the running number decides how many numbers fit in each period. `{0000}` fits 9,999 numbers. Beyond that the number grows one digit longer: after `9999` comes `10000`. Numbers are never cut short, so no number ever repeats.
+
+## Ready-to-copy examples
+
+Copy one of these formats into the **Surat jalan number format** field.
+
+| Format | First number on 13 October 2026 | Starts again from 1 | Fits per period |
+|---|---|---|---|
+| `SJ/{YYYY}/{MM}/{0000}` (default) | `SJ/2026/10/0001` | every month | 9,999 |
+| `SJ-{YY}{MM}{DD}-{000}` | `SJ-261013-001` | every day | 999 |
+| `SJ/{YYYY}/{00000}` | `SJ/2026/00001` | every year | 99,999 |
+| `SJ-{000000}` | `SJ-000001` | never | 999,999 |
+
+## Format rules
+
+GasDist refuses a format that could produce the same number twice. A format must:
+
+- contain exactly **one** running number, such as `{0000}`;
+- contain a year when it has `{MM}`, and a month and a year when it has `{DD}`;
+- use each symbol at most once (so `{YYYY}` and `{YY}` cannot both appear);
+- be at most 40 characters long.
+
+| Format | Accepted? | Why |
+|---|---|---|
+| `SJ/{YYYY}/{MM}/{0000}` | ✅ | Complete |
+| `SJ/{YYYY}/{MM}` | ❌ | No running number |
+| `SJ/{MM}/{0000}` | ❌ | `{MM}` without a year |
+| `SJ/{YYYY}/{DD}/{0000}` | ❌ | `{DD}` without a month |
+
+<Aside type="caution" title="Best change the format at the start of a month or year">
+Numbers already given never change. If you only change the layout (for example `/` to `-`) in the middle of a month, the running number carries on with that month's count. If a new format turns out to produce a number already in use, posting is refused with **Number ... is already used by another surat jalan. Change the number format in Settings, then post again.**
+</Aside>
+
+## Paper size
+
+The same section has **Paper size**: choose **A4** or **Continuous paper 9.5 × 11 in** to match the paper in your printer. This becomes the default size when printing. See [Printing a surat jalan](/gasdist-site/en/panduan/cetak/mencetak/). Remember to click **Save**.
