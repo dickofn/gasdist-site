@@ -9,7 +9,7 @@ import { Steps, Aside } from "@astrojs/starlight/components";
 import Shot from "../../../../../components/Shot.astro";
 import Roles from "../../../../../components/Roles.astro";
 
-The kartu stok is the stock history of one product: every receipt, surat jalan, cancellation and adjustment, with the balance after each line. Use it to trace where a stock figure comes from.
+The kartu stok is the stock history of one product: every receipt, surat jalan, cancellation and adjustment, with the balance after each line. Use it to trace where a stock figure comes from. For the totals by kind, every product at once, use the [Stock summary](/gasdist-site/en/panduan/laporan/ringkasan-stok/) report: its in, out and closing figures are the kartu stok's.
 
 <Roles can={["OWNER", "ADMIN", "GUDANG", "PENJUALAN", "VIEWER"]} />
 
@@ -19,10 +19,10 @@ There are two ways in:
 
 | From | How |
 |---|---|
-| The **Stock** page | Click **Kartu stok** on the product's card. Click **Back** to return to the Stock page. |
+| The **Home** page | Click **Kartu stok** on the product's card. Click **Back** to return to the Home page. |
 | The **Reports** menu | Type or choose the product under **Product**. Handy when you want to move from one product to another. |
 
-### From the Stock page
+### From the Home page
 
 <Steps>
 
@@ -38,9 +38,9 @@ There are two ways in:
 
 ### From the Reports menu
 
-Open **Reports** in the sidebar; the **Kartu stok** tab opens first. Under **Product** <span class="pin">1</span>, type part of the product's name or code and pick it, then set **From** and **To** <span class="pin">2</span>. Inactive products stay in the list, marked **(Inactive)**. The export buttons <span class="pin">3</span> work the same as on the Stock page.
+Open **Reports** in the sidebar; the **Kartu stok** tab opens first. Under **Product** <span class="pin">1</span>, type part of the product's name or code and pick it, then set **From** and **To** <span class="pin">2</span>. Inactive products stay in the list, marked **(Inactive)**. The export buttons <span class="pin">3</span> work the same as on the Home page.
 
-When **To** is today, the **Closing balance** <span class="pin">4</span> equals the figure on the product's card on the Stock page. In the picture, both are 77 kg.
+When **To** is today, the **Closing balance** <span class="pin">4</span> equals the figure on the product's card on the Home page. In the picture, both are 77 kg.
 
 <Shot name="reports-stock-card" alt="The Reports page showing the kartu stok for LPG 5,5 kg with a closing balance of 77 kg" />
 

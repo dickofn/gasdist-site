@@ -9,7 +9,7 @@ import { Steps, Aside } from "@astrojs/starlight/components";
 import Shot from "../../../../components/Shot.astro";
 import Roles from "../../../../components/Roles.astro";
 
-Kartu stok adalah riwayat stok satu produk: setiap penerimaan, surat jalan, pembatalan, dan penyesuaian, lengkap dengan saldo setelah setiap baris. Pakai kartu stok untuk menelusuri dari mana angka stok berasal.
+Kartu stok adalah riwayat stok satu produk: setiap penerimaan, surat jalan, pembatalan, dan penyesuaian, lengkap dengan saldo setelah setiap baris. Pakai kartu stok untuk menelusuri dari mana angka stok berasal. Untuk jumlahnya per jenis, semua produk sekaligus, pakai laporan [Ringkasan stok](/gasdist-site/panduan/laporan/ringkasan-stok/): angka masuk, keluar, dan saldo akhirnya sama dengan kartu stok.
 
 <Roles can={["OWNER", "ADMIN", "GUDANG", "PENJUALAN", "VIEWER"]} />
 
@@ -19,10 +19,10 @@ Ada dua jalan:
 
 | Dari | Caranya |
 |---|---|
-| Halaman **Stok** | Klik **Kartu stok** di kartu produk yang ingin dilihat. Tekan **Kembali** untuk kembali ke halaman Stok. |
+| Halaman **Beranda** | Klik **Kartu stok** di kartu produk yang ingin dilihat. Tekan **Kembali** untuk kembali ke halaman Beranda. |
 | Menu **Laporan** | Ketik atau pilih produk di kolom **Produk**. Cocok bila Anda ingin berpindah dari satu produk ke produk lain. |
 
-### Dari halaman Stok
+### Dari halaman Beranda
 
 <Steps>
 
@@ -38,9 +38,9 @@ Ada dua jalan:
 
 ### Dari menu Laporan
 
-Buka **Laporan** di menu samping; tab **Kartu stok** terbuka lebih dulu. Di **Produk** <span class="pin">1</span>, ketik sebagian nama atau kode produk lalu pilih, lalu atur **Dari tanggal** dan **Sampai tanggal** <span class="pin">2</span>. Produk yang sudah nonaktif tetap ada di daftar, dengan tanda **(Nonaktif)**. Tombol ekspor <span class="pin">3</span> sama seperti di halaman Stok.
+Buka **Laporan** di menu samping; tab **Kartu stok** terbuka lebih dulu. Di **Produk** <span class="pin">1</span>, ketik sebagian nama atau kode produk lalu pilih, lalu atur **Dari tanggal** dan **Sampai tanggal** <span class="pin">2</span>. Produk yang sudah nonaktif tetap ada di daftar, dengan tanda **(Nonaktif)**. Tombol ekspor <span class="pin">3</span> sama seperti di halaman Beranda.
 
-Bila **Sampai tanggal** adalah hari ini, **Saldo akhir** <span class="pin">4</span> sama dengan angka di kartu produk di halaman Stok. Pada gambar, keduanya 77 kg.
+Bila **Sampai tanggal** adalah hari ini, **Saldo akhir** <span class="pin">4</span> sama dengan angka di kartu produk di halaman Beranda. Pada gambar, keduanya 77 kg.
 
 <Shot name="reports-stock-card" alt="Halaman Laporan menampilkan kartu stok LPG 5,5 kg dengan saldo akhir 77 kg" />
 

@@ -28,20 +28,21 @@ Every account has one role. The role decides which menus and buttons appear, so 
 Menus a role may not use are hidden from the sidebar:
 
 <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(160px,100%),1fr));gap:1rem">
-  <Shot name="role-owner" alt="The Owner's sidebar: Stock, Surat Jalan, Customers, Master Data, Reports, Users, Settings" caption="Owner" marks={false} />
-  <Shot name="role-admin" alt="The Admin's sidebar: Stock, Surat Jalan, Customers, Master Data, Reports, Users" caption="Admin" marks={false} />
-  <Shot name="role-gudang" alt="The Warehouse sidebar: Stock, Surat Jalan, Customers, Reports" caption="Warehouse" marks={false} />
-  <Shot name="role-penjualan" alt="The Sales sidebar: Stock, Surat Jalan, Customers, Reports" caption="Sales" marks={false} />
-  <Shot name="role-viewer" alt="The Viewer's sidebar: Stock, Surat Jalan, Customers, Reports" caption="Viewer" marks={false} />
+  <Shot name="role-owner" alt="The Owner's sidebar: Home, Surat Jalan, Customers, Master Data, Reports, Users, Settings" caption="Owner" marks={false} />
+  <Shot name="role-admin" alt="The Admin's sidebar: Home, Surat Jalan, Customers, Master Data, Reports, Users" caption="Admin" marks={false} />
+  <Shot name="role-gudang" alt="The Warehouse sidebar: Home, Surat Jalan, Customers, Reports" caption="Warehouse" marks={false} />
+  <Shot name="role-penjualan" alt="The Sales sidebar: Home, Surat Jalan, Customers, Reports" caption="Sales" marks={false} />
+  <Shot name="role-viewer" alt="The Viewer's sidebar: Home, Surat Jalan, Customers, Reports" caption="Viewer" marks={false} />
 </div>
 
-Warehouse, Sales and Viewer see the same menus. The difference is in the buttons inside the pages: Warehouse sees **Receive stock** and **Stock opname** on the Stock page, Sales sees **New surat jalan** on the Surat Jalan page, and Viewer can only look.
+Warehouse, Sales and Viewer see the same menus. The difference is in the buttons inside the pages: Warehouse sees **Receive stock** and **Stock opname** on the Home page, Sales sees **New surat jalan** on the Surat Jalan page, and Viewer can only look.
 
 ## Who may do what
 
 | Task | Owner | Admin | Warehouse | Sales | Viewer |
 |---|---|---|---|---|---|
-| View stock, surat jalan, customers, the kartu stok, [surat jalan not back yet](/gasdist-site/en/panduan/surat-jalan/belum-kembali/) and scans of signed sheets; export to Excel or CSV | ✅ | ✅ | ✅ | ✅ | ✅ |
+| View [Home](/gasdist-site/en/panduan/mulai/beranda/), stock, surat jalan, customers, the kartu stok, the [stock summary](/gasdist-site/en/panduan/laporan/ringkasan-stok/), the [surat jalan register](/gasdist-site/en/panduan/laporan/register-surat-jalan/), [deliveries](/gasdist-site/en/panduan/laporan/pengiriman/), [surat jalan not back yet](/gasdist-site/en/panduan/surat-jalan/belum-kembali/) and scans of signed sheets; export to Excel or CSV and print reports | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Read, export and print the [audit trail](/gasdist-site/en/panduan/laporan/jejak-audit/) | ✅ | ✅ | ❌ | ❌ | ❌ |
 | [Receive stock](/gasdist-site/en/panduan/stok/terima-stok/) and do a [stok opname](/gasdist-site/en/panduan/stok/stok-opname/) | ✅ | ✅ | ✅ | ❌ | ❌ |
 | [Make, post](/gasdist-site/en/panduan/surat-jalan/membuat/) and [print](/gasdist-site/en/panduan/cetak/mencetak/) a surat jalan | ✅ | ✅ | ❌ | ✅ | ❌ |
 | [Mark a surat jalan delivered](/gasdist-site/en/panduan/surat-jalan/menandai-terkirim/) when its sheet comes back | ✅ | ✅ | ❌ | ✅ | ❌ |
