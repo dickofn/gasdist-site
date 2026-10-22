@@ -1,6 +1,6 @@
 ---
 title: Mencetak surat jalan
-description: Cetak surat jalan yang sudah diposting di kertas A4 atau continuous, atau simpan sebagai PDF.
+description: Cetak surat jalan yang sudah diposting dalam tiga lembar berlabel, dengan template dan kertas yang cocok untuk printer Anda, atau simpan sebagai PDF.
 sidebar:
   order: 1
 ---
@@ -21,15 +21,15 @@ Peran lain (Gudang dan Pemantau) tetap bisa membuka **Pratinjau** untuk melihat 
 
 1. Buka surat jalan yang berstatus **Diposting**, lalu klik **Cetak** di kanan atas (atau tekan <kbd>Ctrl</kbd>+<kbd>P</kbd>). Jendela cetak terbuka dan menampilkan lembar surat jalan persis seperti yang akan dicetak. Di kiri atas tertulis nomornya dan **Asli** bila surat jalan ini belum pernah dicetak.
 
-2. Pilih ukuran **Kertas** <span class="pin">1</span>: **A4** atau **Kertas continuous 9,5 × 11 inci**. Pilihan ini hanya untuk cetakan kali ini; ukuran bawaannya diatur Owner di menu **Pengaturan**, bagian **Dokumen**, kolom **Ukuran kertas**.
+2. Periksa tiga pilihan di bagian atas: **Template** <span class="pin">1</span>, **Kertas** <span class="pin">2</span>, dan **Lembar** <span class="pin">3</span>. Isinya mengikuti [Pengaturan cetak](/gasdist-site/panduan/pengaturan/cetak/); pilihan yang Anda ubah di sini hanya untuk cetakan kali ini. Pratinjau langsung berubah mengikuti pilihan Anda.
 
-3. Klik **Cetak** <span class="pin">2</span> (atau tekan <kbd>Ctrl</kbd>+<kbd>P</kbd> di jendela ini).
+3. Di sebelah tombol tertulis berapa lembar kertas yang akan keluar (selama pratinjau baru dimuat, pilihan dan tombol **Cetak** menunggu sebentar), misalnya **Dicetak: 3 lembar kertas.** <span class="pin">5</span> Siapkan kertas sebanyak itu, lalu klik **Cetak** <span class="pin">4</span> (atau tekan <kbd>Ctrl</kbd>+<kbd>P</kbd> di jendela ini).
 
-   <Shot name="print-window" alt="Jendela cetak surat jalan SJ/2026/10/0031 bertanda Asli, dengan pilihan kertas A4 dan tombol Cetak" />
+   <Shot name="print-window" alt="Jendela cetak surat jalan SJ/2026/10/0031 bertanda Asli, dengan pilihan Template, Kertas, dan Lembar, jumlah lembar kertas, dan tombol Cetak" />
 
 4. Dialog cetak dari sistem komputer terbuka. Pilih printernya, lalu cetak. Untuk menyimpan file, pilih printer PDF, misalnya **Simpan sebagai PDF** atau **Microsoft Print to PDF** (namanya tergantung komputer Anda), lalu tentukan tempat menyimpannya.
 
-5. Di jendela cetak muncul pesan **Cetakan ke-1 dikirim ke dialog cetak. Cetakan berikutnya bertanda salinan.** Lembar ini siap dibawa sopir untuk ditandatangani.
+5. Di jendela cetak muncul pesan **Cetakan ke-1 dikirim ke dialog cetak. Cetakan berikutnya bertanda salinan.** Lembar-lembarnya siap dibawa sopir untuk ditandatangani.
 
 </Steps>
 
@@ -37,18 +37,99 @@ Peran lain (Gudang dan Pemantau) tetap bisa membuka **Pratinjau** untuk melihat 
 GasDist mencatat cetakan begitu Anda mengklik **Cetak**, sebelum dialog cetak terbuka. Bila dialog cetak lalu ditutup tanpa mencetak, cetakan itu tetap terhitung, dan cetakan berikutnya bertanda SALINAN. Jadi siapkan printer dan kertasnya dulu, baru klik **Cetak**. Lihat [SALINAN dan DRAFT](/gasdist-site/panduan/cetak/salinan-dan-draf/).
 </Aside>
 
+## Tiga lembar berlabel
+
+Satu kali **Cetak** mengeluarkan semua lembar surat jalan sekaligus, masing-masing dengan labelnya di bawah judul **SURAT JALAN** <span class="pin">1</span>. Bawaannya tiga lembar:
+
+| Lembar | Untuk |
+|---|---|
+| **Lembar 1: Pelanggan** | Ditinggal di pelanggan |
+| **Lembar 2: Kembali ke kantor** | Ditandatangani penerima, dibawa sopir kembali ke kantor, lalu dipakai untuk [menandai surat jalan terkirim](/gasdist-site/panduan/surat-jalan/menandai-terkirim/) |
+| **Lembar 3: Arsip** | Disimpan di kantor |
+
+Semua lembar itu adalah satu set asli dan dihitung **satu kali cetak**: semuanya bertuliskan **Cetakan ke-1**, tanpa SALINAN. Jumlah lembar dan labelnya diatur Owner di [Pengaturan cetak](/gasdist-site/panduan/pengaturan/cetak/).
+
+<Shot name="print-labels" alt="Jendela cetak dengan lembar pertama berlabel Lembar 1: Pelanggan, pilihan Lembar, dan tulisan Dicetak: 3 lembar kertas" />
+
+Pilihan **Lembar** <span class="pin">2</span> menentukan lembar mana yang keluar pada cetakan ini:
+
+| Pilihan **Lembar** | Yang dicetak |
+|---|---|
+| **Semua lembar (3)** | Semua lembar, berurutan, masing-masing dengan labelnya |
+| Satu label, misalnya **Lembar 1: Pelanggan** | Hanya lembar itu. Berguna bila satu lembar hilang dan perlu dicetak ulang |
+| **Formulir karbon (1 lembar)** | Satu lembar tanpa label, untuk formulir rangkap karbon (lihat di bawah) |
+
+<Shot name="print-labels-sheet" alt="Lembar pertama surat jalan dengan label Lembar 1: Pelanggan di bawah judul SURAT JALAN" />
+
+## Memilih template
+
+| Pilihan **Template** | Untuk | Tampilannya |
+|---|---|---|
+| **Standar (printer biasa)** | Printer inkjet atau laser, juga untuk PDF | Logo perusahaan, huruf biasa, kepala tabel berarsir abu-abu |
+| **Sederhana (dot-matrix)** | Printer dot-matrix | Satu jenis huruf berlebar tetap, tanpa logo, tanpa arsiran, hitam saja |
+
+Isi kedua template sama: nomor, tanggal, pelanggan, kendaraan, sopir, tabel barang, total, catatan, pernyataan penerimaan, dan tiga kotak tanda tangan. Printer dot-matrix mencetak arsiran abu-abu sebagai titik-titik yang membuat tulisan sulit dibaca, apalagi lewat kertas karbon; template Sederhana menghindarinya.
+
+<Shot name="print-simple" alt="Lembar surat jalan dengan template Sederhana: huruf berlebar tetap, tanpa logo dan arsiran" />
+
 ## Memilih kertas
 
 | Pilihan **Kertas** | Untuk | Ukuran halaman |
 |---|---|---|
 | **A4** | Printer biasa (inkjet atau laser), juga untuk menyimpan PDF | 210 × 297 mm |
 | **Kertas continuous 9,5 × 11 inci** | Printer dot-matrix dengan kertas continuous (kertas sambung berlubang) | 9,5 × 11 inci |
+| **A5 melintang** | Printer biasa dengan kertas A5, posisi melintang | 210 × 148 mm |
+| **Kertas continuous setengah, 9,5 × 5,5 inci** | Printer dot-matrix dengan kertas continuous setengah halaman | 9,5 × 5,5 inci |
 
-Isi lembarnya sama untuk kedua kertas; hanya ukuran halaman dan batas tepinya yang berbeda. Pratinjau langsung berubah saat Anda mengganti pilihan kertas.
+Pada A4 dan continuous 9,5 × 11 inci, lembarnya sama seperti biasa; hanya ukuran halaman dan batas tepinya yang berbeda.
 
 <Shot name="print-a4" alt="Lembar surat jalan di kertas A4" />
 
 <Shot name="print-continuous" alt="Lembar surat jalan yang sama di kertas continuous 9,5 × 11 inci" />
+
+A5 melintang dan continuous setengah adalah kertas **pendek**. Di kertas pendek, GasDist merapatkan lembarnya (huruf sedikit lebih kecil, kotak tanda tangan lebih pendek) supaya baris barang tetap terbaca.
+
+<Shot name="print-a5" alt="Lembar surat jalan dengan template Standar di kertas A5 melintang" />
+
+<Shot name="print-half" alt="Lembar surat jalan dengan template Sederhana di kertas continuous setengah 9,5 × 5,5 inci" />
+
+## Surat jalan panjang di kertas pendek
+
+Bila barisnya terlalu banyak untuk satu kertas pendek, GasDist tidak mengecilkan huruf. Setiap lembar dibagi menjadi beberapa **halaman**, masing-masing satu kertas utuh:
+
+| Halaman | Isinya |
+|---|---|
+| Setiap halaman | Nama perusahaan, **SURAT JALAN**, nomor, tanggal, label lembar, **Halaman 1 dari 2** dan seterusnya, nama dan kode pelanggan, kepala tabel |
+| Halaman pertama | Juga alamat dan telepon pelanggan, kendaraan, dan sopir |
+| Halaman terakhir | Baris **Total**, catatan, pernyataan penerimaan, dan tiga kotak tanda tangan |
+| Halaman selain yang terakhir | Diakhiri **Bersambung ke halaman 2** (dan seterusnya) |
+
+Jadi setiap halaman yang tersobek dari kertas sambung tetap jelas milik surat jalan mana. Jendela cetak memberi tahu dengan pesan **Satu salinan butuh 2 halaman kertas ini.** <span class="pin">1</span>, dan jumlah lembar kertas di sebelah tombol ikut bertambah <span class="pin">2</span>.
+
+<Shot name="print-half-parts-window" alt="Jendela cetak dengan pesan Satu salinan butuh 2 halaman kertas ini dan Dicetak: 6 lembar kertas" />
+
+<Shot name="print-half-parts" alt="Surat jalan empat baris di kertas continuous setengah, dibagi menjadi Halaman 1 dari 2 dan Halaman 2 dari 2" />
+
+Berapa baris barang muat di satu kertas pendek:
+
+| Template | A5 melintang | Continuous setengah |
+|---|---|---|
+| **Standar** | sampai 4 baris | sampai 3 baris |
+| **Sederhana** | sampai 7 baris | sampai 5 baris |
+
+Angka ini untuk isi yang biasa. Yang panjang memakan tempat, jadi surat jalannya dibagi lebih cepat: nama atau alamat perusahaan yang panjang, label lembar yang panjang, nama atau alamat pelanggan yang panjang, nama sopir yang panjang, nama produk yang terlipat dua baris, dan catatan yang panjang. Bila catatannya panjang sekali, halaman terakhir bisa hanya berisi baris **Total**, catatan, dan tanda tangan.
+
+<Aside type="caution" title="Bila tetap tidak muat">
+Bila isinya terlalu banyak bahkan untuk dibagi (misalnya catatan dua belas baris di kertas continuous setengah), jendela cetak menampilkan pesan merah **Isi surat jalan ini terlalu panjang untuk kertas ini: sebagian akan tercetak di kertas tanpa nomor.** Pilih kertas A4 atau continuous 9,5 × 11 inci, atau persingkat catatannya sebelum mencetak.
+</Aside>
+
+Untuk surat jalan yang sering panjang, pakai template **Sederhana** atau kertas continuous penuh 9,5 × 11 inci.
+
+## Formulir karbon
+
+Formulir rangkap karbon menghasilkan semua rangkapnya dari satu kali ketuk printer. Untuk formulir seperti itu, pilih **Lembar** **Formulir karbon (1 lembar)**: satu lembar per surat jalan, tanpa label (rangkap karbon biasanya sudah punya nama rangkapnya sendiri). Bila kantor Anda selalu memakai formulir karbon, Owner bisa menjadikannya bawaan di [Pengaturan cetak](/gasdist-site/panduan/pengaturan/cetak/).
+
+<Shot name="print-carbon" alt="Jendela cetak dengan pilihan Lembar Formulir karbon dan tulisan Dicetak: 1 lembar kertas" />
 
 ## Isi lembar surat jalan
 
@@ -56,8 +137,8 @@ Dari atas ke bawah, lembar surat jalan berisi:
 
 | Bagian | Isinya |
 |---|---|
-| Kepala | Logo, nama, alamat, telepon, dan NPWP perusahaan, diambil dari [Pengaturan perusahaan](/gasdist-site/panduan/pengaturan/perusahaan/) |
-| Judul | **SURAT JALAN**, **No.** (nomor surat jalan), dan **Tanggal** |
+| Kepala | Logo (template Standar saja), nama, alamat, telepon, dan NPWP perusahaan, diambil dari [Pengaturan perusahaan](/gasdist-site/panduan/pengaturan/perusahaan/) |
+| Judul | **SURAT JALAN**, label lembar (misalnya **Lembar 1: Pelanggan**), **No.** (nomor surat jalan), **Tanggal**, dan di kertas pendek yang terbagi, **Halaman** |
 | **KEPADA** | Nama dan kode pelanggan, alamat, kota, dan telepon |
 | Kendaraan dan Sopir | Nomor polisi kendaraan dan nama sopir, atau `-` bila dikosongkan |
 | Tabel barang | **No**, **Produk** (dengan kodenya), **Jumlah (tabung)**, **Isi per tabung**, **Berat (kg)**, lalu baris **Total** |
@@ -75,10 +156,10 @@ Dari atas ke bawah, lembar surat jalan berisi:
 
 Pernyataan *Barang diterima dalam keadaan baik dan jumlah sesuai.* tercetak tepat di atas kotak tanda tangan. Dengan menandatangani kotak **PENERIMA**, pelanggan menyatakan tabung sudah diterima dalam keadaan baik dan jumlahnya cocok dengan tabel. Minta penerima menghitung tabungnya dulu sebelum tanda tangan.
 
-Di bawah kotak tanda tangan, lembar yang dicetak memuat tulisan kecil **Cetakan ke-1**, **Cetakan ke-2**, dan seterusnya. Tulisan ini tidak tampil di pratinjau sebelum Anda mengklik **Cetak**.
+Di bawah kotak tanda tangan, setiap lembar yang dicetak memuat tulisan kecil **Cetakan ke-1**, **Cetakan ke-2**, dan seterusnya. Tulisan ini tidak tampil di pratinjau sebelum Anda mengklik **Cetak**.
 
 <Aside type="note" title="Bahasa lembar surat jalan">
-Lembar surat jalan dicetak dalam bahasa bawaan perusahaan, bukan bahasa yang sedang Anda pakai, karena lembar ini untuk pelanggan. Bahasa bawaan diatur Owner di [Pengaturan](/gasdist-site/panduan/pengaturan/stok-dan-keamanan/).
+Lembar surat jalan dicetak dalam bahasa bawaan perusahaan, bukan bahasa yang sedang Anda pakai, karena lembar ini untuk pelanggan. Bahasa bawaan diatur Owner di [Pengaturan](/gasdist-site/panduan/pengaturan/stok-dan-keamanan/). Label lembar dicetak persis seperti yang ditulis di Pengaturan cetak.
 </Aside>
 
 <Aside type="note" title="Jendela cetak ikut terkunci">

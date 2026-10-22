@@ -1,6 +1,6 @@
 ---
 title: Printing a surat jalan
-description: Print a posted surat jalan on A4 or continuous paper, or save it as a PDF.
+description: Print a posted surat jalan as three labelled sheets, with the template and paper that suit your printer, or save it as a PDF.
 sidebar:
   order: 1
 ---
@@ -21,15 +21,15 @@ The other roles (Warehouse and Viewer) can still open **Preview** to look at the
 
 1. Open a surat jalan with the status **Posted**, then click **Print** at the top right (or press <kbd>Ctrl</kbd>+<kbd>P</kbd>). The print window opens and shows the surat jalan exactly as it will print. The top left shows its number and **Original** if it has never been printed.
 
-2. Choose the **Paper** size <span class="pin">1</span>: **A4** or **Continuous paper 9.5 × 11 in**. This choice is for this print only; the default is set by the Owner under **Settings**, section **Documents**, field **Paper size**.
+2. Check the three choices along the top: **Template** <span class="pin">1</span>, **Paper** <span class="pin">2</span> and **Sheets** <span class="pin">3</span>. They start from the [print settings](/gasdist-site/en/panduan/pengaturan/cetak/); what you change here is for this print only. The preview follows your choice at once.
 
-3. Click **Print** <span class="pin">2</span> (or press <kbd>Ctrl</kbd>+<kbd>P</kbd> in this window).
+3. Next to the button it says how many sheets of paper will come out (while a new preview loads, the choices and **Print** wait a moment), for example **Prints 3 sheets of paper.** <span class="pin">5</span> Load that much paper, then click **Print** <span class="pin">4</span> (or press <kbd>Ctrl</kbd>+<kbd>P</kbd> in this window).
 
-   <Shot name="print-window" alt="The print window for surat jalan SJ/2026/10/0031 marked Original, with the A4 paper choice and the Print button" />
+   <Shot name="print-window" alt="The print window for surat jalan SJ/2026/10/0031 marked Original, with the Template, Paper and Sheets choices, the sheet count and the Print button" />
 
 4. Your computer's own print dialog opens. Choose the printer, then print. To keep a file instead, choose a PDF printer, such as **Save as PDF** or **Microsoft Print to PDF** (the name depends on your computer), then pick where to save it.
 
-5. The print window shows **Print no. 1 went to the print dialog. The next print is marked as a copy.** The sheet is ready for the driver to take along and have signed.
+5. The print window shows **Print no. 1 went to the print dialog. The next print is marked as a copy.** The sheets are ready for the driver to take along and have signed.
 
 </Steps>
 
@@ -37,18 +37,99 @@ The other roles (Warehouse and Viewer) can still open **Preview** to look at the
 GasDist records the print as soon as you click **Print**, before the print dialog opens. If you then close the print dialog without printing, that print still counts, and the next one is marked as a copy. So get the printer and paper ready first, then click **Print**. See [SALINAN and DRAFT](/gasdist-site/en/panduan/cetak/salinan-dan-draf/).
 </Aside>
 
+## Three labelled sheets
+
+One **Print** puts out every sheet of the surat jalan at once, each with its label under the **SURAT JALAN** title <span class="pin">1</span>. By default there are three:
+
+| Sheet | For |
+|---|---|
+| **Lembar 1: Pelanggan** (customer) | Left with the customer |
+| **Lembar 2: Kembali ke kantor** (back to the office) | Signed by the receiver, brought back by the driver, then used to [mark the surat jalan delivered](/gasdist-site/en/panduan/surat-jalan/menandai-terkirim/) |
+| **Lembar 3: Arsip** (archive) | Kept at the office |
+
+Together they are one original set and count as **one print**: every sheet reads **Cetakan ke-1** (print no. 1), none says SALINAN. The Owner sets the number of sheets and their labels in the [print settings](/gasdist-site/en/panduan/pengaturan/cetak/).
+
+<Shot name="print-labels" alt="The print window with the first sheet labelled Lembar 1: Pelanggan, the Sheets choice, and Prints 3 sheets of paper" />
+
+The **Sheets** choice <span class="pin">2</span> decides which sheets this print puts out:
+
+| **Sheets** choice | What prints |
+|---|---|
+| **All sheets (3)** | Every sheet, in order, each with its label |
+| One label, such as **Lembar 1: Pelanggan** | That sheet alone. Useful when one sheet was lost and has to be printed again |
+| **Carbon form (1 sheet)** | One sheet without a label, for carbon forms (see below) |
+
+<Shot name="print-labels-sheet" alt="The first surat jalan sheet with the label Lembar 1: Pelanggan under the SURAT JALAN title" />
+
+## Choosing the template
+
+| **Template** choice | For | How it looks |
+|---|---|---|
+| **Standard (office printer)** | Inkjet or laser printers, and PDF | Company logo, ordinary type, grey shading in the table head |
+| **Simple (dot-matrix)** | Dot-matrix printers | One fixed-width typeface, no logo, no shading, black only |
+
+Both templates hold the same things: number, date, customer, vehicle, driver, lines, totals, notes, the receipt statement and the three signature boxes. A dot-matrix printer prints grey shading as a dot pattern that makes text hard to read, all the more through carbon paper; the Simple template avoids it.
+
+<Shot name="print-simple" alt="A surat jalan sheet with the Simple template: fixed-width type, no logo, no shading" />
+
 ## Choosing the paper
 
 | **Paper** choice | For | Page size |
 |---|---|---|
 | **A4** | Ordinary printers (inkjet or laser), and for saving a PDF | 210 × 297 mm |
 | **Continuous paper 9.5 × 11 in** | Dot-matrix printers with continuous form (perforated fanfold paper) | 9.5 × 11 in |
+| **A5 landscape** | Ordinary printers with A5 paper, landscape | 210 × 148 mm |
+| **Half continuous paper 9.5 × 5.5 in** | Dot-matrix printers with half-height continuous form | 9.5 × 5.5 in |
 
-The contents are the same on both papers; only the page size and margins differ. The preview changes as soon as you switch paper.
+On A4 and 9.5 × 11 in continuous the sheet is the usual one; only the page size and margins differ.
 
 <Shot name="print-a4" alt="A surat jalan sheet on A4 paper" />
 
 <Shot name="print-continuous" alt="The same surat jalan sheet on continuous 9.5 × 11 in paper" />
+
+A5 landscape and half continuous are **short** papers. On a short paper GasDist tightens the sheet (slightly smaller type, lower signature boxes) so the lines stay readable.
+
+<Shot name="print-a5" alt="A surat jalan sheet with the Standard template on A5 landscape" />
+
+<Shot name="print-half" alt="A surat jalan sheet with the Simple template on half continuous paper 9.5 × 5.5 in" />
+
+## A long surat jalan on short paper
+
+When there are too many lines for one short sheet, GasDist does not shrink the type. Each sheet is split into **pages**, each a whole sheet of paper:
+
+| Page | What it holds |
+|---|---|
+| Every page | Company name, **SURAT JALAN**, number, date, the sheet's label, **Halaman 1 dari 2** (page 1 of 2) and so on, the customer's name and code, the table head |
+| The first page | Also the customer's address and phone, the vehicle and the driver |
+| The last page | The **Total** row, notes, the receipt statement and the three signature boxes |
+| Every page but the last | Ends with **Bersambung ke halaman 2** (continued on page 2), and so on |
+
+So every page torn off the fanfold still shows which surat jalan it belongs to. The print window says **One copy takes 2 pages of this paper.** <span class="pin">1</span>, and the sheet count next to the button goes up with it <span class="pin">2</span>.
+
+<Shot name="print-half-parts-window" alt="The print window saying One copy takes 2 pages of this paper and Prints 6 sheets of paper" />
+
+<Shot name="print-half-parts" alt="A four-line surat jalan on half continuous paper, split into Halaman 1 dari 2 and Halaman 2 dari 2" />
+
+How many lines fit one short sheet:
+
+| Template | A5 landscape | Half continuous |
+|---|---|---|
+| **Standard** | up to 4 lines | up to 3 lines |
+| **Simple** | up to 7 lines | up to 5 lines |
+
+These numbers are for ordinary contents. Anything long takes room, so the surat jalan splits sooner: a long company name or address, a long sheet label, a long customer name or address, a long driver name, a product name that wraps onto two rows, and long notes. With very long notes, the last page may hold only the **Total** row, the notes and the signatures.
+
+<Aside type="caution" title="When it still does not fit">
+If there is too much even to split (for example twelve lines of notes on half continuous paper), the print window shows in red **This surat jalan has more than this paper can hold: some of it will print on a sheet without a number.** Choose A4 or continuous 9.5 × 11 in paper, or shorten the notes before printing.
+</Aside>
+
+For surat jalan that often run long, use the **Simple** template or full 9.5 × 11 in continuous paper.
+
+## Carbon forms
+
+A carbon form makes all its copies from one pass of the printer. For those forms, choose **Sheets** **Carbon form (1 sheet)**: one sheet per surat jalan, without a label (carbon sets usually carry the name of each copy already). If your office always uses carbon forms, the Owner can make it the default in the [print settings](/gasdist-site/en/panduan/pengaturan/cetak/).
+
+<Shot name="print-carbon" alt="The print window with Sheets set to Carbon form and Prints 1 sheet of paper" />
 
 ## What is on the sheet
 
@@ -56,8 +137,8 @@ The sheet is printed in the company's default language. With Indonesian, as in t
 
 | Part | What it holds |
 |---|---|
-| Header | The company's logo, name, address, phone and NPWP, taken from [the company settings](/gasdist-site/en/panduan/pengaturan/perusahaan/) |
-| Title | **SURAT JALAN**, **No.** (the surat jalan number) and **Tanggal** (date) |
+| Header | The company's logo (Standard template only), name, address, phone and NPWP, taken from [the company settings](/gasdist-site/en/panduan/pengaturan/perusahaan/) |
+| Title | **SURAT JALAN**, the sheet's label (such as **Lembar 1: Pelanggan**), **No.** (the surat jalan number), **Tanggal** (date) and, on a short paper that splits, **Halaman** (page) |
 | **KEPADA** (to) | Customer name and code, address, city and phone |
 | Kendaraan and Sopir | The vehicle's plate and the driver's name, or `-` if left empty |
 | Lines table | **No**, **Produk** (with its code), **Jumlah (tabung)**, **Isi per tabung**, **Berat (kg)**, then a **Total** row |
@@ -75,10 +156,10 @@ The sheet is printed in the company's default language. With Indonesian, as in t
 
 The statement *Barang diterima dalam keadaan baik dan jumlah sesuai.* is printed just above the signature boxes. By signing the **PENERIMA** box, the customer confirms the tabung arrived in good condition and the quantity matches the table. Ask the receiver to count the tabung before signing.
 
-Below the signature boxes, the printed sheet carries a small **Cetakan ke-1** (print no. 1), **Cetakan ke-2**, and so on. This line does not show in the preview before you click **Print**.
+Below the signature boxes, every printed sheet carries a small **Cetakan ke-1** (print no. 1), **Cetakan ke-2**, and so on. This line does not show in the preview before you click **Print**.
 
 <Aside type="note" title="The sheet's language">
-The surat jalan sheet is printed in the company's default language, not the language you are using, because the sheet is for the customer. When the default language is English, the labels are printed in English too. The Owner sets the default language in [Settings](/gasdist-site/en/panduan/pengaturan/stok-dan-keamanan/).
+The surat jalan sheet is printed in the company's default language, not the language you are using, because the sheet is for the customer. When the default language is English, the labels are printed in English too. The Owner sets the default language in [Settings](/gasdist-site/en/panduan/pengaturan/stok-dan-keamanan/). The sheet labels print exactly as typed in the print settings.
 </Aside>
 
 <Aside type="note" title="The print window locks too">
