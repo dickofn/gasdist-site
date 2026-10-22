@@ -1,0 +1,50 @@
+---
+title: Home
+description: The first screen after signing in: today's surat jalan, the signed sheets not back yet, the last backup, each product's stock and the newest surat jalan.
+sidebar:
+  order: 5
+---
+
+import { Steps, Aside } from "@astrojs/starlight/components";
+import Shot from "../../../../../components/Shot.astro";
+import Roles from "../../../../../components/Roles.astro";
+
+**Home** is the first screen after you sign in. At a glance you see what went out today, which signed sheets are still awaited, when the last backup was made and how much stock is left.
+
+<Roles can={["OWNER", "ADMIN", "GUDANG", "PENJUALAN", "VIEWER"]} />
+
+<Shot name="home" alt="Home: the today's surat jalan, not back yet and backup cards at the top, then the stock cards of four LPG products" />
+
+## The cards at the top
+
+<Shot name="home-dashboard" alt="The Today's surat jalan, Not back yet and Backup cards" />
+
+| Card | What it shows | Its buttons |
+|---|---|---|
+| **Today's surat jalan** | How many surat jalan are dated today, per status, then the tabung and kg out today (posted and delivered) | **See today's surat jalan** <span class="pin">1</span> opens the surat jalan list on today's date. **New surat jalan** <span class="pin">2</span> opens a new form, for those who may create surat jalan. |
+| **Not back yet** | How many surat jalan are still waiting for their signed sheet, of any date, and how many days the oldest has waited. The days turn amber after 7. | **See the report** <span class="pin">3</span> opens [Surat jalan not back yet](/gasdist-site/en/panduan/surat-jalan/belum-kembali/). |
+| **Backup** | When the last backup was made; green, amber or red | **Back up now** <span class="pin">4</span>. See [Making and copying backups](/gasdist-site/en/panduan/backup/membuat-backup/). |
+
+## Stock
+
+Under the cards is one card per product with the stock left in kg and in full tabung, and the **Receive stock** and **Stock opname** buttons at the top right for the Owner, Admin and Warehouse. See [The stock on Home](/gasdist-site/en/panduan/stok/ringkasan/).
+
+## Newest surat jalan
+
+At the bottom are the eight newest surat jalan, by their date, whatever their status. Click one to open it in **Surat Jalan**. A draft opens in the form for those who may change it.
+
+<Shot name="home-recent" alt="The newest surat jalan with number, date, customer, status and tabung" />
+
+## Who sees what
+
+Every role sees the same cards and list, because every role may view reports. Only the buttons differ:
+
+| Button | Owner | Admin | Warehouse | Sales | Viewer |
+|---|---|---|---|---|---|
+| **New surat jalan** | ✅ | ✅ | ❌ | ✅ | ❌ |
+| **Receive stock**, **Stock opname** | ✅ | ✅ | ✅ | ❌ | ❌ |
+| **Back up now** | ✅ | ✅ | ❌ | ❌ | ❌ |
+
+<Aside type="tip">
+The figures on Home are counted when the page opens. After posting or marking a surat jalan delivered, open Home again from the sidebar to see the new figures.
+</Aside>

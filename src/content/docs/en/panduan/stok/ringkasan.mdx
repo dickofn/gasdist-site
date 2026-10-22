@@ -1,6 +1,6 @@
 ---
-title: Stock overview
-description: Read the Stock page, the first screen in GasDist, which shows what is left of each product in kg and in tabung.
+title: Stock on Home
+description: Read the product cards on Home, the first screen in GasDist, which show what is left of each product in kg and in tabung.
 sidebar:
   order: 1
 ---
@@ -9,15 +9,15 @@ import { Steps, Aside } from "@astrojs/starlight/components";
 import Shot from "../../../../../components/Shot.astro";
 import Roles from "../../../../../components/Roles.astro";
 
-The **Stock** page is the first screen after you sign in. It shows how much of each product is left, when the last backup was made, and the buttons for receiving stock and for a stock opname.
+**Home** is the first screen after you sign in. Under the cards for today's surat jalan, the signed sheets not back yet and the backup (see [Home](/gasdist-site/en/panduan/mulai/beranda/)) is the **Stock** part: how much of each product is left, with the buttons for receiving stock and for a stock opname. For what came in and went out over a period, use the [Stock summary](/gasdist-site/en/panduan/laporan/ringkasan-stok/) report.
 
 <Roles can={["OWNER", "ADMIN", "GUDANG", "PENJUALAN", "VIEWER"]} />
 
-## Reading the Stock page
+## Reading the Stock part
 
-Open **Stock** in the sidebar. Each product has its own card. A card that needs attention carries a **Low** badge <span class="pin">2</span>. The **Receive stock** <span class="pin">1</span> and **Stock opname** buttons at the top right only appear for Owner, Admin and Warehouse.
+Open **Home** in the sidebar. Each product has its own card. A card that needs attention carries a **Low** badge <span class="pin">2</span>. The **Receive stock** <span class="pin">1</span> and **Stock opname** buttons at the top right only appear for Owner, Admin and Warehouse.
 
-<Shot name="home" alt="The Stock page with the backup card and four LPG product cards" marks={[null, null, null, 1, 2]} />
+<Shot name="home" alt="Home with the today's surat jalan, not back yet and backup cards, then four LPG product cards" marks={[null, null, null, 1, 2]} />
 
 ## What is on a product card
 

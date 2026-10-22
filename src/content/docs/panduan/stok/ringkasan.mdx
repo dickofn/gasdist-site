@@ -1,6 +1,6 @@
 ---
-title: Ringkasan stok
-description: Baca halaman Stok, layar pertama GasDist, yang menampilkan sisa stok tiap produk dalam kg dan dalam tabung.
+title: Stok di Beranda
+description: Baca kartu produk di Beranda, layar pertama GasDist, yang menampilkan sisa stok tiap produk dalam kg dan dalam tabung.
 sidebar:
   order: 1
 ---
@@ -9,15 +9,15 @@ import { Steps, Aside } from "@astrojs/starlight/components";
 import Shot from "../../../../components/Shot.astro";
 import Roles from "../../../../components/Roles.astro";
 
-Halaman **Stok** adalah layar pertama setelah Anda masuk. Di sini terlihat sisa stok setiap produk, kapan backup terakhir dibuat, dan tombol untuk menerima stok atau melakukan stok opname.
+**Beranda** adalah layar pertama setelah Anda masuk. Di bawah kartu surat jalan hari ini, lembar yang belum kembali, dan backup (lihat [Beranda](/gasdist-site/panduan/mulai/beranda/)) ada bagian **Stok**: sisa stok setiap produk, dengan tombol untuk menerima stok atau melakukan stok opname. Untuk jumlah keluar-masuk stok dalam satu periode, pakai laporan [Ringkasan stok](/gasdist-site/panduan/laporan/ringkasan-stok/).
 
 <Roles can={["OWNER", "ADMIN", "GUDANG", "PENJUALAN", "VIEWER"]} />
 
-## Membaca halaman Stok
+## Membaca bagian Stok
 
-Buka **Stok** di menu samping. Setiap produk punya satu kartu. Kartu yang perlu perhatian diberi tanda **Menipis** <span class="pin">2</span>. Tombol **Terima stok** <span class="pin">1</span> dan **Stok opname** di kanan atas hanya muncul untuk Owner, Admin, dan Gudang.
+Buka **Beranda** di menu samping. Setiap produk punya satu kartu. Kartu yang perlu perhatian diberi tanda **Menipis** <span class="pin">2</span>. Tombol **Terima stok** <span class="pin">1</span> dan **Stok opname** di kanan atas hanya muncul untuk Owner, Admin, dan Gudang.
 
-<Shot name="home" alt="Halaman Stok dengan kartu backup dan empat kartu produk LPG" marks={[null, null, null, 1, 2]} />
+<Shot name="home" alt="Beranda dengan kartu surat jalan hari ini, belum kembali, dan backup, lalu empat kartu produk LPG" marks={[null, null, null, 1, 2]} />
 
 ## Isi satu kartu produk
 

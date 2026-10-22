@@ -1,0 +1,50 @@
+---
+title: Beranda
+description: Layar pertama setelah masuk: surat jalan hari ini, lembar yang belum kembali, backup terakhir, stok tiap produk, dan surat jalan terbaru.
+sidebar:
+  order: 5
+---
+
+import { Steps, Aside } from "@astrojs/starlight/components";
+import Shot from "../../../../components/Shot.astro";
+import Roles from "../../../../components/Roles.astro";
+
+**Beranda** adalah layar pertama setelah Anda masuk. Sekali lihat, Anda tahu apa yang keluar hari ini, lembar bertanda tangan mana yang masih ditunggu, kapan backup terakhir, dan berapa sisa stok.
+
+<Roles can={["OWNER", "ADMIN", "GUDANG", "PENJUALAN", "VIEWER"]} />
+
+<Shot name="home" alt="Beranda: kartu surat jalan hari ini, belum kembali, dan backup di atas, lalu kartu stok empat produk LPG" />
+
+## Kartu di bagian atas
+
+<Shot name="home-dashboard" alt="Kartu Surat jalan hari ini, Belum kembali, dan Backup" />
+
+| Kartu | Isinya | Tombolnya |
+|---|---|---|
+| **Surat jalan hari ini** | Jumlah surat jalan bertanggal hari ini per status, lalu tabung dan kg yang keluar hari ini (yang diposting dan terkirim) | **Lihat surat jalan hari ini** <span class="pin">1</span> membuka daftar surat jalan dengan tanggal hari ini. **Buat surat jalan** <span class="pin">2</span> membuka formulir baru, hanya untuk yang boleh membuat surat jalan. |
+| **Belum kembali** | Berapa surat jalan yang lembar bertanda tangannya belum kembali, dari tanggal berapa pun, dan berapa hari yang paling lama sudah menunggu. Angka hari berwarna kuning setelah 7 hari. | **Lihat laporan** <span class="pin">3</span> membuka [Surat jalan belum kembali](/gasdist-site/panduan/surat-jalan/belum-kembali/). |
+| **Backup** | Kapan backup terakhir dibuat; hijau, kuning, atau merah | **Backup sekarang** <span class="pin">4</span>. Lihat [Membuat dan menyalin backup](/gasdist-site/panduan/backup/membuat-backup/). |
+
+## Stok
+
+Di bawah kartu ada satu kartu per produk dengan sisa stok dalam kg dan setara tabung penuh, serta tombol **Terima stok** dan **Stok opname** di kanan atas untuk Owner, Admin, dan Gudang. Lihat [Stok di Beranda](/gasdist-site/panduan/stok/ringkasan/).
+
+## Surat jalan terbaru
+
+Paling bawah ada delapan surat jalan terbaru, menurut tanggal surat jalannya, apa pun statusnya. Klik satu untuk membukanya di **Surat Jalan**. Draf terbuka di formulir bagi yang boleh mengubahnya.
+
+<Shot name="home-recent" alt="Daftar surat jalan terbaru dengan nomor, tanggal, pelanggan, status, dan jumlah tabung" />
+
+## Siapa melihat apa
+
+Semua peran melihat kartu dan daftar yang sama, karena semua peran boleh melihat laporan. Yang berbeda hanya tombolnya:
+
+| Tombol | Owner | Admin | Gudang | Penjualan | Pemantau |
+|---|---|---|---|---|---|
+| **Buat surat jalan** | ✅ | ✅ | ❌ | ✅ | ❌ |
+| **Terima stok**, **Stok opname** | ✅ | ✅ | ✅ | ❌ | ❌ |
+| **Backup sekarang** | ✅ | ✅ | ❌ | ❌ | ❌ |
+
+<Aside type="tip">
+Angka di Beranda dihitung saat halaman dibuka. Setelah memposting atau menandai terkirim, buka Beranda lagi dari menu samping untuk melihat angka terbaru.
+</Aside>
