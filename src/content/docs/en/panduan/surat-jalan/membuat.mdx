@@ -25,15 +25,29 @@ A surat jalan goes with every delivery of tabung to a customer. While it is stil
 
    <Shot name="sj-form-customer" alt="The customer field showing the customers that match the word sri" />
 
-3. Choose the **Vehicle** and **Driver** if you already know them. Both can be left empty.
+3. Choose the **Vehicle** and **Driver** if you already know them. Both can be left empty. See [Vehicle and driver](#vehicle-and-driver) below.
 
-4. Fill in the lines: choose the **Product** <span class="pin">1</span> and type the number of **Tabung** <span class="pin">2</span>. Click **Add line** for the next product; pressing <kbd>Enter</kbd> on the last line also adds a line.
+4. Fill in the lines: in **Product** <span class="pin">1</span>, type part of the product's name or code and pick it with <kbd>Enter</kbd> or a click, then type the number of **Tabung** <span class="pin">2</span>. Click **Add line** for the next product; pressing <kbd>Enter</kbd> on the last line also adds a line.
 
    The **Stock after** column <span class="pin">3</span> shows how much of that product is left if this surat jalan is posted. The total tabung and kg <span class="pin">4</span> update as you type.
 
    <Shot name="sj-form-filled" alt="A surat jalan form with two lines: LPG 3 kg 200 tabung and LPG 5,5 kg 10 tabung" marks={[1, 2, 3, 4, null]} />
 
 </Steps>
+
+## Vehicle and driver
+
+The **Vehicle** <span class="pin">1</span> and **Driver** fields work like the customer field: click, or type part of the plate or the name. The list starts with **No vehicle** <span class="pin">2</span>, then the vehicles **most recently used** on a surat jalan, then the rest A to Z. The vehicles you use every day are always at the top.
+
+<Shot name="sj-form-vehicle" alt="The Vehicle list open: No vehicle, the most recently used vehicles, and + Add vehicle at the bottom" />
+
+Vehicle or driver not registered yet? Type the plate, then pick **+ Add vehicle** <span class="pin">3</span> at the end of the list. The **Add vehicle** dialog opens with the plate you typed <span class="pin">1</span>. Fill in the rest if needed, then click **Save** <span class="pin">2</span>: the vehicle is saved in Master Data and picked on the surat jalan straight away. **+ Add driver** works the same way.
+
+<Shot name="sj-add-vehicle" alt="The Add vehicle dialog with the plate B 9911 KXA typed in the Vehicle field" />
+
+<Roles can={["OWNER", "ADMIN", "PENJUALAN"]} />
+
+The Sales role can **add** vehicles and drivers here, but changing and deactivating them stays in [Master Data](/gasdist-site/en/panduan/data-master/kendaraan-dan-sopir/), for the Owner or an Admin.
 
 ### What the colours in Stock after mean
 
@@ -69,12 +83,12 @@ Click **Save draft** (<kbd>Ctrl</kbd>+<kbd>S</kbd>) when the delivery is not cer
 
    <Shot name="sj-detail-posted" alt="A posted surat jalan page with its number and the Print and Cancel buttons" />
 
-   From this page you can **Print** <span class="pin">2</span> right away or, if something is wrong, **Cancel surat jalan** <span class="pin">3</span>.
+   From this page you can **Print** <span class="pin">2</span> right away or, if something is wrong, **Cancel surat jalan** <span class="pin">3</span>. The Owner and Admins also see a **Correct** button to [change the vehicle, driver or notes](/gasdist-site/en/panduan/surat-jalan/mengoreksi/).
 
 </Steps>
 
 <Aside type="caution" title="A posted surat jalan cannot be changed">
-Wrong quantity or wrong customer? [Cancel](/gasdist-site/en/panduan/surat-jalan/membatalkan/) that surat jalan and make a new one. Cancelling returns the stock and stays on record, so the history can always be traced.
+Only the vehicle, driver and notes can still be [corrected](/gasdist-site/en/panduan/surat-jalan/mengoreksi/). Wrong quantity or wrong customer? [Cancel](/gasdist-site/en/panduan/surat-jalan/membatalkan/) that surat jalan with **Cancel & recreate**, then fix it in the new draft. Cancelling returns the stock and stays on record, so the history can always be traced.
 </Aside>
 
 ## Keyboard shortcuts

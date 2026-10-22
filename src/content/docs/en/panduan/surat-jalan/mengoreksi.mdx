@@ -1,0 +1,68 @@
+---
+title: Correcting a surat jalan
+description: Change the vehicle, driver or notes of a posted surat jalan, with a reason.
+sidebar:
+  order: 3
+---
+
+import { Steps, Aside } from "@astrojs/starlight/components";
+import Shot from "../../../../../components/Shot.astro";
+import Roles from "../../../../../components/Roles.astro";
+
+Sometimes the truck or the driver changes after a surat jalan is posted, for example because the driver is ill. You do not need to cancel it for that: the **vehicle**, **driver** and **notes** can be corrected while the status is still **Posted**.
+
+<Roles can={["OWNER", "ADMIN"]} />
+
+The Sales role can make and post a surat jalan but cannot correct one. Ask the Owner or an Admin.
+
+## What can and cannot be corrected
+
+| Part of the surat jalan | Can it be corrected? |
+|---|---|
+| Vehicle, driver, notes | ✅ with a reason |
+| Number, date, customer | ❌ |
+| Goods and tabung counts | ❌ |
+| Stock | Does not change at all |
+| A **Cancelled** surat jalan | ❌ there is no **Correct** button |
+
+Wrong customer, wrong goods or a wrong count? Those cannot be corrected. [Cancel the surat jalan](/gasdist-site/en/panduan/surat-jalan/membatalkan/) with **Cancel & recreate**, then fix it in the new draft.
+
+## Correcting a surat jalan
+
+<Steps>
+
+1. Open a surat jalan with the status **Posted**, for example from the [surat jalan list](/gasdist-site/en/panduan/surat-jalan/daftar/), then click **Correct** at the top right.
+
+2. Pick the right **Vehicle** <span class="pin">1</span> or **Driver** <span class="pin">2</span>. Type part of the plate or the name to search; the most recently used are at the top. Pick **No vehicle** or **No driver** to clear it.
+
+3. Change the **Notes** <span class="pin">3</span> if needed.
+
+4. Write the reason in **Reason** <span class="pin">4</span>, for example `Sopir diganti, Pak Joko izin sakit` (driver changed, Pak Joko is off sick). A reason is required, up to 200 characters.
+
+   <Shot name="sj-correct-dialog" alt="The Correct surat jalan dialog with the Vehicle, Driver, Notes and Reason fields" />
+
+5. Click **Save correction** <span class="pin">5</span>.
+
+</Steps>
+
+If nothing was changed, the message **Nothing has been changed yet.** appears and nothing is saved.
+
+## After correcting
+
+The message **Surat jalan ... corrected.** appears <span class="pin">1</span>, and the surat jalan page shows the new driver <span class="pin">3</span> and notes <span class="pin">4</span>. The status stays **Posted**, so it can still be corrected again <span class="pin">2</span>, printed or cancelled.
+
+<Shot name="sj-detail-corrected" alt="A surat jalan page after the correction, with the new driver and notes" />
+
+| Item | After the correction |
+|---|---|
+| Status and number | Unchanged |
+| The next print | Marked as a copy (**SALINAN**) if it was printed before, because the print count carries on. See [SALINAN and DRAFT](/gasdist-site/en/panduan/cetak/salinan-dan-draf/). |
+| History record | Who corrected it, when, why, and the vehicle, driver and notes before and after |
+
+<Aside type="tip" title="A new vehicle or driver">
+If the replacement vehicle or driver is not registered yet, pick **+ Add vehicle** or **+ Add driver** at the end of the list. See [Making a surat jalan](/gasdist-site/en/panduan/surat-jalan/membuat/#vehicle-and-driver).
+</Aside>
+
+<Aside type="caution" title="Sheets already signed">
+A correction changes the data in GasDist, not the paper the driver already carries. Print the surat jalan again so the driver carries a sheet with the right details.
+</Aside>

@@ -1,0 +1,68 @@
+---
+title: Mengoreksi surat jalan
+description: Ganti kendaraan, sopir, atau catatan pada surat jalan yang sudah diposting, dengan alasan.
+sidebar:
+  order: 3
+---
+
+import { Steps, Aside } from "@astrojs/starlight/components";
+import Shot from "../../../../components/Shot.astro";
+import Roles from "../../../../components/Roles.astro";
+
+Kadang truk atau sopir diganti setelah surat jalan diposting, misalnya karena sopirnya sakit. Untuk itu surat jalan tidak perlu dibatalkan: **kendaraan**, **sopir**, dan **catatan** bisa dikoreksi, asal statusnya masih **Diposting**.
+
+<Roles can={["OWNER", "ADMIN"]} />
+
+Penjualan bisa membuat dan memposting surat jalan, tetapi tidak bisa mengoreksinya. Minta Owner atau Admin.
+
+## Yang bisa dan tidak bisa dikoreksi
+
+| Bagian surat jalan | Bisa dikoreksi? |
+|---|---|
+| Kendaraan, sopir, catatan | ✅ dengan alasan |
+| Nomor, tanggal, pelanggan | ❌ |
+| Barang dan jumlah tabung | ❌ |
+| Stok | Tidak berubah sama sekali |
+| Surat jalan **Dibatalkan** | ❌ tombol **Koreksi** tidak ada |
+
+Salah pelanggan, salah barang, atau salah jumlah? Itu tidak bisa dikoreksi. [Batalkan surat jalan itu](/gasdist-site/panduan/surat-jalan/membatalkan/) dengan **Batalkan & buat ulang**, lalu perbaiki di draf barunya.
+
+## Mengoreksi surat jalan
+
+<Steps>
+
+1. Buka surat jalan yang berstatus **Diposting**, misalnya lewat [daftar surat jalan](/gasdist-site/panduan/surat-jalan/daftar/), lalu klik **Koreksi** di kanan atas.
+
+2. Pilih **Kendaraan** <span class="pin">1</span> atau **Sopir** <span class="pin">2</span> yang benar. Ketik sebagian nomor polisi atau nama untuk mencari; yang terakhir dipakai ada di atas. Pilih **Tanpa kendaraan** atau **Tanpa sopir** untuk mengosongkannya.
+
+3. Ubah **Catatan** <span class="pin">3</span> bila perlu.
+
+4. Tulis alasannya di **Alasan** <span class="pin">4</span>, misalnya `Sopir diganti, Pak Joko izin sakit`. Alasan wajib diisi, paling banyak 200 huruf.
+
+   <Shot name="sj-correct-dialog" alt="Dialog Koreksi surat jalan dengan kolom Kendaraan, Sopir, Catatan dan Alasan" />
+
+5. Klik **Simpan koreksi** <span class="pin">5</span>.
+
+</Steps>
+
+Bila tidak ada yang diubah, muncul pesan **Belum ada yang diubah.** dan tidak ada yang disimpan.
+
+## Setelah dikoreksi
+
+Muncul pesan **Surat jalan ... dikoreksi.** <span class="pin">1</span>, dan halaman surat jalan menampilkan sopir <span class="pin">3</span> dan catatan <span class="pin">4</span> yang baru. Statusnya tetap **Diposting**, jadi surat jalan itu masih bisa dikoreksi lagi <span class="pin">2</span>, dicetak, atau dibatalkan.
+
+<Shot name="sj-detail-corrected" alt="Halaman surat jalan setelah dikoreksi dengan sopir dan catatan yang baru" />
+
+| Hal | Sesudah dikoreksi |
+|---|---|
+| Status dan nomor | Tetap |
+| Cetakan berikutnya | Bertanda **SALINAN** bila sudah pernah dicetak, karena hitungan cetak berlanjut. Lihat [SALINAN dan DRAFT](/gasdist-site/panduan/cetak/salinan-dan-draf/). |
+| Catatan riwayat | Siapa yang mengoreksi, kapan, alasannya, serta kendaraan, sopir, dan catatan sebelum dan sesudahnya |
+
+<Aside type="tip" title="Kendaraan atau sopir baru">
+Bila kendaraan atau sopir penggantinya belum terdaftar, pilih **+ Tambah kendaraan** atau **+ Tambah sopir** di ujung daftar. Lihat [Membuat surat jalan](/gasdist-site/panduan/surat-jalan/membuat/#kendaraan-dan-sopir).
+</Aside>
+
+<Aside type="caution" title="Lembar yang sudah ditandatangani">
+Koreksi mengubah data di GasDist, bukan kertas yang sudah dibawa sopir. Cetak ulang surat jalannya agar sopir membawa lembar dengan data yang benar.
+</Aside>

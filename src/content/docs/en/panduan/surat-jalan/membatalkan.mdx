@@ -2,14 +2,14 @@
 title: Cancelling a surat jalan
 description: Cancel a posted surat jalan with a reason and your password, and its stock comes back.
 sidebar:
-  order: 3
+  order: 4
 ---
 
 import { Steps, Aside } from "@astrojs/starlight/components";
 import Shot from "../../../../../components/Shot.astro";
 import Roles from "../../../../../components/Roles.astro";
 
-A posted surat jalan cannot be changed. When its contents are wrong or the delivery is called off, you cancel it: the stock comes back, and the number stays on record as cancelled, so the history can always be traced.
+A posted surat jalan cannot be changed, apart from its vehicle, driver and notes, which can be [corrected](/gasdist-site/en/panduan/surat-jalan/mengoreksi/). When its contents are wrong or the delivery is called off, you cancel it: the stock comes back, and the number stays on record as cancelled, so the history can always be traced.
 
 <Roles can={["OWNER", "ADMIN"]} />
 
@@ -27,7 +27,7 @@ The Sales role can make and post a surat jalan but cannot cancel one. If one nee
 
    <Shot name="sj-cancel-dialog" alt="The Cancel surat jalan SJ/2026/10/0031 dialog with the Reason and Password fields" />
 
-4. Click **Cancel surat jalan**. Click **Cancel** if you change your mind; nothing changes.
+4. Click **Cancel surat jalan**. If the surat jalan has to be made again with the contents fixed, click **Cancel & recreate** <span class="pin">3</span> instead (see [below](#cancel--recreate)). Click **Cancel** if you change your mind; nothing changes.
 
 </Steps>
 
@@ -47,6 +47,20 @@ The message **Surat jalan ... cancelled.** appears, the status becomes **Cancell
 | Buttons | **Print**, **Cancel surat jalan** | Only **Preview** |
 | Printing | Possible | No longer possible |
 
+## Cancel & recreate
+
+A wrong tabung count, wrong goods or the wrong customer usually means making the same surat jalan again with one fix. **Cancel & recreate** does both at once: the surat jalan is cancelled as usual, then a new surat jalan form opens with the same customer <span class="pin">2</span>, vehicle, driver, notes and goods <span class="pin">3</span>, dated today. The message at the top <span class="pin">1</span> reminds you it is a new draft.
+
+<Shot name="sj-form-recreated" alt="A new surat jalan form holding the details of the surat jalan just cancelled, with a message that it is a new draft" />
+
+Fix what was wrong, then click **Save draft** or **Post** below the form. The new surat jalan gets the next number when it is posted.
+
+<Aside type="caution" title="The new draft is not saved yet">
+The form is not saved until you save it. If you close it, GasDist asks first; if you discard it, the cancellation still stands and there is no new draft.
+</Aside>
+
+The **Cancel & recreate** button only appears for roles that may make a surat jalan, which are the Owner and Admin here.
+
 ### Where the stock goes back
 
 Each line of the surat jalan returns to stock as a **Cancellation** line in the [kartu stok](/gasdist-site/en/panduan/stok/kartu-stok/), dated the day you cancel, not the date of the surat jalan. That way the records of earlier days, stok opname results included, stay as they were.
@@ -56,7 +70,7 @@ Each line of the surat jalan returns to stock as a **Cancellation** line in the 
 **Preview** still opens so you can read the contents. The page carries a DIBATALKAN watermark (CANCELLED when the company's default language is English), and the bar above it says **A cancelled surat jalan is not printed again.** There is no **Print** button.
 
 <Aside type="caution" title="A cancellation cannot be undone">
-A cancelled surat jalan cannot be brought back. If the delivery goes ahead after all, [make a new surat jalan](/gasdist-site/en/panduan/surat-jalan/membuat/); it gets the next number.
+A cancelled surat jalan cannot be brought back. If the delivery goes ahead after all, [make a new surat jalan](/gasdist-site/en/panduan/surat-jalan/membuat/), or use **Cancel & recreate** in the first place; it gets the next number.
 </Aside>
 
 <Aside type="tip" title="Drafts are deleted, not cancelled">

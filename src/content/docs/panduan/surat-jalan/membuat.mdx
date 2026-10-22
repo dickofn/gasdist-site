@@ -25,15 +25,29 @@ Surat jalan menyertai setiap pengiriman tabung ke pelanggan. Selama masih **draf
 
    <Shot name="sj-form-customer" alt="Kolom pelanggan menampilkan daftar pelanggan yang cocok dengan kata sri" />
 
-3. Pilih **Kendaraan** dan **Sopir** bila sudah diketahui. Keduanya boleh dikosongkan.
+3. Pilih **Kendaraan** dan **Sopir** bila sudah diketahui. Keduanya boleh dikosongkan. Lihat [Kendaraan dan sopir](#kendaraan-dan-sopir) di bawah.
 
-4. Isi baris barang: pilih **Produk** <span class="pin">1</span> dan ketik jumlah **Tabung** <span class="pin">2</span>. Klik **Tambah baris** untuk produk berikutnya; menekan <kbd>Enter</kbd> di baris terakhir juga menambah baris.
+4. Isi baris barang: di **Produk** <span class="pin">1</span>, ketik sebagian nama atau kode produk lalu pilih dengan <kbd>Enter</kbd> atau klik, kemudian ketik jumlah **Tabung** <span class="pin">2</span>. Klik **Tambah baris** untuk produk berikutnya; menekan <kbd>Enter</kbd> di baris terakhir juga menambah baris.
 
    Kolom **Stok setelah** <span class="pin">3</span> menunjukkan sisa stok produk itu jika surat jalan ini diposting. Total tabung dan kg <span class="pin">4</span> ikut berubah saat Anda mengetik.
 
    <Shot name="sj-form-filled" alt="Formulir surat jalan dengan dua baris: LPG 3 kg 200 tabung dan LPG 5,5 kg 10 tabung" marks={[1, 2, 3, 4, null]} />
 
 </Steps>
+
+## Kendaraan dan sopir
+
+Kolom **Kendaraan** <span class="pin">1</span> dan **Sopir** bekerja seperti kolom pelanggan: klik, atau ketik sebagian nomor polisi atau nama. Daftarnya diawali **Tanpa kendaraan** <span class="pin">2</span>, lalu kendaraan yang **terakhir dipakai** di surat jalan, lalu sisanya urut abjad. Kendaraan yang biasa dipakai jadi selalu ada di atas.
+
+<Shot name="sj-form-vehicle" alt="Daftar Kendaraan terbuka: Tanpa kendaraan, kendaraan yang terakhir dipakai, dan + Tambah kendaraan di bawah" />
+
+Kendaraan atau sopir belum terdaftar? Ketik nomor polisinya, lalu pilih **+ Tambah kendaraan** <span class="pin">3</span> di ujung daftar. Dialog **Tambah kendaraan** terbuka dengan nomor polisi yang Anda ketik <span class="pin">1</span>. Lengkapi bila perlu, lalu klik **Simpan** <span class="pin">2</span>: kendaraan itu tersimpan di Master Data dan langsung terpilih di surat jalan. **+ Tambah sopir** bekerja sama.
+
+<Shot name="sj-add-vehicle" alt="Dialog Tambah kendaraan dengan nomor polisi B 9911 KXA yang diketik di kolom Kendaraan" />
+
+<Roles can={["OWNER", "ADMIN", "PENJUALAN"]} />
+
+Penjualan bisa **menambah** kendaraan dan sopir dari sini, tetapi mengubah dan menonaktifkannya tetap lewat [Master Data](/gasdist-site/panduan/data-master/kendaraan-dan-sopir/) oleh Owner atau Admin.
 
 ### Arti warna di kolom Stok setelah
 
@@ -69,12 +83,12 @@ Klik **Simpan draf** (<kbd>Ctrl</kbd>+<kbd>S</kbd>) bila pengiriman belum pasti.
 
    <Shot name="sj-detail-posted" alt="Halaman surat jalan yang sudah diposting dengan nomor, tombol Cetak dan Batalkan" />
 
-   Dari halaman ini Anda bisa langsung **Cetak** <span class="pin">2</span> atau, bila ada kesalahan, **Batalkan surat jalan** <span class="pin">3</span>.
+   Dari halaman ini Anda bisa langsung **Cetak** <span class="pin">2</span> atau, bila ada kesalahan, **Batalkan surat jalan** <span class="pin">3</span>. Owner dan Admin juga melihat tombol **Koreksi** untuk [mengganti kendaraan, sopir, atau catatan](/gasdist-site/panduan/surat-jalan/mengoreksi/).
 
 </Steps>
 
 <Aside type="caution" title="Isi surat jalan yang sudah diposting tidak bisa diubah">
-Salah jumlah atau salah pelanggan? [Batalkan](/gasdist-site/panduan/surat-jalan/membatalkan/) surat jalan itu lalu buat yang baru. Pembatalan mengembalikan stok dan tetap tercatat, sehingga riwayatnya selalu bisa ditelusuri.
+Hanya kendaraan, sopir, dan catatan yang masih bisa [dikoreksi](/gasdist-site/panduan/surat-jalan/mengoreksi/). Salah jumlah atau salah pelanggan? [Batalkan](/gasdist-site/panduan/surat-jalan/membatalkan/) surat jalan itu dengan **Batalkan & buat ulang**, lalu perbaiki di draf barunya. Pembatalan mengembalikan stok dan tetap tercatat, sehingga riwayatnya selalu bisa ditelusuri.
 </Aside>
 
 ## Pintasan keyboard

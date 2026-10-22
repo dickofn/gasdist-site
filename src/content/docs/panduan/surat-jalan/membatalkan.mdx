@@ -2,14 +2,14 @@
 title: Membatalkan surat jalan
 description: Batalkan surat jalan yang sudah diposting dengan alasan dan kata sandi, lalu stoknya kembali.
 sidebar:
-  order: 3
+  order: 4
 ---
 
 import { Steps, Aside } from "@astrojs/starlight/components";
 import Shot from "../../../../components/Shot.astro";
 import Roles from "../../../../components/Roles.astro";
 
-Surat jalan yang sudah diposting tidak bisa diubah. Bila isinya salah atau pengirimannya batal, surat jalan itu dibatalkan: stoknya kembali, dan nomornya tetap tercatat sebagai batal sehingga riwayatnya selalu bisa ditelusuri.
+Surat jalan yang sudah diposting tidak bisa diubah, kecuali kendaraan, sopir, dan catatannya yang bisa [dikoreksi](/gasdist-site/panduan/surat-jalan/mengoreksi/). Bila isinya salah atau pengirimannya batal, surat jalan itu dibatalkan: stoknya kembali, dan nomornya tetap tercatat sebagai batal sehingga riwayatnya selalu bisa ditelusuri.
 
 <Roles can={["OWNER", "ADMIN"]} />
 
@@ -27,7 +27,7 @@ Penjualan bisa membuat dan memposting surat jalan, tetapi tidak bisa membatalkan
 
    <Shot name="sj-cancel-dialog" alt="Dialog Batalkan surat jalan SJ/2026/10/0031 dengan kolom Alasan dan Kata sandi" />
 
-4. Klik **Batalkan surat jalan**. Klik **Batal** bila Anda berubah pikiran; tidak ada yang berubah.
+4. Klik **Batalkan surat jalan**. Bila surat jalannya perlu dibuat lagi dengan isi yang diperbaiki, klik **Batalkan & buat ulang** <span class="pin">3</span> (lihat [di bawah](#batalkan--buat-ulang)). Klik **Batal** bila Anda berubah pikiran; tidak ada yang berubah.
 
 </Steps>
 
@@ -47,6 +47,20 @@ Muncul pesan **Surat jalan ... dibatalkan.**, statusnya menjadi **Dibatalkan** <
 | Tombol | **Cetak**, **Batalkan surat jalan** | Hanya **Pratinjau** |
 | Cetak | Bisa | Tidak bisa lagi |
 
+## Batalkan & buat ulang
+
+Salah jumlah tabung, salah barang, atau salah pelanggan biasanya berarti surat jalan yang sama dibuat lagi dengan satu perbaikan. **Batalkan & buat ulang** mengerjakan keduanya sekaligus: surat jalan dibatalkan seperti biasa, lalu formulir surat jalan baru terbuka berisi pelanggan <span class="pin">2</span>, kendaraan, sopir, catatan, dan barang <span class="pin">3</span> yang sama, bertanggal hari ini. Pesan di atas <span class="pin">1</span> mengingatkan bahwa ini draf baru.
+
+<Shot name="sj-form-recreated" alt="Formulir surat jalan baru berisi data dari surat jalan yang baru dibatalkan, dengan pesan bahwa ini draf baru" />
+
+Perbaiki yang salah, lalu klik **Simpan draf** atau **Posting** di bawah formulir. Surat jalan baru mendapat nomor berikutnya saat diposting.
+
+<Aside type="caution" title="Draf baru belum tersimpan">
+Formulir itu belum tersimpan sampai Anda menyimpannya. Bila Anda menutupnya, GasDist bertanya dulu; bila dibuang, pembatalannya tetap berlaku dan tidak ada draf baru.
+</Aside>
+
+Tombol **Batalkan & buat ulang** hanya muncul untuk peran yang boleh membuat surat jalan, yaitu Owner dan Admin.
+
 ### Ke mana stoknya kembali
 
 Setiap baris surat jalan dikembalikan ke stok sebagai baris **Pembatalan** di [kartu stok](/gasdist-site/panduan/stok/kartu-stok/), bertanggal hari pembatalan, bukan tanggal surat jalan. Dengan begitu, catatan hari-hari sebelumnya, termasuk hasil stok opname, tidak berubah.
@@ -56,7 +70,7 @@ Setiap baris surat jalan dikembalikan ke stok sebagai baris **Pembatalan** di [k
 **Pratinjau** masih bisa dibuka untuk melihat isinya. Halamannya diberi tanda air DIBATALKAN (CANCELLED bila bahasa bawaan perusahaan adalah English), dan di atasnya tertulis **Surat jalan yang dibatalkan tidak dicetak lagi.** Tombol **Cetak** tidak ada.
 
 <Aside type="caution" title="Pembatalan tidak bisa diurungkan">
-Surat jalan yang sudah dibatalkan tidak bisa diaktifkan lagi. Bila pengirimannya ternyata jadi, [buat surat jalan baru](/gasdist-site/panduan/surat-jalan/membuat/); surat jalan baru itu mendapat nomor berikutnya.
+Surat jalan yang sudah dibatalkan tidak bisa diaktifkan lagi. Bila pengirimannya ternyata jadi, [buat surat jalan baru](/gasdist-site/panduan/surat-jalan/membuat/), atau pakai **Batalkan & buat ulang** sejak awal; surat jalan baru itu mendapat nomor berikutnya.
 </Aside>
 
 <Aside type="tip" title="Draf tidak dibatalkan, tetapi dihapus">
