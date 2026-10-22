@@ -84,7 +84,7 @@ Tidak. GasDist dirancang untuk satu PC per database dan tidak menyinkronkan data
 
 1. Buka surat jalan yang sudah diposting, lalu klik **Cetak**. Jendela cetak terbuka.
 
-2. Pilih ukuran **Kertas**, lalu klik **Cetak** di jendela itu.
+2. Pilih **Kertas**. Di **Lembar**, pilih **Semua lembar** untuk PDF berisi semua lembar berlabel (satu halaman PDF per lembar), atau satu lembar saja. Lalu klik **Cetak** di jendela itu.
 
 3. Di dialog cetak sistem, pilih printer PDF sebagai tujuan, misalnya **Microsoft Print to PDF** di Windows, lalu simpan berkasnya.
 
@@ -93,6 +93,10 @@ Tidak. GasDist dirancang untuk satu PC per database dan tidak menyinkronkan data
 <Aside type="caution">
 Menyimpan ke PDF dihitung sebagai satu kali cetak. Bila Anda menyimpan PDF dulu, kertas yang dicetak sesudahnya bertanda **SALINAN**. Lihat [Mencetak surat jalan](/gasdist-site/panduan/cetak/mencetak/) dan [SALINAN dan DRAFT](/gasdist-site/panduan/cetak/salinan-dan-draf/).
 </Aside>
+
+## Kenapa satu kali Cetak mengeluarkan tiga lembar?
+
+Sejak GasDist 0.10.0, satu kali **Cetak** mengeluarkan semua lembar surat jalan sekaligus: bawaannya **Lembar 1: Pelanggan**, **Lembar 2: Kembali ke kantor**, dan **Lembar 3: Arsip**. Ketiganya dihitung satu cetakan dan semuanya asli. Owner bisa mengubah jumlah lembar dan labelnya, atau memakai formulir karbon (satu lembar), di [Pengaturan cetak](/gasdist-site/panduan/pengaturan/cetak/). Untuk sekali cetak, pilihan **Lembar** di jendela cetak juga bisa dibatasi ke satu lembar.
 
 ## Saya lupa kata sandi. Apa yang harus dilakukan?
 
