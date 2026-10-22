@@ -39,6 +39,7 @@ export default defineConfig({
         section("Pengguna", { en: "Users" }, "pengguna"),
         section("Pengaturan", { en: "Settings" }, "pengaturan"),
         section("Backup", { en: "Backup" }, "backup"),
+        section("Alat data", { en: "Data tools" }, "alat-data"),
         section("Bantuan", { en: "Help" }, "bantuan"),
       ],
     }),

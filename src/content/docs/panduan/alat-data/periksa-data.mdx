@@ -1,0 +1,56 @@
+---
+title: Periksa data
+description: "Memastikan jejak audit utuh dan saldo stok sama dengan buku besarnya. Hanya membaca, tidak memperbaiki apa pun."
+sidebar:
+  order: 3
+---
+
+import { Steps, Aside } from "@astrojs/starlight/components";
+import Shot from "../../../../components/Shot.astro";
+import Roles from "../../../../components/Roles.astro";
+
+GasDist menyimpan dua catatan yang tidak boleh diubah: [jejak audit](/gasdist-site/panduan/laporan/jejak-audit/), yang setiap catatannya membawa sidik catatan sebelumnya, dan buku besar stok, yang menjadi dasar saldo setiap produk. Periksa data memastikan keduanya masih seperti yang ditulis GasDist.
+
+<Roles can={["OWNER", "ADMIN"]} />
+
+## Memeriksa
+
+<Steps>
+
+1. Klik **Laporan** di menu samping, lalu tab **Periksa data** <span class="pin">1</span>.
+
+2. Klik **Periksa sekarang** <span class="pin">2</span>. Pemeriksaan berjalan di latar belakang dengan bilah kemajuan; GasDist tetap bisa dipakai.
+
+3. Hasilnya tampil dalam dua kotak <span class="pin">3</span>: **Jejak audit** dan **Stok: buku besar dan saldo tersimpan**. Hijau berarti tidak ada masalah.
+
+   <Shot name="reports-verify" alt="Hasil Periksa data: jejak audit utuh dan saldo stok sama dengan buku besar" />
+
+</Steps>
+
+Dengan riwayat sepuluh tahun (lebih dari satu juta catatan audit), pemeriksaan memakan beberapa detik. Hasil terakhir tetap tampil di tab ini sampai GasDist ditutup.
+
+## Yang diperiksa
+
+| Kotak | Yang diperiksa |
+|---|---|
+| **Jejak audit** | Setiap catatan dari yang pertama sampai yang terbaru: tidak ada yang hilang, isinya tidak diubah, dan setiap catatan tersambung ke catatan sebelumnya |
+| **Stok** | Untuk setiap produk, saldo yang tersimpan sama dengan jumlah semua pergerakan di buku besar (penerimaan, surat jalan, opname, pembatalan) |
+
+Pemeriksaan hanya membaca. Tidak ada yang diubah atau diperbaiki, dan pemeriksaan tidak tercatat di jejak audit.
+
+## Bila ada masalah
+
+Kotak yang bermasalah berwarna merah dan mendaftar setiap masalah.
+
+| Masalah | Artinya | Yang dilakukan |
+|---|---|---|
+| **Isi diubah** | Isi catatan audit itu tidak lagi cocok dengan sidiknya | Data diubah di luar GasDist. Pulihkan [backup](/gasdist-site/panduan/backup/memulihkan/) terbaru yang dibuat sebelum waktu masalah pertama, lalu hubungi dukungan |
+| **... entri hilang** | Ada catatan yang dihapus dari tengah jejak audit | Sama: pulihkan backup sebelum waktu itu dan hubungi dukungan |
+| **Tidak tersambung ke entri sebelumnya** | Catatan sebelumnya diganti, walaupun sidiknya ikut dihitung ulang | Sama |
+| Selisih stok per produk | Saldo tersimpan berbeda dari buku besarnya, lengkap dengan selisihnya dalam kg | Beranda dan pemeriksaan stok saat posting memakai saldo tersimpan; kartu stok dan laporan memakai buku besar. Hubungi dukungan sebelum memposting lagi |
+
+Daftar menampilkan 100 masalah pertama dan menyebut jumlah seluruhnya.
+
+<Aside type="note" title="Batas pemeriksaan">
+Pemeriksaan tidak bisa melihat catatan yang dihapus dari ujung terbaru jejak audit, karena tidak ada catatan sesudahnya yang membawa sidiknya. Backup terbaru adalah salinan pembandingnya, jadi biasakan [menyimpan salinan backup](/gasdist-site/panduan/backup/membuat-backup/) di luar PC.
+</Aside>

@@ -1,0 +1,84 @@
+---
+title: Importing customers
+description: "Add many customers at once from an Excel or CSV file, with a preview of every row before anything is saved."
+sidebar:
+  order: 1
+---
+
+import { Steps, Aside } from "@astrojs/starlight/components";
+import Shot from "../../../../../components/Shot.astro";
+import Roles from "../../../../../components/Roles.astro";
+
+Have a customer list in Excel? Import adds it in one go instead of typing each customer. GasDist shows every row first, with the reason for any row it refuses. Nothing is saved until you press the import button.
+
+<Roles can={["OWNER", "ADMIN"]} />
+
+Penjualan can still [add customers](/gasdist-site/en/panduan/pelanggan/menambah/) one at a time, but does not see the **Import** button. One import can add hundreds of customers, and customers cannot be deleted, only deactivated, so importing is for the Owner and Admin.
+
+## Preparing the file
+
+<Steps>
+
+1. Click **Customers** in the sidebar, then **Import** at the top right. The **Import customers** window opens, with **Download template (xlsx)** <span class="pin">1</span> and **Choose file...** <span class="pin">2</span>.
+
+2. Click **Download template (xlsx)** and save the file.
+
+   <Shot name="customers-import" alt="The Import customers window before a file is chosen, with Download template and Choose file" />
+
+3. Open the template in Excel and fill in one customer per row. Do not change the header row.
+
+</Steps>
+
+| Column | What goes in it |
+|---|---|
+| **Code** | Required. 1 to 20 letters, digits or `. _ - /`, not used by another customer |
+| **Name** | Required |
+| **Type** | Required: **Pangkalan**, **Retail**, **Industry** or **Other**. The template offers the choices |
+| **Address**, **City**, **Phone**, **Contact person**, **NPWP**, **Notes** | May stay empty |
+| **NIK** | Empty, or exactly 16 digits |
+
+The rules are those of the [Add customer](/gasdist-site/en/panduan/pelanggan/menambah/) form. Every column of the template is formatted as Text, so a phone number keeps its leading 0 and a NIK all 16 digits as typed. The rules and an example are on the second sheet, **Help**.
+
+A file of your own works too, without the template: an xlsx (its first sheet), or a CSV, including the CSV Excel saves with semicolons (`;`). The columns may be in any order, as long as the header row names **Code**, **Name** and **Type**. Indonesian headings (*Kode*, *Nama*, *Jenis*) are recognised too. Columns it does not know are skipped and named in the preview.
+
+## Preview and import
+
+<Steps>
+
+1. In the same window, click **Choose file...** and pick your xlsx or CSV file.
+
+2. The preview lists every row, with its row number in the file. Its summary <span class="pin">1</span> says how many rows are ready and how many are refused. A refused row gives its reason in the **Status** column <span class="pin">2</span>.
+
+   <Shot name="customers-import-preview" alt="The import preview: 10 rows, 5 ready to import and 5 refused, one row refused because its code is already used" />
+
+3. Click the **Refused** tab <span class="pin">3</span> to see only the refused rows.
+
+   <Shot name="customers-import-refused" alt="Only the refused rows: a code used twice, a code already used, an empty name, a wrong NIK" />
+
+4. Click **Import 5 customers** <span class="pin">4</span>. Every ready row goes in together; refused rows are not saved. The message above the list <span class="pin">1</span> gives the result, and the new customers are in the list straight away <span class="pin">2</span>.
+
+   <Shot name="customers-import-done" alt="The customer list after the import, with the message 5 customers imported and 5 rows refused" />
+
+</Steps>
+
+For the refused rows, fix the file and import it again. The rows that went in are refused this time because their codes are taken, so nothing goes in twice.
+
+## Why a row is refused
+
+| Reason in the Status column | What it means | What to do |
+|---|---|---|
+| **Invalid data: Customer name** (or another field) | A required field is empty, too long or breaks a rule, for example a NIK that is not 16 digits | Fix that field in the file |
+| **Code ... is already used by ...** | The code belongs to an existing customer, inactive ones included | Import never changes an existing customer. Use another code, or change that customer from its [detail](/gasdist-site/en/panduan/pelanggan/detail/) |
+| **Code ... is also on row ...** | Two rows of the file use the same code (capitals and small letters count as the same) | Every row with that code is refused, since GasDist cannot know which one is right. Keep one |
+| **Phone was typed as a number...** (also NPWP and NIK) | Excel stored the field as a number, so its leading 0 or last digits are gone | Format that column as Text in Excel and type it again. The template is already Text |
+| **... was read as a date** | Excel turned the field into a date, for example `1-2` into 1 February | Format that column as Text and type it again |
+
+<Aside type="note" title="When the file changes after the preview">
+If the file is changed and saved again after its preview was made, GasDist saves nothing and asks you to choose the file again. What is imported is always exactly what the preview showed.
+</Aside>
+
+## Limits and the record it leaves
+
+- One import takes at most 5,000 rows and 10 MB. Split a larger list into several files.
+- Each imported customer is recorded in the [audit trail](/gasdist-site/en/panduan/laporan/jejak-audit/) as **Customer added**, as with the form, plus one **Customers imported** entry naming the file and how many rows went in and were refused.
+- Old Excel files (`.xls`) cannot be read. Save them again as `.xlsx` or CSV.

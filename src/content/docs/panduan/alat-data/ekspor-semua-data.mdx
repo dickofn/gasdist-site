@@ -1,0 +1,57 @@
+---
+title: Ekspor semua data
+description: "Semua data GasDist dalam satu file Excel, untuk akuntan, arsip, atau pindah ke program lain."
+sidebar:
+  order: 2
+---
+
+import { Steps, Aside } from "@astrojs/starlight/components";
+import Shot from "../../../../components/Shot.astro";
+import Roles from "../../../../components/Roles.astro";
+
+Ekspor semua data menyalin setiap tabel GasDist ke satu file Excel (xlsx): pelanggan, produk, kendaraan, sopir, surat jalan dan barisnya, penerimaan stok, buku besar stok, jejak audit, pengguna, dan pengaturan. Gunanya untuk akuntan, arsip di luar GasDist, atau memindahkan data ke program lain.
+
+<Roles can={["OWNER"]} />
+
+Hanya Owner, karena file ini **tidak terenkripsi**: siapa pun yang memegangnya bisa membaca semua data, termasuk NIK dan nomor telepon pelanggan. Untuk menjaga data dari kerusakan atau kehilangan, pakai [backup](/gasdist-site/panduan/backup/membuat-backup/), yang terenkripsi dan bisa dipulihkan. File ekspor tidak bisa dipulihkan ke GasDist.
+
+## Mengekspor
+
+<Steps>
+
+1. Klik **Pengaturan** di menu samping, lalu gulir ke kotak **Ekspor semua data** di bawah backup.
+
+2. Klik **Ekspor ke xlsx...** <span class="pin">1</span>, lalu pilih tempat menyimpan file di dialog simpan. Nama yang diusulkan berisi tanggal hari ini, misalnya `GasDist-semua-data-2026-10-13.xlsx`.
+
+3. Ekspor berjalan di latar belakang. Selama itu, kotaknya menyebut tabel yang sedang ditulis dan berapa baris yang sudah selesai, lalu **Menyimpan file xlsx...** di akhir. GasDist tetap bisa dipakai seperti biasa; **Hentikan** membatalkan ekspor tanpa menyimpan file.
+
+4. Setelah selesai, pesan <span class="pin">2</span> menyebut letak file, jumlah baris, dan lamanya.
+
+   <Shot name="settings-export" alt="Kotak Ekspor semua data setelah selesai, dengan pesan letak file dan jumlah baris" />
+
+</Steps>
+
+Data yang sudah bertahun-tahun butuh waktu: dengan riwayat sepuluh tahun (sekitar 470.000 surat jalan), ekspor memakan sekitar satu menit dan filenya sekitar 400 MB. Selama ekspor, GasDist memakai ruang kosong di disk kira-kira dua kali ukuran databasenya untuk sementara.
+
+## Isi file
+
+| Sheet | Isinya |
+|---|---|
+| **Info** | Perusahaan, waktu ekspor, siapa yang mengekspor, versi aplikasi, jumlah baris setiap tabel dan sheet-nya, serta apa saja yang tidak ikut dan alasannya |
+| Satu sheet per tabel | Baris pertama berisi nama kolom seperti di database, lalu satu baris per data |
+
+Isinya ditulis apa adanya seperti di database: berat dalam **gram** (bukan kg), tanggal sebagai `2026-10-13`, dan waktu dalam UTC. Tabel yang lebih panjang dari satu sheet Excel (1.048.575 baris) berlanjut di sheet berikutnya, misalnya `audit_log (2)`.
+
+## Yang tidak ikut
+
+| Yang tidak ikut | Alasan |
+|---|---|
+| Kata sandi pengguna, kode pemulihan, kata sandi backup, dan kunci scan | Rahasia: bisa dipakai untuk masuk atau membuka backup dan scan |
+| Riwayat masuk (sesi) | Hanya dipakai untuk aturan penguncian layar |
+| Logo perusahaan | Gambar, bukan data yang bisa ditampilkan sheet |
+| Kunci database | Tidak pernah ada di dalam database; tersimpan di sistem operasi |
+| Scan lembar kembali | Tetap berupa file terenkripsi di folder `scans` di sebelah database dan ikut di setiap backup. Sheet `attachments` mendaftar setiap scan; buka scan dari surat jalannya |
+
+<Aside type="note">
+Setiap ekspor yang selesai tercatat di [jejak audit](/gasdist-site/panduan/laporan/jejak-audit/) sebagai **Semua data diekspor**, dengan nama file dan jumlah baris per tabel. Ekspor yang dihentikan atau gagal tidak meninggalkan file dan tidak tercatat.
+</Aside>

@@ -1,0 +1,56 @@
+---
+title: Checking the data
+description: "Make sure the audit trail is whole and the stock balances equal their ledger. It only reads and repairs nothing."
+sidebar:
+  order: 3
+---
+
+import { Steps, Aside } from "@astrojs/starlight/components";
+import Shot from "../../../../../components/Shot.astro";
+import Roles from "../../../../../components/Roles.astro";
+
+GasDist keeps two records that must never change: the [audit trail](/gasdist-site/en/panduan/laporan/jejak-audit/), where each entry carries the fingerprint of the one before, and the stock ledger, which every product's balance comes from. Check data makes sure both are still as GasDist wrote them.
+
+<Roles can={["OWNER", "ADMIN"]} />
+
+## Checking
+
+<Steps>
+
+1. Click **Reports** in the sidebar, then the **Check data** tab <span class="pin">1</span>.
+
+2. Click **Check now** <span class="pin">2</span>. The check runs in the background with a progress bar; GasDist stays usable.
+
+3. The result shows in two boxes <span class="pin">3</span>: **Audit trail** and **Stock: ledger and stored balance**. Green means no problem.
+
+   <Shot name="reports-verify" alt="The Check data result: the audit trail whole and the stock balances equal to the ledger" />
+
+</Steps>
+
+With ten years of history (more than a million audit entries) the check takes a few seconds. The last result stays on this tab until GasDist closes.
+
+## What it checks
+
+| Box | What is checked |
+|---|---|
+| **Audit trail** | Every entry from the first to the newest: none missing, none changed, and each linked to the one before |
+| **Stock** | For each product, the stored balance equals the sum of every movement in the ledger (receipts, surat jalan, stock counts, cancellations) |
+
+The check only reads. Nothing is changed or repaired, and the check is not recorded in the audit trail.
+
+## When there is a problem
+
+A box with a problem turns red and lists each problem.
+
+| Problem | What it means | What to do |
+|---|---|---|
+| **Content changed** | The audit entry no longer matches its fingerprint | The data was changed outside GasDist. Restore the newest [backup](/gasdist-site/en/panduan/backup/memulihkan/) made before the time of the first problem, then contact support |
+| **... entries missing** | Entries were deleted from the middle of the audit trail | The same: restore a backup from before that time and contact support |
+| **Does not link to the entry before it** | The entry before was replaced, even with its fingerprint recomputed | The same |
+| A stock difference per product | The stored balance differs from its ledger, with the difference in kg | Home and the stock check when posting use the stored balance; the kartu stok and the reports use the ledger. Contact support before posting again |
+
+The list shows the first 100 problems and says how many there are in all.
+
+<Aside type="note" title="What the check cannot see">
+The check cannot see entries deleted from the newest end of the audit trail, since no later entry carries their fingerprint. The newest backup is the copy to compare with, so make a habit of [keeping a backup copy](/gasdist-site/en/panduan/backup/membuat-backup/) outside the PC.
+</Aside>
