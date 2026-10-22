@@ -53,8 +53,8 @@ Each row shows the code, name, capacity, **Low-stock threshold (kg)** <span clas
 | **Product name** | ✅ | The name shown on screen and printed on the surat jalan |
 | **Capacity (kg)** <span class="pin">1</span> | ✅ | The gas in one full tabung, in kg. Used to turn tabung counts into kg. |
 | **Empty tabung weight (kg)** | | The weight of the tabung without gas, for reference. May be left blank; it is not used in any stock calculation. |
-| **Low-stock threshold (kg)** <span class="pin">2</span> | ✅ | When stock falls below this, the product's card on the Stock page shows **Low**. Enter 0 to turn it off. |
-| **Order** | ✅ | Smaller numbers come first, on the Stock page and in product lists |
+| **Low-stock threshold (kg)** <span class="pin">2</span> | ✅ | When stock falls below this, the product's card on the Home page shows **Low**. Enter 0 to turn it off. |
+| **Order** | ✅ | Smaller numbers come first, on the Home page and in product lists |
 
 For kg fields, use a dot for decimals, for example `5.5`.
 
@@ -62,7 +62,7 @@ For kg fields, use a dot for decimals, for example `5.5`.
 
 The threshold is in kg, not tabung. To work it out, multiply the minimum number of tabung by the capacity. Example: you want a warning when LPG 5,5 kg drops below 30 tabung, so enter 30 × 5.5 = `165`.
 
-The **Low** badge appears on the product's card on the [Stock page](/gasdist-site/en/panduan/stok/ringkasan/) and in the **Stock after** column while [making a surat jalan](/gasdist-site/en/panduan/surat-jalan/membuat/).
+The **Low** badge appears on the product's card on the [Home page](/gasdist-site/en/panduan/stok/ringkasan/) and in the **Stock after** column while [making a surat jalan](/gasdist-site/en/panduan/surat-jalan/membuat/).
 
 ## Changing the capacity
 
@@ -73,7 +73,7 @@ The capacity can still be changed after a product has been used. What happens:
 | Posted surat jalan | Unchanged. Each line keeps the capacity it was posted with. |
 | Draft surat jalan | Use the new capacity when posted |
 | Stock in kg | Unchanged |
-| The `= … tabung` figure on the Stock page | Recalculated with the new capacity |
+| The `= … tabung` figure on the Home page | Recalculated with the new capacity |
 | Later receipts and stock opname in tabung | Calculated with the new capacity |
 
 The product code and name are kept on each line at posting too, so renaming a product never changes an old surat jalan.
@@ -89,6 +89,6 @@ Products cannot be deleted. A product you no longer sell is deactivated: click *
 | | Inactive product |
 |---|---|
 | Can be chosen on a surat jalan or in Receive stock | ❌ |
-| Shown on the Stock page | Only while it still holds stock, with an **Inactive** badge |
+| Shown on the Home page | Only while it still holds stock, with an **Inactive** badge |
 | Kartu stok in the Reports menu | ✅, marked **(Inactive)** |
 | Old surat jalan and history | Stay intact |

@@ -53,8 +53,8 @@ Setiap baris menampilkan kode, nama, kapasitas, **Batas stok menipis (kg)** <spa
 | **Nama produk** | ✅ | Nama yang tampil di layar dan tercetak di surat jalan |
 | **Kapasitas (kg)** <span class="pin">1</span> | ✅ | Isi gas satu tabung penuh, dalam kg. Dipakai untuk mengubah jumlah tabung menjadi kg. |
 | **Berat tabung kosong (kg)** | | Berat tabung tanpa isi, sebagai catatan. Boleh dikosongkan; tidak dipakai untuk menghitung stok. |
-| **Batas stok menipis (kg)** <span class="pin">2</span> | ✅ | Bila stok di bawah angka ini, kartu produk di halaman Stok ditandai **Menipis**. Isi 0 bila tidak perlu. |
-| **Urutan** | ✅ | Angka kecil tampil lebih dulu, di halaman Stok dan di daftar pilihan produk |
+| **Batas stok menipis (kg)** <span class="pin">2</span> | ✅ | Bila stok di bawah angka ini, kartu produk di halaman Beranda ditandai **Menipis**. Isi 0 bila tidak perlu. |
+| **Urutan** | ✅ | Angka kecil tampil lebih dulu, di halaman Beranda dan di daftar pilihan produk |
 
 Untuk kolom kg, pakai koma untuk desimal, misalnya `5,5`.
 
@@ -62,7 +62,7 @@ Untuk kolom kg, pakai koma untuk desimal, misalnya `5,5`.
 
 Batas ditulis dalam kg, bukan tabung. Untuk menghitungnya, kalikan jumlah tabung minimum dengan kapasitas. Contoh: Anda ingin diingatkan bila LPG 5,5 kg tinggal kurang dari 30 tabung, maka isi 30 × 5,5 = `165`.
 
-Tanda **Menipis** muncul di kartu produk di [halaman Stok](/gasdist-site/panduan/stok/ringkasan/) dan di kolom **Stok setelah** saat [membuat surat jalan](/gasdist-site/panduan/surat-jalan/membuat/).
+Tanda **Menipis** muncul di kartu produk di [halaman Beranda](/gasdist-site/panduan/stok/ringkasan/) dan di kolom **Stok setelah** saat [membuat surat jalan](/gasdist-site/panduan/surat-jalan/membuat/).
 
 ## Mengubah kapasitas
 
@@ -73,7 +73,7 @@ Kapasitas tetap bisa diubah setelah produk dipakai. Akibatnya:
 | Surat jalan yang sudah diposting | Tidak berubah. Setiap baris menyimpan kapasitas saat diposting. |
 | Draf surat jalan | Memakai kapasitas baru saat diposting |
 | Stok dalam kg | Tidak berubah |
-| Angka `= … tabung` di halaman Stok | Dihitung ulang dengan kapasitas baru |
+| Angka `= … tabung` di halaman Beranda | Dihitung ulang dengan kapasitas baru |
 | Penerimaan dan stok opname berikutnya dalam tabung | Dihitung dengan kapasitas baru |
 
 Kode dan nama produk juga tersimpan di setiap baris saat diposting, jadi mengganti nama produk tidak mengubah surat jalan lama.
@@ -89,6 +89,6 @@ Produk tidak bisa dihapus. Produk yang tidak dijual lagi dinonaktifkan: klik **N
 | | Produk nonaktif |
 |---|---|
 | Bisa dipilih di surat jalan, terima stok | ❌ |
-| Tampil di halaman Stok | Hanya bila masih punya stok, dengan tanda **Nonaktif** |
+| Tampil di halaman Beranda | Hanya bila masih punya stok, dengan tanda **Nonaktif** |
 | Kartu stok di menu Laporan | ✅, dengan tanda **(Nonaktif)** |
 | Surat jalan dan riwayat lama | Tetap utuh |
