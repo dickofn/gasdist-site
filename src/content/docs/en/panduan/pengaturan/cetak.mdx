@@ -1,0 +1,66 @@
+---
+title: Print settings
+description: Choose the default template and paper size, the number of sheets and their labels, and carbon forms.
+sidebar:
+  order: 3
+---
+
+import { Steps, Aside } from "@astrojs/starlight/components";
+import Shot from "../../../../../components/Shot.astro";
+import Roles from "../../../../../components/Roles.astro";
+
+The **Surat jalan printing** section of the **Settings** page decides what comes out when a surat jalan is printed. Every setting here is the default in the print window; there, the template, paper and sheets can still be changed for one print (see [Printing a surat jalan](/gasdist-site/en/panduan/cetak/mencetak/)).
+
+<Roles can={["OWNER"]} />
+
+<Shot name="settings-print" alt="The Surat jalan printing section with Template Standard, Paper size A4, the Carbon forms checkbox, Number of sheets 3, and each sheet's label" />
+
+<Steps>
+
+1. Open **Settings** in the side menu and find the **Surat jalan printing** section.
+
+2. Choose the **Template** <span class="pin">1</span>: **Standard (office printer)** for inkjet or laser printers, **Simple (dot-matrix)** for dot-matrix printers.
+
+3. Choose the **Paper size** <span class="pin">2</span> that is usually in the printer: **A4**, **Continuous paper 9.5 × 11 in**, **A5 landscape**, or **Half continuous paper 9.5 × 5.5 in**.
+
+4. Tick **Carbon forms: one sheet per surat jalan** <span class="pin">3</span> if your office prints on carbon forms. Leave it empty for plain paper.
+
+5. Choose the **Number of sheets** <span class="pin">4</span> (1 to 5), then check each sheet's label <span class="pin">5</span>.
+
+6. Scroll to the very bottom and click **Save**. The message **Settings saved.** appears.
+
+</Steps>
+
+## Number of sheets and their labels
+
+Without carbon forms, one **Print** puts out the **Number of sheets**, each with its label under the **SURAT JALAN** title. By default there are three:
+
+| Field | Default |
+|---|---|
+| **Label for sheet 1** | `Lembar 1: Pelanggan` (customer) |
+| **Label for sheet 2** | `Lembar 2: Kembali ke kantor` (back to the office) |
+| **Label for sheet 3** | `Lembar 3: Arsip` (archive) |
+
+| If you | What happens |
+|---|---|
+| Raise the **Number of sheets** | New label fields appear, holding `Lembar 4` and so on; change them as needed |
+| Lower the **Number of sheets** | The labels of the sheets dropped leave the screen and are not saved |
+| Empty a label | That sheet still prints, without a label |
+| Type a label over 40 characters | Refused with **Too long.** |
+
+Labels print exactly as typed, whatever the company's default language.
+
+<Aside type="tip" title="Want a single sheet, as before?">
+Before GasDist 0.10.0, one **Print** put out one sheet. If your office really needs only one, choose **Number of sheets** 1 and empty its label.
+</Aside>
+
+## Carbon forms
+
+| **Carbon forms** | One **Print** puts out |
+|---|---|
+| Not ticked (default) | Every sheet in **Number of sheets**, each labelled |
+| Ticked | One sheet without a label. The carbon set makes its own copies |
+
+The number of sheets and the labels stay saved while carbon forms is ticked, because in the print window you can still choose **All sheets** for one print on plain paper.
+
+All sheets from one **Print** count as one print. See [SALINAN and DRAFT](/gasdist-site/en/panduan/cetak/salinan-dan-draf/) for the mark on a reprint.
