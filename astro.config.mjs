@@ -33,6 +33,7 @@ export default defineConfig({
         section("Stok", { en: "Stock" }, "stok"),
         section("Surat jalan", { en: "Surat jalan" }, "surat-jalan"),
         section("Cetak", { en: "Printing" }, "cetak"),
+        section("Laporan", { en: "Reports" }, "laporan"),
         section("Pelanggan", { en: "Customers" }, "pelanggan"),
         section("Data master", { en: "Master data" }, "data-master"),
         section("Pengguna", { en: "Users" }, "pengguna"),

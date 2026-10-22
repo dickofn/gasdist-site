@@ -1,0 +1,54 @@
+---
+title: Deliveries
+description: Surat jalan, tabung per product and kg delivered per customer, per driver or per vehicle in one period.
+sidebar:
+  order: 3
+---
+
+import { Steps, Aside } from "@astrojs/starlight/components";
+import Shot from "../../../../../components/Shot.astro";
+import Roles from "../../../../../components/Roles.astro";
+
+The deliveries report adds up what went out in one period, grouped by customer, by driver or by vehicle. Use it to answer questions such as "how many 3 kg tabung did this pangkalan get this month?" or "which driver delivered the most?".
+
+<Roles can={["OWNER", "ADMIN", "GUDANG", "PENJUALAN", "VIEWER"]} />
+
+## By customer
+
+<Steps>
+
+1. Click **Reports** in the sidebar, then the **Deliveries** tab. **Group by** <span class="pin">1</span> is set to **By customer**.
+
+2. This month's report shows at once, the customer who received the most kg at the top. Above the table are the totals for every customer <span class="pin">2</span>.
+
+   <Shot name="reports-deliveries" alt="Deliveries by customer with the number of surat jalan, how many signed copies are back, tabung per product and weight" />
+
+3. To find one customer, type part of their code or name in **Find in the report** <span class="pin">4</span>.
+
+</Steps>
+
+| Column | What it holds |
+|---|---|
+| **Customer** | The customer's code and name as the customer record has them now |
+| **Surat jalan** | How many surat jalan were posted or delivered |
+| **Signed back** <span class="pin">3</span> | How many of them have their signed copy back (**Delivered**). The rest are in [Surat jalan not back yet](/gasdist-site/en/panduan/surat-jalan/belum-kembali/). |
+| One column per product | That product's tabung. Only products delivered in the period get a column. |
+| **Total tabung**, **Weight** | Every tabung and every kg |
+
+What counts is surat jalan with the status **Posted** or **Delivered**, by the surat jalan's date. A draft has not moved any goods, and a cancelled surat jalan's goods came back, so neither counts.
+
+## By driver or by vehicle
+
+Choose **By driver** or **By vehicle** under **Group by** <span class="pin">1</span>. The columns are the same, and the dates stay.
+
+<Shot name="reports-deliveries-driver" alt="Deliveries by driver" />
+
+Surat jalan without a driver or a vehicle add up in a **(no driver)** or **(no vehicle)** row at the bottom. A driver or vehicle [corrected](/gasdist-site/en/panduan/surat-jalan/mengoreksi/) after posting counts for the new one.
+
+<Aside type="tip" title="Why does it differ from the Surat jalan column of the stock summary?">
+The stock summary and the kartu stok follow the dates of the stock movements: a cancelled surat jalan still went out on its date, and its stock came back on the day it was cancelled. The deliveries report follows the surat jalan: a cancelled one is not counted at all. For the same period, the weight in the deliveries report plus the weight of the surat jalan dated in that period and cancelled later equals the **Surat jalan** column of the stock summary.
+</Aside>
+
+## Exporting and printing
+
+The report exports and prints grouped the way it is shown. See [Printing and exporting reports](/gasdist-site/en/panduan/laporan/mencetak-dan-mengekspor/).

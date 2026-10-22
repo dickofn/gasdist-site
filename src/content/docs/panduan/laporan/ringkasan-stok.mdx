@@ -1,0 +1,56 @@
+---
+title: Ringkasan stok
+description: Saldo awal, setiap jenis stok masuk dan keluar, dan saldo akhir semua produk untuk satu periode, sama persis dengan kartu stok.
+sidebar:
+  order: 1
+---
+
+import { Steps, Aside } from "@astrojs/starlight/components";
+import Shot from "../../../../components/Shot.astro";
+import Roles from "../../../../components/Roles.astro";
+
+Ringkasan stok menjumlahkan semua keluar-masuk stok dalam satu periode, untuk semua produk sekaligus. Pakai untuk tutup buku bulanan: berapa yang diterima dari SPBE, berapa yang keluar lewat surat jalan, berapa selisih stok opname, dan berapa sisanya.
+
+<Roles can={["OWNER", "ADMIN", "GUDANG", "PENJUALAN", "VIEWER"]} />
+
+## Membuka ringkasan stok
+
+<Steps>
+
+1. Klik **Laporan** di menu samping, lalu tab **Ringkasan stok** <span class="pin">1</span>.
+
+2. Ringkasan langsung tampil untuk bulan ini: dari tanggal 1 sampai hari ini. Ubah **Dari tanggal** <span class="pin">2</span> dan **Sampai tanggal** untuk periode lain.
+
+   <Shot name="reports-stock-summary" alt="Ringkasan stok bulan Oktober: saldo awal, penerimaan, surat jalan, penyesuaian, total masuk, total keluar, dan saldo akhir per produk" />
+
+</Steps>
+
+## Membaca ringkasan
+
+Setiap baris adalah satu produk. Setiap kolom di tengah adalah satu jenis pergerakan stok, misalnya **Surat jalan** <span class="pin">3</span>. Kolom yang selama periode itu kosong tidak ditampilkan.
+
+| Kolom | Isinya |
+|---|---|
+| **Saldo awal** | Stok di awal periode, dalam kg, dan di bawahnya setara tabung penuh |
+| **Penerimaan** | Stok yang [diterima](/gasdist-site/panduan/stok/terima-stok/) dari SPBE atau pemasok |
+| **Pembatalan SJ** | Stok yang kembali karena surat jalan [dibatalkan](/gasdist-site/panduan/surat-jalan/membatalkan/), pada tanggal pembatalannya |
+| **Penyesuaian (+)** dan **Penyesuaian (-)** | Selisih [stok opname](/gasdist-site/panduan/stok/stok-opname/): naik dan turun dipisah |
+| **Surat jalan** | Stok yang keluar lewat surat jalan yang diposting, pada tanggal surat jalannya |
+| **Total masuk** dan **Total keluar** | Jumlah semua kolom masuk dan semua kolom keluar |
+| **Saldo akhir** <span class="pin">4</span> | Saldo awal + total masuk - total keluar, dalam kg dan setara tabung penuh |
+
+Baris **Total** di bawah menjumlahkan semua produk dalam kg.
+
+<Aside type="note" title="Sama dengan kartu stok">
+Untuk setiap produk, **Total masuk**, **Total keluar**, dan **Saldo akhir** sama persis dengan angka **Masuk**, **Keluar**, dan **Saldo akhir** di [kartu stok](/gasdist-site/panduan/stok/kartu-stok/) produk itu untuk periode yang sama. Ringkasan stok menjumlahkan, kartu stok merinci baris demi barisnya.
+</Aside>
+
+## Periode paling lama satu tahun
+
+Satu laporan mencakup paling lama 366 hari. Bila tanggalnya lebih jauh, muncul pesan **Paling lama 366 hari (satu tahun).** dan laporan tidak dimuat. Untuk beberapa tahun, buka atau ekspor laporannya per tahun.
+
+Batas ini menjaga laporan tetap cepat walaupun riwayatnya sudah bertahun-tahun.
+
+## Mengekspor dan mencetak
+
+Tombol **Ekspor xlsx**, **Ekspor csv**, dan **Cetak** <span class="pin">5</span> ada di sebelah tanggal. Berkas ekspor selalu memuat semua kolom jenis pergerakan, juga yang kosong, supaya kolomnya sama setiap bulan. Lihat [Mencetak dan mengekspor laporan](/gasdist-site/panduan/laporan/mencetak-dan-mengekspor/).

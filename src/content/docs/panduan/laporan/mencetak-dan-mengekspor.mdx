@@ -1,0 +1,58 @@
+---
+title: Mencetak dan mengekspor laporan
+description: Simpan laporan ke Excel atau CSV, atau cetak di A4 atau kertas continuous, dengan judul kolom dan nomor halaman di setiap halaman.
+sidebar:
+  order: 5
+---
+
+import { Steps, Aside } from "@astrojs/starlight/components";
+import Shot from "../../../../components/Shot.astro";
+import Roles from "../../../../components/Roles.astro";
+
+Ringkasan stok, register surat jalan, pengiriman, dan jejak audit bisa diekspor ke Excel atau CSV dan dicetak. Yang diekspor atau dicetak selalu laporan dengan tanggal dan pilihan yang sedang tampil.
+
+<Roles can={["OWNER", "ADMIN", "GUDANG", "PENJUALAN", "VIEWER"]} />
+
+Jejak audit hanya untuk Owner dan Admin, termasuk ekspor dan cetaknya.
+
+## Mengekspor ke Excel atau CSV
+
+<Steps>
+
+1. Atur tanggal dan pilihan laporannya dulu.
+
+2. Klik **Ekspor xlsx** untuk berkas Excel, atau **Ekspor csv**.
+
+3. Jendela simpan berkas dari komputer Anda muncul dengan nama berkas yang sudah terisi, misalnya `register-surat-jalan-2026-10-01-2026-10-13.xlsx`. Pilih folder lalu simpan.
+
+4. Muncul pesan **Laporan tersimpan di** diikuti lokasi berkasnya.
+
+</Steps>
+
+Berkas ekspor memuat semua baris, juga bila di layar hanya 1.000 yang tampil. Di Excel, angka kg, tabung, dan tanggal tersimpan sebagai angka dan tanggal, jadi bisa langsung dijumlah dan disaring.
+
+## Mencetak
+
+<Steps>
+
+1. Klik **Cetak** di laporannya. Jendela cetak terbuka dan menampilkan laporan per halaman kertas.
+
+   <Shot name="reports-print" max={720} alt="Jendela cetak laporan dengan pilihan kertas, jumlah halaman, dan tombol Cetak" />
+
+2. Pilih **Kertas** <span class="pin">1</span>: **A4** untuk printer biasa, atau **Kertas continuous 9,5 × 11 inci** untuk dot-matrix. Jendela cetak mulai dengan kertas di [Pengaturan](/gasdist-site/panduan/pengaturan/cetak/) bila itu salah satu dari keduanya, selain itu A4.
+
+3. Periksa jumlah halamannya <span class="pin">2</span>, lalu klik **Cetak** <span class="pin">3</span>. Di dialog cetak, pilih printer, atau **Simpan sebagai PDF**.
+
+</Steps>
+
+Setiap halaman membawa nama perusahaan, judul laporan, periode dan saringannya, tanggal cetak, **Halaman 1 dari 3** dan seterusnya, serta judul kolom. Jumlah ada di akhir halaman terakhir.
+
+<Shot name="reports-print-sheet" max={720} alt="Halaman pertama cetakan register surat jalan dengan kepala laporan, judul kolom, dan nomor halaman" />
+
+Isian yang panjang, seperti perubahan di jejak audit, tercetak di beberapa baris di dalam kolomnya:
+
+<Shot name="reports-print-audit" max={720} alt="Cetakan jejak audit: satu koreksi surat jalan dengan setiap perubahan di barisnya sendiri" />
+
+<Aside type="note">
+Satu cetakan paling banyak 5.000 baris, sekitar 110 halaman A4. Untuk laporan yang lebih panjang, tombol **Cetak** tidak bisa diklik dan GasDist menyarankan mempersempit tanggal atau mengekspor ke Excel. Mencetak laporan tidak tercatat di jejak audit dan tidak menandai apa pun sebagai salinan.
+</Aside>

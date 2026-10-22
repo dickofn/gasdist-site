@@ -1,0 +1,56 @@
+---
+title: Stock summary
+description: Opening balance, every kind of stock in and out, and closing balance of every product for one period, exactly as the kartu stok has them.
+sidebar:
+  order: 1
+---
+
+import { Steps, Aside } from "@astrojs/starlight/components";
+import Shot from "../../../../../components/Shot.astro";
+import Roles from "../../../../../components/Roles.astro";
+
+The stock summary adds up every stock movement in one period, for all products at once. Use it to close the month: how much came in from the filling plant, how much left on surat jalan, what the stock counts changed, and what is left.
+
+<Roles can={["OWNER", "ADMIN", "GUDANG", "PENJUALAN", "VIEWER"]} />
+
+## Opening the stock summary
+
+<Steps>
+
+1. Click **Reports** in the sidebar, then the **Stock summary** tab <span class="pin">1</span>.
+
+2. The summary shows at once for this month: from the 1st to today. Change **From** <span class="pin">2</span> and **To** for another period.
+
+   <Shot name="reports-stock-summary" alt="Stock summary for October: opening, receipts, surat jalan, adjustments, total in, total out and closing per product" />
+
+</Steps>
+
+## Reading the summary
+
+Each row is one product. Each column in the middle is one kind of stock movement, such as **Surat jalan** <span class="pin">3</span>. A column with nothing in it for the period is left out.
+
+| Column | What it holds |
+|---|---|
+| **Opening** | Stock at the start of the period, in kg, with its equivalent in full tabung under it |
+| **Receipts** | Stock [received](/gasdist-site/en/panduan/stok/terima-stok/) from the filling plant or supplier |
+| **Cancelled SJ** | Stock that came back because a surat jalan was [cancelled](/gasdist-site/en/panduan/surat-jalan/membatalkan/), on the day it was cancelled |
+| **Adjustment (+)** and **Adjustment (-)** | What [stock opname](/gasdist-site/en/panduan/stok/stok-opname/) changed: up and down apart |
+| **Surat jalan** | Stock that left on posted surat jalan, on each surat jalan's date |
+| **Total in** and **Total out** | Every column in, and every column out, added up |
+| **Closing** <span class="pin">4</span> | Opening + total in - total out, in kg and in full tabung |
+
+The **Total** row at the bottom adds every product up in kg.
+
+<Aside type="note" title="The same as the kartu stok">
+For each product, **Total in**, **Total out** and **Closing** are exactly the **In**, **Out** and **Closing balance** of that product's [kartu stok](/gasdist-site/en/panduan/stok/kartu-stok/) over the same period. The stock summary adds up; the kartu stok lists every line.
+</Aside>
+
+## One year at most
+
+A report covers at most 366 days. With dates further apart, the message **At most 366 days (one year).** shows and the report does not load. For several years, open or export the report a year at a time.
+
+The limit keeps reports fast even with years of history.
+
+## Exporting and printing
+
+The **Export xlsx**, **Export csv** and **Print** <span class="pin">5</span> buttons sit beside the dates. An export always has every kind-of-movement column, empty ones too, so the columns are the same every month. See [Printing and exporting reports](/gasdist-site/en/panduan/laporan/mencetak-dan-mengekspor/).

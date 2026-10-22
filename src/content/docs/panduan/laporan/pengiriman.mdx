@@ -1,0 +1,54 @@
+---
+title: Pengiriman
+description: Jumlah surat jalan, tabung per produk, dan kg yang dikirim per pelanggan, per sopir, atau per kendaraan dalam satu periode.
+sidebar:
+  order: 3
+---
+
+import { Steps, Aside } from "@astrojs/starlight/components";
+import Shot from "../../../../components/Shot.astro";
+import Roles from "../../../../components/Roles.astro";
+
+Laporan pengiriman menjumlahkan apa yang sudah keluar dalam satu periode, dikelompokkan per pelanggan, per sopir, atau per kendaraan. Pakai untuk menjawab pertanyaan seperti "berapa tabung 3 kg yang diterima pangkalan ini bulan ini?" atau "sopir mana yang paling banyak mengantar?".
+
+<Roles can={["OWNER", "ADMIN", "GUDANG", "PENJUALAN", "VIEWER"]} />
+
+## Per pelanggan
+
+<Steps>
+
+1. Klik **Laporan** di menu samping, lalu tab **Pengiriman**. **Kelompokkan** <span class="pin">1</span> terisi **Per pelanggan**.
+
+2. Laporan bulan ini langsung tampil, pelanggan yang menerima paling banyak kg di atas. Di atas tabel ada jumlah untuk semua pelanggan <span class="pin">2</span>.
+
+   <Shot name="reports-deliveries" alt="Laporan pengiriman per pelanggan dengan jumlah surat jalan, yang sudah kembali, tabung per produk, dan berat" />
+
+3. Untuk mencari satu pelanggan, ketik sebagian kode atau namanya di **Cari di laporan** <span class="pin">4</span>.
+
+</Steps>
+
+| Kolom | Isinya |
+|---|---|
+| **Pelanggan** | Kode dan nama pelanggan seperti di data pelanggan sekarang |
+| **Surat jalan** | Jumlah surat jalan yang diposting atau terkirim |
+| **Kembali** <span class="pin">3</span> | Berapa di antaranya yang lembar bertanda tangannya sudah kembali (**Terkirim**). Sisanya ada di laporan [Surat jalan belum kembali](/gasdist-site/panduan/surat-jalan/belum-kembali/). |
+| Satu kolom per produk | Jumlah tabung produk itu. Hanya produk yang dikirim dalam periode itu yang punya kolom. |
+| **Total tabung**, **Berat** | Semua tabung dan semua kg |
+
+Yang dihitung adalah surat jalan berstatus **Diposting** dan **Terkirim**, menurut tanggal surat jalannya. Draf belum mengeluarkan barang, dan surat jalan yang dibatalkan barangnya kembali, jadi keduanya tidak dihitung.
+
+## Per sopir atau per kendaraan
+
+Pilih **Per sopir** atau **Per kendaraan** di **Kelompokkan** <span class="pin">1</span>. Kolomnya sama, dan tanggalnya tetap.
+
+<Shot name="reports-deliveries-driver" alt="Laporan pengiriman per sopir" />
+
+Surat jalan tanpa sopir atau tanpa kendaraan dijumlah di baris **(tanpa sopir)** atau **(tanpa kendaraan)**, paling bawah. Sopir atau kendaraan yang [dikoreksi](/gasdist-site/panduan/surat-jalan/mengoreksi/) setelah posting dihitung pada sopir atau kendaraan yang baru.
+
+<Aside type="tip" title="Kenapa beda dengan kolom Surat jalan di ringkasan stok?">
+Ringkasan stok dan kartu stok mengikuti tanggal pergerakan stok: surat jalan yang dibatalkan tetap keluar pada tanggalnya, lalu stoknya kembali pada tanggal pembatalan. Laporan pengiriman mengikuti surat jalannya: yang dibatalkan tidak dihitung sama sekali. Untuk periode yang sama, berat di laporan pengiriman ditambah berat surat jalan yang bertanggal dalam periode itu lalu dibatalkan sama dengan kolom **Surat jalan** di ringkasan stok.
+</Aside>
+
+## Mengekspor dan mencetak
+
+Laporan diekspor dan dicetak sesuai pengelompokan yang sedang dipilih. Lihat [Mencetak dan mengekspor laporan](/gasdist-site/panduan/laporan/mencetak-dan-mengekspor/).

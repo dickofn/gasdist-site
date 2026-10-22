@@ -1,0 +1,56 @@
+---
+title: Jejak audit
+description: Siapa mengubah apa dan kapan di GasDist, dengan nilai lama dan baru setiap perubahan. Hanya untuk Owner dan Admin, hanya bisa dibaca.
+sidebar:
+  order: 4
+---
+
+import { Steps, Aside } from "@astrojs/starlight/components";
+import Shot from "../../../../components/Shot.astro";
+import Roles from "../../../../components/Roles.astro";
+
+GasDist mencatat setiap perubahan: surat jalan yang dibuat, diposting, dikoreksi, atau dibatalkan, stok yang diterima, pengaturan yang diubah, pengguna yang masuk, dan seterusnya. Jejak audit menampilkan catatan itu, yang terbaru di atas, lengkap dengan apa yang berubah.
+
+<Roles can={["OWNER", "ADMIN"]} />
+
+Peran lain tidak melihat tab **Jejak audit**.
+
+## Membuka jejak audit
+
+<Steps>
+
+1. Klik **Laporan** di menu samping, lalu tab **Jejak audit**.
+
+2. Catatan bulan ini tampil, 200 sekaligus, yang terbaru di atas.
+
+3. Persempit dengan **Pengguna** <span class="pin">1</span>, **Aksi** <span class="pin">2</span>, dan **Entitas** <span class="pin">3</span>, misalnya Entitas **Surat jalan** untuk semua yang terjadi pada surat jalan.
+
+   <Shot name="reports-audit" alt="Jejak audit yang disaring pada entitas Surat jalan, dengan waktu, pengguna, aksi, nomor surat jalan, dan perubahannya" />
+
+4. Bila masih ada catatan yang lebih lama, di bawah tabel muncul **Muat 200 lagi**. Klik untuk menambahkan 200 catatan berikutnya.
+
+</Steps>
+
+## Membaca satu catatan
+
+| Kolom | Isinya |
+|---|---|
+| **Waktu** | Tanggal dan jam di komputer ini |
+| **Pengguna** | Siapa yang melakukannya. **(sistem)** untuk yang terjadi tanpa pengguna masuk, misalnya pemulihan dari backup. |
+| **Aksi** | Apa yang dilakukan, dan di bawahnya entitasnya, misalnya **Surat jalan dikoreksi** pada **Surat jalan** |
+| **Data** | Catatan mana: nomor surat jalan, username, kode produk atau pelanggan, nomor polisi, nama sopir, atau nomor referensi penerimaan |
+| **Perubahan** <span class="pin">4</span> | Setiap isian yang berubah: nama isiannya, nilai lama dicoret, lalu nilai baru. Isian yang baru ada diberi tanda **baru**. |
+
+Contoh koreksi surat jalan: sopirnya diganti, catatannya diisi, dan alasan koreksinya tercatat.
+
+<Shot name="reports-audit-detail" alt="Catatan koreksi surat jalan: sopir dari Joko Purnomo menjadi Rahmat Hidayat, catatan diisi, dan alasan koreksi" />
+
+Berat ditulis dalam kg, tanggal sebagai dd/mm/yyyy, dan ya/tidak sebagai **Ya** atau **Tidak**. Isian yang hanya berisi kode internal ditampilkan dengan 8 karakter pertamanya, misalnya `#0192a3b4`.
+
+<Aside type="note" title="Tidak bisa diubah siapa pun">
+Jejak audit hanya bisa dibaca. Catatannya tidak bisa diubah atau dihapus, juga oleh Owner, dan setiap catatan membawa sidik catatan sebelumnya, sehingga perubahan diam-diam akan ketahuan.
+</Aside>
+
+## Periode, ekspor, dan cetak
+
+Periodenya paling lama satu tahun, seperti laporan lain. **Ekspor xlsx** dan **Ekspor csv** memuat semua catatan yang cocok dengan tanggal dan saringannya, bukan hanya yang sudah dimuat di layar; setiap perubahan ditulis di barisnya sendiri, misalnya `Sopir: Joko Purnomo → Rahmat Hidayat`. **Cetak** <span class="pin">5</span> mencetak paling banyak 5.000 catatan. Lihat [Mencetak dan mengekspor laporan](/gasdist-site/panduan/laporan/mencetak-dan-mengekspor/).

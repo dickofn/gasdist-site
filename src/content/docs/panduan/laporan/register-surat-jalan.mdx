@@ -1,0 +1,49 @@
+---
+title: Register surat jalan
+description: Daftar setiap surat jalan bernomor dalam satu periode, urut tanggal dan nomor, dengan jumlah per status.
+sidebar:
+  order: 2
+---
+
+import { Steps, Aside } from "@astrojs/starlight/components";
+import Shot from "../../../../components/Shot.astro";
+import Roles from "../../../../components/Roles.astro";
+
+Register surat jalan adalah buku nomor surat jalan: setiap surat jalan yang sudah mendapat nomor dalam satu periode, urut tanggal lalu nomor, termasuk yang dibatalkan. Pakai untuk memeriksa bahwa tidak ada nomor yang hilang, dan untuk mencentang lembar yang sudah kembali.
+
+<Roles can={["OWNER", "ADMIN", "GUDANG", "PENJUALAN", "VIEWER"]} />
+
+## Membuka register
+
+<Steps>
+
+1. Klik **Laporan** di menu samping, lalu tab **Register surat jalan** <span class="pin">1</span>.
+
+2. Register bulan ini langsung tampil. Kalimat di atas tabel <span class="pin">2</span> menyebut jumlah surat jalan bernomor, berapa yang dikirim (dengan tabung dan kg-nya), dan berapa yang dibatalkan.
+
+   <Shot name="reports-register" alt="Register surat jalan bulan Oktober dengan status, pelanggan, tabung, berat, dan keterangan per surat jalan" />
+
+3. Ubah **Dari tanggal** dan **Sampai tanggal** untuk periode lain, paling lama satu tahun.
+
+</Steps>
+
+## Yang masuk register
+
+| Status | Masuk register? | Ikut dijumlah? |
+|---|---|---|
+| **Diposting** | ✅ | ✅ sebagai dikirim |
+| **Terkirim** | ✅, dengan nama penerima dan tanggal tanda tangan di **Keterangan** <span class="pin">4</span> | ✅ sebagai dikirim |
+| **Dibatalkan** <span class="pin">3</span> | ✅, dicoret, dengan alasan pembatalannya | ❌, dihitung terpisah: barangnya tidak jadi keluar |
+| **Draf** | ❌: draf belum punya nomor | ❌ |
+
+Surat jalan yang dibatalkan tetap tercantum supaya nomornya tidak hilang dari urutan. Nomor surat jalan tidak pernah dipakai dua kali dan tidak pernah dilewati.
+
+Klik satu baris untuk membuka surat jalannya. Tombol kembali di kiri atas membawa Anda ke register lagi.
+
+<Aside type="note">
+Layar menampilkan 1.000 baris pertama. Jumlah di atas tabel, ekspor, dan cetakan selalu memuat semua surat jalan dalam periode itu.
+</Aside>
+
+## Mengekspor dan mencetak
+
+**Ekspor xlsx**, **Ekspor csv**, dan **Cetak** <span class="pin">5</span> memuat semua baris, lalu jumlah per status dan jumlah yang dikirim di bagian akhir. Satu cetakan paling banyak 5.000 baris; untuk register yang lebih panjang, persempit tanggalnya. Lihat [Mencetak dan mengekspor laporan](/gasdist-site/panduan/laporan/mencetak-dan-mengekspor/).

@@ -1,0 +1,56 @@
+---
+title: Audit trail
+description: Who changed what in GasDist and when, with the old and new value of each change. For the Owner and Admin only, read only.
+sidebar:
+  order: 4
+---
+
+import { Steps, Aside } from "@astrojs/starlight/components";
+import Shot from "../../../../../components/Shot.astro";
+import Roles from "../../../../../components/Roles.astro";
+
+GasDist records every change: surat jalan created, posted, corrected or cancelled, stock received, settings changed, users signing in, and so on. The audit trail shows those records, newest first, with what changed.
+
+<Roles can={["OWNER", "ADMIN"]} />
+
+Other roles do not see the **Audit trail** tab.
+
+## Opening the audit trail
+
+<Steps>
+
+1. Click **Reports** in the sidebar, then the **Audit trail** tab.
+
+2. This month's entries show, 200 at a time, newest first.
+
+3. Narrow them with **User** <span class="pin">1</span>, **Action** <span class="pin">2</span> and **Entity** <span class="pin">3</span>, for example Entity **Surat jalan** for everything that happened to surat jalan.
+
+   <Shot name="reports-audit" alt="The audit trail filtered on the Surat jalan entity, with the time, user, action, surat jalan number and changes" />
+
+4. When older entries match too, **Load 200 more** shows under the table. Click it to add the next 200.
+
+</Steps>
+
+## Reading an entry
+
+| Column | What it holds |
+|---|---|
+| **Time** | Date and time on this computer |
+| **User** | Who did it. **(system)** for what happened with nobody signed in, such as a restore from backup. |
+| **Action** | What was done, with the entity under it, for example **Surat jalan corrected** on **Surat jalan** |
+| **Record** | Which record: the surat jalan number, username, product or customer code, plate number, driver name or receipt reference |
+| **Changes** <span class="pin">4</span> | Every field that changed: the field's name, the old value struck through, then the new value. A field that is new carries a **new** tag. |
+
+An example, a surat jalan correction: the driver was changed, the notes filled in, and the reason for the correction recorded.
+
+<Shot name="reports-audit-detail" alt="A surat jalan correction: driver from Joko Purnomo to Rahmat Hidayat, notes filled in, and the reason for the correction" />
+
+Weights are in kg, dates as dd/mm/yyyy, and yes/no as **Yes** or **No**. A field that only holds an internal code shows its first 8 characters, such as `#0192a3b4`.
+
+<Aside type="note" title="Nobody can change it">
+The audit trail is read only. Its entries cannot be changed or deleted, not even by the Owner, and each entry carries a fingerprint of the one before it, so a quiet change would show.
+</Aside>
+
+## Period, export and print
+
+The period is a year at most, as for the other reports. **Export xlsx** and **Export csv** include every entry matching the dates and filters, not only those loaded on screen; each change is written on its own line, such as `Driver: Joko Purnomo → Rahmat Hidayat`. **Print** <span class="pin">5</span> prints at most 5,000 entries. See [Printing and exporting reports](/gasdist-site/en/panduan/laporan/mencetak-dan-mengekspor/).

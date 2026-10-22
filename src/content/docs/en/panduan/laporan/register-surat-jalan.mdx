@@ -1,0 +1,49 @@
+---
+title: Surat jalan register
+description: Every numbered surat jalan in one period, by date and number, with totals per status.
+sidebar:
+  order: 2
+---
+
+import { Steps, Aside } from "@astrojs/starlight/components";
+import Shot from "../../../../../components/Shot.astro";
+import Roles from "../../../../../components/Roles.astro";
+
+The surat jalan register is the book of surat jalan numbers: every surat jalan that got a number in one period, by date then number, cancelled ones included. Use it to check that no number is missing, and to tick off the sheets that have come back.
+
+<Roles can={["OWNER", "ADMIN", "GUDANG", "PENJUALAN", "VIEWER"]} />
+
+## Opening the register
+
+<Steps>
+
+1. Click **Reports** in the sidebar, then the **Surat jalan register** tab <span class="pin">1</span>.
+
+2. This month's register shows at once. The sentence above the table <span class="pin">2</span> gives how many numbered surat jalan there are, how many were shipped (with their tabung and kg), and how many were cancelled.
+
+   <Shot name="reports-register" alt="Surat jalan register for October with the status, customer, tabung, weight and note of each surat jalan" />
+
+3. Change **From** and **To** for another period, a year at most.
+
+</Steps>
+
+## What the register holds
+
+| Status | In the register? | Added up? |
+|---|---|---|
+| **Posted** | ✅ | ✅ as shipped |
+| **Delivered** | ✅, with the receiver's name and the date signed under **Note** <span class="pin">4</span> | ✅ as shipped |
+| **Cancelled** <span class="pin">3</span> | ✅, struck through, with the reason it was cancelled | ❌, counted apart: its goods never left |
+| **Draft** | ❌: a draft has no number yet | ❌ |
+
+Cancelled surat jalan stay listed so their numbers do not drop out of the sequence. A surat jalan number is never used twice and never skipped.
+
+Click a row to open that surat jalan. The back button at the top left brings you back to the register.
+
+<Aside type="note">
+The screen shows the first 1,000 rows. The totals above the table, the export and the print always cover every surat jalan in the period.
+</Aside>
+
+## Exporting and printing
+
+**Export xlsx**, **Export csv** and **Print** <span class="pin">5</span> include every row, then the totals per status and what was shipped at the end. One print holds at most 5,000 rows; for a longer register, narrow the dates. See [Printing and exporting reports](/gasdist-site/en/panduan/laporan/mencetak-dan-mengekspor/).

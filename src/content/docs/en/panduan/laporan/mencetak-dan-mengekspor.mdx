@@ -1,0 +1,58 @@
+---
+title: Printing and exporting reports
+description: Save a report to Excel or CSV, or print it on A4 or continuous paper, with the column heads and page number on every page.
+sidebar:
+  order: 5
+---
+
+import { Steps, Aside } from "@astrojs/starlight/components";
+import Shot from "../../../../../components/Shot.astro";
+import Roles from "../../../../../components/Roles.astro";
+
+The stock summary, the surat jalan register, deliveries and the audit trail export to Excel or CSV and print. What is exported or printed is always the report with the dates and choices on screen.
+
+<Roles can={["OWNER", "ADMIN", "GUDANG", "PENJUALAN", "VIEWER"]} />
+
+The audit trail is for the Owner and Admin only, its export and print included.
+
+## Exporting to Excel or CSV
+
+<Steps>
+
+1. Set the report's dates and choices first.
+
+2. Click **Export xlsx** for an Excel file, or **Export csv**.
+
+3. Your computer's save dialog opens with the file name filled in, for example `register-surat-jalan-2026-10-01-2026-10-13.xlsx`. Choose a folder and save.
+
+4. The message **Report saved to** shows, followed by where the file is.
+
+</Steps>
+
+An export holds every row, also when the screen shows only 1,000. In Excel, kg, tabung and dates are stored as numbers and dates, so they add up and filter straight away.
+
+## Printing
+
+<Steps>
+
+1. Click **Print** on the report. The print window opens and shows the report page by page.
+
+   <Shot name="reports-print" max=720 alt="The report print window with the paper choice, the number of pages and the Print button" />
+
+2. Choose the **Paper** <span class="pin">1</span>: **A4** for an office printer, or **Continuous paper 9.5 × 11 in** for a dot-matrix. The print window starts on the paper in [Settings](/gasdist-site/en/panduan/pengaturan/cetak/) when it is one of these two, otherwise on A4.
+
+3. Check the number of pages <span class="pin">2</span>, then click **Print** <span class="pin">3</span>. In the print dialog, choose a printer, or **Save as PDF**.
+
+</Steps>
+
+Every page carries the company name, the report's title, its period and filters, the date printed, **Page 1 of 3** and so on, and the column heads. The totals sit at the end of the last page.
+
+<Shot name="reports-print-sheet" max=720 alt="First page of a printed surat jalan register with the report heading, column heads and page number" />
+
+Long fields, such as the changes in the audit trail, print on several lines inside their column:
+
+<Shot name="reports-print-audit" max=720 alt="A printed audit trail: one surat jalan correction with each change on its own line" />
+
+<Aside type="note">
+One print holds at most 5,000 rows, about 110 A4 pages. For a longer report the **Print** button cannot be clicked, and GasDist suggests narrowing the dates or exporting to Excel. Printing a report is not recorded in the audit trail and marks nothing as a copy.
+</Aside>
