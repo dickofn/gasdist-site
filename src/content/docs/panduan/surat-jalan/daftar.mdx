@@ -1,6 +1,6 @@
 ---
 title: Daftar dan ekspor surat jalan
-description: Cari surat jalan dengan filter tanggal, pelanggan, status, atau nomor, lalu ekspor daftarnya ke xlsx atau csv.
+description: Cari surat jalan dengan filter tanggal, pelanggan, sopir, status, atau nomor, lalu ekspor daftarnya ke xlsx atau csv.
 sidebar:
   order: 1
 ---
@@ -15,7 +15,7 @@ Halaman **Surat Jalan** menampilkan semua surat jalan, yang terbaru di atas. Dar
 
 Semua peran bisa melihat dan mengekspor daftar ini. Tombol **Buat surat jalan** <span class="pin">1</span> hanya muncul untuk Owner, Admin, dan Penjualan (lihat [Membuat surat jalan](/gasdist-site/panduan/surat-jalan/membuat/)).
 
-<Shot name="sj-list" alt="Daftar surat jalan bulan ini dengan filter tanggal, pelanggan, status, dan cari nomor" marks={[1, 2, 3, 4, null]} />
+<Shot name="sj-list" alt="Daftar surat jalan bulan ini dengan filter tanggal, pelanggan, sopir, status, dan cari nomor" marks={[1, 2, 3, 4, null]} />
 
 ## Menyaring daftar
 
@@ -25,7 +25,8 @@ Saat dibuka, daftar menampilkan surat jalan dari tanggal 1 bulan ini sampai hari
 |---|---|
 | **Dari tanggal** <span class="pin">2</span> dan **Sampai tanggal** | Rentang tanggal surat jalan. **Sampai tanggal** tidak boleh sebelum **Dari tanggal**. |
 | **Pelanggan** | Ketik kode, nama, telepon, atau kota, lalu pilih satu pelanggan. |
-| **Status** <span class="pin">3</span> | **Semua status**, atau hanya satu status, misalnya **Dibatalkan**. |
+| **Sopir** | Ketik sebagian nama, lalu pilih satu sopir. Sopir yang sudah nonaktif juga ada, bertanda *(Nonaktif)*, supaya surat jalan lamanya tetap bisa dicari. **Semua sopir** di baris pertama menghapus filter ini. |
+| **Status** <span class="pin">3</span> | **Semua status**, atau hanya satu status: **Draf**, **Diposting**, **Terkirim**, atau **Dibatalkan**. |
 | **Cari nomor** <span class="pin">4</span> | Ketik sebagian nomor, misalnya `0029`. |
 
 <Aside type="tip" title="Cari nomor mengabaikan tanggal">
@@ -36,6 +37,10 @@ Contoh di bawah menampilkan semua surat jalan yang dibatalkan sejak 1 September:
 
 <Shot name="sj-list-cancelled" alt="Daftar surat jalan yang disaring dengan status Dibatalkan, dengan nomor yang dicoret" />
 
+Contoh berikutnya menampilkan surat jalan bulan ini yang dibawa Supriyadi: **Sopir** <span class="pin">1</span> diisi, **Status** <span class="pin">2</span> tetap **Semua status**. Yang lembarnya sudah kembali berlabel **Terkirim** <span class="pin">3</span>; yang masih **Diposting** masih ditunggu lembarnya.
+
+<Shot name="sj-list-driver" alt="Daftar surat jalan yang disaring per sopir, dengan status Terkirim dan Diposting" />
+
 Daftar menampilkan paling banyak 1.000 baris. Bila hasilnya lebih banyak, muncul pesan **Menampilkan ... dari ...**: persempit tanggal atau filter lain untuk melihat sisanya.
 
 ## Arti warna status
@@ -43,10 +48,11 @@ Daftar menampilkan paling banyak 1.000 baris. Bila hasilnya lebih banyak, muncul
 | Status | Tampilan di daftar | Artinya |
 |---|---|---|
 | **Draf** | Label abu-abu, kolom nomor bertuliskan *Draf* miring | Belum diposting: belum bernomor, stok belum berkurang, isi masih bisa diubah |
-| **Diposting** | Label biru, nomor tampil lengkap | Sudah bernomor dan stok sudah berkurang |
+| **Diposting** | Label biru, nomor tampil lengkap | Sudah bernomor dan stok sudah berkurang; lembar bertanda tangannya belum kembali |
+| **Terkirim** | Label hijau | Lembar bertanda tangan sudah kembali dan dicatat. Final: tidak bisa dikoreksi atau dibatalkan. Lihat [Menandai surat jalan terkirim](/gasdist-site/panduan/surat-jalan/menandai-terkirim/). |
 | **Dibatalkan** | Label merah, nomor dan status dicoret | Sudah dibatalkan; stoknya sudah dikembalikan, nomornya tetap tercatat |
 
-Klik sebuah baris untuk membukanya. Draf terbuka di formulir sehingga bisa dilanjutkan (bagi Owner, Admin, dan Penjualan); surat jalan yang sudah diposting atau dibatalkan terbuka di halaman detail.
+Klik sebuah baris untuk membukanya. Draf terbuka di formulir sehingga bisa dilanjutkan (bagi Owner, Admin, dan Penjualan); surat jalan yang sudah diposting, terkirim, atau dibatalkan terbuka di halaman detail.
 
 ## Mengekspor daftar
 

@@ -9,7 +9,7 @@ import { Steps, Aside } from "@astrojs/starlight/components";
 import Shot from "../../../../../components/Shot.astro";
 import Roles from "../../../../../components/Roles.astro";
 
-A backup is one file holding **all** GasDist data: stock and its history, surat jalan, customers, products, vehicles, drivers, users, and the settings including the logo. The file is locked with the [backup password](/gasdist-site/en/panduan/backup/kata-sandi-backup/) and can be restored on any PC, even one with a different operating system.
+A backup is one file holding **all** GasDist data: stock and its history, surat jalan, customers, products, vehicles, drivers, users, and the settings including the logo. Only the scans of signed sheets are kept apart, in a `scans` folder next to it (see [below](#scans-of-signed-sheets)). The file is locked with the [backup password](/gasdist-site/en/panduan/backup/kata-sandi-backup/) and can be restored on any PC, even one with a different operating system.
 
 <Roles can={["OWNER", "ADMIN"]} />
 
@@ -111,3 +111,29 @@ That number applies **to each kind** of backup **in each folder**. Backups older
 <Aside type="note">
 Every time GasDist is closed, one automatic backup is made. If the app is closed several times a day, 14 automatic backups can cover fewer than 14 days. Raise the number if you want a longer history.
 </Aside>
+
+## Scans of signed sheets
+
+Scans from [Mark delivered](/gasdist-site/en/panduan/surat-jalan/menandai-terkirim/) are not inside the backup file. Each scan is already an encrypted file of its own, and within a few years there can be tens of thousands; carried in every backup, they would make backups huge and slow. So:
+
+| When | What happens to scans |
+|---|---|
+| Every backup, automatic or manual | Scans the backup folder lacks are copied into its `scans` folder. Scans already there are not copied again, so a backup stays as fast as before. If a scan cannot be copied, the backup message gives how many; the backup itself is whole. |
+| Second backup folder | Gets its own `scans` folder the same way |
+| **Save a copy to…** | The `scans` folder is copied next to the copy |
+| Old backups deleted automatically | The `scans` folder is never deleted: each scan is kept once and shared by every backup |
+
+```
+Backup folder
+├── GasDist-20261013T045500Z-manual.gasbak
+├── GasDist-20261013T101500Z-auto.gasbak
+└── scans
+    └── 2026
+        └── 10
+            └── 0199d6…​.gasscan     one file per scan, by year and month
+```
+
+<Aside type="caution" title="Copy the scans folder with the backup">
+When you move a backup to a USB stick or another PC yourself, copy the `scans` folder next to it as well. Without it, the data still restores completely; only the scans of signed sheets cannot be opened.
+</Aside>
+

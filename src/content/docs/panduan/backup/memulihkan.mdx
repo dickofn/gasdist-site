@@ -22,6 +22,7 @@ Memulihkan berarti **mengganti semua data GasDist sekarang** dengan isi sebuah b
 | Pengguna dan kata sandi masuk | Akun yang ada di backup. Semua orang masuk lagi dengan akun dan kata sandi dari backup |
 | Kata sandi backup | Yang tersimpan di data backup itu, yaitu kata sandi yang Anda ketik untuk membukanya |
 | Backup dari GasDist versi lebih lama | Diperbarui otomatis, tidak perlu tindakan apa pun |
+| Scan lembar kembali | Scan di folder `scans` di sebelah file backup yang dipilih disalin ke PC ini; scan yang sudah ada tidak disalin lagi. Lihat [Scan lembar kembali](/gasdist-site/panduan/backup/membuat-backup/#scan-lembar-kembali). |
 
 ## Memulihkan sebuah backup
 
@@ -49,6 +50,10 @@ Memulihkan berarti **mengganti semua data GasDist sekarang** dengan isi sebuah b
 
 <Aside type="caution" title="Tanpa kata sandi backup, backup tidak bisa dibuka">
 Backup hanya bisa dibuka dengan kata sandi backup yang dipakai saat backup itu dibuat. Bila kata sandi itu hilang, backup tersebut **tidak bisa dipulihkan sama sekali**, oleh siapa pun. Kode pemulihan Owner dan kata sandi masuk tidak bisa menggantikannya. Lihat [Kata sandi backup](/gasdist-site/panduan/backup/kata-sandi-backup/).
+</Aside>
+
+<Aside type="tip" title="Pindah ke PC baru">
+Salin file `.gasbak` **bersama** folder `scans` di sebelahnya ke flashdisk, lalu pilih file itu di PC baru. Bila folder `scans` tertinggal, data tetap pulih lengkap; hanya **Lihat scan** yang menjawab bahwa scannya tidak ada di komputer ini. Salin folder itu belakangan ke folder backup, lalu pulihkan lagi, atau salin isinya ke folder `scans` di folder data GasDist.
 </Aside>
 
 ## Bila ada pesan kesalahan

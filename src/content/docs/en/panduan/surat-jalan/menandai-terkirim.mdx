@@ -1,0 +1,80 @@
+---
+title: Marking a surat jalan delivered
+description: Record the signed sheet that came back from the customer, with the receiver's name, the date signed and a scan if there is one.
+sidebar:
+  order: 5
+---
+
+import { Steps, Aside } from "@astrojs/starlight/components";
+import Shot from "../../../../../components/Shot.astro";
+import Roles from "../../../../../components/Roles.astro";
+
+The driver takes the surat jalan along, the receiver signs it, and the sheet comes back to the office. Once you have that sheet, mark the surat jalan **Delivered**: record who received it, the date it was signed and, if you have one, a scan or photo of the sheet.
+
+<Roles can={["OWNER", "ADMIN", "PENJUALAN"]} />
+
+The sheets still out are listed in the [Surat jalan not back yet](/gasdist-site/en/panduan/surat-jalan/belum-kembali/) report.
+
+## Marking it delivered
+
+<Steps>
+
+1. Open a surat jalan with the status **Posted** <span class="pin">2</span>, from the [surat jalan list](/gasdist-site/en/panduan/surat-jalan/daftar/) or from the **Surat jalan not back yet** report, then click **Mark delivered** <span class="pin">1</span>.
+
+   <Shot name="sj-detail-deliver" alt="A posted surat jalan with the Mark delivered button" />
+
+2. Fill in **Receiver's name** <span class="pin">1</span> as written in the **PENERIMA** box on the sheet. It is required, at most 100 characters.
+
+3. Check **Date signed** <span class="pin">2</span>. It starts at today; change it if the sheet was signed on another day. It cannot be before the date of the surat jalan or after today.
+
+4. If you have a scan or photo of the sheet, click **Choose file…** <span class="pin">3</span> and pick it. Its name shows next to the button; **Remove scan** takes it off again. The scan is optional.
+
+   <Shot name="sj-deliver-dialog" alt="The Mark delivered dialog with the receiver's name, the date signed and a chosen scan" />
+
+5. Click **Mark delivered** <span class="pin">4</span>.
+
+</Steps>
+
+The message **Surat jalan ... marked delivered.** appears, the status becomes **Delivered** <span class="pin">1</span> (green), and the **Signed sheet back** box <span class="pin">2</span> records the receiver, the date signed, who recorded it and when, and the scan.
+
+<Shot name="sj-detail-delivered" alt="A delivered surat jalan with the Signed sheet back box and the View scan button" />
+
+## Which scans are taken
+
+| File | What happens |
+|---|---|
+| A JPG or PNG photo | Turned upright the way the phone was held, shrunk, and kept as a JPG of at most 1 MB. The photo's location and other metadata are dropped. |
+| A PDF up to 1 MB | Kept as it is. |
+| A PDF over 1 MB | Refused. Scan it again at a lower resolution, or take a photo of the sheet. |
+| An iPhone photo (HEIC), TIFF or any other file | Refused. Save it as a JPG first. |
+| Any file over 20 MB | Refused. |
+
+<Aside type="tip" title="Taking the photo with a phone">
+Hold the phone straight above the sheet, in good light, with all four corners in the picture. The signature and the stamp in the **PENERIMA** box must be readable.
+</Aside>
+
+## Viewing the scan
+
+Click **View scan** in the **Signed sheet back** box (<span class="pin">3</span> in the picture above). A photo shows right in GasDist, for every role.
+
+<Shot name="sj-scan-view" alt="The scan of a surat jalan signed by the receiver, with the Save a copy button" />
+
+GasDist cannot show a PDF itself. Click **Save a copy…** <span class="pin">1</span>, save the file, then open it with the PC's PDF reader. A photo can be saved the same way.
+
+## Delivered is final
+
+| Once delivered | |
+|---|---|
+| Correcting the vehicle, driver or notes | ❌ there is no **Correct** button |
+| Cancelling | ❌ there is no **Cancel surat jalan** button |
+| Changing the receiver, the date or the scan | ❌ |
+| Printing | ✅ marked as a copy if it was printed before |
+| Stock | Unchanged: it went down when the surat jalan was posted |
+
+<Aside type="caution" title="Check before you click">
+A wrong receiver's name or a wrong scan cannot be fixed once saved. Goods coming back after the customer received them are recorded with a [stock opname](/gasdist-site/en/panduan/stok/stok-opname/) and its reason.
+</Aside>
+
+<Aside type="note" title="Where scans are kept">
+Scans are kept encrypted in a `scans` folder next to the GasDist database, not inside it, so backups stay small and fast. Every backup copies the new ones. See [Making backups](/gasdist-site/en/panduan/backup/membuat-backup/#scans-of-signed-sheets).
+</Aside>

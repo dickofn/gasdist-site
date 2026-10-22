@@ -1,0 +1,80 @@
+---
+title: Menandai surat jalan terkirim
+description: Catat lembar bertanda tangan yang kembali dari pelanggan, dengan nama penerima, tanggal tanda tangan, dan scan bila ada.
+sidebar:
+  order: 5
+---
+
+import { Steps, Aside } from "@astrojs/starlight/components";
+import Shot from "../../../../components/Shot.astro";
+import Roles from "../../../../components/Roles.astro";
+
+Surat jalan dibawa sopir, ditandatangani penerima, lalu lembarnya kembali ke kantor. Saat lembar itu sudah di tangan, tandai surat jalannya **Terkirim**: catat siapa yang menerima, tanggal tanda tangannya, dan bila ada, scan atau foto lembarnya.
+
+<Roles can={["OWNER", "ADMIN", "PENJUALAN"]} />
+
+Yang belum kembali bisa dilihat di laporan [Surat jalan belum kembali](/gasdist-site/panduan/surat-jalan/belum-kembali/).
+
+## Menandai terkirim
+
+<Steps>
+
+1. Buka surat jalan yang berstatus **Diposting** <span class="pin">2</span>, dari [daftar surat jalan](/gasdist-site/panduan/surat-jalan/daftar/) atau dari laporan **Surat jalan belum kembali**, lalu klik **Tandai terkirim** <span class="pin">1</span>.
+
+   <Shot name="sj-detail-deliver" alt="Halaman surat jalan berstatus Diposting dengan tombol Tandai terkirim" />
+
+2. Isi **Nama penerima** <span class="pin">1</span> seperti yang tertulis di kotak **PENERIMA** pada lembarnya. Wajib diisi, paling banyak 100 huruf.
+
+3. Periksa **Tanggal tanda tangan** <span class="pin">2</span>. Isinya hari ini; ubah bila lembarnya ditandatangani di hari lain. Tanggalnya tidak boleh sebelum tanggal surat jalan dan tidak boleh setelah hari ini.
+
+4. Bila ada scan atau foto lembarnya, klik **Pilih file…** <span class="pin">3</span> dan pilih filenya. Nama file tampil di sebelahnya; **Hapus scan** membatalkan pilihan itu. Scan boleh dilewati.
+
+   <Shot name="sj-deliver-dialog" alt="Dialog Tandai terkirim dengan Nama penerima, Tanggal tanda tangan, dan scan lembar yang sudah dipilih" />
+
+5. Klik **Tandai terkirim** <span class="pin">4</span>.
+
+</Steps>
+
+Muncul pesan **Surat jalan ... ditandai terkirim.**, statusnya menjadi **Terkirim** <span class="pin">1</span> (hijau), dan kotak **Lembar kembali** <span class="pin">2</span> mencatat penerima, tanggal tanda tangan, siapa yang mencatatnya dan kapan, serta scannya.
+
+<Shot name="sj-detail-delivered" alt="Halaman surat jalan Terkirim dengan kotak Lembar kembali dan tombol Lihat scan" />
+
+## Scan yang diterima
+
+| File | Yang terjadi |
+|---|---|
+| Foto JPG atau PNG | Diputar tegak sesuai posisi ponsel saat memotret, diperkecil, lalu disimpan sebagai JPG paling besar 1 MB. Data lokasi dan data lain di foto ikut dibuang. |
+| PDF sampai 1 MB | Disimpan apa adanya. |
+| PDF lebih dari 1 MB | Ditolak. Scan ulang dengan resolusi lebih rendah, atau foto lembarnya. |
+| Foto iPhone (HEIC), TIFF, atau file lain | Ditolak. Simpan dulu sebagai JPG. |
+| File apa pun lebih dari 20 MB | Ditolak. |
+
+<Aside type="tip" title="Foto dengan ponsel">
+Foto lembarnya tegak lurus dari atas, di tempat terang, sampai keempat sudutnya masuk. Tanda tangan dan stempel di kotak **PENERIMA** harus terbaca.
+</Aside>
+
+## Melihat scan
+
+Klik **Lihat scan** di kotak **Lembar kembali** (<span class="pin">3</span> pada gambar di atas). Foto tampil langsung di GasDist, dan semua peran bisa melihatnya.
+
+<Shot name="sj-scan-view" alt="Scan lembar surat jalan yang sudah ditandatangani penerima, dengan tombol Simpan salinan" />
+
+PDF tidak bisa ditampilkan di dalam GasDist. Klik **Simpan salinan…** <span class="pin">1</span>, simpan filenya, lalu buka dengan pembaca PDF di komputer itu. Foto juga bisa disimpan dengan cara yang sama.
+
+## Terkirim itu final
+
+| Setelah Terkirim | |
+|---|---|
+| Koreksi kendaraan, sopir, catatan | ❌ tombol **Koreksi** tidak ada |
+| Dibatalkan | ❌ tombol **Batalkan surat jalan** tidak ada |
+| Diubah penerima, tanggal, atau scannya | ❌ |
+| Dicetak | ✅ bertanda **SALINAN** bila sudah pernah dicetak |
+| Stok | Tidak berubah: stok sudah berkurang saat diposting |
+
+<Aside type="caution" title="Periksa sebelum mengklik">
+Salah nama penerima atau salah scan tidak bisa diperbaiki setelah disimpan. Barang yang kembali setelah diterima pelanggan dicatat dengan [stok opname](/gasdist-site/panduan/stok/stok-opname/) beserta alasannya.
+</Aside>
+
+<Aside type="note" title="Di mana scan disimpan">
+Scan disimpan terenkripsi di folder `scans` di sebelah database GasDist, bukan di dalam database, supaya backup tetap kecil dan cepat. Setiap backup ikut menyalin scan yang baru. Lihat [Membuat backup](/gasdist-site/panduan/backup/membuat-backup/#scan-lembar-kembali).
+</Aside>

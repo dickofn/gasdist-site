@@ -22,6 +22,7 @@ Restoring means **replacing all current GasDist data** with what a backup holds.
 | Users and sign-in passwords | The accounts in the backup. Everyone signs in again with the accounts and passwords from the backup |
 | Backup password | The one stored in that backup's data, which is the password you typed to open it |
 | A backup from an older GasDist version | Updated automatically, nothing for you to do |
+| Scans of signed sheets | The scans in the `scans` folder next to the chosen backup file are copied to this PC; scans already here are not copied again. See [Scans of signed sheets](/gasdist-site/en/panduan/backup/membuat-backup/#scans-of-signed-sheets). |
 
 ## Restoring a backup
 
@@ -49,6 +50,10 @@ Restoring means **replacing all current GasDist data** with what a backup holds.
 
 <Aside type="caution" title="Without the backup password, a backup cannot be opened">
 A backup only opens with the backup password that was in use when it was made. If that password is lost, the backup **cannot be restored at all**, by anyone. The Owner recovery code and sign-in passwords cannot stand in for it. See [Backup password](/gasdist-site/en/panduan/backup/kata-sandi-backup/).
+</Aside>
+
+<Aside type="tip" title="Moving to a new PC">
+Copy the `.gasbak` file **together with** the `scans` folder next to it onto the USB stick, then pick that file on the new PC. If the `scans` folder is left behind, the data still restores completely; only **View scan** answers that the scan is not on this computer. Copy that folder into the backup folder later and restore again, or copy its contents into the `scans` folder in the GasDist data folder.
 </Aside>
 
 ## If an error message appears

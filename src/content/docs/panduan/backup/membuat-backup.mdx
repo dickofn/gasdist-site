@@ -9,7 +9,7 @@ import { Steps, Aside } from "@astrojs/starlight/components";
 import Shot from "../../../../components/Shot.astro";
 import Roles from "../../../../components/Roles.astro";
 
-Backup adalah satu file berisi **seluruh** data GasDist: stok dan riwayatnya, surat jalan, pelanggan, produk, kendaraan, sopir, pengguna, serta pengaturan termasuk logo. File itu dikunci dengan [kata sandi backup](/gasdist-site/panduan/backup/kata-sandi-backup/) dan bisa dipulihkan di PC mana pun, juga di PC dengan sistem operasi lain.
+Backup adalah satu file berisi **seluruh** data GasDist: stok dan riwayatnya, surat jalan, pelanggan, produk, kendaraan, sopir, pengguna, serta pengaturan termasuk logo. Hanya scan lembar kembali yang disimpan terpisah, di folder `scans` di sebelahnya (lihat [di bawah](#scan-lembar-kembali)). File itu dikunci dengan [kata sandi backup](/gasdist-site/panduan/backup/kata-sandi-backup/) dan bisa dipulihkan di PC mana pun, juga di PC dengan sistem operasi lain.
 
 <Roles can={["OWNER", "ADMIN"]} />
 
@@ -111,3 +111,29 @@ Jumlah itu berlaku **untuk tiap jenis** backup **di tiap folder**. Backup yang l
 <Aside type="note">
 Setiap kali GasDist ditutup, satu backup otomatis dibuat. Bila aplikasi ditutup beberapa kali sehari, 14 backup otomatis bisa mencakup kurang dari 14 hari. Naikkan angkanya bila Anda ingin menyimpan riwayat lebih panjang.
 </Aside>
+
+## Scan lembar kembali
+
+Scan dari [Tandai terkirim](/gasdist-site/panduan/surat-jalan/menandai-terkirim/) tidak masuk ke file backup. Setiap scan sudah berupa file terenkripsi tersendiri, dan dalam beberapa tahun jumlahnya bisa puluhan ribu; bila ikut di setiap backup, backup menjadi sangat besar dan lambat. Karena itu:
+
+| Saat | Yang terjadi dengan scan |
+|---|---|
+| Setiap backup, otomatis atau manual | Scan yang belum ada di folder backup disalin ke folder `scans` di dalamnya. Scan yang sudah ada tidak disalin lagi, jadi backup tetap secepat biasanya. Bila ada scan yang tidak bisa disalin, pesan backup menyebut jumlahnya; backup-nya sendiri tetap utuh. |
+| Folder backup kedua | Mendapat folder `scans` sendiri dengan cara yang sama |
+| **Simpan salinan ke…** | Folder `scans` ikut disalin ke sebelah file salinan |
+| Backup lama dihapus otomatis | Folder `scans` tidak pernah dihapus: setiap scan disimpan sekali dan dipakai semua backup |
+
+```
+Folder backup
+├── GasDist-20261013T045500Z-manual.gasbak
+├── GasDist-20261013T101500Z-auto.gasbak
+└── scans
+    └── 2026
+        └── 10
+            └── 0199d6…​.gasscan     satu file per scan, per tahun dan bulan
+```
+
+<Aside type="caution" title="Salin folder scans bersama backup">
+Saat memindahkan backup ke flashdisk atau PC lain dengan cara sendiri, salin juga folder `scans` di sebelahnya. Tanpa folder itu, datanya tetap pulih lengkap, hanya scan lembar kembali yang tidak bisa dibuka.
+</Aside>
+

@@ -1,0 +1,51 @@
+---
+title: Surat jalan not back yet
+description: A report of the surat jalan whose signed sheet has not come back to the office, the longest waiting at the top.
+sidebar:
+  order: 6
+---
+
+import { Steps, Aside } from "@astrojs/starlight/components";
+import Shot from "../../../../../components/Shot.astro";
+import Roles from "../../../../../components/Roles.astro";
+
+Every posted surat jalan waits for its signed sheet to come back. This report lists the ones still waiting, so a sheet left with a driver or a customer is not forgotten.
+
+<Roles can={["OWNER", "ADMIN", "GUDANG", "PENJUALAN", "VIEWER"]} />
+
+Every role can view and export this report. Only the Owner, Admin and Sales can mark a surat jalan delivered.
+
+## Opening the report
+
+<Steps>
+
+1. Click **Reports** in the sidebar, then the **Surat jalan not back yet** tab <span class="pin">1</span>.
+
+2. The report shows straight away: every surat jalan with the status **Posted**, from any date up to today. The sentence above the table <span class="pin">3</span> gives how many there are and how long the oldest has waited.
+
+   <Shot name="reports-outstanding" alt="The Surat jalan not back yet report with the count, the days each has waited and the export buttons" />
+
+3. For part of the time only, fill in **From** <span class="pin">2</span> and **To**. Empty **From** to see every date again.
+
+</Steps>
+
+| Column | What it holds |
+|---|---|
+| Number, Date | The surat jalan. The oldest is at the top. |
+| **Waiting** <span class="pin">4</span> | Days since the date of the surat jalan. Grey up to 7 days, amber after 7, red after 30. |
+| Customer, Vehicle, Driver | Who to ask |
+| Tabung, Weight | What it carried |
+
+**Delivered** and **Cancelled** surat jalan are not in the report. Neither are drafts: a draft has not been printed or taken by a driver yet.
+
+## Marking it delivered from the report
+
+Click the row of a surat jalan whose sheet has come back. Its page opens inside **Reports**; click **Mark delivered** and follow [Marking a surat jalan delivered](/gasdist-site/en/panduan/surat-jalan/menandai-terkirim/). The back button at the top left returns to the report, where that surat jalan is gone from the list.
+
+## Exporting the report
+
+Click **Export xlsx** <span class="pin">5</span> or **Export csv**, then choose where to save it. The file holds every row matching the dates, more than 1,000 included, with the columns Number, Date, Waiting (days), Customer code, Customer, Vehicle, Driver, Tabung and Weight (kg).
+
+<Aside type="tip" title="Weekly meeting">
+Export this report every week and share it with the drivers: sort it by driver in Excel, then ask about the sheets out for more than a week.
+</Aside>

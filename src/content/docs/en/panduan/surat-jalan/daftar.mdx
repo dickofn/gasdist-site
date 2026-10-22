@@ -1,6 +1,6 @@
 ---
 title: Listing and exporting surat jalan
-description: Find surat jalan by date, customer, status or number, then export the list to xlsx or csv.
+description: Find surat jalan by date, customer, driver, status or number, then export the list to xlsx or csv.
 sidebar:
   order: 1
 ---
@@ -15,7 +15,7 @@ The **Surat Jalan** page lists every surat jalan, newest first. Use it to find a
 
 Every role can view and export this list. The **New surat jalan** button <span class="pin">1</span> only appears for the Owner, Admin and Sales roles (see [Making a surat jalan](/gasdist-site/en/panduan/surat-jalan/membuat/)).
 
-<Shot name="sj-list" alt="This month's surat jalan list with the date, customer, status and number search filters" marks={[1, 2, 3, 4, null]} />
+<Shot name="sj-list" alt="This month's surat jalan list with the date, customer, driver, status and number search filters" marks={[1, 2, 3, 4, null]} />
 
 ## Filtering the list
 
@@ -25,7 +25,8 @@ When it opens, the list shows surat jalan from the 1st of this month up to today
 |---|---|
 | **From** <span class="pin">2</span> and **To** | The range of surat jalan dates. **To** cannot be before **From**. |
 | **Customer** | Type a code, name, phone or city, then pick one customer. |
-| **Status** <span class="pin">3</span> | **All statuses**, or a single status, such as **Cancelled**. |
+| **Driver** | Type part of a name, then pick one driver. Inactive drivers are there too, marked *(Inactive)*, so their old surat jalan can still be found. **All drivers** on the first row clears this filter. |
+| **Status** <span class="pin">3</span> | **All statuses**, or a single status: **Draft**, **Posted**, **Delivered** or **Cancelled**. |
 | **Search number** <span class="pin">4</span> | Type part of a number, for example `0029`. |
 
 <Aside type="tip" title="Search number ignores the dates">
@@ -36,6 +37,10 @@ The example below shows every cancelled surat jalan since 1 September: **Status*
 
 <Shot name="sj-list-cancelled" alt="The surat jalan list filtered on Cancelled status, every number struck through" />
 
+The next example shows this month's surat jalan driven by Supriyadi: **Driver** <span class="pin">1</span> is filled in and **Status** <span class="pin">2</span> stays on **All statuses**. The ones whose sheet came back are labelled **Delivered** <span class="pin">3</span>; the ones still **Posted** are waiting for their sheet.
+
+<Shot name="sj-list-driver" alt="The surat jalan list filtered by driver, with Delivered and Posted statuses" />
+
 The list shows at most 1,000 rows. When there are more matches, the message **Showing ... of ...** appears: narrow the dates or another filter to see the rest.
 
 ## What the status colours mean
@@ -43,10 +48,11 @@ The list shows at most 1,000 rows. When there are more matches, the message **Sh
 | Status | How it looks in the list | Meaning |
 |---|---|---|
 | **Draft** | Grey label, the number column says *Draft* in italics | Not posted yet: no number, stock not reduced, contents can still change |
-| **Posted** | Blue label, full number shown | Numbered, and stock has gone down |
+| **Posted** | Blue label, full number shown | Numbered, and stock has gone down; the signed sheet has not come back yet |
+| **Delivered** | Green label | The signed sheet came back and was recorded. Final: it cannot be corrected or cancelled. See [Marking a surat jalan delivered](/gasdist-site/en/panduan/surat-jalan/menandai-terkirim/). |
 | **Cancelled** | Red label, number and status struck through | Cancelled; its stock has been returned and the number stays on record |
 
-Click a row to open it. A draft opens in the form so you can carry on (for the Owner, Admin and Sales roles); a posted or cancelled surat jalan opens on its detail page.
+Click a row to open it. A draft opens in the form so you can carry on (for the Owner, Admin and Sales roles); a posted, delivered or cancelled surat jalan opens on its detail page.
 
 ## Exporting the list
 
