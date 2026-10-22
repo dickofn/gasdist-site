@@ -31,7 +31,7 @@ const T = {
       ["Terima stok", "Kiriman dari SPBE dicatat per tabung atau per kg."],
       ["Buat surat jalan", "Pilih pelanggan dan isi jumlah tabung. Sisa stok terlihat sebelum disimpan."],
       ["Posting", "Nomor diberikan otomatis dan stok langsung berkurang."],
-      ["Cetak", "Kertas A4 atau continuous. Cetak ulang ditandai SALINAN."],
+      ["Cetak", "Tiga lembar berlabel sekali cetak, di A4, A5, atau kertas continuous. Cetak ulang ditandai SALINAN."],
       ["Ditandatangani", "Penerima menandatangani di kotaknya. Lembar yang kembali dicatat Terkirim, dengan scannya."],
     ],
     features: [
@@ -52,9 +52,9 @@ const T = {
       {
         shot: "print-window",
         max: 600,
-        alt: "Jendela pratinjau cetak surat jalan dengan pilihan kertas",
+        alt: "Jendela pratinjau cetak surat jalan dengan pilihan template, kertas, dan lembar",
         title: "Kertas yang siap ditandatangani",
-        body: "Kop perusahaan dengan logo, tiga kotak tanda tangan, dan pernyataan penerimaan barang. Draf bisa dipratinjau dengan tanda air DRAFT, dan cetak ulang bertanda SALINAN.",
+        body: "Kop perusahaan dengan logo, tiga kotak tanda tangan, dan pernyataan penerimaan barang. Sekali cetak keluar lembar Pelanggan, Kembali ke kantor, dan Arsip; template Sederhana untuk dot-matrix, kertas continuous setengah, dan formulir karbon juga bisa. Cetak ulang bertanda SALINAN.",
         link: "cetak/mencetak/",
       },
       {
@@ -110,7 +110,7 @@ const T = {
       ["Receive stock", "Deliveries from the filling plant are entered by tabung or by kg."],
       ["Create a surat jalan", "Pick the customer and enter the tabung. The remaining stock shows before you save."],
       ["Post", "The number is assigned automatically and stock goes down at once."],
-      ["Print", "A4 or continuous paper. Reprints are marked SALINAN."],
+      ["Print", "Three labelled sheets in one print, on A4, A5 or continuous paper. Reprints are marked SALINAN."],
       ["Signed", "The receiver signs in the box provided. The sheet that comes back is recorded as Delivered, with its scan."],
     ],
     features: [
@@ -131,9 +131,9 @@ const T = {
       {
         shot: "print-window",
         max: 600,
-        alt: "Surat jalan print preview window with the paper choice",
+        alt: "Surat jalan print preview window with the template, paper and sheets choices",
         title: "Paper that is ready to sign",
-        body: "Company letterhead with logo, three signature boxes and a receipt statement. Drafts can be previewed with a DRAFT watermark, and reprints are marked SALINAN.",
+        body: "Company letterhead with logo, three signature boxes and a receipt statement. One print puts out the customer, back-to-office and archive sheets; a Simple template for dot-matrix, half continuous paper and carbon forms work too. Reprints are marked SALINAN.",
         link: "cetak/mencetak/",
       },
       {
