@@ -67,11 +67,12 @@ Untuk baris yang ditolak, perbaiki filenya, lalu impor file itu lagi. Baris yang
 
 | Alasan di kolom Status | Artinya | Yang dilakukan |
 |---|---|---|
-| **Data tidak valid: Nama pelanggan** (atau kolom lain) | Isian wajib kosong, terlalu panjang, atau tidak sesuai aturan, misalnya NIK bukan 16 angka | Perbaiki isian itu di file |
+| **Nama pelanggan wajib diisi**, **... terlalu panjang**, **... berisi karakter yang tidak diizinkan**, **NIK harus kosong atau tepat 16 angka** | Isian itu melanggar aturan yang sama dengan formulir | Perbaiki isian itu di file |
 | **Kode ... sudah dipakai ...** | Kode itu milik pelanggan yang sudah ada, termasuk yang nonaktif | Impor tidak mengubah pelanggan yang ada. Pakai kode lain, atau ubah pelanggan itu lewat [detailnya](/gasdist-site/panduan/pelanggan/detail/) |
 | **Kode ... juga ada di baris ...** | Kode yang sama dipakai dua baris di file (huruf besar dan kecil dianggap sama) | Semua baris dengan kode itu ditolak, karena GasDist tidak tahu mana yang benar. Sisakan satu |
-| **Telepon diketik sebagai angka...** (juga NPWP dan NIK) | Excel menyimpan isian itu sebagai angka, sehingga angka 0 di depan atau digit terakhirnya hilang | Format kolom itu sebagai Teks di Excel, lalu ketik ulang. Templat sudah berformat Teks |
+| **Telepon diketik sebagai angka...** (juga Kode, NPWP, dan NIK) | Excel menyimpan isian itu sebagai angka, sehingga angka 0 di depan atau digit terakhirnya hilang, misalnya kode `007` menjadi `7` | Format kolom itu sebagai Teks di Excel, lalu ketik ulang. Templat sudah berformat Teks |
 | **... terbaca sebagai tanggal** | Excel mengubah isian menjadi tanggal, misalnya `1-2` menjadi 1 Februari | Format kolom itu sebagai Teks, lalu ketik ulang |
+| **... berisi galat rumus Excel (#N/A)** | Sel itu berisi rumus yang gagal | Perbaiki rumusnya atau ketik nilainya, lalu simpan lagi |
 
 <Aside type="note" title="Bila file berubah setelah pratinjau">
 Bila file diubah dan disimpan lagi setelah pratinjau dibuat, GasDist tidak menyimpan apa pun dan meminta Anda memilih file itu lagi. Yang diimpor selalu persis yang tampil di pratinjau.
@@ -81,4 +82,6 @@ Bila file diubah dan disimpan lagi setelah pratinjau dibuat, GasDist tidak menyi
 
 - Satu impor paling banyak 5.000 baris dan 10 MB. Daftar yang lebih besar dibagi menjadi beberapa file.
 - Setiap pelanggan yang diimpor tercatat di [jejak audit](/gasdist-site/panduan/laporan/jejak-audit/) sebagai **Pelanggan ditambah**, sama seperti lewat formulir, ditambah satu catatan **Pelanggan diimpor** yang menyebut nama file dan jumlah baris yang masuk dan ditolak.
-- File Excel lama (`.xls`) tidak bisa dibaca. Simpan ulang sebagai `.xlsx` atau CSV.
+- File Excel lama (`.xls`), PDF, dan file kosong tidak bisa dibaca. Simpan ulang sebagai `.xlsx` atau CSV.
+- Judul atau tanggal di atas baris judul kolom tidak masalah: GasDist mencari baris judul di sepuluh baris pertama. Bila sheet pertama kosong, sheet berikutnya yang berisi data yang dibaca.
+- Bila ada baris yang tampil siap di pratinjau tetapi ditolak saat impor (misalnya kodenya baru saja dipakai pelanggan lain), jendela impor menampilkan baris itu dengan alasannya.

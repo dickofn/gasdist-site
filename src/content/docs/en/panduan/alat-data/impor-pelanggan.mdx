@@ -67,11 +67,12 @@ For the refused rows, fix the file and import it again. The rows that went in ar
 
 | Reason in the Status column | What it means | What to do |
 |---|---|---|
-| **Invalid data: Customer name** (or another field) | A required field is empty, too long or breaks a rule, for example a NIK that is not 16 digits | Fix that field in the file |
+| **Customer name is required**, **... is too long**, **... holds characters that are not allowed**, **The NIK must be empty or exactly 16 digits** | The field breaks the same rule as on the form | Fix that field in the file |
 | **Code ... is already used by ...** | The code belongs to an existing customer, inactive ones included | Import never changes an existing customer. Use another code, or change that customer from its [detail](/gasdist-site/en/panduan/pelanggan/detail/) |
 | **Code ... is also on row ...** | Two rows of the file use the same code (capitals and small letters count as the same) | Every row with that code is refused, since GasDist cannot know which one is right. Keep one |
-| **Phone was typed as a number...** (also NPWP and NIK) | Excel stored the field as a number, so its leading 0 or last digits are gone | Format that column as Text in Excel and type it again. The template is already Text |
+| **Phone was typed as a number...** (also Code, NPWP and NIK) | Excel stored the field as a number, so its leading 0 or last digits are gone, for example code `007` became `7` | Format that column as Text in Excel and type it again. The template is already Text |
 | **... was read as a date** | Excel turned the field into a date, for example `1-2` into 1 February | Format that column as Text and type it again |
+| **... holds an Excel formula error (#N/A)** | The cell holds a formula that failed | Fix the formula or type the value, then save again |
 
 <Aside type="note" title="When the file changes after the preview">
 If the file is changed and saved again after its preview was made, GasDist saves nothing and asks you to choose the file again. What is imported is always exactly what the preview showed.
@@ -81,4 +82,6 @@ If the file is changed and saved again after its preview was made, GasDist saves
 
 - One import takes at most 5,000 rows and 10 MB. Split a larger list into several files.
 - Each imported customer is recorded in the [audit trail](/gasdist-site/en/panduan/laporan/jejak-audit/) as **Customer added**, as with the form, plus one **Customers imported** entry naming the file and how many rows went in and were refused.
-- Old Excel files (`.xls`) cannot be read. Save them again as `.xlsx` or CSV.
+- Old Excel files (`.xls`), PDFs and empty files cannot be read. Save them again as `.xlsx` or CSV.
+- A title or a date above the heading row is fine: GasDist looks for the heading row in the first ten rows. If the first sheet is empty, the next sheet holding data is read.
+- If a row the preview showed ready is refused at import (for example its code was just taken by another customer), the import window lists it with its reason.

@@ -44,8 +44,8 @@ A box with a problem turns red and lists each problem.
 
 | Problem | What it means | What to do |
 |---|---|---|
-| **Content changed** | The audit entry no longer matches its fingerprint | The data was changed outside GasDist. Restore the newest [backup](/gasdist-site/en/panduan/backup/memulihkan/) made before the time of the first problem, then contact support |
-| **... entries missing** | Entries were deleted from the middle of the audit trail | The same: restore a backup from before that time and contact support |
+| **Content changed** | The audit entry no longer matches its fingerprint | The data was changed outside GasDist. Contact support. A [backup](/gasdist-site/en/panduan/backup/memulihkan/) made before that change still holds the whole history; the screen says when the last whole entry before the first problem was written |
+| **... entries missing** | Entries were deleted from the middle of the audit trail. The row gives only the number of the first missing entry and how many | The same |
 | **Does not link to the entry before it** | The entry before was replaced, even with its fingerprint recomputed | The same |
 | A stock difference per product | The stored balance differs from its ledger, with the difference in kg | Home and the stock check when posting use the stored balance; the kartu stok and the reports use the ledger. Contact support before posting again |
 
