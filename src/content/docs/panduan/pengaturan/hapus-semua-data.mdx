@@ -1,0 +1,61 @@
+---
+title: Hapus semua data
+description: Kosongkan GasDist di PC ini dan mulai lagi dari penyiapan awal, misalnya setelah berlatih dengan data contoh. Backup dibuat dulu, jadi masih bisa dikembalikan.
+sidebar:
+  order: 5
+---
+
+import { Steps, Aside } from "@astrojs/starlight/components";
+import Shot from "../../../../components/Shot.astro";
+import Roles from "../../../../components/Roles.astro";
+
+**Hapus semua data** mengosongkan GasDist di PC ini dan membawanya kembali ke layar penyiapan awal, seperti baru dipasang. Pakai ini misalnya setelah berlatih dengan [data contoh](/gasdist-site/panduan/mulai/penyiapan-awal/#mencoba-data-contoh) dan ingin mulai dengan data sungguhan.
+
+<Roles can={["OWNER"]} />
+
+| Yang dihapus | Yang tetap |
+|---|---|
+| Semua data: produk, pelanggan, kendaraan, sopir, stok, surat jalan, retur, pengguna, jejak audit | Folder backup dan semua isinya |
+| Pengaturan, termasuk kata sandi backup dan folder backup kedua | Backup yang dibuat tepat sebelum menghapus |
+| Scan lembar bertanda tangan di PC ini | Salinan scan yang ada di samping backup |
+
+GasDist membuat backup lebih dulu, jadi semuanya masih bisa dikembalikan dengan [memulihkan backup itu](#mengembalikan-data). Karena itu Hapus semua data **ditolak bila kata sandi backup belum diatur**; atur dulu di [Kata sandi backup](/gasdist-site/panduan/backup/kata-sandi-backup/).
+
+## Menghapus semua data
+
+<Steps>
+
+1. Buka **Pengaturan** dan gulir ke paling bawah, ke kotak merah **Zona berbahaya**. Klik **Hapus semua data…** <span class="pin">1</span>.
+
+   <Shot name="settings-danger" alt="Kotak Zona berbahaya di bagian bawah Pengaturan dengan tombol merah Hapus semua data" />
+
+2. Baca kotak merah di jendela yang terbuka: apa yang dihapus <span class="pin">1</span> dan apa yang tetap <span class="pin">2</span>.
+
+3. Isi kata sandi masuk Anda <span class="pin">3</span>, lalu ketik nama perusahaan persis seperti yang tertulis di bawah kolomnya <span class="pin">4</span>, termasuk huruf besar dan kecilnya. Tombol **Hapus semua data** <span class="pin">5</span> baru bisa diklik setelah namanya sama persis.
+
+   <Shot name="reset-dialog" alt="Jendela Hapus semua data: kotak merah berisi yang dihapus dan yang tetap, kolom kata sandi, kolom nama perusahaan yang sudah terisi, dan tombol merah Hapus semua data" />
+
+4. Klik **Hapus semua data**. GasDist membuat backup, lalu menghapus data. Jangan tutup GasDist selama itu; dengan data bertahun-tahun, backupnya bisa makan waktu beberapa menit.
+
+</Steps>
+
+Setelah selesai, GasDist menampilkan layar penyiapan awal. Semua pengguna yang tadi masuk ikut keluar.
+
+<Aside type="caution" title="Catat kata sandi backup sekarang">
+Backup yang dibuat sebelum menghapus dikunci dengan kata sandi backup yang berlaku saat ini. Tanpa kata sandi itu, data lama tidak bisa dikembalikan.
+</Aside>
+
+## Bila ada pesan kesalahan
+
+| Pesan | Artinya |
+|---|---|
+| **Kata sandi Anda salah.** | Kata sandi masuk tidak cocok. Tidak ada yang dihapus. Kesalahan ini dihitung seperti saat masuk: lima kali salah mengunci akun selama 5 menit. |
+| **Nama perusahaan tidak sama persis.** | Nama yang diketik berbeda dengan nama di Pengaturan. Tidak ada yang dihapus. |
+| Kata sandi backup belum diatur | Atur [kata sandi backup](/gasdist-site/panduan/backup/kata-sandi-backup/) dulu. |
+| Ekspor atau pemeriksaan data masih berjalan | Tunggu sampai selesai, lalu coba lagi. |
+
+## Mengembalikan data
+
+Di layar penyiapan awal, klik **Pulihkan dari backup…** di bawah formulir. Backup yang dibuat sebelum menghapus ada paling atas di daftar, berjenis manual. Isi kata sandi backup, lalu pulihkan. Lihat [Memulihkan di PC baru](/gasdist-site/panduan/backup/memulihkan/#memulihkan-di-pc-baru).
+
+Untuk memulai dengan data sungguhan, isi saja formulir penyiapan awal seperti pertama kali. Lihat [Pemasangan dan penyiapan awal](/gasdist-site/panduan/mulai/penyiapan-awal/).

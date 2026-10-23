@@ -1,0 +1,61 @@
+---
+title: Delete all data
+description: Empty GasDist on this PC and start again from first-run setup, for example after practising with the example data. A backup is made first, so it can still be brought back.
+sidebar:
+  order: 5
+---
+
+import { Steps, Aside } from "@astrojs/starlight/components";
+import Shot from "../../../../../components/Shot.astro";
+import Roles from "../../../../../components/Roles.astro";
+
+**Delete all data** empties GasDist on this PC and takes it back to the first-run setup screen, as if newly installed. Use it, for example, after practising with the [example data](/gasdist-site/en/panduan/mulai/penyiapan-awal/#trying-the-example-data) when you want to start with real data.
+
+<Roles can={["OWNER"]} />
+
+| What goes | What stays |
+|---|---|
+| All data: products, customers, vehicles, drivers, stock, surat jalan, returns, users, the audit trail | The backups folder and everything in it |
+| The settings, including the backup password and the second backup folder | The backup made just before deleting |
+| Scans of signed sheets on this PC | The copies of the scans beside the backups |
+
+GasDist makes a backup first, so everything can still be brought back by [restoring that backup](#bringing-the-data-back). That is why Delete all data **is refused while no backup password is set**; set one first in [Backup password](/gasdist-site/en/panduan/backup/kata-sandi-backup/).
+
+## Deleting all data
+
+<Steps>
+
+1. Open **Settings** and scroll to the very bottom, to the red **Danger zone** box. Click **Delete all data…** <span class="pin">1</span>.
+
+   <Shot name="settings-danger" alt="The Danger zone box at the bottom of Settings with the red Delete all data button" />
+
+2. Read the red box in the window that opens: what goes <span class="pin">1</span> and what stays <span class="pin">2</span>.
+
+3. Enter your sign-in password <span class="pin">3</span>, then type the company name exactly as written below its box <span class="pin">4</span>, capitals included. The **Delete all data** button <span class="pin">5</span> only becomes clickable once the name matches exactly.
+
+   <Shot name="reset-dialog" alt="The Delete all data window: the red box with what goes and what stays, the password box, the company name filled in, and the red Delete all data button" />
+
+4. Click **Delete all data**. GasDist makes the backup, then deletes the data. Do not close GasDist meanwhile; with years of data the backup can take a few minutes.
+
+</Steps>
+
+When it is done, GasDist shows the first-run setup screen. Everyone who was signed in is signed out.
+
+<Aside type="caution" title="Note the backup password now">
+The backup made before deleting is locked with the current backup password. Without it, the old data cannot be brought back.
+</Aside>
+
+## If an error message appears
+
+| Message | What it means |
+|---|---|
+| **Your password is wrong.** | The sign-in password did not match. Nothing was deleted. It counts like a wrong sign-in: five in a row lock the account for 5 minutes. |
+| **The company name is not exactly the same.** | The name typed differs from the one in Settings. Nothing was deleted. |
+| No backup password set | Set the [backup password](/gasdist-site/en/panduan/backup/kata-sandi-backup/) first. |
+| An export or data check is still running | Wait for it to finish, then try again. |
+
+## Bringing the data back
+
+On the first-run setup screen, click **Restore from a backup…** below the form. The backup made before deleting is at the top of the list, of kind manual. Enter the backup password, then restore. See [Restoring on a new PC](/gasdist-site/en/panduan/backup/memulihkan/#restoring-on-a-new-pc).
+
+To start with real data instead, fill in the first-run setup form as the first time. See [Installing and first-run setup](/gasdist-site/en/panduan/mulai/penyiapan-awal/).
