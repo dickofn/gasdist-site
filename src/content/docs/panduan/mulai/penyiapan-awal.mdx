@@ -26,7 +26,9 @@ Installer diberikan sebagai satu berkas, misalnya lewat flashdisk. Pemasangan ti
 Setelah terpasang, buka **GasDist** dari menu Start (atau menu aplikasi di Linux).
 
 <Aside type="note" title="Peringatan Windows saat memasang">
-Installer GasDist belum ditandatangani secara digital (code signing). Karena itu Windows bisa menampilkan **Windows protected your PC** (SmartScreen), terutama bila installer diunduh dari internet. Klik **More info**, lalu **Run anyway**. Installer yang sudah ditandatangani menyebut nama penerbitnya di **Properties › Digital Signatures**, dan rilis yang ditandatangani akan menyebutnya di catatan rilisnya.
+Installer GasDist tidak ditandatangani secara digital (code signing). Karena itu Windows bisa menampilkan **Windows protected your PC** (SmartScreen), terutama bila installer diunduh dari internet. Klik **More info**, lalu **Run anyway**; pemasangan berjalan seperti biasa.
+
+Di Windows 11, **Smart App Control** memblokir aplikasi yang tidak ditandatangani tanpa tombol untuk melanjutkan. Bila installer diblokir tanpa pilihan **Run anyway**, periksa **Windows Security › App & browser control › Smart App Control**: pasang GasDist di PC yang fitur ini tidak aktif.
 </Aside>
 
 Simpan berkas AppImage di satu tempat tetap, misalnya folder `AppImages` di folder pribadi Anda: pembaruan menggantinya di tempat itu. Versi berikutnya dipasang dari dalam GasDist dengan satu file pembaruan; lihat [Memperbarui GasDist](/gasdist-site/panduan/mulai/memperbarui/).
