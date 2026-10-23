@@ -25,6 +25,34 @@ Every new version of GasDist comes with one **update file**, ending in `.gasupda
 Updating from a file starts with GasDist 0.14.0. To get from an older version to 0.14.0, run its installer once (Windows) or replace the AppImage file. After that, every later version installs from its update file.
 </Aside>
 
+## The recommended way in the office
+
+On Windows, a new version can also be installed by running its installer (`GasDist_<version>_x64-setup.exe`). For the office, use **Update from file**:
+
+| | Update from file (`.gasupdate`) | Running the installer (`.exe`) |
+|---|---|---|
+| A backup is made first | ✅ automatically | ❌ make one yourself first |
+| Checks the file is GasDist's own and newer | ✅ | ❌ any installer installs, an older one too |
+| Who can do it | The Owner, with their password | Anyone signed in to that Windows account |
+| Recorded in the audit trail | ✅ **GasDist updated** | ❌ |
+
+The `.exe` installer is still the way to install on a new PC and to [go back to the previous version](#going-back-to-the-previous-version).
+
+Short steps to print and keep by the office PC:
+
+```
+Updating GasDist from a USB stick
+1. Plug in the stick with GasDist_<version>_windows-x86_64.gasupdate.
+2. Sign in as Owner. Open Pengaturan, then Tentang, then Perbarui dari file….
+3. Pick the .gasupdate file on the stick. Check it shows the installed and the new version,
+   and that every check is ticked.
+4. Type the Owner's password, then Perbarui sekarang.
+5. GasDist makes a backup, closes, installs the new version and opens again by itself
+   (under a minute). Do not turn the PC off meanwhile.
+6. Open Pengaturan, then Tentang: the new version is shown there.
+If GasDist refuses the file, do not try another one; call whoever manages the app.
+```
+
 ## Installing an update
 
 <Steps>
@@ -65,6 +93,10 @@ Updating from a file starts with GasDist 0.14.0. To get from an older version to
 | Data | Stays where it is. If the new version also changes how the data is stored, GasDist makes a safety copy and upgrades it on its first start; the dialog says so in a yellow box beforehand |
 | Users | Everyone signs in again after GasDist opens |
 | Audit trail | One **GasDist updated** entry: who, from which version to which, the update file and the backup made. See [Audit trail](/gasdist-site/en/panduan/laporan/jejak-audit/) |
+
+<Aside type="caution" title="GasDist 1.0.0 changes how the data is stored">
+The update to 1.0.0 adds one setting to how the data is stored, so the update window shows the yellow box. Once 1.0.0 has opened the data, GasDist 0.15 or older can no longer open it, and backups made by 1.0.0 do not restore there. The only way back is to restore, on the older version, the backup the update made (see [Going back to the previous version](#going-back-to-the-previous-version)).
+</Aside>
 
 <Aside type="caution" title="Let exports and data checks finish">
 An update cannot run while [Export all data](/gasdist-site/en/panduan/alat-data/ekspor-semua-data/) or [Check data](/gasdist-site/en/panduan/alat-data/periksa-data/) is running. Wait until it finishes, then click **Update now** again.

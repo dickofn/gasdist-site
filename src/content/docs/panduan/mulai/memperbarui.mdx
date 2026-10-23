@@ -25,6 +25,34 @@ Setiap versi baru GasDist disertai satu **file pembaruan**, berakhiran `.gasupda
 Pembaruan dari file ada mulai GasDist 0.14.0. Untuk pindah dari versi yang lebih lama ke 0.14.0, jalankan installernya sekali (Windows) atau ganti berkas AppImage-nya. Sesudah itu, setiap versi berikutnya bisa dipasang dari file pembaruan.
 </Aside>
 
+## Cara yang disarankan di kantor
+
+Di Windows, versi baru juga bisa dipasang dengan menjalankan installernya (`GasDist_<versi>_x64-setup.exe`). Untuk kantor, pakai **Perbarui dari file**:
+
+| | Perbarui dari file (`.gasupdate`) | Menjalankan installer (`.exe`) |
+|---|---|---|
+| Backup dibuat dulu | ✅ otomatis | ❌ buat sendiri dulu |
+| Memeriksa file asli dari GasDist dan lebih baru | ✅ | ❌ installer apa pun terpasang, juga versi lama |
+| Siapa yang bisa | Owner, dengan kata sandinya | Siapa pun yang masuk ke akun Windows itu |
+| Tercatat di jejak audit | ✅ **GasDist diperbarui** | ❌ |
+
+Installer `.exe` tetap dipakai untuk memasang di PC baru dan untuk [kembali ke versi sebelumnya](#kembali-ke-versi-sebelumnya).
+
+Langkah ringkas yang bisa dicetak dan ditempel di dekat PC kantor:
+
+```
+Memperbarui GasDist dari flashdisk
+1. Colokkan flashdisk berisi file GasDist_<versi>_windows-x86_64.gasupdate.
+2. Masuk sebagai Owner. Buka Pengaturan, lalu Tentang, lalu Perbarui dari file….
+3. Pilih file .gasupdate di flashdisk. Pastikan tertulis versi terpasang dan versi baru,
+   dan semua pemeriksaan bercentang.
+4. Ketik kata sandi Owner, lalu Perbarui sekarang.
+5. GasDist membuat backup, menutup diri, memasang versi baru, lalu terbuka lagi sendiri
+   (kurang dari 1 menit). Jangan matikan PC selama itu.
+6. Buka Pengaturan, lalu Tentang: versi baru tertulis di sana.
+Bila GasDist menolak file itu, jangan pakai file lain; hubungi pengelola aplikasi.
+```
+
 ## Memasang pembaruan
 
 <Steps>
@@ -65,6 +93,10 @@ Pembaruan dari file ada mulai GasDist 0.14.0. Untuk pindah dari versi yang lebih
 | Data | Tetap di tempatnya. Bila versi baru juga memperbarui susunan data, GasDist membuat salinan pengaman lalu memperbaruinya otomatis saat dibuka pertama kali; dialog sudah memberi tahu dengan kotak kuning |
 | Pengguna | Semua orang masuk lagi setelah GasDist dibuka kembali |
 | Jejak audit | Satu catatan **GasDist diperbarui**: siapa, dari versi berapa ke versi berapa, file pembaruannya, dan backup yang dibuat. Lihat [Jejak audit](/gasdist-site/panduan/laporan/jejak-audit/) |
+
+<Aside type="caution" title="GasDist 1.0.0 memperbarui susunan data">
+Pembaruan ke 1.0.0 menambah satu pengaturan ke susunan data, jadi jendela pembaruan menampilkan kotak kuning. Sesudah 1.0.0 dibuka, GasDist 0.15 atau lebih lama tidak bisa membuka data itu lagi, dan backup yang dibuat 1.0.0 tidak bisa dipulihkan di sana. Satu-satunya jalan kembali adalah memulihkan, di versi lama, backup yang dibuat pembaruan itu (lihat [Kembali ke versi sebelumnya](#kembali-ke-versi-sebelumnya)).
+</Aside>
 
 <Aside type="caution" title="Tunggu ekspor dan pemeriksaan data selesai">
 Pembaruan tidak bisa dijalankan selama [Ekspor semua data](/gasdist-site/panduan/alat-data/ekspor-semua-data/) atau [Periksa data](/gasdist-site/panduan/alat-data/periksa-data/) sedang berjalan. Tunggu sampai selesai, lalu klik **Perbarui sekarang** lagi.
