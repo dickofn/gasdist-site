@@ -28,6 +28,16 @@ Open the surat jalan and click **Mark delivered**: fill in the receiver's name, 
 
 Which sheets are still out? The **Not back yet** card on [Home](/gasdist-site/en/panduan/mulai/beranda/) gives how many; the list is under **Reports**, tab **Surat jalan not back yet**. See [Surat jalan not back yet](/gasdist-site/en/panduan/surat-jalan/belum-kembali/).
 
+## A customer gave back filled tabung after the surat jalan was delivered. How do I record it?
+
+With a [return](/gasdist-site/en/panduan/surat-jalan/retur/). A **Delivered** surat jalan cannot be cancelled, because its signed sheet is back. Open that surat jalan, click **Make a return**, enter the tabung and the reason, then **Save & number**. The stock goes up and the return gets a number of its own, such as `RT/2026/10/0002`, with a note you can print. A return is only for **full** tabung; empty tabung a pangkalan swaps go in the surat jalan's **Empties back** column.
+
+## How many of our tabung are at the pangkalan?
+
+Open **Reports**, the [Tabung on loan](/gasdist-site/en/panduan/laporan/tabung-dipinjam/) tab: per customer and product, the full tabung sent less the empties back, the returns and the counts.
+
+Surat jalan from before GasDist 0.13.0 are not counted, because their empties were never recorded. After upgrading, first record each customer's opening count with **Count tabung**.
+
 ## How many tabung went to one pangkalan this month?
 
 Open **Reports**, tab **Deliveries**, with **Group by** set to **By customer**, then type the pangkalan's name or code in **Find in the report**. There is a tabung column per product, and a **Signed back** column for the sheets that came back. Choose **By driver** or **By vehicle** to add up per driver or per truck. See [Deliveries](/gasdist-site/en/panduan/laporan/pengiriman/).

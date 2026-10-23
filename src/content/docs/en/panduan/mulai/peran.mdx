@@ -19,8 +19,8 @@ Every account has one role. The role decides which menus and buttons appear, so 
 |---|---|---|
 | **Owner** | The business owner | Every permission, including settings, restoring backups and exporting all data |
 | **Admin** | The office head | Almost all daily work, except settings, restoring backups and exporting all data |
-| **Warehouse** | Warehouse staff | Receiving stock and stok opname |
-| **Sales** | Sales staff or whoever writes the surat jalan | Making, posting, printing and marking surat jalan delivered; looking after customer data |
+| **Warehouse** | Warehouse staff | Receiving stock, stok opname and returns of filled tabung |
+| **Sales** | Sales staff or whoever writes the surat jalan | Making, posting, printing and marking surat jalan delivered; returns of filled tabung; looking after customer data |
 | **Viewer** | Anyone who only needs to look | Viewing and exporting, without changing anything |
 
 ## The menus each role sees
@@ -35,18 +35,21 @@ Menus a role may not use are hidden from the sidebar:
   <Shot name="role-viewer" alt="The Viewer's sidebar: Home, Surat Jalan, Customers, Reports" caption="Viewer" marks={false} />
 </div>
 
-Warehouse, Sales and Viewer see the same menus. The difference is in the buttons inside the pages: Warehouse sees **Receive stock** and **Stock opname** on the Home page, Sales sees **New surat jalan** on the Surat Jalan page, and Viewer can only look.
+Warehouse, Sales and Viewer see the same menus. The difference is in the buttons inside the pages: Warehouse sees **Receive stock** and **Stock opname** on the Home page and **New return** on the Surat Jalan page's Returns tab, Sales sees **New surat jalan** and **New return** on the Surat Jalan page, and Viewer can only look.
 
 ## Who may do what
 
 | Task | Owner | Admin | Warehouse | Sales | Viewer |
 |---|---|---|---|---|---|
-| View [Home](/gasdist-site/en/panduan/mulai/beranda/), stock, surat jalan, customers, the kartu stok, the [stock summary](/gasdist-site/en/panduan/laporan/ringkasan-stok/), the [surat jalan register](/gasdist-site/en/panduan/laporan/register-surat-jalan/), [deliveries](/gasdist-site/en/panduan/laporan/pengiriman/), [surat jalan not back yet](/gasdist-site/en/panduan/surat-jalan/belum-kembali/) and scans of signed sheets; export to Excel or CSV and print reports | ✅ | ✅ | ✅ | ✅ | ✅ |
+| View [Home](/gasdist-site/en/panduan/mulai/beranda/), stock, surat jalan, customers, the kartu stok, the [stock summary](/gasdist-site/en/panduan/laporan/ringkasan-stok/), the [surat jalan register](/gasdist-site/en/panduan/laporan/register-surat-jalan/), [deliveries](/gasdist-site/en/panduan/laporan/pengiriman/), [surat jalan not back yet](/gasdist-site/en/panduan/surat-jalan/belum-kembali/), [tabung on loan](/gasdist-site/en/panduan/laporan/tabung-dipinjam/), returns and scans of signed sheets; export to Excel or CSV and print reports | ✅ | ✅ | ✅ | ✅ | ✅ |
 | Read, export and print the [audit trail](/gasdist-site/en/panduan/laporan/jejak-audit/) | ✅ | ✅ | ❌ | ❌ | ❌ |
-| [Check the data](/gasdist-site/en/panduan/alat-data/periksa-data/): the audit trail and the stock balances | ✅ | ✅ | ❌ | ❌ | ❌ |
+| [Check the data](/gasdist-site/en/panduan/alat-data/periksa-data/): the audit trail, the stock balances and the tabung on loan | ✅ | ✅ | ❌ | ❌ | ❌ |
 | [Receive stock](/gasdist-site/en/panduan/stok/terima-stok/) and do a [stok opname](/gasdist-site/en/panduan/stok/stok-opname/) | ✅ | ✅ | ✅ | ❌ | ❌ |
 | [Make, post](/gasdist-site/en/panduan/surat-jalan/membuat/) and [print](/gasdist-site/en/panduan/cetak/mencetak/) a surat jalan | ✅ | ✅ | ❌ | ✅ | ❌ |
 | [Mark a surat jalan delivered](/gasdist-site/en/panduan/surat-jalan/menandai-terkirim/) when its sheet comes back | ✅ | ✅ | ❌ | ✅ | ❌ |
+| Make and print a [return](/gasdist-site/en/panduan/surat-jalan/retur/) of filled tabung | ✅ | ✅ | ✅ | ✅ | ❌ |
+| [Cancel a return](/gasdist-site/en/panduan/surat-jalan/retur/#cancelling-a-return) | ✅ | ✅ | ❌ | ❌ | ❌ |
+| [Count a customer's tabung](/gasdist-site/en/panduan/laporan/tabung-dipinjam/#counting-tabung) | ✅ | ✅ | ❌ | ❌ | ❌ |
 | [Cancel](/gasdist-site/en/panduan/surat-jalan/membatalkan/) a posted surat jalan | ✅ | ✅ | ❌ | ❌ | ❌ |
 | [Correct](/gasdist-site/en/panduan/surat-jalan/mengoreksi/) the vehicle, driver and notes of a posted surat jalan | ✅ | ✅ | ❌ | ❌ | ❌ |
 | [Add and edit customers](/gasdist-site/en/panduan/pelanggan/menambah/) | ✅ | ✅ | ❌ | ✅ | ❌ |

@@ -19,8 +19,8 @@ Setiap akun punya satu peran. Peran menentukan menu dan tombol apa yang tampil, 
 |---|---|---|
 | **Owner** | Pemilik usaha | Semua izin, termasuk pengaturan, pemulihan backup, dan ekspor semua data |
 | **Admin** | Kepala kantor | Hampir semua pekerjaan harian, kecuali pengaturan, pemulihan backup, dan ekspor semua data |
-| **Gudang** | Petugas gudang | Menerima stok dan stok opname |
-| **Penjualan** | Staf penjualan atau admin surat jalan | Membuat, memposting, mencetak, dan menandai terkirim surat jalan; mengurus data pelanggan |
+| **Gudang** | Petugas gudang | Menerima stok, stok opname, dan retur tabung isi |
+| **Penjualan** | Staf penjualan atau admin surat jalan | Membuat, memposting, mencetak, dan menandai terkirim surat jalan; retur tabung isi; mengurus data pelanggan |
 | **Pemantau** | Siapa pun yang hanya perlu melihat | Melihat dan mengekspor, tanpa mengubah apa pun |
 
 ## Menu yang dilihat tiap peran
@@ -35,18 +35,21 @@ Menu yang tidak boleh dipakai disembunyikan dari menu samping:
   <Shot name="role-viewer" alt="Menu samping Pemantau: Beranda, Surat Jalan, Pelanggan, Laporan" caption="Pemantau" marks={false} />
 </div>
 
-Gudang, Penjualan, dan Pemantau melihat menu yang sama. Bedanya ada di tombol di dalam halaman: Gudang melihat **Terima stok** dan **Stok opname** di halaman Beranda, Penjualan melihat **Buat surat jalan** di halaman Surat Jalan, dan Pemantau hanya bisa melihat.
+Gudang, Penjualan, dan Pemantau melihat menu yang sama. Bedanya ada di tombol di dalam halaman: Gudang melihat **Terima stok** dan **Stok opname** di halaman Beranda dan **Retur baru** di tab Retur halaman Surat Jalan, Penjualan melihat **Buat surat jalan** dan **Retur baru** di halaman Surat Jalan, dan Pemantau hanya bisa melihat.
 
 ## Siapa boleh melakukan apa
 
 | Pekerjaan | Owner | Admin | Gudang | Penjualan | Pemantau |
 |---|---|---|---|---|---|
-| Melihat [Beranda](/gasdist-site/panduan/mulai/beranda/), stok, surat jalan, pelanggan, kartu stok, [ringkasan stok](/gasdist-site/panduan/laporan/ringkasan-stok/), [register surat jalan](/gasdist-site/panduan/laporan/register-surat-jalan/), [pengiriman](/gasdist-site/panduan/laporan/pengiriman/), [surat jalan belum kembali](/gasdist-site/panduan/surat-jalan/belum-kembali/), dan scan lembar kembali; mengekspor ke Excel atau CSV dan mencetak laporan | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Melihat [Beranda](/gasdist-site/panduan/mulai/beranda/), stok, surat jalan, pelanggan, kartu stok, [ringkasan stok](/gasdist-site/panduan/laporan/ringkasan-stok/), [register surat jalan](/gasdist-site/panduan/laporan/register-surat-jalan/), [pengiriman](/gasdist-site/panduan/laporan/pengiriman/), [surat jalan belum kembali](/gasdist-site/panduan/surat-jalan/belum-kembali/), [tabung dipinjam](/gasdist-site/panduan/laporan/tabung-dipinjam/), retur, dan scan lembar kembali; mengekspor ke Excel atau CSV dan mencetak laporan | ✅ | ✅ | ✅ | ✅ | ✅ |
 | Membaca, mengekspor, dan mencetak [jejak audit](/gasdist-site/panduan/laporan/jejak-audit/) | ✅ | ✅ | ❌ | ❌ | ❌ |
-| [Periksa data](/gasdist-site/panduan/alat-data/periksa-data/): jejak audit dan saldo stok | ✅ | ✅ | ❌ | ❌ | ❌ |
+| [Periksa data](/gasdist-site/panduan/alat-data/periksa-data/): jejak audit, saldo stok, dan saldo tabung dipinjam | ✅ | ✅ | ❌ | ❌ | ❌ |
 | [Menerima stok](/gasdist-site/panduan/stok/terima-stok/) dan [stok opname](/gasdist-site/panduan/stok/stok-opname/) | ✅ | ✅ | ✅ | ❌ | ❌ |
 | [Membuat, memposting](/gasdist-site/panduan/surat-jalan/membuat/), dan [mencetak](/gasdist-site/panduan/cetak/mencetak/) surat jalan | ✅ | ✅ | ❌ | ✅ | ❌ |
 | [Menandai terkirim](/gasdist-site/panduan/surat-jalan/menandai-terkirim/) surat jalan yang lembarnya sudah kembali | ✅ | ✅ | ❌ | ✅ | ❌ |
+| Membuat dan mencetak [retur](/gasdist-site/panduan/surat-jalan/retur/) tabung isi | ✅ | ✅ | ✅ | ✅ | ❌ |
+| [Membatalkan retur](/gasdist-site/panduan/surat-jalan/retur/#membatalkan-retur) | ✅ | ✅ | ❌ | ❌ | ❌ |
+| [Hitung tabung](/gasdist-site/panduan/laporan/tabung-dipinjam/#hitung-tabung) pelanggan | ✅ | ✅ | ❌ | ❌ | ❌ |
 | [Membatalkan](/gasdist-site/panduan/surat-jalan/membatalkan/) surat jalan yang sudah diposting | ✅ | ✅ | ❌ | ❌ | ❌ |
 | [Mengoreksi](/gasdist-site/panduan/surat-jalan/mengoreksi/) kendaraan, sopir, dan catatan surat jalan yang sudah diposting | ✅ | ✅ | ❌ | ❌ | ❌ |
 | [Menambah dan mengubah pelanggan](/gasdist-site/panduan/pelanggan/menambah/) | ✅ | ✅ | ❌ | ✅ | ❌ |

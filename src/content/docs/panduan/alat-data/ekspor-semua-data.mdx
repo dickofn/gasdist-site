@@ -42,6 +42,8 @@ Data yang sudah bertahun-tahun butuh waktu: dengan riwayat sepuluh tahun (sekita
 | **Info** | Perusahaan, waktu ekspor, siapa yang mengekspor, versi aplikasi, jumlah baris setiap tabel dan sheet-nya, serta apa saja yang tidak ikut dan alasannya |
 | Satu sheet per tabel | Baris pertama berisi nama kolom seperti di database, lalu satu baris per data |
 
+Sejak versi 0.13.0 ada juga sheet `customer_returns` dan `customer_return_lines` ([retur](/gasdist-site/panduan/surat-jalan/retur/) dan barisnya), `cylinder_movements` (setiap perubahan tabung dipinjam) dan `cylinder_balance` (saldonya per pelanggan, produk, dan sumber).
+
 Isinya ditulis apa adanya seperti di database: berat dalam **gram** (bukan kg), tanggal sebagai `2026-10-13`, dan waktu dalam UTC. Tabel yang lebih panjang dari satu sheet Excel (1.048.575 baris) berlanjut di sheet berikutnya, misalnya `audit_log (2)`.
 
 ## Yang tidak ikut

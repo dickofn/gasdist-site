@@ -9,7 +9,7 @@ import { Steps, Aside } from "@astrojs/starlight/components";
 import Shot from "../../../../../components/Shot.astro";
 import Roles from "../../../../../components/Roles.astro";
 
-GasDist keeps two records that must never change: the [audit trail](/gasdist-site/en/panduan/laporan/jejak-audit/), where each entry carries the fingerprint of the one before, and the stock ledger, which every product's balance comes from. Check data makes sure both are still as GasDist wrote them.
+GasDist keeps records that must never change: the [audit trail](/gasdist-site/en/panduan/laporan/jejak-audit/), where each entry carries the fingerprint of the one before, the stock ledger, which every product's balance comes from, and the ledger of [tabung on loan](/gasdist-site/en/panduan/laporan/tabung-dipinjam/). Check data makes sure they are all still as GasDist wrote them.
 
 <Roles can={["OWNER", "ADMIN"]} />
 
@@ -21,7 +21,7 @@ GasDist keeps two records that must never change: the [audit trail](/gasdist-sit
 
 2. Click **Check now** <span class="pin">2</span>. The check runs in the background with a progress bar; GasDist stays usable.
 
-3. The result shows in two boxes <span class="pin">3</span>: **Audit trail** and **Stock: ledger and stored balance**. Green means no problem.
+3. The result shows in three boxes <span class="pin">3</span>: **Audit trail**, **Stock: ledger and stored balance** and **Tabung on loan: ledger and balance**. Green means no problem.
 
    <Shot name="reports-verify" alt="The Check data result: the audit trail whole and the stock balances equal to the ledger" />
 
@@ -34,7 +34,8 @@ With ten years of history (more than a million audit entries) the check takes a 
 | Box | What is checked |
 |---|---|
 | **Audit trail** | Every entry from the first to the newest: none missing, none changed, and each linked to the one before |
-| **Stock** | For each product, the stored balance equals the sum of every movement in the ledger (receipts, surat jalan, stock counts, cancellations) |
+| **Stock** | For each product, the stored balance equals the sum of every movement in the ledger (receipts, surat jalan, returns, stock counts, cancellations) |
+| **Tabung on loan** | For each customer, product and source (sent, empties back, returned full, counts), the stored balance the report reads equals the sum in its ledger |
 
 The check only reads. Nothing is changed or repaired, and the check is not recorded in the audit trail.
 
@@ -48,6 +49,7 @@ A box with a problem turns red and lists each problem.
 | **... entries missing** | Entries were deleted from the middle of the audit trail. The row gives only the number of the first missing entry and how many | The same |
 | **Does not link to the entry before it** | The entry before was replaced, even with its fingerprint recomputed | The same |
 | A stock difference per product | The stored balance differs from its ledger, with the difference in kg | Home and the stock check when posting use the stored balance; the kartu stok and the reports use the ledger. Contact support before posting again |
+| A tabung on loan difference | One customer's, product's and source's stored balance differs from its ledger, with the difference in tabung | The Tabung on loan report uses the stored balance. Contact support before recording returns or counts again |
 
 The list shows the first 100 problems and says how many there are in all.
 

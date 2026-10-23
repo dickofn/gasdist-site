@@ -1,0 +1,84 @@
+---
+title: Retur tabung isi
+description: Catat tabung isi yang dikembalikan pelanggan dengan dokumen retur bernomor. Stok bertambah, pinjaman tabung berkurang.
+sidebar:
+  order: 7
+---
+
+import { Steps, Aside } from "@astrojs/starlight/components";
+import Shot from "../../../../components/Shot.astro";
+import Roles from "../../../../components/Roles.astro";
+
+Kadang pelanggan mengembalikan tabung **isi**: tabungnya bocor, pesanannya kelebihan, atau pangkalan batal menerima. Barang yang kembali **setelah surat jalan terkirim** dicatat dengan **retur**. Surat jalan yang sudah terkirim tidak bisa dibatalkan, karena lembar bertanda tangannya sudah kembali.
+
+Menyimpan retur memberi nomor `RT/2026/10/0001` dan langsung **menambah stok**, seperti [terima stok](/gasdist-site/panduan/stok/terima-stok/). Tabung yang kembali juga mengurangi [tabung yang dipinjam pelanggan](/gasdist-site/panduan/laporan/tabung-dipinjam/). Retur yang tersimpan tidak bisa diubah, hanya dibatalkan.
+
+<Roles can={["OWNER", "ADMIN", "GUDANG", "PENJUALAN"]} />
+
+<Aside type="note" title="Tabung kosong bukan retur">
+Tabung **kosong** yang diserahkan pangkalan saat menerima kiriman dicatat di kolom **Kosong kembali** pada [surat jalan](/gasdist-site/panduan/surat-jalan/membuat/#tabung-kosong-kembali). Retur hanya untuk tabung yang masih **isi**.
+</Aside>
+
+## Membuat retur dari surat jalan yang terkirim
+
+<Steps>
+
+1. Buka surat jalan yang sudah **Terkirim**, lalu klik **Buat retur** <span class="pin">2</span>. Bila surat jalan itu mencatat tabung kosong, kolom **Kosong kembali** <span class="pin">1</span> ikut tampil di rinciannya.
+
+   <Shot name="sj-detail-empties" alt="Rincian surat jalan terkirim dengan kolom Kosong kembali dan tombol Buat retur" />
+
+2. Formulir **Retur baru** terbuka dengan **Pelanggan** <span class="pin">1</span> dan **Surat jalan asal** <span class="pin">2</span> sudah terisi. Produk surat jalan itu sudah ada di baris, dan kolom **Bisa diretur** <span class="pin">3</span> menunjukkan berapa tabung yang masih boleh kembali: jumlah yang dikirim dikurangi retur sebelumnya.
+
+3. Hapus baris produk yang tidak ikut kembali, isi jumlah **Tabung**, lalu tulis **Alasan** <span class="pin">4</span>. Alasan wajib diisi dan ikut tercetak.
+
+   <Shot name="return-form" alt="Formulir retur baru dengan pelanggan, surat jalan asal, kolom Bisa diretur, alasan, dan tombol Simpan & beri nomor" />
+
+4. Klik **Simpan & beri nomor** <span class="pin">5</span>. Aplikasi menanyakan sekali lagi berapa tabung dan kg yang masuk stok.
+
+   <Shot name="return-confirm" alt="Dialog Simpan retur? dengan jumlah tabung dan kg yang masuk stok" marks={false} />
+
+5. Klik **Simpan & beri nomor** di dialog. Retur mendapat nomor <span class="pin">1</span> dan berstatus **Tercatat** <span class="pin">4</span>. Dari sini Anda bisa **Cetak** <span class="pin">2</span> bukti returnya.
+
+   <Shot name="return-detail" alt="Rincian retur yang sudah tersimpan dengan nomor RT, tombol Cetak dan Batalkan retur" />
+
+</Steps>
+
+Retur juga bisa dibuat tanpa surat jalan asal, misalnya untuk tabung dari kiriman sebelum GasDist dipakai: buka **Surat Jalan**, tab **Retur**, lalu **Retur baru**, dan biarkan **Surat jalan asal** pada **Tanpa surat jalan asal**. Tanpa surat jalan asal, jumlahnya tidak dibatasi.
+
+### Aturan retur
+
+| Aturan | Kenapa |
+|---|---|
+| Surat jalan asal harus **Terkirim** dan milik pelanggan yang sama | Surat jalan yang baru **Diposting** masih bisa [dibatalkan](/gasdist-site/panduan/surat-jalan/membatalkan/) dan dibuat ulang |
+| Per produk, paling banyak sejumlah yang dikirim dikurangi retur sebelumnya | Yang kembali tidak bisa lebih dari yang keluar |
+| Hanya produk yang ada di surat jalan asal | Produk lain tidak pernah dikirim lewat surat jalan itu |
+| Berat dihitung dengan isi per tabung saat surat jalan itu diposting | Stok yang kembali sama dengan stok yang keluar |
+| Tanggal retur tidak boleh sebelum tanggal surat jalan asal | Barang tidak bisa kembali sebelum dikirim |
+
+## Daftar retur
+
+Semua retur ada di **Surat Jalan**, tab **Retur** <span class="pin">1</span>, terbaru di atas. Saring menurut tanggal, pelanggan, atau nomor, dan klik satu baris untuk membukanya. **Retur baru** <span class="pin">2</span> ada di kanan atas.
+
+<Shot name="returns-list" alt="Tab Retur di halaman Surat Jalan dengan daftar retur dan tombol Retur baru" />
+
+## Mencetak bukti retur
+
+Bukti retur dicetak lewat jendela cetak yang sama dengan surat jalan: template, kertas, dan jumlah lembar mengikuti [pengaturan cetak](/gasdist-site/panduan/pengaturan/cetak/). Judulnya **BUKTI RETUR**, dengan surat jalan asal, alasan, dan tiga kotak tanda tangan: **Dibuat oleh**, **Diserahkan oleh** (pelanggan), dan **Diterima oleh (gudang)**. Cetakan pertama asli, cetakan berikutnya bertanda SALINAN, seperti [surat jalan](/gasdist-site/panduan/cetak/salinan-dan-draf/).
+
+<Shot name="print-return" alt="Lembar bukti retur A4 dengan judul BUKTI RETUR, surat jalan asal, alasan, baris tabung, dan kotak tanda tangan" marks={false} />
+
+## Membatalkan retur
+
+<Roles can={["OWNER", "ADMIN"]} />
+
+Salah pelanggan atau salah jumlah? Buka returnya, klik **Batalkan retur**, tulis alasannya, dan masukkan kata sandi Anda. Stok retur itu keluar lagi, tabungnya kembali tercatat dipinjam pelanggan, dan retur tetap tercatat dengan nomornya, berstatus **Dibatalkan**. Lalu buat retur yang benar.
+
+Bila stok produk itu sudah terpakai sehingga pembatalan membuat stok minus, pembatalan ditolak, kecuali Owner mengizinkan stok minus di [Pengaturan](/gasdist-site/panduan/pengaturan/stok-dan-keamanan/).
+
+<Aside type="caution" title="Retur tidak bisa diubah">
+Retur yang sudah tersimpan tidak bisa diubah atau dihapus, sama seperti surat jalan yang sudah diposting. Riwayat stok dan [jejak audit](/gasdist-site/panduan/laporan/jejak-audit/) selalu menunjukkan retur itu, pembatalannya, dan siapa yang melakukannya.
+</Aside>
+
+## Di kartu stok
+
+Retur tampil di [kartu stok](/gasdist-site/panduan/stok/kartu-stok/) sebagai **Retur** dengan nomornya, menambah stok pada tanggal retur. Pembatalan retur tampil sebagai **Pembatalan** yang mengurangi stok pada hari pembatalan.

@@ -1,0 +1,71 @@
+---
+title: Tabung on loan
+description: "How many of the agen's tabung each customer still holds: sent, empties back, returns and counts."
+sidebar:
+  order: 4
+---
+
+import { Steps, Aside } from "@astrojs/starlight/components";
+import Shot from "../../../../../components/Shot.astro";
+import Roles from "../../../../../components/Roles.astro";
+
+The tabung belong to the agen. Every surat jalan sends full tabung to a customer, and a pangkalan usually hands empty ones back on the spot. The **Tabung on loan** report adds it all up per customer and product, so you know how many tabung each customer still holds.
+
+<Roles can={["OWNER", "ADMIN", "GUDANG", "PENJUALAN", "VIEWER"]} />
+
+## Reading the report
+
+Open **Reports**, the **Tabung on loan** tab <span class="pin">1</span>. The report has no date range: it is the balance now, over everything recorded. Filter by **Customer** <span class="pin">2</span>, by product, or tick **Only what is still on loan**.
+
+<Shot name="reports-loans" alt="The Tabung on loan report for one pangkalan, per product, with the Count tabung button and the exports" />
+
+| Column | What it holds |
+|---|---|
+| **Sent** | Full tabung that went out on posted surat jalan, less cancelled ones |
+| **Empties back** | Empty tabung the customer handed back, from the [Empties back](/gasdist-site/en/panduan/surat-jalan/membuat/#empty-tabung-back) column of the surat jalan |
+| **Returned full** | Filled tabung that came back on a [return](/gasdist-site/en/panduan/surat-jalan/retur/), less cancelled returns |
+| **Counts** | The difference a [tabung count](#counting-tabung) recorded, up or down |
+| **On loan** <span class="pin">4</span> | Sent − Empties back − Returned full ± Counts: the tabung still at the customer |
+| **Last count** | When that customer's tabung were last counted |
+
+Above the table, the tabung on loan per product add up. An **On loan** figure below zero is red: more came back than was recorded as sent, usually tabung from deliveries before tracking began. Count that customer's tabung.
+
+The Excel and CSV exports <span class="pin">5</span> take every row. For printing, see [Printing and exporting reports](/gasdist-site/en/panduan/laporan/mencetak-dan-mengekspor/). One print holds at most 5,000 rows; with thousands of customers, choose one product or tick **Only what is still on loan** before printing.
+
+A [customer's detail](/gasdist-site/en/panduan/pelanggan/detail/) also shows the tabung they hold per product.
+
+## Surat jalan from before version 0.13.0
+
+The empty tabung column arrived in GasDist 0.13.0. Surat jalan posted before it are not in this report, because their empties were never recorded: counting them would show every customer holding every tabung ever sent. On data from before the upgrade, the report says above the table from which day it counts.
+
+So after upgrading to 0.13.0, record each customer's **opening count** with [Count tabung](#counting-tabung): how many tabung are at the customer that day. From then on the report follows every surat jalan, return and count.
+
+## Counting tabung
+
+<Roles can={["OWNER", "ADMIN"]} />
+
+Count tabung records how many of the agen's tabung are really at a customer, like a [stock count](/gasdist-site/en/panduan/stok/stok-opname/) for the warehouse stock. Use it for the opening count, for regular checks, and to put right empties recorded wrong on a surat jalan that is already posted.
+
+<Steps>
+
+1. In the **Tabung on loan** report, click **Count tabung** <span class="pin">3</span>.
+
+2. Choose the customer and the **Date** <span class="pin">1</span> of the count. **Recorded** shows what the record says at the end of that day.
+
+3. Write the **Reason** <span class="pin">2</span>, for instance *Opening count at the pangkalan*, then enter **Counted** <span class="pin">3</span> for the products you counted. Leave the others blank.
+
+   <Shot name="loans-count" alt="The Count a customer's tabung dialog with the date, the reason, and the Recorded and Counted columns per product" />
+
+4. Click **Save count** <span class="pin">4</span>. The difference goes into **Counts** <span class="pin">2</span> and the day into **Last count** <span class="pin">3</span>.
+
+   <Shot name="reports-loans-counted" alt="The Tabung on loan report after the count was saved, with the difference under Counts and the day of the last count" />
+
+</Steps>
+
+<Aside type="note">
+A count that matches the record is still saved, as a difference of 0, so its day shows. Every count is in the [audit trail](/gasdist-site/en/panduan/laporan/jejak-audit/) with its reason and who recorded it.
+</Aside>
+
+## Tabung in the warehouse
+
+This report is only about tabung at customers. Empty tabung in the warehouse and the exchanges at the SPBE are not recorded: GasDist's [stock](/gasdist-site/en/panduan/stok/ringkasan/) is the weight of gas in kg.

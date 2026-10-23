@@ -1,0 +1,84 @@
+---
+title: Returns of filled tabung
+description: Record filled tabung a customer brings back with a numbered return. Stock goes up, the tabung on loan go down.
+sidebar:
+  order: 7
+---
+
+import { Steps, Aside } from "@astrojs/starlight/components";
+import Shot from "../../../../../components/Shot.astro";
+import Roles from "../../../../../components/Roles.astro";
+
+Sometimes a customer gives back **filled** tabung: they leak, the order was too large, or the pangkalan refused part of it. Goods coming back **after a surat jalan was delivered** are recorded with a **return**. A delivered surat jalan cannot be cancelled, because its signed sheet is already back.
+
+Saving a return gives it a number such as `RT/2026/10/0002` and **adds the stock** at once, like [receiving stock](/gasdist-site/en/panduan/stok/terima-stok/). The tabung that come back also come off [the customer's tabung on loan](/gasdist-site/en/panduan/laporan/tabung-dipinjam/). A saved return cannot be changed, only cancelled.
+
+<Roles can={["OWNER", "ADMIN", "GUDANG", "PENJUALAN"]} />
+
+<Aside type="note" title="Empty tabung are not a return">
+**Empty** tabung a pangkalan hands over when it takes a delivery go in the **Empties back** column of the [surat jalan](/gasdist-site/en/panduan/surat-jalan/membuat/#empty-tabung-back). A return is only for tabung that are still **full**.
+</Aside>
+
+## Making a return from a delivered surat jalan
+
+<Steps>
+
+1. Open a surat jalan that is **Delivered** and click **Make a return** <span class="pin">2</span>. If it recorded empty tabung, its detail shows the **Empties back** column <span class="pin">1</span> too.
+
+   <Shot name="sj-detail-empties" alt="A delivered surat jalan's detail with the Empties back column and the Make a return button" />
+
+2. **New return** opens with the **Customer** <span class="pin">1</span> and the **Surat jalan** <span class="pin">2</span> filled in. Its products are already on the lines, and **Returnable** <span class="pin">3</span> shows how many tabung may still come back: what was sent minus earlier returns.
+
+3. Remove the lines of products that did not come back, enter the **Tabung**, and write the **Reason** <span class="pin">4</span>. The reason is required and prints on the note.
+
+   <Shot name="return-form" alt="A new return with the customer, the surat jalan, the Returnable column, the reason and the Save & number button" />
+
+4. Click **Save & number** <span class="pin">5</span>. The app asks once more how many tabung and kg go into stock.
+
+   <Shot name="return-confirm" alt="The Save the return? dialog with the tabung and kg going into stock" marks={false} />
+
+5. Click **Save & number** in the dialog. The return gets its number <span class="pin">1</span> and the status **Recorded** <span class="pin">4</span>. From here you can **Print** <span class="pin">2</span> its return note.
+
+   <Shot name="return-detail" alt="A saved return with its RT number, the Print and Cancel return buttons" />
+
+</Steps>
+
+A return can also be made without a surat jalan, for instance for tabung from deliveries before GasDist was used: open **Surat Jalan**, the **Returns** tab, then **New return**, and leave **Surat jalan** on **No surat jalan**. Without one, nothing caps the count.
+
+### The rules
+
+| Rule | Why |
+|---|---|
+| The surat jalan must be **Delivered** and belong to the same customer | A surat jalan that is only **Posted** can still be [cancelled](/gasdist-site/en/panduan/surat-jalan/membatalkan/) and made again |
+| Per product, at most what was sent minus earlier returns | No more can come back than went out |
+| Only products on that surat jalan | Nothing else went out on it |
+| The weight uses the capacity per tabung of when that surat jalan was posted | The stock that comes back equals the stock that went out |
+| The return's date is not before the surat jalan's | Goods cannot come back before they left |
+
+## The list of returns
+
+Every return is under **Surat Jalan**, the **Returns** tab <span class="pin">1</span>, newest first. Filter by date, customer or number, and click a row to open it. **New return** <span class="pin">2</span> is at the top right.
+
+<Shot name="returns-list" alt="The Returns tab of the Surat Jalan page with the list of returns and the New return button" />
+
+## Printing the return note
+
+A return note prints through the same print window as a surat jalan: template, paper and sheets follow the [print settings](/gasdist-site/en/panduan/pengaturan/cetak/). Its title is **RETURN NOTE** (BUKTI RETUR when the company language is Indonesian), with the surat jalan, the reason and three signature boxes: **Prepared by**, **Handed over by** (the customer) and **Received by (warehouse)**. The first print is the original and later ones are marked as a copy, as for a [surat jalan](/gasdist-site/en/panduan/cetak/salinan-dan-draf/).
+
+<Shot name="print-return" alt="An A4 return note with the RETURN NOTE title, the surat jalan, the reason, the tabung lines and the signature boxes" marks={false} />
+
+## Cancelling a return
+
+<Roles can={["OWNER", "ADMIN"]} />
+
+Wrong customer or wrong count? Open the return, click **Cancel return**, write the reason and enter your password. The return's stock goes out again, its tabung are on the customer's loan again, and the return stays on record with its number as **Cancelled**. Then make the right one.
+
+If the product's stock has since gone out so that cancelling would take it below zero, the cancel is refused, unless the Owner allows negative stock in [Settings](/gasdist-site/en/panduan/pengaturan/stok-dan-keamanan/).
+
+<Aside type="caution" title="A return cannot be edited">
+A saved return cannot be changed or deleted, just like a posted surat jalan. The stock history and the [audit trail](/gasdist-site/en/panduan/laporan/jejak-audit/) always show the return, its cancellation and who did each.
+</Aside>
+
+## On the kartu stok
+
+A return shows on the [kartu stok](/gasdist-site/en/panduan/stok/kartu-stok/) as **Return** with its number, adding stock on the return's date. Cancelling it shows as a **Cancellation** taking stock out on the day of cancelling.

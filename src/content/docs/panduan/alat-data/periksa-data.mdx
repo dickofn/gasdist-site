@@ -9,7 +9,7 @@ import { Steps, Aside } from "@astrojs/starlight/components";
 import Shot from "../../../../components/Shot.astro";
 import Roles from "../../../../components/Roles.astro";
 
-GasDist menyimpan dua catatan yang tidak boleh diubah: [jejak audit](/gasdist-site/panduan/laporan/jejak-audit/), yang setiap catatannya membawa sidik catatan sebelumnya, dan buku besar stok, yang menjadi dasar saldo setiap produk. Periksa data memastikan keduanya masih seperti yang ditulis GasDist.
+GasDist menyimpan catatan yang tidak boleh diubah: [jejak audit](/gasdist-site/panduan/laporan/jejak-audit/), yang setiap catatannya membawa sidik catatan sebelumnya, buku besar stok, yang menjadi dasar saldo setiap produk, dan buku besar [tabung dipinjam](/gasdist-site/panduan/laporan/tabung-dipinjam/). Periksa data memastikan semuanya masih seperti yang ditulis GasDist.
 
 <Roles can={["OWNER", "ADMIN"]} />
 
@@ -21,7 +21,7 @@ GasDist menyimpan dua catatan yang tidak boleh diubah: [jejak audit](/gasdist-si
 
 2. Klik **Periksa sekarang** <span class="pin">2</span>. Pemeriksaan berjalan di latar belakang dengan bilah kemajuan; GasDist tetap bisa dipakai.
 
-3. Hasilnya tampil dalam dua kotak <span class="pin">3</span>: **Jejak audit** dan **Stok: buku besar dan saldo tersimpan**. Hijau berarti tidak ada masalah.
+3. Hasilnya tampil dalam tiga kotak <span class="pin">3</span>: **Jejak audit**, **Stok: buku besar dan saldo tersimpan**, dan **Tabung dipinjam: buku besar dan saldo**. Hijau berarti tidak ada masalah.
 
    <Shot name="reports-verify" alt="Hasil Periksa data: jejak audit utuh dan saldo stok sama dengan buku besar" />
 
@@ -34,7 +34,8 @@ Dengan riwayat sepuluh tahun (lebih dari satu juta catatan audit), pemeriksaan m
 | Kotak | Yang diperiksa |
 |---|---|
 | **Jejak audit** | Setiap catatan dari yang pertama sampai yang terbaru: tidak ada yang hilang, isinya tidak diubah, dan setiap catatan tersambung ke catatan sebelumnya |
-| **Stok** | Untuk setiap produk, saldo yang tersimpan sama dengan jumlah semua pergerakan di buku besar (penerimaan, surat jalan, opname, pembatalan) |
+| **Stok** | Untuk setiap produk, saldo yang tersimpan sama dengan jumlah semua pergerakan di buku besar (penerimaan, surat jalan, retur, opname, pembatalan) |
+| **Tabung dipinjam** | Untuk setiap pelanggan, produk, dan sumber (dikirim, kosong kembali, retur isi, hitungan), saldo tersimpan yang dibaca laporan sama dengan jumlah di buku besarnya |
 
 Pemeriksaan hanya membaca. Tidak ada yang diubah atau diperbaiki, dan pemeriksaan tidak tercatat di jejak audit.
 
@@ -48,6 +49,7 @@ Kotak yang bermasalah berwarna merah dan mendaftar setiap masalah.
 | **... entri hilang** | Ada catatan yang dihapus dari tengah jejak audit. Baris ini hanya menyebut nomor catatan pertama yang hilang dan jumlahnya | Sama |
 | **Tidak tersambung ke entri sebelumnya** | Catatan sebelumnya diganti, walaupun sidiknya ikut dihitung ulang | Sama |
 | Selisih stok per produk | Saldo tersimpan berbeda dari buku besarnya, lengkap dengan selisihnya dalam kg | Beranda dan pemeriksaan stok saat posting memakai saldo tersimpan; kartu stok dan laporan memakai buku besar. Hubungi dukungan sebelum memposting lagi |
+| Selisih tabung dipinjam | Saldo tersimpan satu pelanggan, produk, dan sumber berbeda dari buku besarnya, dengan selisihnya dalam tabung | Laporan Tabung dipinjam memakai saldo tersimpan. Hubungi dukungan sebelum mencatat retur atau hitungan lagi |
 
 Daftar menampilkan 100 masalah pertama dan menyebut jumlah seluruhnya.
 

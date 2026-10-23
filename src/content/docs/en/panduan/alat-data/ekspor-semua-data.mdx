@@ -42,6 +42,8 @@ Years of data take time: with ten years of history (about 470,000 surat jalan) t
 | **Info** | The company, when and by whom the export was made, the app version, the rows of each table and its sheets, and everything left out with the reason |
 | One sheet per table | The first row holds the column names as in the database, then one row per record |
 
+From version 0.13.0 there are also the sheets `customer_returns` and `customer_return_lines` ([returns](/gasdist-site/en/panduan/surat-jalan/retur/) and their lines), `cylinder_movements` (every change in the tabung on loan) and `cylinder_balance` (its balance per customer, product and source).
+
 Values are written as the database holds them: weights in **grams** (not kg), dates as `2026-10-13`, and times in UTC. A table longer than one Excel sheet (1,048,575 rows) continues on the next sheet, for example `audit_log (2)`.
 
 ## What is left out

@@ -61,7 +61,8 @@ Each row of the table is one stock movement. The **Balance** column is the stock
 |---|---|---|
 | **Receipt** | [Receive stock](/gasdist-site/en/panduan/stok/terima-stok/). Reference = the reference number, e.g. the DO number. | In |
 | **Surat jalan** | A [posted](/gasdist-site/en/panduan/surat-jalan/membuat/) surat jalan. Reference = the surat jalan number. | Out |
-| **Cancellation** | A [cancelled](/gasdist-site/en/panduan/surat-jalan/membatalkan/) surat jalan | In, returning that surat jalan's stock |
+| **Return** | A [return](/gasdist-site/en/panduan/surat-jalan/retur/) of filled tabung from a customer. Reference = the return number, e.g. `RT/2026/10/0001`. | In |
+| **Cancellation** | A [cancelled](/gasdist-site/en/panduan/surat-jalan/membatalkan/) surat jalan, or a cancelled return | In for a surat jalan, out for a return |
 | **Adjustment** | A [stock opname](/gasdist-site/en/panduan/stok/stok-opname/). Its reason shows under **Note**. | In or out, following the difference |
 
 <Aside type="note">
