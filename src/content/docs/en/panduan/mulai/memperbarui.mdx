@@ -1,0 +1,100 @@
+---
+title: Updating GasDist
+description: Install a new version from one update file without internet, what each refusal means, and how to go back to the previous version.
+sidebar:
+  order: 6
+---
+
+import { Steps, Aside } from "@astrojs/starlight/components";
+import Shot from "../../../../../components/Shot.astro";
+import Roles from "../../../../../components/Roles.astro";
+
+Every new version of GasDist comes with one **update file**, ending in `.gasupdate`. It is handed over like the installer, for example on a USB stick, and the Owner installs it from inside GasDist. No internet is needed: GasDist never checks for updates over the internet by itself.
+
+<Roles can={["OWNER"]} />
+
+## Which update file
+
+| GasDist installed with | Update file |
+|---|---|
+| The Windows installer | `GasDist_<version>_windows-x86_64.gasupdate` |
+| The AppImage on Linux | `GasDist_<version>_linux-x86_64.gasupdate` |
+| The `.deb` package on Linux | None. Install the new `.deb` with the package installer; the **About** box says the same |
+
+<Aside type="note" title="From a version before 0.14.0">
+Updating from a file starts with GasDist 0.14.0. To get from an older version to 0.14.0, run its installer once (Windows) or replace the AppImage file. After that, every later version installs from its update file.
+</Aside>
+
+## Installing an update
+
+<Steps>
+
+1. Plug in the USB stick with the update file, or copy the file to the PC.
+
+2. Open **Settings** and scroll to the bottom. The **About** box shows the installed version <span class="pin">1</span>. Click **Update from file…** <span class="pin">2</span>.
+
+   <Shot name="settings-about" alt="The About box in Settings: the GasDist version and the Update from file button" />
+
+3. Click **Choose update file…**, then pick the `.gasupdate` file in the file chooser.
+
+   <Shot name="update-pick" alt="The Update GasDist window before a file is chosen, with the Choose update file button" />
+
+4. GasDist checks the file and shows the result: the installed version and the **New version** <span class="pin">1</span>, which system it is for, the file size, and five **Checks** <span class="pin">2</span>. Nothing has changed yet.
+
+   <Shot name="update-checked" alt="The Update GasDist window with a file that passed its checks: installed version, new version, five ticked checks, the password field and the Update now button" />
+
+5. Enter **Your password** <span class="pin">3</span>, the one you sign in to GasDist with, then click **Update now** <span class="pin">4</span>.
+
+6. GasDist makes a backup, installs the new version, then closes and opens again. On Windows a small install window shows briefly and finishes on its own, with no questions. Sign in again as usual; the **About** box now shows the new version.
+
+</Steps>
+
+| Check | Meaning |
+|---|---|
+| Signed by the GasDist publisher | The file was made by the GasDist publisher and nobody changed it since. A file from anywhere else is always refused |
+| A file for GasDist | Not an update for another app |
+| For this PC's system | A Windows file for Windows, a Linux file for the AppImage |
+| Newer than the installed version | Updates only go forward. To go back, see [Going back to the previous version](#going-back-to-the-previous-version) |
+| Whole | Not cut short or damaged while copying. GasDist checks it once more while installing |
+
+## What happens to the data
+
+| Item | During the update |
+|---|---|
+| Backup | Always made first, as a **manual** backup in the Owner's name, in the backup folder (and the second folder if it is connected). Without a [backup password](/gasdist-site/en/panduan/backup/kata-sandi-backup/) the update cannot run |
+| Data | Stays where it is. If the new version also changes how the data is stored, GasDist makes a safety copy and upgrades it on its first start; the dialog says so in a yellow box beforehand |
+| Users | Everyone signs in again after GasDist opens |
+| Audit trail | One **GasDist updated** entry: who, from which version to which, the update file and the backup made. See [Audit trail](/gasdist-site/en/panduan/laporan/jejak-audit/) |
+
+<Aside type="caution" title="Let exports and data checks finish">
+An update cannot run while [Export all data](/gasdist-site/en/panduan/alat-data/ekspor-semua-data/) or [Check data](/gasdist-site/en/panduan/alat-data/periksa-data/) is running. Wait until it finishes, then click **Update now** again.
+</Aside>
+
+## When a file is refused
+
+A file that fails a check is not installed and nothing changes. The window names the file and why <span class="pin">1</span>; choose the right one with **Choose another file…** <span class="pin">2</span>.
+
+<Shot name="update-refused" alt="The Update GasDist window with an older file refused: the file name, the message that its version is not newer, and the Choose another file button" />
+
+| Message | Meaning | What to do |
+|---|---|---|
+| This is not a whole GasDist update file: it is damaged, cut short, or not a .gasupdate file. | The wrong file, or damaged while copying. | Copy the update file again from where it came from, then try again. |
+| This file's signature does not match the GasDist publisher, so it is not installed. | The file did not come from the GasDist publisher, or it was changed. | Do not use it. Ask the app's administrator for the genuine update file. |
+| This update file is for another app (*name*), not GasDist. | Another app's update file. | Choose a `GasDist_…gasupdate` file. |
+| This update file is for another system (*system*). | A Linux file chosen on Windows, or the other way round. | Use the file whose name ends in this PC's system, for example `windows-x86_64.gasupdate`. |
+| This file holds version *x*, and version *y* is installed. | The same or an older version. | GasDist is up to date. To go back, see below. |
+| This GasDist cannot be updated from a file. | GasDist was installed from the `.deb` package. | Install the new `.deb` package. |
+| No backup password is set yet. | Without a backup password the backup before the update cannot be made. | Set the [backup password](/gasdist-site/en/panduan/backup/kata-sandi-backup/), then update again. |
+| A data export or check is running. | Export all data or Check data has not finished. | Wait until it finishes. |
+| Wrong password. | The sign-in password typed does not match. | Type your sign-in password (not the backup password). |
+| The new version could not be installed (*detail*). The installed version is unchanged. | For example a full disk or a program folder that cannot be written. | Check the free disk space, then try again. If it still fails, contact the app's administrator with the detail. |
+
+## Going back to the previous version
+
+| GasDist installed with | How |
+|---|---|
+| The Windows installer | Run the previous version's installer (`GasDist_<old version>_x64-setup.exe`). It installs the old version over the new one; the data stays where it is. |
+| AppImage | When updating, GasDist keeps the old file beside the new one as `<name>-previous<ext>.bak`, for example `gasdist-previous.appimage.bak`. Close GasDist, then rename that file back to its original name. |
+| The `.deb` package | Install the old version's `.deb` package. |
+
+When both versions store the data the same way, the data opens in the old version straight away. When the new version changed how the data is stored (the yellow box in the update window), the old version refuses to open it with **This database was made by a newer app**. To go back then, contact the app's administrator: the GasDist data folder is moved aside first, then on the old version's first-run setup screen **Restore from a backup…** is chosen with the backup made just before the update (see [Restoring from a backup](/gasdist-site/en/panduan/backup/memulihkan/)). What was recorded after the update does not come back with it.
