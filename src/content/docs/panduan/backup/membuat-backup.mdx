@@ -96,6 +96,16 @@ Agar setiap backup, termasuk yang otomatis, langsung punya salinan di tempat lai
 
 Setiap kali folder itu tersedia, salinan backup juga disimpan di sana. Bila folder itu tidak ditemukan (misalnya flashdisk sedang tidak tercolok), backup tetap dibuat di folder utama dan kotak **Backup** di halaman **Beranda** menulis **Folder backup kedua tidak ditemukan:** diikuti lokasinya. Untuk berhenti memakai folder kedua, klik **Hapus pilihan folder**, lalu **Simpan**.
 
+## Ukuran backup
+
+Backup tidak punya batas ukuran. Satu backup kira-kira sebesar data GasDist: dengan 150 surat jalan sehari, sekitar 1 GB setelah lima tahun dan 4 GB setelah sepuluh tahun. GasDist membuatnya sepotong demi sepotong, jadi PC dengan RAM 4 GB pun cukup; dengan riwayat bertahun-tahun, satu backup bisa butuh beberapa menit.
+
+| Perhatikan | Karena |
+|---|---|
+| Ruang kosong di disk | Setiap backup sebesar data, dan folder backup menyimpan beberapa jenis sekaligus (lihat di bawah). Bila disk mulai penuh, turunkan **Simpan berapa backup**. |
+| Flashdisk berformat FAT32 | FAT32 tidak bisa menyimpan file di atas 4 GB. Bila backup mendekati ukuran itu, format flashdisk sebagai exFAT atau NTFS. |
+| Versi GasDist lain | Backup yang dibuat GasDist 0.15.0 atau lebih baru tidak bisa dipulihkan di GasDist 0.14.0 atau lebih lama (lihat [Memulihkan dari backup](/gasdist-site/panduan/backup/memulihkan/#bila-ada-pesan-kesalahan)). Backup dari versi lama tetap bisa dipulihkan di versi baru. |
+
 ## Berapa banyak backup yang disimpan
 
 Isian **Simpan berapa backup** di bagian **Backup** menentukan jumlahnya. Bawaannya 14, boleh diisi 1 sampai 365.

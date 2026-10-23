@@ -96,6 +96,16 @@ To give every backup, automatic ones included, a copy somewhere else straight aw
 
 Whenever that folder is available, backup copies are saved there too. If the folder cannot be found (for example the USB stick is not plugged in), the backup is still made in the main folder and the **Backup** box on the **Home** page says **The second backup folder is not there:** followed by its location. To stop using the second folder, click **Clear folder**, then **Save**.
 
+## Backup size
+
+Backups have no size limit. One backup is about as large as the GasDist data: at 150 surat jalan a day, about 1 GB after five years and 4 GB after ten. GasDist makes it a piece at a time, so a PC with 4 GB of RAM is enough; with years of history one backup can take a few minutes.
+
+| Watch for | Because |
+|---|---|
+| Free disk space | Each backup is as large as the data, and the backup folder keeps several kinds at once (see below). When the disk fills up, lower **Keep how many backups**. |
+| A USB stick formatted as FAT32 | FAT32 cannot hold a file over 4 GB. When backups near that size, format the stick as exFAT or NTFS. |
+| Other GasDist versions | A backup made by GasDist 0.15.0 or later cannot be restored in GasDist 0.14.0 or older (see [Restoring from a backup](/gasdist-site/en/panduan/backup/memulihkan/#if-an-error-message-appears)). Backups from older versions keep restoring in newer ones. |
+
 ## How many backups are kept
 
 The **Backups to keep** field in the **Backup** section sets the number. The default is 14, and it accepts 1 to 365.

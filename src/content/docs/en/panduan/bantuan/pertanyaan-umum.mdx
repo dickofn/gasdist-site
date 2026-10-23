@@ -96,6 +96,14 @@ All data is kept on the PC where GasDist is installed, not on the internet. It i
 - Copying the database file to another PC will not open. To move data, always use a [backup](/gasdist-site/en/panduan/backup/membuat-backup/).
 - Backups go to the GasDist backup folder. Its location is shown in **Settings**, in the backup part, and the Owner can add a second folder, a USB stick for example.
 
+## My Windows is in English. Are day and month swapped in dates?
+
+No. Every date in GasDist, in lists and in fields, is written day first (`dd/mm/yyyy`), whatever the Windows region setting. `03/10/2026` is always 3 October. Type the date or pick it from the calendar; see [Entering dates](/gasdist-site/en/panduan/mulai/tanggal/).
+
+## Our backups are very large now. Do they still restore?
+
+Yes. Since GasDist 0.15.0 backups have no size limit and can be made and restored on a PC with 4 GB of RAM. What needs watching is the disk space for the backup folder, and FAT32 USB sticks, which cannot hold a file over 4 GB. See [Backup size](/gasdist-site/en/panduan/backup/membuat-backup/#backup-size).
+
 ## How do I install a new version? Does GasDist update itself over the internet?
 
 No. GasDist never connects to the internet, not even to look for updates. Every new version comes with one update file (`.gasupdate`) handed over on a USB stick; the Owner installs it under **Settings › About › Update from file…**. GasDist first checks that the file genuinely comes from the GasDist publisher and is newer, and makes a backup before installing it. See [Updating GasDist](/gasdist-site/en/panduan/mulai/memperbarui/).

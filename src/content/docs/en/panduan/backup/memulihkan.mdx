@@ -22,6 +22,7 @@ Restoring means **replacing all current GasDist data** with what a backup holds.
 | Users and sign-in passwords | The accounts in the backup. Everyone signs in again with the accounts and passwords from the backup |
 | Backup password | The one stored in that backup's data, which is the password you typed to open it |
 | A backup from an older GasDist version | Updated automatically, nothing for you to do |
+| Backup size | No limit. With years of history, **Check** and **Restore** can each take a few minutes; let them finish |
 | Scans of signed sheets | The scans in the `scans` folder next to the chosen backup file are copied to this PC; scans already here are not copied again. See [Scans of signed sheets](/gasdist-site/en/panduan/backup/membuat-backup/#scans-of-signed-sheets). |
 
 ## Restoring a backup
@@ -62,7 +63,7 @@ Copy the `.gasbak` file **together with** the `scans` folder next to it onto the
 |---|---|---|
 | **The backup password is wrong, or the backup file was changed.** | The password does not match this backup, or the file is damaged | Try the backup password that was in use when the backup was made (perhaps an old one). If it still fails, choose another backup |
 | **This file is not a GasDist backup, or the backup file is damaged.** | The chosen file is not a backup, or it was damaged when copied | Choose another file, or copy it again from the USB stick |
-| **This backup was made by a newer GasDist. Update the app first, then restore.** | The backup comes from a newer GasDist version | Install the latest GasDist, then try again |
+| **This backup was made by a newer GasDist. Update the app first, then restore.** | The backup comes from a newer GasDist version, for example a backup from GasDist 0.15.0 chosen in GasDist 0.14.0. For such a backup over 1 GB, GasDist 0.14.0 answers **This file is not a GasDist backup, or the backup file is damaged.** | Install the latest GasDist, then try again |
 | **Your password is wrong.** | The sign-in password in step 6 is wrong | Type your own password again. It is not the backup password |
 
 All of these messages appear **before** any data is replaced. Your current data stays as it is.

@@ -96,6 +96,14 @@ Semua data tersimpan di PC tempat GasDist terpasang, tidak di internet. Datanya 
 - Menyalin berkas database ke PC lain tidak akan bisa dibuka. Untuk memindahkan data, selalu pakai [backup](/gasdist-site/panduan/backup/membuat-backup/).
 - Backup tersimpan di folder backup GasDist. Lokasinya tertulis di **Pengaturan**, bagian backup, dan Owner bisa menambah folder kedua, misalnya flashdisk.
 
+## Windows saya berbahasa Inggris. Apakah tanggalnya tertukar bulan dan hari?
+
+Tidak. Semua tanggal di GasDist, di daftar maupun di isian, ditulis hari dulu (`hh/bb/tttt`), apa pun pengaturan wilayah Windows. `03/10/2026` selalu 3 Oktober. Ketik tanggalnya atau pilih dari kalender; lihat [Mengisi tanggal](/gasdist-site/panduan/mulai/tanggal/).
+
+## Backup kami sudah sangat besar. Apakah masih bisa dipulihkan?
+
+Bisa. Sejak GasDist 0.15.0 backup tidak punya batas ukuran dan bisa dibuat serta dipulihkan di PC dengan RAM 4 GB. Yang perlu diperhatikan adalah ruang disk untuk folder backup, dan flashdisk FAT32 yang tidak bisa menyimpan file di atas 4 GB. Lihat [Ukuran backup](/gasdist-site/panduan/backup/membuat-backup/#ukuran-backup).
+
 ## Bagaimana cara memasang versi baru? Apakah GasDist memperbarui diri lewat internet?
 
 Tidak. GasDist tidak pernah tersambung ke internet, juga tidak untuk memeriksa pembaruan. Setiap versi baru disertai satu file pembaruan (`.gasupdate`) yang diberikan lewat flashdisk; Owner memasangnya di **Pengaturan › Tentang › Perbarui dari file…**. GasDist memeriksa dulu bahwa file itu asli dari penerbit GasDist dan lebih baru, lalu membuat backup sebelum memasangnya. Lihat [Memperbarui GasDist](/gasdist-site/panduan/mulai/memperbarui/).
