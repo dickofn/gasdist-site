@@ -1,0 +1,55 @@
+---
+title: Entering dates
+description: Every date field in GasDist reads dd/mm/yyyy, whatever the Windows region setting. Type the date or pick it from the calendar.
+sidebar:
+  order: 6
+---
+
+import { Aside } from "@astrojs/starlight/components";
+import Shot from "../../../../../components/Shot.astro";
+import Roles from "../../../../../components/Roles.astro";
+
+Every date field in GasDist, on the surat jalan, receive stock, stock opname, return, mark delivered and count tabung forms and in the list and report filters, is written **day/month/year**, for example `03/10/2026` for 3 October 2026. It is the same in Indonesian and English, and the same on every PC, also on a Windows set to the English (United States) region. You do not need to change the Windows region.
+
+<Roles can={["OWNER", "ADMIN", "GUDANG", "PENJUALAN", "VIEWER"]} />
+
+## Typing a date
+
+Click the date field, clear it and type. When you move to the next field, the date is tidied to `dd/mm/yyyy`.
+
+| Typed | Reads as |
+|---|---|
+| `03/10/2026`, `3/10/2026`, `3-10-2026`, `3.10.2026` | 03/10/2026 |
+| `3/10/26` (a two-digit year means 20..) | 03/10/2026 |
+| `03102026` or `031026` (digits only) | 03/10/2026 |
+| `3/10` (no year: this year) | 03/10/this year |
+
+The day always comes first, so `03/10/2026` is always 3 October, never 10 March.
+
+## Picking from the calendar
+
+Click the calendar button at the right end of the field, or press <kbd>Alt</kbd>+<kbd>↓</kbd> (or <kbd>F4</kbd>) while the date field is active.
+
+<Shot name="date-calendar" alt="The calendar open under the Date field of the surat jalan form, showing October 2026 with the 13th selected and the Today button" />
+
+| | |
+|---|---|
+| Date field <span class="pin">1</span> | The chosen date is written here. |
+| Month <span class="pin">2</span> | The **‹** and **›** buttons beside it move one month. |
+| Chosen date <span class="pin">3</span> | Blue. Today is underlined. Days you may not pick, such as after today, are faded. |
+| **Today** <span class="pin">4</span> | Picks today's date. |
+
+With the keyboard: left and right arrows move a day, up and down a week, <kbd>Page Up</kbd> and <kbd>Page Down</kbd> a month, <kbd>Enter</kbd> picks and <kbd>Esc</kbd> closes the calendar without changing the date. Weeks start on Sunday.
+
+## When a date cannot be read
+
+| Message under the field | Meaning |
+|---|---|
+| **Enter the date as dd/mm/yyyy, for example 03/10/2026.** | What was typed is not a date, or the day does not exist (such as 31/04/2026). The earliest year is 2000. |
+| **The date cannot be after today.** | Surat jalan, receipts, opname, returns and tabung counts record what already happened. |
+| **Cannot be before ...** | The date signed in [Mark delivered](/gasdist-site/en/panduan/surat-jalan/menandai-terkirim/) cannot be before the surat jalan's date. |
+| **Required.** | This field cannot be empty. |
+
+<Aside type="note">
+In list and report filters, the list waits until the date can be read. Meanwhile the message under the field says what is wrong.
+</Aside>

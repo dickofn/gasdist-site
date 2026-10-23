@@ -2,7 +2,7 @@
 title: Updating GasDist
 description: Install a new version from one update file without internet, what each refusal means, and how to go back to the previous version.
 sidebar:
-  order: 6
+  order: 7
 ---
 
 import { Steps, Aside } from "@astrojs/starlight/components";
@@ -98,3 +98,5 @@ A file that fails a check is not installed and nothing changes. The window names
 | The `.deb` package | Install the old version's `.deb` package. |
 
 When both versions store the data the same way, the data opens in the old version straight away. When the new version changed how the data is stored (the yellow box in the update window), the old version refuses to open it with **This database was made by a newer app**. To go back then, contact the app's administrator: the GasDist data folder is moved aside first, then on the old version's first-run setup screen **Restore from a backup…** is chosen with the backup made just before the update (see [Restoring from a backup](/gasdist-site/en/panduan/backup/memulihkan/)). What was recorded after the update does not come back with it.
+
+The backup made just before the update was made by the old version, so it always restores in the old version. Backups made by the new version may not: GasDist 0.14.0 refuses a backup from GasDist 0.15.0 as made by a newer GasDist.

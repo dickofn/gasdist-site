@@ -2,7 +2,7 @@
 title: Memperbarui GasDist
 description: Pasang versi baru dari satu file pembaruan tanpa internet, apa arti setiap penolakan, dan cara kembali ke versi sebelumnya.
 sidebar:
-  order: 6
+  order: 7
 ---
 
 import { Steps, Aside } from "@astrojs/starlight/components";
@@ -98,3 +98,5 @@ File yang tidak lolos pemeriksaan tidak dipasang, dan tidak ada yang berubah. Je
 | Paket `.deb` | Pasang paket `.deb` versi lama. |
 
 Bila kedua versi memakai susunan data yang sama, data langsung terbuka di versi lama. Bila versi baru tadi memperbarui susunan data (kotak kuning di jendela pembaruan), versi lama menolak membuka data itu dengan pesan **Database ini dibuat oleh aplikasi yang lebih baru**. Untuk kembali dalam keadaan itu, hubungi pengelola aplikasi: folder data GasDist dipindahkan dulu, lalu di layar penyiapan awal versi lama dipilih **Pulihkan dari backup…** dengan backup yang dibuat tepat sebelum pembaruan (lihat [Memulihkan dari backup](/gasdist-site/panduan/backup/memulihkan/)). Yang dicatat sesudah pembaruan tidak ikut kembali.
+
+Backup yang dibuat tepat sebelum pembaruan dibuat oleh versi lama, jadi selalu bisa dipulihkan di versi lama. Backup yang dibuat oleh versi baru belum tentu: GasDist 0.14.0 menolak backup dari GasDist 0.15.0 karena dibuat oleh GasDist yang lebih baru.
