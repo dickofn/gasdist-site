@@ -1,0 +1,81 @@
+---
+title: Quick start
+description: From the first time GasDist opens to one surat jalan delivered, step by step, with a link to the full explanation of each step.
+sidebar:
+  order: 2
+---
+
+import { Steps, Aside } from "@astrojs/starlight/components";
+import Shot from "../../../../../components/Shot.astro";
+
+This page takes you from a freshly installed GasDist to one finished job: tabung delivered to a customer and the signed sheet back at the office. Each step is short; its link opens the full explanation. Everything is done as the **Owner**, the person who sets GasDist up.
+
+<Aside type="tip" title="Want to try it first?">
+At step 3, **Fill in example data** on the **Home** page adds products, customers, stock and some surat jalan at once, to practise with. Example data cannot be deleted, so use it only on a practice PC. See [Trying the example data](/gasdist-site/en/panduan/mulai/penyiapan-awal/#trying-the-example-data).
+</Aside>
+
+## Setting GasDist up
+
+<Steps>
+
+1. **Install.** Run the installer from a USB stick. On Windows 11, turn Smart App Control off first. See [Installing GasDist](/gasdist-site/en/panduan/mulai/penyiapan-awal/#installing-gasdist).
+
+2. **Enter the company and the Owner account** on the first screen, then click **Finish and sign in**.
+
+   <Shot name="setup-filled" alt="The first-run setup form filled in: the company name and the Owner account" marks={false} />
+
+3. **Write down the recovery code** on paper and keep it away from the PC. It is shown once only. See [Keeping the recovery code](/gasdist-site/en/panduan/mulai/penyiapan-awal/#keeping-the-recovery-code).
+
+4. **Set a backup password** from the **Backup** card on the **Home** page. Without it, GasDist makes no backups at all. See [Backup password](/gasdist-site/en/panduan/backup/kata-sandi-backup/).
+
+</Steps>
+
+## Entering the basics
+
+<Steps>
+
+1. **Add a product**, for example LPG 3 kg holding 3 kg a tabung: **Master Data › Products › Add product**. See [Products](/gasdist-site/en/panduan/data-master/produk/).
+
+2. **Add a customer**, for example one pangkalan: **Customers › Add customer**. See [Adding customers](/gasdist-site/en/panduan/pelanggan/menambah/).
+
+3. **Record the opening stock** with **Receive stock** on the **Home** page: the date, the product and the amount. See [Receiving stock](/gasdist-site/en/panduan/stok/terima-stok/).
+
+   <Shot name="stock-receive-filled" alt="The Receive stock form filled in" marks={false} />
+
+</Steps>
+
+Vehicles and drivers can be added later, straight from the surat jalan form.
+
+## One job: delivering tabung to a customer
+
+<Steps>
+
+1. **Create a surat jalan:** **Surat Jalan › New surat jalan** (or <kbd>F2</kbd>). Choose the customer, vehicle and driver, then fill in a product and the number of tabung on each line. See [Creating a surat jalan](/gasdist-site/en/panduan/surat-jalan/membuat/).
+
+   <Shot name="sj-form-filled" alt="The surat jalan form filled in with a customer, vehicle, driver and product lines" marks={false} />
+
+2. **Post.** Click **Post** (<kbd>Ctrl</kbd>+<kbd>Enter</kbd>) and check the summary. The surat jalan gets its number and the stock goes down.
+
+3. **Print** from the posted surat jalan. With the default settings three sheets come out: for the customer, to come back to the office, and the archive. See [Printing a surat jalan](/gasdist-site/en/panduan/cetak/mencetak/).
+
+4. **The driver delivers** the tabung with the sheets. The receiver signs, and **Lembar 2: Kembali ke kantor** comes back.
+
+5. **Mark delivered** once that sheet is at the office: open the surat jalan, click **Mark delivered**, enter the receiver's name and the date signed, and if there is one, choose a photo or scan of the sheet. See [Marking a surat jalan delivered](/gasdist-site/en/panduan/surat-jalan/menandai-terkirim/).
+
+   <Shot name="sj-deliver-dialog" alt="The Mark delivered window with the receiver's name, the date signed and a scan of the sheet" marks={false} />
+
+</Steps>
+
+Done: the surat jalan is now **Delivered**, the stock has gone down, and everything is recorded in the [audit trail](/gasdist-site/en/panduan/laporan/jejak-audit/).
+
+## Every day after that
+
+| When | What | Where |
+|---|---|---|
+| Morning | Today's surat jalan and the sheets not back yet | [Home](/gasdist-site/en/panduan/mulai/beranda/) |
+| When filled tabung arrive from the SPBE | **Receive stock** | [Receiving stock](/gasdist-site/en/panduan/stok/terima-stok/) |
+| Every delivery | Create, post and print a surat jalan | [Creating a surat jalan](/gasdist-site/en/panduan/surat-jalan/membuat/) |
+| When a signed sheet comes back | **Mark delivered** | [Marking a surat jalan delivered](/gasdist-site/en/panduan/surat-jalan/menandai-terkirim/) |
+| Once a week | Save a copy of a backup to a USB stick | [Making and copying backups](/gasdist-site/en/panduan/backup/membuat-backup/#saving-a-copy-to-a-usb-stick-or-another-folder) |
+
+An automatic backup is made every time GasDist closes and once a day; the **Backup** card on **Home** stays green while the last backup is at most three days old.
