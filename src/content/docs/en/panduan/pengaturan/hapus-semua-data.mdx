@@ -16,8 +16,8 @@ import Roles from "../../../../../components/Roles.astro";
 | What goes | What stays |
 |---|---|
 | All data: products, customers, vehicles, drivers, stock, surat jalan, returns, users, the audit trail | The backups folder and everything in it |
-| The settings, including the backup password and the second backup folder | The backup made just before deleting |
-| Scans of signed sheets on this PC | The copies of the scans beside the backups |
+| The settings, including the backup password and the second backup folder | The backup made just before deleting, with the copies of the scans beside it |
+| Scans of signed sheets in the GasDist data folder | |
 
 GasDist makes a backup first, so everything can still be brought back by [restoring that backup](#bringing-the-data-back). That is why Delete all data **is refused while no backup password is set**; set one first in [Backup password](/gasdist-site/en/panduan/backup/kata-sandi-backup/).
 
@@ -39,10 +39,12 @@ GasDist makes a backup first, so everything can still be brought back by [restor
 
 </Steps>
 
-When it is done, GasDist shows the first-run setup screen. Everyone who was signed in is signed out.
+When it is done, GasDist shows the first-run setup screen. Everyone who was signed in is signed out. The new audit trail starts with one **All data deleted** entry naming who deleted and the backup; the old audit trail stays whole inside that backup.
 
 <Aside type="caution" title="Note the backup password now">
 The backup made before deleting is locked with the current backup password. Without it, the old data cannot be brought back.
+
+This backup is kept like any other backup made by hand: GasDist keeps the [14 newest backups made by hand](/gasdist-site/en/panduan/backup/membuat-backup/) and removes older ones. If the old data must be kept for long, copy that backup and the `scans` folder beside it to a USB stick.
 </Aside>
 
 ## If an error message appears
@@ -56,6 +58,6 @@ The backup made before deleting is locked with the current backup password. With
 
 ## Bringing the data back
 
-On the first-run setup screen, click **Restore from a backup…** below the form. The backup made before deleting is at the top of the list, of kind manual. Enter the backup password, then restore. See [Restoring on a new PC](/gasdist-site/en/panduan/backup/memulihkan/#restoring-on-a-new-pc).
+On the first-run setup screen, click **Restore from a backup…** below the form. The backup made before deleting is at the top of the list, as a backup made by hand. Enter the backup password, then restore. See [Restoring on a new PC](/gasdist-site/en/panduan/backup/memulihkan/#restoring-on-a-new-pc).
 
 To start with real data instead, fill in the first-run setup form as the first time. See [Installing and first-run setup](/gasdist-site/en/panduan/mulai/penyiapan-awal/).

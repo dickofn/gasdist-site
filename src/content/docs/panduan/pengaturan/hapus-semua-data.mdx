@@ -16,8 +16,8 @@ import Roles from "../../../../components/Roles.astro";
 | Yang dihapus | Yang tetap |
 |---|---|
 | Semua data: produk, pelanggan, kendaraan, sopir, stok, surat jalan, retur, pengguna, jejak audit | Folder backup dan semua isinya |
-| Pengaturan, termasuk kata sandi backup dan folder backup kedua | Backup yang dibuat tepat sebelum menghapus |
-| Scan lembar bertanda tangan di PC ini | Salinan scan yang ada di samping backup |
+| Pengaturan, termasuk kata sandi backup dan folder backup kedua | Backup yang dibuat tepat sebelum menghapus, beserta salinan scan di sampingnya |
+| Scan lembar bertanda tangan di folder data GasDist | |
 
 GasDist membuat backup lebih dulu, jadi semuanya masih bisa dikembalikan dengan [memulihkan backup itu](#mengembalikan-data). Karena itu Hapus semua data **ditolak bila kata sandi backup belum diatur**; atur dulu di [Kata sandi backup](/gasdist-site/panduan/backup/kata-sandi-backup/).
 
@@ -39,10 +39,12 @@ GasDist membuat backup lebih dulu, jadi semuanya masih bisa dikembalikan dengan 
 
 </Steps>
 
-Setelah selesai, GasDist menampilkan layar penyiapan awal. Semua pengguna yang tadi masuk ikut keluar.
+Setelah selesai, GasDist menampilkan layar penyiapan awal. Semua pengguna yang tadi masuk ikut keluar. Jejak audit yang baru dimulai dengan satu catatan **Semua data dihapus**, berisi siapa yang menghapus dan nama backupnya; jejak audit lama tetap utuh di dalam backup itu.
 
 <Aside type="caution" title="Catat kata sandi backup sekarang">
 Backup yang dibuat sebelum menghapus dikunci dengan kata sandi backup yang berlaku saat ini. Tanpa kata sandi itu, data lama tidak bisa dikembalikan.
+
+Backup ini disimpan seperti backup manual lainnya: GasDist menyimpan [14 backup manual terbaru](/gasdist-site/panduan/backup/membuat-backup/) dan menghapus yang lebih lama. Bila data lama perlu disimpan lama, salin backup itu beserta folder `scans` di sampingnya ke flashdisk.
 </Aside>
 
 ## Bila ada pesan kesalahan
