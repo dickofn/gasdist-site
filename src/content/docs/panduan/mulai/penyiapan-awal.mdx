@@ -26,9 +26,11 @@ Installer diberikan sebagai satu berkas, misalnya lewat flashdisk. Pemasangan ti
 Setelah terpasang, buka **GasDist** dari menu Start (atau menu aplikasi di Linux).
 
 <Aside type="note" title="Peringatan Windows saat memasang">
-Installer GasDist tidak ditandatangani secara digital (code signing). Karena itu Windows bisa menampilkan **Windows protected your PC** (SmartScreen), terutama bila installer diunduh dari internet. Klik **More info**, lalu **Run anyway**; pemasangan berjalan seperti biasa.
+Installer GasDist tidak ditandatangani secara digital (code signing). Bila installer diunduh dengan browser, Windows menampilkan **Windows protected your PC** (SmartScreen): klik **More info**, lalu **Run anyway**, dan pemasangan berjalan seperti biasa. Installer yang disalin dari flashdisk biasanya langsung berjalan tanpa peringatan ini.
+</Aside>
 
-Di Windows 11, **Smart App Control** memblokir aplikasi yang tidak ditandatangani tanpa tombol untuk melanjutkan. Bila installer diblokir tanpa pilihan **Run anyway**, periksa **Windows Security › App & browser control › Smart App Control**: pasang GasDist di PC yang fitur ini tidak aktif.
+<Aside type="caution" title="Matikan Smart App Control di Windows 11">
+**Smart App Control** memblokir aplikasi yang tidak ditandatangani tanpa tombol untuk melanjutkan, jadi GasDist tidak bisa dipasang selama fitur ini menyala. Sebelum memasang, buka **Windows Security › App & browser control › Smart App Control settings** dan pilih **Off**. Di banyak PC Windows 11, Smart App Control tidak bisa dinyalakan lagi setelah dimatikan.
 </Aside>
 
 Simpan berkas AppImage di satu tempat tetap, misalnya folder `AppImages` di folder pribadi Anda: pembaruan menggantinya di tempat itu. Versi berikutnya dipasang dari dalam GasDist dengan satu file pembaruan; lihat [Memperbarui GasDist](/gasdist-site/panduan/mulai/memperbarui/).
@@ -109,3 +111,10 @@ Kartu merah **Backup** di atasnya menandakan backup belum aktif. Atur kata sandi
 2. Tambahkan [pelanggan](/gasdist-site/panduan/pelanggan/menambah/).
 3. Buat akun untuk staf di [Menambah pengguna](/gasdist-site/panduan/pengguna/menambah/).
 4. Catat stok awal dengan [Menerima stok](/gasdist-site/panduan/stok/terima-stok/).
+5. Di Windows, ekspor satu file csv (misalnya [kartu stok](/gasdist-site/panduan/stok/kartu-stok/)) lalu buka di Excel. Bila setiap baris tampil dalam satu kolom, ubah [Pemisah CSV](/gasdist-site/panduan/pengaturan/stok-dan-keamanan/#pemisah-csv) di **Pengaturan**.
+
+## Mencopot GasDist
+
+Di Windows, buka **Settings › Apps › Installed apps**, cari **GasDist**, lalu **Uninstall**. Data GasDist tetap tersimpan di folder `%APPDATA%\GasDist` (beserta kuncinya di Windows Credential Manager), juga bila kotak **Delete the application data** dicentang. Memasang GasDist lagi langsung membuka data yang sama.
+
+Data sengaja tidak ikut terhapus. Bila PC akan diberikan ke orang lain atau data memang harus dihapus, [buat backup](/gasdist-site/panduan/backup/membuat-backup/) dan simpan di luar PC dulu, lalu hapus folder `%APPDATA%\GasDist` sendiri.

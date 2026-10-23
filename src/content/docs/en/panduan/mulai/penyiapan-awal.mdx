@@ -26,9 +26,11 @@ The installer comes as a single file, for example on a USB stick. Installing nee
 Once installed, open **GasDist** from the Start menu (or the applications menu on Linux).
 
 <Aside type="note" title="The Windows warning when installing">
-The GasDist installer is not digitally signed (code signed). So Windows may show **Windows protected your PC** (SmartScreen), especially when the installer was downloaded from the internet. Click **More info**, then **Run anyway**; the install then runs as usual.
+The GasDist installer is not digitally signed (code signed). When the installer was downloaded with a browser, Windows shows **Windows protected your PC** (SmartScreen): click **More info**, then **Run anyway**, and the install runs as usual. An installer copied from a USB stick usually runs straight away with no such warning.
+</Aside>
 
-On Windows 11, **Smart App Control** blocks unsigned apps with no button to continue. If the installer is blocked with no **Run anyway**, check **Windows Security › App & browser control › Smart App Control**: install GasDist on a PC where it is off.
+<Aside type="caution" title="Turn off Smart App Control on Windows 11">
+**Smart App Control** blocks unsigned apps with no button to continue, so GasDist cannot be installed while it is on. Before installing, open **Windows Security › App & browser control › Smart App Control settings** and choose **Off**. On many Windows 11 PCs, Smart App Control cannot be turned back on once it is off.
 </Aside>
 
 Keep the AppImage file in one fixed place, for example an `AppImages` folder in your home folder: an update replaces it there. Later versions install from inside GasDist with one update file; see [Updating GasDist](/gasdist-site/en/panduan/mulai/memperbarui/).
@@ -109,3 +111,10 @@ The red **Backup** card above it means backups are off. Set a backup password fi
 2. Add [customers](/gasdist-site/en/panduan/pelanggan/menambah/).
 3. Create accounts for your staff in [Adding users](/gasdist-site/en/panduan/pengguna/menambah/).
 4. Record the opening stock with [Receiving stock](/gasdist-site/en/panduan/stok/terima-stok/).
+5. On Windows, export one csv file (for example the [kartu stok](/gasdist-site/en/panduan/stok/kartu-stok/)) and open it in Excel. If each row shows in a single column, change the [CSV separator](/gasdist-site/en/panduan/pengaturan/stok-dan-keamanan/#csv-separator) in **Settings**.
+
+## Uninstalling GasDist
+
+On Windows, open **Settings › Apps › Installed apps**, find **GasDist**, then **Uninstall**. GasDist's data stays in the `%APPDATA%\GasDist` folder (with its key in Windows Credential Manager), also when the **Delete the application data** box is ticked. Installing GasDist again opens the same data straight away.
+
+The data is kept on purpose. When the PC goes to someone else, or the data really must go, [make a backup](/gasdist-site/en/panduan/backup/membuat-backup/) and keep it off the PC first, then delete the `%APPDATA%\GasDist` folder yourself.
