@@ -71,3 +71,17 @@
   text-align: center;
   vertical-align: 0.1em;
 }
+
+/* Starlight gives the theme and language selects a fixed width that cuts
+   "Otomatis" and "Bahasa Indonesia" short. Set on the select itself, the
+   width wins over the one the label passes down. */
+starlight-theme-select select {
+  --sl-select-width: 8.25em;
+}
+/* Between 50rem, where this header starts, and 60rem there is no room for
+   the whole language name beside the search box: the default stays. */
+@media (min-width: 60rem) {
+  starlight-lang-select select {
+    --sl-select-width: 12.75em;
+  }
+}
