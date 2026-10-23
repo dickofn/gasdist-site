@@ -96,6 +96,14 @@ All data is kept on the PC where GasDist is installed, not on the internet. It i
 - Copying the database file to another PC will not open. To move data, always use a [backup](/gasdist-site/en/panduan/backup/membuat-backup/).
 - Backups go to the GasDist backup folder. Its location is shown in **Settings**, in the backup part, and the Owner can add a second folder, a USB stick for example.
 
+## How do I install a new version? Does GasDist update itself over the internet?
+
+No. GasDist never connects to the internet, not even to look for updates. Every new version comes with one update file (`.gasupdate`) handed over on a USB stick; the Owner installs it under **Settings › About › Update from file…**. GasDist first checks that the file genuinely comes from the GasDist publisher and is newer, and makes a backup before installing it. See [Updating GasDist](/gasdist-site/en/panduan/mulai/memperbarui/).
+
+## A new version has a problem. Can I go back to the previous one?
+
+Yes. On Windows, run the previous version's installer; with the AppImage, rename back the `…-previous….bak` file kept when updating. If the new version also changed how the data is stored, going back is through the backup made just before the update. See [Going back to the previous version](/gasdist-site/en/panduan/mulai/memperbarui/#going-back-to-the-previous-version).
+
 ## What if the PC breaks down or is lost?
 
 The data can be brought back from a backup, as long as these three things were prepared beforehand:

@@ -96,6 +96,14 @@ Semua data tersimpan di PC tempat GasDist terpasang, tidak di internet. Datanya 
 - Menyalin berkas database ke PC lain tidak akan bisa dibuka. Untuk memindahkan data, selalu pakai [backup](/gasdist-site/panduan/backup/membuat-backup/).
 - Backup tersimpan di folder backup GasDist. Lokasinya tertulis di **Pengaturan**, bagian backup, dan Owner bisa menambah folder kedua, misalnya flashdisk.
 
+## Bagaimana cara memasang versi baru? Apakah GasDist memperbarui diri lewat internet?
+
+Tidak. GasDist tidak pernah tersambung ke internet, juga tidak untuk memeriksa pembaruan. Setiap versi baru disertai satu file pembaruan (`.gasupdate`) yang diberikan lewat flashdisk; Owner memasangnya di **Pengaturan › Tentang › Perbarui dari file…**. GasDist memeriksa dulu bahwa file itu asli dari penerbit GasDist dan lebih baru, lalu membuat backup sebelum memasangnya. Lihat [Memperbarui GasDist](/gasdist-site/panduan/mulai/memperbarui/).
+
+## Versi baru bermasalah. Bisakah kembali ke versi sebelumnya?
+
+Bisa. Di Windows, jalankan installer versi sebelumnya; di AppImage, kembalikan nama berkas `…-previous….bak` yang disimpan saat memperbarui. Bila versi baru juga memperbarui susunan data, kembalinya lewat backup yang dibuat tepat sebelum pembaruan. Lihat [Kembali ke versi sebelumnya](/gasdist-site/panduan/mulai/memperbarui/#kembali-ke-versi-sebelumnya).
+
 ## Bagaimana kalau PC-nya rusak atau hilang?
 
 Data bisa dikembalikan dari backup, asal tiga hal ini sudah disiapkan sebelumnya:

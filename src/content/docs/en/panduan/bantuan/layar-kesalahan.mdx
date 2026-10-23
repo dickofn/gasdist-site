@@ -84,6 +84,21 @@ When something cannot be done, GasDist shows a red message next to the button yo
 | This backup was made by a newer GasDist. Update the app first, then restore. | The GasDist on this PC is older than the one that made the backup. | Install the latest GasDist, then restore again. |
 | Your password is wrong. | The Owner's sign-in password, asked for before a restore, does not match. | Type your sign-in password (not the backup password). |
 
+## When updating
+
+Messages in the **Update GasDist** window. Nothing has changed when one appears: the installed version stays in use.
+
+| Message | What it means | What to do |
+|---|---|---|
+| This is not a whole GasDist update file … | The wrong file, damaged or cut short while copying. | Copy the update file again. |
+| This file's signature does not match the GasDist publisher … | The file is not from the GasDist publisher, or it was changed. | Do not use it. Ask for the genuine file. |
+| This update file is for another app … / for another system … | Another app's or system's file. | Choose the GasDist file for this PC's system. |
+| This file holds version *x*, and version *y* is installed. … | The same or an older version. | GasDist is up to date. |
+| This GasDist cannot be updated from a file. … | Installed from the `.deb` package. | Install the new package. |
+| The new version could not be installed (*detail*). … | For example a full disk. | Check the free disk space, then try again. |
+
+The full explanation and the other messages are in [Updating GasDist](/gasdist-site/en/panduan/mulai/memperbarui/#when-a-file-is-refused).
+
 ## When GasDist starts
 
 If the database cannot be opened, GasDist does not show the sign-in screen. Instead it shows **GasDist cannot open** with a message, the line **Contact whoever manages this app and quote the code below.**, a **Technical detail** link and a code such as `DB_CORRUPT`.

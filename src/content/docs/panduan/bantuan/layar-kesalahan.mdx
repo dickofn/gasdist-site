@@ -84,6 +84,21 @@ Saat sesuatu tidak bisa dikerjakan, GasDist menampilkan pesan berwarna merah di 
 | Backup ini dibuat oleh GasDist yang lebih baru. Perbarui aplikasi dulu, lalu pulihkan. | Versi GasDist di PC ini lebih lama dari yang membuat backup. | Pasang GasDist versi terbaru, lalu pulihkan lagi. |
 | Kata sandi Anda salah. | Kata sandi masuk Owner yang diminta sebelum pemulihan tidak cocok. | Ketik kata sandi masuk Anda (bukan kata sandi backup). |
 
+## Saat memperbarui
+
+Pesan di jendela **Perbarui GasDist**. Tidak ada yang berubah saat pesan ini muncul: versi yang terpasang tetap dipakai.
+
+| Pesan | Artinya | Yang dilakukan |
+|---|---|---|
+| File ini bukan file pembaruan GasDist yang utuh … | File salah, rusak, atau terpotong saat disalin. | Salin ulang file pembaruannya. |
+| Tanda tangan file ini tidak cocok dengan penerbit GasDist … | File bukan dari penerbit GasDist, atau diubah. | Jangan dipakai. Minta file yang asli. |
+| File pembaruan ini untuk aplikasi lain … / untuk sistem lain … | File aplikasi atau sistem lain. | Pilih file GasDist untuk sistem PC ini. |
+| File ini berisi versi *x*, sedangkan versi terpasang *y*. … | Versi sama atau lebih lama. | GasDist sudah terbaru. |
+| GasDist ini tidak bisa diperbarui dari file. … | Dipasang dari paket `.deb`. | Pasang paket versi barunya. |
+| Versi baru tidak bisa dipasang (*detail*). … | Misalnya disk penuh. | Periksa ruang kosong di disk, lalu coba lagi. |
+
+Penjelasan lengkap dan pesan lainnya ada di [Memperbarui GasDist](/gasdist-site/panduan/mulai/memperbarui/#bila-file-ditolak).
+
 ## Saat GasDist dibuka
 
 Bila database tidak bisa dibuka, GasDist tidak menampilkan layar masuk, melainkan layar **GasDist tidak bisa dibuka** berisi pesan, kalimat **Hubungi pengelola aplikasi dan sebutkan kode di bawah.**, tautan **Detail teknis**, dan sebuah kode seperti `DB_CORRUPT`.
