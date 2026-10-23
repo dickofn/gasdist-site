@@ -1,6 +1,6 @@
 ---
-title: Negative stock, automatic lock, language
-description: Decide whether a surat jalan may push stock below zero, how many minutes pass before the screen locks itself, and the office's default language.
+title: Negative stock, automatic lock, language, CSV separator
+description: Decide whether a surat jalan may push stock below zero, how many minutes pass before the screen locks itself, the office's default language, and the column separator of CSV files.
 sidebar:
   order: 4
 ---
@@ -9,11 +9,11 @@ import { Steps, Aside } from "@astrojs/starlight/components";
 import Shot from "../../../../../components/Shot.astro";
 import Roles from "../../../../../components/Roles.astro";
 
-These three settings apply to every user in the office: whether stock may go negative, when the screen locks itself, and the default language. They are all on the **Settings** page, below the **Company**, **Documents** and **Surat jalan printing** sections.
+These settings apply to every user in the office: whether stock may go negative, when the screen locks itself, the default language, and the column separator of CSV files. They are all on the **Settings** page, below the **Company**, **Documents** and **Surat jalan printing** sections.
 
 <Roles can={["OWNER"]} />
 
-<Shot name="settings-stock-security" alt="The Stock section with the negative stock checkbox, the Security section with a 15-minute lock, the Language section set to Bahasa Indonesia, and the Backup section with its Choose folder button" />
+<Shot name="settings-stock-security" alt="The Stock section with the negative stock checkbox, the Security section with a 15-minute lock, the Language section set to Bahasa Indonesia with CSV separator Follow the language, and the Backup section with its Choose folder button" />
 
 After changing anything on this page, scroll to the very bottom and click **Save**. The message **Settings saved.** appears.
 
@@ -56,6 +56,20 @@ In the **Language** section, choose the **Default language** <span class="pin">3
 | Users who chose their own language | Their own choice, whatever the default is |
 
 The language for each user is set on the **Users** page (see [Adding users](/gasdist-site/en/panduan/pengguna/menambah/)), or by the user themselves with the **Language** choice at the top of the screen.
+
+## CSV separator
+
+In the **Language** section, under **Default language**, is **CSV separator** <span class="pin">5</span>. It sets the mark between the columns of every csv file GasDist exports (the surat jalan list, the kartu stok and every report). The decimal mark of kg figures goes with it.
+
+| Choice | Column separator, decimal mark | Suits |
+|---|---|---|
+| **Follow the language** (default) | Semicolon and comma (`;` `,`) for users working in Indonesian, comma and full stop (`,` `.`) for those working in English | An office whose Windows region matches GasDist's language |
+| **; (Excel Indonesia)** | `;` and `,` for every user | Windows set to the Indonesian region |
+| **, (Excel English)** | `,` and `.` for every user | Windows set to an English region, such as English (Indonesia) or English (United States) |
+
+Excel splits a csv file by the Windows region setting (Settings › Time & language › Region), not by GasDist's language. To test it, export one csv file, such as the kartu stok, and open it in Excel. If each row shows in a single column, choose the other separator here, save, and export again.
+
+xlsx files (**Export xlsx** or **Export Excel**) are not affected and open correctly on any PC. [Importing customers](/gasdist-site/en/panduan/alat-data/impor-pelanggan/) is not affected either: GasDist recognises the separator of an imported csv by itself.
 
 ## Second backup folder
 
