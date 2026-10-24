@@ -1,0 +1,115 @@
+---
+title: License and trial
+description: The 7-day trial, what still works after it, how to add the license file, and the company details the license locks.
+sidebar:
+  order: 4
+---
+
+import { Steps, Aside } from "@astrojs/starlight/components";
+import Shot from "../../../../../components/Shot.astro";
+import Roles from "../../../../../components/Roles.astro";
+
+GasDist runs with a **license file** from your GasDist seller. The file is made out to your company: your company name and its NPWP are written inside it. One license covers every PC that company owns, with no time limit. Without a license, GasDist runs as a **trial** for 7 days.
+
+Every user sees the trial in the top bar. The license itself is added and replaced by the Owner, in **Settings › About**.
+
+<Roles can={["OWNER"]} />
+
+## The 7-day trial
+
+From the first time GasDist opens, the trial runs for 7 days. Everything works as usual during that time. The top bar shows the days left, for example **Trial · 7 days left** <span class="pin">1</span>.
+
+<Shot name="topbar-trial" alt="The GasDist top bar with the label Trial · 7 days left left of the Language picker" />
+
+The Owner can click that label to open the **About** box in **Settings**. It shows the trial's days left <span class="pin">1</span> and the **Add license…** button <span class="pin">2</span>.
+
+<Shot name="settings-about-trial" alt="The About box in Settings: License, Trial: 7 days left, and the Add license button" />
+
+| If you… | The trial |
+|---|---|
+| Uninstall GasDist and install it again | Does not start over. The days left stay the same. |
+| Use [Delete all data](/gasdist-site/en/panduan/pengaturan/hapus-semua-data/) | Does not start over. |
+| Set the PC's clock or date back | Gains no days. GasDist only counts forward. |
+| Set the PC's clock forward by mistake | Uses up trial days. A PC that is already licensed is not affected. |
+
+### The VERSI PERCOBAAN mark on prints
+
+During the trial, and after it ends, every printed sheet carries **VERSI PERCOBAAN** (trial version): surat jalan, return notes and reports, also when printed to PDF. The mark already shows in the print window, so nothing comes as a surprise at the printer. With the **Standard (office printer)** template it runs lightly across the middle of the sheet, and the surat jalan stays readable underneath.
+
+<Shot name="print-trial" alt="A surat jalan in the print window with VERSI PERCOBAAN written lightly across the middle of the sheet" max={560} />
+
+With the **Simple (dot-matrix)** template, the mark is a `*** VERSI PERCOBAAN ***` line at the top and bottom of the sheet.
+
+<Shot name="print-trial-simple" alt="A surat jalan in the Simple template with a VERSI PERCOBAAN line at the top and bottom of the sheet" max={560} />
+
+On a sheet printed in English, it reads **TRIAL VERSION**. Once the license is installed, the next prints carry no mark. csv and xlsx exports are never marked.
+
+## When the trial has ended
+
+After 7 days without a license, GasDist becomes **read only**. The top bar shows **Trial ended** in red. Nothing is deleted: everything already recorded stays safe and can still be opened.
+
+| Still works | Not until a license is added |
+|---|---|
+| Viewing all data, reports and the audit trail | Creating, posting, correcting or cancelling surat jalan, and marking them delivered |
+| Printing (with the VERSI PERCOBAAN mark) and exporting to xlsx or csv | Receiving stock and stock counts |
+| Making backups, copying them, and restoring from a backup | Adding or changing customers, products, vehicles and drivers, and importing customers |
+| Updating GasDist and Delete all data | Returns and counting a customer's tabung |
+| Signing in, changing your own password, resetting a staff password, changing the backup password | Changing the company details, the logo and other settings |
+| **Add license…** | |
+
+What cannot be done is refused with **The trial has ended. Your data can still be viewed, printed and backed up; add a license to record again.** Once the license is added, everything works again straight away, with no reinstall.
+
+## Adding the license
+
+The license file comes from your GasDist seller, for example on a USB stick or by chat. Its name looks like `GasDist-license-0005-PT-Sumber-Gas-Sejahtera.gaslicense`. Copy the file to the PC, then:
+
+<Steps>
+
+1. Sign in as the Owner. Open **Settings**, scroll to the **About** box and click **Add license…**. Clicking the **Trial** label in the top bar gets you there too.
+
+2. Click **Choose license file…** and pick the `.gaslicense` file in the file picker.
+
+3. GasDist checks that the file really comes from the GasDist seller and has not been changed. If it passes, GasDist shows the **company name and NPWP** it will use <span class="pin">1</span>: the current ones on the left, the license's on the right. Nothing has changed yet.
+
+   <Shot name="license-dialog" alt="The GasDist license window: the company name and NPWP now and from the license, the Your password field and the Install license button" />
+
+4. Check that the name and NPWP really are your company's. Enter **Your password** <span class="pin">2</span>, the password you sign in to GasDist with, then click **Install license** <span class="pin">3</span>.
+
+</Steps>
+
+The license takes effect at once: the **Trial** label leaves the top bar, and the next prints carry no VERSI PERCOBAAN mark. The [audit trail](/gasdist-site/en/panduan/laporan/jejak-audit/) records it as **License installed**, with the name and NPWP before and after.
+
+<Aside type="tip" title="More than one PC, or moving to a new one?">
+Install the same license file on every PC of your company, the same way; there is no need for a file per PC. The license is not part of a backup, so after [restoring a backup](/gasdist-site/en/panduan/backup/memulihkan/) on a new PC, add the license file there too. Keep a copy of the license file on a USB stick, with your backups.
+</Aside>
+
+### When the file is refused
+
+| Message | What it means |
+|---|---|
+| This is not a whole GasDist license file. | The file picked is not a license file, or it was damaged while copying. Copy it again from where it came from. |
+| This license file is not genuine or has been changed. | The file does not match the GasDist seller's signature. Ask the seller for a new file. |
+| This license file is not for GasDist. | The file is for another application. |
+| Wrong password. Enter your own password for signing in to GasDist. | The password typed is not your sign-in password. It is not the backup password. |
+
+When a file is refused, nothing changes.
+
+## Once the license is installed
+
+The **About** box now reads **Licensed to** <span class="pin">1</span>, followed by the company name <span class="pin">2</span>, the NPWP, and the license number and issue date <span class="pin">3</span>. The Owner sees a **Replace license…** button <span class="pin">4</span> for installing a replacement file from the seller.
+
+<Shot name="settings-about-licensed" alt="The About box: Licensed to PT Sumber Gas Sejahtera, the NPWP, No. 0005 issued 13/10/2026, and the Replace license button" />
+
+### The company name and NPWP are locked
+
+While a license is installed, **Company name** <span class="pin">1</span> and **NPWP** <span class="pin">2</span> in **Settings › Company** follow the license and cannot be changed. Under them it says **From the license. To change it, contact your GasDist seller.** <span class="pin">3</span> The address, phone, logo and every other setting can still be changed as usual.
+
+<Shot name="settings-company-locked" alt="The Company section in Settings: Company name and NPWP locked with the note From the license, the address and phone still editable" />
+
+That name and NPWP are what every surat jalan prints in its heading, so only the GasDist seller can change them. If your company name or NPWP changes, contact your GasDist seller. You receive a replacement license file; install it with **Replace license…** as above, and the window shows what changes before you confirm.
+
+The license stays on the PC after Delete all data and after restoring a backup. After Delete all data, the first-run setup screen comes filled in with the license's name and NPWP, both locked.
+
+## A license problem
+
+If a licensed PC can no longer read its license file (for example the file was deleted, quarantined by antivirus or damaged), the top bar shows **License problem · contact the seller**. GasDist **keeps working fully**, and the name and NPWP stay locked. Install your license file again with **Replace license…**, for example from the copy on your USB stick. Without a copy, contact your GasDist seller.
