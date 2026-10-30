@@ -9,7 +9,7 @@ import { Steps, Aside } from "@astrojs/starlight/components";
 import Shot from "../../../../components/Shot.astro";
 import Roles from "../../../../components/Roles.astro";
 
-Register surat jalan adalah buku nomor surat jalan: setiap surat jalan yang sudah mendapat nomor dalam satu periode, urut tanggal lalu nomor, termasuk yang dibatalkan. Pakai untuk memeriksa bahwa tidak ada nomor yang hilang, dan untuk mencentang lembar yang sudah kembali.
+Register surat jalan adalah buku nomor surat jalan: setiap surat jalan yang sudah mendapat nomor dalam satu periode, urut tanggal lalu nomor, termasuk yang dibatalkan. Pakai untuk mengecek tidak ada nomor yang bolong, dan untuk mencentang lembar yang sudah kembali.
 
 <Roles can={["OWNER", "ADMIN", "GUDANG", "PENJUALAN", "VIEWER"]} />
 
@@ -32,16 +32,16 @@ Register surat jalan adalah buku nomor surat jalan: setiap surat jalan yang suda
 | **Diposting** | ✅ | ✅ sebagai dikirim |
 | **Terkirim** | ✅, dengan nama penerima dan tanggal tanda tangan di **Keterangan** <span class="pin">4</span> | ✅ sebagai dikirim |
 | **Dibatalkan** <span class="pin">3</span> | ✅, dicoret, dengan alasan pembatalannya | ❌, dihitung terpisah: barangnya tidak jadi keluar |
-| **Draf** | ❌: draf belum punya nomor | ❌ |
+| **Draft** | ❌: draft belum punya nomor | ❌ |
 
 Surat jalan yang dibatalkan tetap tercantum supaya nomornya tidak hilang dari urutan. Nomor surat jalan tidak pernah dipakai dua kali dan tidak pernah dilewati.
 
-Klik satu baris untuk membuka surat jalannya. Tombol kembali di kiri atas membawa Anda ke register lagi.
+Klik satu baris untuk membuka surat jalannya. Klik tombol kembali di kiri atas untuk balik ke register.
 
 <Aside type="note">
-Layar menampilkan 1.000 baris pertama. Jumlah di atas tabel, ekspor, dan cetakan selalu memuat semua surat jalan dalam periode itu.
+Layar menampilkan 1.000 baris pertama. Jumlah di atas tabel, export, dan cetakan selalu memuat semua surat jalan dalam periode itu.
 </Aside>
 
-## Mengekspor dan mencetak
+## Meng-export dan mencetak
 
-**Ekspor xlsx**, **Ekspor csv**, dan **Cetak** <span class="pin">5</span> memuat semua baris, lalu jumlah per status dan jumlah yang dikirim di bagian akhir. Satu cetakan paling banyak 5.000 baris; untuk register yang lebih panjang, persempit tanggalnya. Lihat [Mencetak dan mengekspor laporan](/gasdist-site/panduan/laporan/mencetak-dan-mengekspor/).
+**Export Excel**, **Export CSV**, dan **Cetak** <span class="pin">5</span> memuat semua baris, lalu jumlah per status dan jumlah yang dikirim di bagian akhir. Satu cetakan paling banyak 5.000 baris; untuk register yang lebih panjang, persempit tanggalnya. Lihat [Mencetak dan meng-export laporan](/gasdist-site/panduan/laporan/mencetak-dan-mengekspor/).

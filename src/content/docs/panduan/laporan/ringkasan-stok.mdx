@@ -27,12 +27,12 @@ Ringkasan stok menjumlahkan semua keluar-masuk stok dalam satu periode, untuk se
 
 ## Membaca ringkasan
 
-Setiap baris adalah satu produk. Setiap kolom di tengah adalah satu jenis pergerakan stok, misalnya **Surat jalan** <span class="pin">3</span>. Kolom yang selama periode itu kosong tidak ditampilkan.
+Setiap baris adalah satu produk. Setiap kolom di tengah adalah satu jenis stok masuk atau keluar, misalnya **Surat jalan** <span class="pin">3</span>. Kolom yang selama periode itu kosong tidak ditampilkan.
 
 | Kolom | Isinya |
 |---|---|
 | **Saldo awal** | Stok di awal periode, dalam kg, dan di bawahnya setara tabung penuh |
-| **Penerimaan** | Stok yang [diterima](/gasdist-site/panduan/stok/terima-stok/) dari SPBE atau pemasok |
+| **Penerimaan** | Stok yang [diterima](/gasdist-site/panduan/stok/terima-stok/) dari SPBE atau supplier |
 | **Retur** | Tabung isi yang dikembalikan pelanggan lewat [retur](/gasdist-site/panduan/surat-jalan/retur/) |
 | **Pembatalan SJ** | Stok yang kembali karena surat jalan [dibatalkan](/gasdist-site/panduan/surat-jalan/membatalkan/), pada tanggal pembatalannya |
 | **Pembatalan retur** | Stok yang keluar lagi karena retur [dibatalkan](/gasdist-site/panduan/surat-jalan/retur/#membatalkan-retur), pada tanggal pembatalannya |
@@ -49,10 +49,10 @@ Untuk setiap produk, **Total masuk**, **Total keluar**, dan **Saldo akhir** sama
 
 ## Periode paling lama satu tahun
 
-Satu laporan mencakup paling lama 366 hari. Bila tanggalnya lebih jauh, muncul pesan **Paling lama 366 hari (satu tahun).** dan laporan tidak dimuat. Untuk beberapa tahun, buka atau ekspor laporannya per tahun.
+Satu laporan mencakup paling lama 366 hari. Kalau tanggalnya lebih jauh, muncul pesan **Paling lama 366 hari (satu tahun).** dan laporan tidak dimuat. Untuk beberapa tahun, buka atau export laporannya per tahun.
 
 Batas ini menjaga laporan tetap cepat walaupun riwayatnya sudah bertahun-tahun.
 
-## Mengekspor dan mencetak
+## Meng-export dan mencetak
 
-Tombol **Ekspor xlsx**, **Ekspor csv**, dan **Cetak** <span class="pin">5</span> ada di sebelah tanggal. Berkas ekspor selalu memuat semua kolom jenis pergerakan, juga yang kosong, supaya kolomnya sama setiap bulan. Lihat [Mencetak dan mengekspor laporan](/gasdist-site/panduan/laporan/mencetak-dan-mengekspor/).
+Tombol **Export Excel**, **Export CSV**, dan **Cetak** <span class="pin">5</span> ada di sebelah tanggal. File export selalu memuat semua kolom jenis stok masuk dan keluar, juga yang kosong, supaya kolomnya sama setiap bulan. Lihat [Mencetak dan meng-export laporan](/gasdist-site/panduan/laporan/mencetak-dan-mengekspor/).

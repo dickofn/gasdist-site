@@ -1,6 +1,6 @@
 ---
 title: Kartu stok
-description: Lihat setiap keluar-masuk stok satu produk beserta saldonya, lalu ekspor ke Excel atau CSV.
+description: Lihat setiap keluar-masuk stok satu produk beserta saldonya, lalu export ke Excel atau CSV.
 sidebar:
   order: 4
 ---
@@ -20,7 +20,7 @@ Ada dua jalan:
 | Dari | Caranya |
 |---|---|
 | Halaman **Beranda** | Klik **Kartu stok** di kartu produk yang ingin dilihat. Tekan **Kembali** untuk kembali ke halaman Beranda. |
-| Menu **Laporan** | Ketik atau pilih produk di kolom **Produk**. Cocok bila Anda ingin berpindah dari satu produk ke produk lain. |
+| Menu **Laporan** | Ketik atau pilih produk di kolom **Produk**. Cocok kalau Anda ingin berpindah dari satu produk ke produk lain. |
 
 ### Dari halaman Beranda
 
@@ -30,7 +30,7 @@ Ada dua jalan:
 
    <Shot name="home-stock-card" alt="Kartu produk LPG 5,5 kg dengan tombol Kartu stok" marks={[null, null, 3]} />
 
-2. Kartu stok produk itu terbuka, mulai tanggal 1 bulan ini sampai hari ini. Ubah **Dari tanggal** dan **Sampai tanggal** <span class="pin">1</span> untuk melihat periode lain ([Mengisi tanggal](/gasdist-site/panduan/mulai/tanggal/)). Ringkasannya dimulai dari **Saldo awal** <span class="pin">3</span>, dan tombol ekspor <span class="pin">2</span> ada di sebelah tanggal.
+2. Kartu stok produk itu terbuka, mulai tanggal 1 bulan ini sampai hari ini. Ubah **Dari tanggal** dan **Sampai tanggal** <span class="pin">1</span> untuk melihat periode lain ([Mengisi tanggal](/gasdist-site/panduan/mulai/tanggal/)). Ringkasannya dimulai dari **Saldo awal** <span class="pin">3</span>, dan tombol export <span class="pin">2</span> ada di sebelah tanggal.
 
    <Shot name="stock-card" alt="Kartu stok LPG 3 kg periode 1 sampai 13 Oktober 2026 dengan saldo awal 4.620 kg" />
 
@@ -38,9 +38,9 @@ Ada dua jalan:
 
 ### Dari menu Laporan
 
-Buka **Laporan** di menu samping; tab **Kartu stok** terbuka lebih dulu. Di **Produk** <span class="pin">1</span>, ketik sebagian nama atau kode produk lalu pilih, lalu atur **Dari tanggal** dan **Sampai tanggal** <span class="pin">2</span>. Produk yang sudah nonaktif tetap ada di daftar, dengan tanda **(Nonaktif)**. Tombol ekspor <span class="pin">3</span> sama seperti di halaman Beranda.
+Buka **Laporan** di menu samping; tab **Kartu stok** terbuka lebih dulu. Di **Produk** <span class="pin">1</span>, ketik sebagian nama atau kode produk lalu pilih, lalu atur **Dari tanggal** dan **Sampai tanggal** <span class="pin">2</span>. Produk yang sudah nonaktif tetap ada di daftar, dengan tanda **(Nonaktif)**. Tombol export <span class="pin">3</span> sama seperti di halaman Beranda.
 
-Bila **Sampai tanggal** adalah hari ini, **Saldo akhir** <span class="pin">4</span> sama dengan angka di kartu produk di halaman Beranda. Pada gambar, keduanya 77 kg.
+Kalau **Sampai tanggal** diisi hari ini, **Saldo akhir** <span class="pin">4</span> sama dengan angka di kartu produk di halaman Beranda. Pada gambar, keduanya 77 kg.
 
 <Shot name="reports-stock-card" alt="Halaman Laporan menampilkan kartu stok LPG 5,5 kg dengan saldo akhir 77 kg" />
 
@@ -55,7 +55,7 @@ Di atas tabel ada empat angka ringkasan:
 | **Keluar** | Jumlah semua stok keluar dalam periode |
 | **Saldo akhir** | Stok pada akhir periode. Saldo awal + Masuk − Keluar. |
 
-Setiap baris tabel adalah satu pergerakan stok. Kolom **Saldo** adalah sisa stok setelah baris itu, jadi Anda bisa mengikuti naik-turunnya stok dari baris ke baris. Kolom **Oleh** menunjukkan siapa yang mencatatnya.
+Setiap baris tabel adalah satu kali stok masuk atau keluar. Kolom **Saldo** adalah sisa stok setelah baris itu, jadi Anda bisa mengikuti naik-turunnya stok dari baris ke baris. Kolom **Oleh** menunjukkan siapa yang mencatatnya.
 
 | Jenis | Dari mana | Efek pada stok |
 |---|---|---|
@@ -69,22 +69,22 @@ Setiap baris tabel adalah satu pergerakan stok. Kolom **Saldo** adalah sisa stok
 Baris di kartu stok tidak bisa diubah atau dihapus. Kesalahan selalu diperbaiki dengan baris baru (pembatalan atau penyesuaian), sehingga kartu stok menunjukkan riwayat yang lengkap dan jujur.
 </Aside>
 
-## Mengekspor kartu stok
+## Meng-export kartu stok
 
 <Steps>
 
-1. Atur produk dan periodenya dulu. Yang diekspor adalah persis yang tampil di layar.
+1. Atur produk dan periodenya dulu. Yang di-export persis yang tampil di layar.
 
-2. Klik **Ekspor Excel** <span class="pin">2</span> untuk berkas `.xlsx`, atau **Ekspor CSV** untuk berkas `.csv`.
+2. Klik **Export Excel** <span class="pin">2</span> untuk file `.xlsx`, atau **Export CSV** untuk file `.csv`.
 
-   <Shot name="stock-card" alt="Tombol Ekspor Excel dan Ekspor CSV di kartu stok" marks={[null, 2, null]} />
+   <Shot name="stock-card" alt="Tombol Export Excel dan Export CSV di kartu stok" marks={[null, 2, null]} />
 
-3. Jendela simpan berkas dari komputer Anda muncul, dengan nama berkas yang sudah terisi, misalnya `kartu-stok-LPG-3-2026-10-01-2026-10-13.xlsx`. Pilih folder lalu simpan.
+3. Jendela simpan file dari PC Anda muncul, dengan nama file yang sudah terisi, misalnya `kartu-stok-LPG-3-2026-10-01-2026-10-13.xlsx`. Pilih folder lalu simpan.
 
-4. Muncul pesan **Kartu stok disimpan ke** diikuti lokasi berkasnya.
+4. Muncul pesan **Kartu stok disimpan ke** diikuti lokasi file-nya.
 
 </Steps>
 
 <Aside type="tip">
-Pilih **Ekspor Excel** bila berkasnya akan dibuka dan dirapikan di Excel: berkas `.xlsx` terbuka dengan benar di PC mana pun. Pilih **Ekspor CSV** bila akan dimasukkan ke program lain; pemisah kolomnya mengikuti [Pemisah CSV](/gasdist-site/panduan/pengaturan/stok-dan-keamanan/#pemisah-csv).
+Pilih **Export Excel** kalau file-nya akan dibuka dan dirapikan di Excel: file `.xlsx` terbuka dengan benar di PC mana pun. Pilih **Export CSV** kalau akan dimasukkan ke program lain; pemisah kolomnya mengikuti [Pemisah CSV](/gasdist-site/panduan/pengaturan/stok-dan-keamanan/#pemisah-csv).
 </Aside>

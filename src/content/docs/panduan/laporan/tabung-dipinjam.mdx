@@ -17,7 +17,7 @@ Tabung adalah milik agen. Setiap surat jalan mengirim tabung isi ke pelanggan, d
 
 Buka **Laporan**, tab **Tabung dipinjam** <span class="pin">1</span>. Laporan ini tidak punya rentang tanggal: isinya saldo saat ini dari semua yang tercatat. Saring dengan **Pelanggan** <span class="pin">2</span>, produk, atau **Hanya yang masih dipinjam**.
 
-<Shot name="reports-loans" alt="Laporan Tabung dipinjam untuk satu pangkalan, per produk, dengan tombol Hitung tabung dan ekspor" />
+<Shot name="reports-loans" alt="Laporan Tabung dipinjam untuk satu pangkalan, per produk, dengan tombol Hitung tabung dan export" />
 
 | Kolom | Isinya |
 |---|---|
@@ -30,15 +30,15 @@ Buka **Laporan**, tab **Tabung dipinjam** <span class="pin">1</span>. Laporan in
 
 Di atas tabel tampil total tabung yang dipinjam per produk. Angka **Dipinjam** yang minus berwarna merah: lebih banyak yang kembali daripada yang tercatat dikirim, biasanya tabung dari kiriman sebelum pencatatan dimulai. Hitung tabung pelanggan itu.
 
-Ekspor ke Excel atau CSV <span class="pin">5</span> mengambil semua baris. Untuk mencetak, lihat [Mencetak dan mengekspor laporan](/gasdist-site/panduan/laporan/mencetak-dan-mengekspor/). Satu cetakan memuat paling banyak 5.000 baris; dengan ribuan pelanggan, pilih satu produk atau centang **Hanya yang masih dipinjam** sebelum mencetak.
+Export ke Excel atau CSV <span class="pin">5</span> mengambil semua baris. Untuk mencetak, lihat [Mencetak dan meng-export laporan](/gasdist-site/panduan/laporan/mencetak-dan-mengekspor/). Satu cetakan memuat paling banyak 5.000 baris; dengan ribuan pelanggan, pilih satu produk atau centang **Hanya yang masih dipinjam** sebelum mencetak.
 
 Rincian [pelanggan](/gasdist-site/panduan/pelanggan/detail/) juga menunjukkan berapa tabung yang dipinjamnya per produk.
 
 ## Surat jalan dari sebelum versi 0.13.0
 
-Kolom tabung kosong baru ada sejak GasDist 0.13.0. Surat jalan yang diposting sebelumnya tidak masuk laporan ini, karena tabung kosongnya tidak pernah dicatat: kalau dihitung, setiap pelanggan seolah meminjam semua tabung yang pernah dikirim. Pada data yang sudah ada sebelum pembaruan, laporan menulis di atas tabel sejak tanggal berapa tabung dihitung.
+Kolom tabung kosong baru ada sejak GasDist 0.13.0. Surat jalan yang diposting sebelumnya tidak masuk laporan ini, karena tabung kosongnya tidak pernah dicatat: kalau dihitung, setiap pelanggan seolah meminjam semua tabung yang pernah dikirim. Kalau datanya sudah ada sebelum update, di atas tabel tertulis mulai tanggal berapa tabung dihitung.
 
-Jadi, setelah memperbarui ke 0.13.0, catat **hitungan awal** setiap pelanggan dengan [Hitung tabung](#hitung-tabung): berapa tabung yang ada di pelanggan hari itu. Sejak itu laporan mengikuti setiap surat jalan, retur, dan hitungan berikutnya.
+Jadi, setelah update ke 0.13.0, catat **hitungan awal** setiap pelanggan dengan [Hitung tabung](#hitung-tabung): berapa tabung yang ada di pelanggan hari itu. Sejak itu laporan mengikuti setiap surat jalan, retur, dan hitungan berikutnya.
 
 ## Hitung tabung
 
@@ -63,7 +63,7 @@ Hitung tabung mencatat berapa tabung milik agen yang benar-benar ada di pelangga
 </Steps>
 
 <Aside type="note">
-Hitungan yang sama dengan catatan tetap disimpan, dengan selisih 0, supaya tanggal hitungan terakhirnya tampil. Setiap hitungan tercatat di [jejak audit](/gasdist-site/panduan/laporan/jejak-audit/) dengan alasan dan siapa yang mencatatnya.
+Hitungan yang sama dengan catatan tetap disimpan, dengan selisih 0, supaya tanggal hitungan terakhirnya tampil. Setiap hitungan tercatat di [riwayat perubahan](/gasdist-site/panduan/laporan/jejak-audit/) dengan alasan dan siapa yang mencatatnya.
 </Aside>
 
 ## Tabung di gudang
