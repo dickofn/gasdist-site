@@ -1,6 +1,6 @@
 ---
-title: Reset kata sandi dan kode pemulihan
-description: Beri kata sandi sementara kepada karyawan yang lupa kata sandinya, dan buat kode pemulihan Owner yang baru bila perlu.
+title: Reset password dan kode pemulihan
+description: Beri password sementara kepada karyawan yang lupa password-nya, dan buat kode pemulihan Owner yang baru kalau perlu.
 sidebar:
   order: 2
 ---
@@ -9,44 +9,44 @@ import { Steps, Aside } from "@astrojs/starlight/components";
 import Shot from "../../../../components/Shot.astro";
 import Roles from "../../../../components/Roles.astro";
 
-Karyawan lupa kata sandi atau akunnya terkunci? Atur ulang kata sandinya dari halaman **Pengguna**. Ia mendapat kata sandi sementara dan wajib membuat kata sandi baru saat masuk.
+Karyawan lupa password atau akunnya terkunci? Reset password-nya dari halaman **User**. Ia mendapat password sementara dan wajib membuat password baru saat login.
 
 <Roles can={["OWNER", "ADMIN"]} />
 
-## Mengatur ulang kata sandi karyawan
+## Me-reset password karyawan
 
 <Steps>
 
-1. Buka **Pengguna** di menu samping, lalu klik **Atur ulang kata sandi** <span class="pin">1</span> di baris orang itu.
+1. Buka **User** di menu samping, lalu klik **Reset password** <span class="pin">1</span> di baris orang itu.
 
-   <Shot name="users-list" alt="Halaman Pengguna dengan tombol Atur ulang kata sandi di setiap baris" marks={[null, null, 1]} />
+   <Shot name="users-list" alt="Halaman User dengan tombol Reset password di setiap baris" marks={[null, null, 1]} />
 
-2. Jendela **Atur ulang kata sandi** menyebut username dan nama lengkap orang itu. Isi **Kata sandi sementara** <span class="pin">1</span>, minimal 8 karakter, dan ketik sekali lagi di **Ulangi kata sandi**.
+2. Jendela **Reset password** menyebut username dan nama lengkap orang itu. Isi **Password sementara** <span class="pin">1</span>, minimal 8 karakter, dan ketik sekali lagi di **Ulangi password**.
 
-   <Shot name="users-reset" alt="Jendela Atur ulang kata sandi bambang dengan kata sandi sementara terisi" />
+   <Shot name="users-reset" alt="Jendela Reset password bambang dengan password sementara terisi" />
 
-3. Klik **Simpan**. Baris orang itu kini bertanda **Wajib ganti kata sandi**.
+3. Klik **Simpan**. Baris orang itu kini bertanda **Wajib ganti password**.
 
-4. Berikan kata sandi sementara itu kepada orangnya. Saat masuk berikutnya, GasDist langsung memintanya membuat kata sandi baru. Caranya dijelaskan di [Masuk, kunci layar, dan kata sandi](/gasdist-site/panduan/mulai/masuk-dan-kunci/).
+4. Kasih password sementara itu ke orangnya. Saat login berikutnya, GasDist langsung memintanya membuat password baru. Caranya dijelaskan di [Login, kunci layar, dan password](/gasdist-site/panduan/mulai/masuk-dan-kunci/).
 
 </Steps>
 
-Mengatur ulang kata sandi juga membuka akun yang **Terkunci** karena salah kata sandi 5 kali, jadi orang itu tidak perlu menunggu 5 menit.
+Begitu password di-reset, akun yang **Terkunci** karena salah password 5 kali juga langsung terbuka, jadi orang itu tidak perlu menunggu 5 menit.
 
 | Situasi | Yang dilakukan |
 |---|---|
-| Karyawan (Gudang, Penjualan, Pemantau) lupa kata sandi | Owner atau Admin mengatur ulang kata sandinya, seperti di atas |
-| Admin lupa kata sandi | Owner mengatur ulang kata sandinya |
-| Anda ingin mengganti kata sandi sendiri | Pakai **Ganti kata sandi** di bagian atas layar. Tombol **Atur ulang kata sandi** tidak muncul di baris akun Anda sendiri |
-| Owner lupa kata sandi | Owner lain bisa mengatur ulang kata sandinya. Bila tidak ada, pakai kode pemulihan di layar masuk (lihat [Masuk, kunci layar, dan kata sandi](/gasdist-site/panduan/mulai/masuk-dan-kunci/)) |
+| Karyawan (Gudang, Penjualan, Viewer) lupa password | Owner atau Admin me-reset password-nya, seperti di atas |
+| Admin lupa password | Owner me-reset password-nya |
+| Anda ingin mengganti password sendiri | Pakai **Ganti password** di bagian atas layar. Tombol **Reset password** tidak muncul di baris akun Anda sendiri |
+| Owner lupa password | Owner lain bisa me-reset password-nya. Kalau tidak ada, pakai kode pemulihan di layar login (lihat [Login, kunci layar, dan password](/gasdist-site/panduan/mulai/masuk-dan-kunci/)) |
 
 ## Membuat kode pemulihan baru
 
 <Roles can={["OWNER"]} />
 
-Kode pemulihan dipakai untuk mengatur ulang kata sandi Owner yang terlupa. Kode itu ditampilkan sekali saat GasDist pertama kali disiapkan. Di bawah tabel pengguna, Owner melihat kotak **Kode pemulihan Owner** dengan tombol **Buat kode baru**.
+Kode pemulihan dipakai untuk me-reset password Owner yang lupa. Kode itu ditampilkan sekali saat GasDist pertama kali di-setup. Di bawah tabel user, Owner melihat kotak **Kode pemulihan Owner** dengan tombol **Buat kode baru**.
 
-Buat kode baru bila:
+Buat kode baru kalau:
 
 - kertas berisi kode pemulihan hilang, atau
 - kode itu mungkin sudah diketahui orang lain.
@@ -55,9 +55,9 @@ Buat kode baru bila:
 
 1. Klik **Buat kode baru** di kotak **Kode pemulihan Owner**.
 
-2. Isi **Kata sandi** dengan kata sandi Anda sendiri, lalu klik **Buat kode baru**.
+2. Isi **Password** dengan password Anda sendiri, lalu klik **Buat kode baru**.
 
-   <Shot name="users-recovery-new" alt="Jendela Buat kode baru yang meminta kata sandi Owner" />
+   <Shot name="users-recovery-new" alt="Jendela Buat kode baru yang meminta password Owner" />
 
 3. Kode baru tampil di kotak berwarna. Tulis kode itu di kertas, persis seperti yang tampil.
 
@@ -66,7 +66,7 @@ Buat kode baru bila:
 </Steps>
 
 <Aside type="caution" title="Kode lama langsung tidak berlaku">
-Begitu kode baru dibuat, kode yang lama tidak bisa dipakai lagi. Kode baru hanya ditampilkan sekali dan GasDist tidak bisa menampilkannya lagi. Simpan kertasnya di tempat yang aman, terpisah dari komputer.
+Begitu kode baru dibuat, kode yang lama tidak bisa dipakai lagi. Kode baru hanya ditampilkan sekali dan GasDist tidak bisa menampilkannya lagi. Simpan kertasnya di tempat yang aman, terpisah dari PC.
 </Aside>
 
-Setelah kode pemulihan dipakai di layar masuk, GasDist otomatis memberi kode baru. Catat juga kode yang baru itu.
+Setelah kode pemulihan dipakai di layar login, GasDist otomatis memberi kode baru. Catat juga kode yang baru itu.

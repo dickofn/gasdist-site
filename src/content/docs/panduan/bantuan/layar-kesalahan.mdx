@@ -8,134 +8,134 @@ sidebar:
 import { Steps, Aside } from "@astrojs/starlight/components";
 import Roles from "../../../../components/Roles.astro";
 
-Saat sesuatu tidak bisa dikerjakan, GasDist menampilkan pesan berwarna merah di dekat tombol yang Anda klik, atau langsung di bawah kolom yang perlu diperbaiki. Halaman ini mengumpulkan pesan yang paling mungkin Anda temui, dikelompokkan menurut tempat munculnya. Kata yang dicetak miring di kolom pesan diganti dengan nama atau angka yang sebenarnya.
+Saat sesuatu tidak bisa dikerjakan, GasDist menampilkan pesan berwarna merah di dekat tombol yang Anda klik, atau langsung di bawah kolom yang perlu diperbaiki. Di halaman ini ada pesan yang paling sering muncul, dikelompokkan menurut tempat munculnya. Kata yang dicetak miring di kolom pesan diganti dengan nama atau angka yang sebenarnya.
 
 <Roles can={["OWNER", "ADMIN", "GUDANG", "PENJUALAN", "VIEWER"]} />
 
-## Masuk dan akun
+## Login dan akun
 
 | Pesan | Artinya | Yang dilakukan |
 |---|---|---|
-| Username atau kata sandi salah. | Salah satu dari keduanya tidak cocok. | Periksa ejaan dan <kbd>Caps Lock</kbd>, lalu coba lagi. Setelah 5 kali salah, akun dikunci sementara. |
-| Terlalu banyak percobaan yang gagal. Akun dikunci; coba lagi dalam *n* menit. | Kata sandi salah 5 kali berturut-turut. | Tunggu sampai waktunya habis, atau minta Admin atau Owner mengatur ulang kata sandi Anda. Lihat [Masuk, kunci layar, dan kata sandi](/gasdist-site/panduan/mulai/masuk-dan-kunci/). |
+| Username atau password salah. | Salah satu dari keduanya tidak cocok. | Periksa ejaan dan <kbd>Caps Lock</kbd>, lalu coba lagi. Setelah 5 kali salah, akun dikunci sementara. |
+| Terlalu sering salah password. Akun dikunci, coba lagi *n* menit lagi. | Password salah 5 kali berturut-turut. | Tunggu sampai waktunya habis, atau minta Admin atau Owner me-reset password Anda. Lihat [Login, kunci layar, dan password](/gasdist-site/panduan/mulai/masuk-dan-kunci/). |
 | Akun ini sudah dinonaktifkan. Hubungi Admin. | Akun Anda dimatikan. | Hubungi Admin atau Owner. |
-| Kata sandi salah. | Kata sandi yang diketik di layar terkunci atau saat membatalkan surat jalan tidak cocok. | Ketik ulang. Kesalahan ini ikut dihitung untuk penguncian akun. |
-| Sesi Anda sudah berakhir. Silakan masuk lagi. | Sesi Anda ditutup, misalnya karena akun terkunci atau dinonaktifkan. | Masuk lagi. |
-| Layar terkunci. Masukkan kata sandi untuk melanjutkan. | Layar terkunci otomatis atau lewat tombol **Kunci**. | Buka kunci di jendela utama GasDist dengan kata sandi Anda. |
+| Password salah. | Password yang diketik di layar terkunci atau saat membatalkan surat jalan tidak cocok. | Ketik ulang. Kesalahan ini ikut dihitung untuk penguncian akun. |
+| Sesi login sudah habis. Login lagi. | Sesi Anda ditutup, misalnya karena akun terkunci atau dinonaktifkan. | Login lagi. |
+| Layar terkunci. Masukkan password untuk melanjutkan. | Layar terkunci otomatis atau lewat tombol **Kunci**. | Buka kunci di jendela utama GasDist dengan password Anda. |
 | Kode pemulihan salah atau sudah dipakai. | Kode tidak cocok, atau kode itu sudah pernah dipakai dan diganti kode baru. | Periksa kode di kertas Anda. Pastikan itu kode terbaru. |
-| Kata sandi minimal 8 karakter. | Kata sandi baru terlalu pendek. | Pakai kata sandi yang lebih panjang. |
-| Kata sandi baru harus berbeda dari yang sekarang. | Kata sandi baru sama dengan yang lama. | Pilih kata sandi lain. |
-| Kata sandi tidak sama. | Isi **Ulangi kata sandi** berbeda dari kata sandi baru. | Ketik ulang keduanya dengan teliti. |
-| Anda tidak punya izin untuk tindakan ini. | Peran Anda tidak boleh melakukan ini, misalnya karena peran Anda baru diubah. | Minta orang dengan peran yang sesuai. Lihat [Peran pengguna](/gasdist-site/panduan/mulai/peran/). |
+| Password minimal 8 karakter. | Password baru terlalu pendek. | Pakai password yang lebih panjang. |
+| Password baru harus berbeda dari yang sekarang. | Password baru sama dengan yang lama. | Pilih password lain. |
+| Password tidak sama. | Isi **Ulangi password** berbeda dari password baru. | Ketik ulang keduanya dengan teliti. |
+| Anda tidak punya akses untuk langkah ini. | Role Anda tidak boleh melakukan ini, misalnya karena role Anda baru diubah. | Minta orang dengan role yang sesuai. Lihat [Role user](/gasdist-site/panduan/mulai/peran/). |
 
-### Saat mengelola pengguna
+### Saat mengelola user
 
 | Pesan | Artinya | Yang dilakukan |
 |---|---|---|
 | Username *nama* sudah dipakai. | Ada akun lain dengan username itu. | Pilih username lain. |
-| Harus selalu ada minimal satu Owner yang aktif. | Anda mencoba menonaktifkan atau mengubah peran Owner terakhir. | Jadikan pengguna lain Owner lebih dulu. |
-| Anda tidak bisa mengubah peran, menonaktifkan, atau mengatur ulang kata sandi akun Anda sendiri dari sini. | Perubahan pada akun sendiri harus dilakukan orang lain. | Minta Admin atau Owner lain. Kata sandi sendiri diganti lewat **Ganti kata sandi** di baris atas. |
+| Harus selalu ada minimal satu Owner yang aktif. | Anda mencoba menonaktifkan atau mengubah role Owner terakhir. | Jadikan user lain Owner lebih dulu. |
+| Anda tidak bisa mengubah role, menonaktifkan, atau me-reset password akun Anda sendiri dari sini. | Akun sendiri hanya bisa diubah orang lain. | Minta Admin atau Owner lain. Password sendiri diganti lewat **Ganti password** di baris atas. |
 
 ## Stok dan surat jalan
 
 | Pesan | Artinya | Yang dilakukan |
 |---|---|---|
-| Stok tidak cukup di baris bertanda Minus. Posting dikunci: ... | Jumlah tabung di baris merah melebihi stok yang ada. | Kurangi jumlahnya atau hapus barisnya. Lihat [Membuat surat jalan](/gasdist-site/panduan/surat-jalan/membuat/). |
+| Stok tidak cukup di baris bertanda Minus, jadi belum bisa diposting. ... | Jumlah tabung di baris merah melebihi stok yang ada. | Kurangi jumlahnya atau hapus barisnya. Lihat [Membuat surat jalan](/gasdist-site/panduan/surat-jalan/membuat/). |
 | Stok *produk* tidak cukup. | Saat diposting, stok produk itu ternyata sudah tidak cukup. | Periksa stok di halaman **Beranda**, lalu kurangi jumlahnya. |
 | Nomor *nomor* sudah dipakai surat jalan lain. Ubah format nomor di Pengaturan, lalu posting lagi. | Format nomor menghasilkan nomor yang sudah ada, biasanya setelah format diubah. | Minta Owner memeriksa [format nomor](/gasdist-site/panduan/pengaturan/format-nomor/), lalu posting lagi. |
-| Tindakan ini tidak bisa dilakukan pada status dokumen sekarang. | Misalnya mencoba membatalkan surat jalan yang sudah dibatalkan. | Kembali ke daftar dan periksa status surat jalannya. |
+| Langkah ini tidak bisa untuk dokumen dengan status sekarang. | Misalnya mencoba membatalkan surat jalan yang sudah dibatalkan. | Kembali ke daftar dan periksa status surat jalannya. |
 | Jumlah fisik sama dengan stok tercatat, jadi tidak ada yang disesuaikan. | Hasil hitung stok opname sama dengan catatan. | Tidak perlu apa-apa: stok sudah cocok. |
 | *nama* sudah nonaktif. | Pelanggan, produk, kendaraan, atau sopir yang dipilih sudah dinonaktifkan. | Pilih yang lain, atau minta Admin mengaktifkannya lagi di [Master Data](/gasdist-site/panduan/data-master/kendaraan-dan-sopir/) atau [Pelanggan](/gasdist-site/panduan/pelanggan/menambah/). |
 | *kolom* *isi* sudah dipakai. | Kode atau nomor yang sama sudah ada, misalnya kode pelanggan. | Pakai kode lain. |
 | Tanggal tidak boleh setelah hari ini. | Tanggal yang diisi masih di masa depan. | Isi tanggal hari ini atau sebelumnya. |
-| Data tidak ditemukan. | Data yang dibuka sudah tidak ada, misalnya draf yang sudah dihapus. | Kembali ke daftar dan buka lagi. |
+| Data tidak ditemukan. | Data yang dibuka sudah tidak ada, misalnya draft yang sudah dihapus. | Kembali ke daftar dan buka lagi. |
 
 ### Scan lembar kembali
 
 | Pesan | Artinya | Yang dilakukan |
 |---|---|---|
-| Scan harus berupa foto JPG atau PNG, atau berkas PDF. ... | File yang dipilih saat [menandai terkirim](/gasdist-site/panduan/surat-jalan/menandai-terkirim/) bukan foto JPG/PNG atau PDF, misalnya foto iPhone (HEIC). | Simpan fotonya sebagai JPG, lalu pilih lagi. |
-| Berkas scan terlalu besar: ... | PDF lebih dari 1 MB, atau file apa pun lebih dari 20 MB. | Scan ulang dengan resolusi lebih rendah, atau foto lembarnya dengan ponsel. |
-| Berkas scan ini tidak ada di komputer ini. ... | Data dipulihkan dari backup tanpa folder `scans` di sebelahnya. | Salin folder `scans` dari folder backup. Lihat [Memulihkan dari backup](/gasdist-site/panduan/backup/memulihkan/). |
-| Berkas scan ini rusak atau telah diubah, ... | File scan di PC ini rusak. | Salin lagi folder `scans` dari backup. |
+| Scan harus berupa foto JPG atau PNG, atau file PDF. ... | File yang dipilih saat [menandai terkirim](/gasdist-site/panduan/surat-jalan/menandai-terkirim/) bukan foto JPG/PNG atau PDF, misalnya foto iPhone (HEIC). | Simpan fotonya sebagai JPG, lalu pilih lagi. |
+| File scan terlalu besar: ... | PDF lebih dari 1 MB, atau file apa pun lebih dari 20 MB. | Scan ulang dengan resolusi lebih rendah, atau foto lembarnya dengan ponsel. |
+| File scan ini tidak ada di PC ini. ... | Data di-restore dari backup tanpa folder `scans` di sebelahnya. | Salin folder `scans` dari folder backup. Lihat [Restore dari backup](/gasdist-site/panduan/backup/memulihkan/). |
+| File scan ini rusak atau telah diubah, ... | File scan di PC ini rusak. | Salin lagi folder `scans` dari backup. |
 
 ### Saat mencetak
 
 | Pesan | Artinya | Yang dilakukan |
 |---|---|---|
-| Draf tidak bisa dicetak. Posting dulu agar mendapat nomor. | Draf hanya bisa dipratinjau. | Posting surat jalan, lalu cetak. Lihat [SALINAN dan DRAFT](/gasdist-site/panduan/cetak/salinan-dan-draf/). |
+| Draft tidak bisa dicetak. Posting dulu agar mendapat nomor. | Draft hanya bisa di-preview. | Posting surat jalan, lalu cetak. Lihat [SALINAN dan DRAFT](/gasdist-site/panduan/cetak/salinan-dan-draf/). |
 | Surat jalan yang dibatalkan tidak dicetak lagi. | Surat jalan batal tidak boleh beredar lagi. | Cetak surat jalan penggantinya. |
-| Anda bisa melihat surat jalan ini, tetapi tidak mencetaknya. | Peran Anda tidak boleh mencetak. | Minta Penjualan, Admin, atau Owner. |
-| Sesi terkunci atau sudah keluar. Buka kunci di jendela utama GasDist ... | Layar terkunci saat jendela cetak terbuka. | Buka kunci di jendela utama, lalu buka lagi jendela cetaknya. |
-| Cetakan ke-*n* sudah tercatat, tetapi dialog cetak tidak terbuka. ... | Cetakan sudah dihitung, tetapi dialog printer gagal muncul. | Klik **Cetak** lagi. Cetakan berikutnya bertanda SALINAN. Lihat [Mencetak surat jalan](/gasdist-site/panduan/cetak/mencetak/). |
+| Anda bisa melihat surat jalan ini, tapi tidak mencetaknya. | Role Anda tidak boleh mencetak. | Minta Penjualan, Admin, atau Owner. |
+| Sesi terkunci atau sudah logout. Buka kunci di jendela utama GasDist ... | Layar terkunci saat jendela cetak terbuka. | Buka kunci di jendela utama, lalu buka lagi jendela cetaknya. |
+| Cetakan ke-*n* sudah tercatat, tapi dialog cetak tidak terbuka. ... | Cetakan sudah dihitung, tapi dialog printer gagal muncul. | Klik **Cetak** lagi. Cetakan berikutnya bertanda SALINAN. Lihat [Mencetak surat jalan](/gasdist-site/panduan/cetak/mencetak/). |
 
-## Backup dan pemulihan
+## Backup dan restore
 
 | Pesan | Artinya | Yang dilakukan |
 |---|---|---|
-| Backup belum aktif: belum ada kata sandi backup. | Belum ada backup sama sekali, termasuk backup otomatis. | Owner mengatur [kata sandi backup](/gasdist-site/panduan/backup/kata-sandi-backup/) sekarang juga. |
-| Kata sandi backup belum diatur. Pemilik mengaturnya di Beranda atau Pengaturan. | Sama seperti di atas, muncul saat mencoba membuat backup. | Minta Owner mengatur kata sandi backup. |
+| Backup belum aktif: belum ada password backup. | Belum ada backup sama sekali, termasuk backup otomatis. | Owner mengatur [password backup](/gasdist-site/panduan/backup/kata-sandi-backup/) sekarang juga. |
+| Password backup belum diatur. Owner mengaturnya di Beranda atau Pengaturan. | Sama seperti di atas, muncul saat mencoba membuat backup. | Minta Owner mengatur password backup. |
 | Sudah *n* hari tanpa backup. | Backup terakhir sudah lama. Kartu backup menjadi oranye setelah 3 hari dan merah setelah 7 hari. | Klik **Backup sekarang**. Lihat [Membuat dan menyalin backup](/gasdist-site/panduan/backup/membuat-backup/). |
 | Backup tidak bisa dibuat. Tidak ada yang diubah. | Penulisan backup gagal, misalnya karena disk penuh. | Periksa ruang kosong di disk, lalu coba lagi. |
 | Folder backup kedua tidak ditemukan: *folder*. Backup tetap disimpan di folder utama. | Flashdisk atau folder kedua tidak tersambung. | Colokkan flashdisknya. Backup di folder utama tetap aman. |
-| Salinan ke *lokasi* tidak bisa ditulis. Backup tetap ada di folder backup. | Lokasi tujuan penuh, terkunci, atau terlepas. | Pilih lokasi lain dengan **Simpan salinan ke…**. |
-| File ini bukan backup GasDist, atau file backup rusak. | File yang dipilih salah atau rusak. | Pilih file backup lain. Lihat [Memulihkan dari backup](/gasdist-site/panduan/backup/memulihkan/). |
-| Kata sandi backup salah, atau file backup telah berubah. | Kata sandi tidak cocok dengan backup itu. | Ingat: backup lama tetap memakai kata sandi lamanya. Coba kata sandi backup yang berlaku saat backup itu dibuat. |
-| Backup ini dibuat oleh GasDist yang lebih baru. Perbarui aplikasi dulu, lalu pulihkan. | Versi GasDist di PC ini lebih lama dari yang membuat backup. | Pasang GasDist versi terbaru, lalu pulihkan lagi. |
-| Kata sandi Anda salah. | Kata sandi masuk Owner yang diminta sebelum pemulihan tidak cocok. | Ketik kata sandi masuk Anda (bukan kata sandi backup). |
+| Salinan ke *lokasi* tidak bisa ditulis. Backup tetap ada di folder backup. | Lokasi tujuan penuh, terkunci, atau terlepas. | Pilih lokasi lain dengan **Simpan salinan ke...**. |
+| File ini bukan backup GasDist, atau file backup rusak. | File yang dipilih salah atau rusak. | Pilih file backup lain. Lihat [Restore dari backup](/gasdist-site/panduan/backup/memulihkan/). |
+| Password backup salah, atau file backup telah berubah. | Password tidak cocok dengan backup itu. | Ingat: backup lama tetap memakai password lamanya. Coba password backup yang berlaku saat backup itu dibuat. |
+| Backup ini dibuat oleh GasDist yang lebih baru. Update aplikasi dulu, lalu restore. | Versi GasDist di PC ini lebih lama dari yang membuat backup. | Install GasDist versi terbaru, lalu restore lagi. |
+| Password Anda salah. | Password login Owner yang diminta sebelum restore tidak cocok. | Ketik password login Anda (bukan password backup). |
 
-## Saat memperbarui
+## Saat update
 
-Pesan di jendela **Perbarui GasDist**. Tidak ada yang berubah saat pesan ini muncul: versi yang terpasang tetap dipakai.
+Pesan di jendela **Update GasDist**. Tidak ada yang berubah saat pesan ini muncul: versi yang terinstall tetap dipakai.
 
 | Pesan | Artinya | Yang dilakukan |
 |---|---|---|
-| File ini bukan file pembaruan GasDist yang utuh … | File salah, rusak, atau terpotong saat disalin. | Salin ulang file pembaruannya. |
-| Tanda tangan file ini tidak cocok dengan penerbit GasDist … | File bukan dari penerbit GasDist, atau diubah. | Jangan dipakai. Minta file yang asli. |
-| File pembaruan ini untuk aplikasi lain … / untuk sistem lain … | File aplikasi atau sistem lain. | Pilih file GasDist untuk sistem PC ini. |
-| File ini berisi versi *x*, sedangkan versi terpasang *y*. … | Versi sama atau lebih lama. | GasDist sudah terbaru. |
-| GasDist ini tidak bisa diperbarui dari file. … | Dipasang dari paket `.deb`. | Pasang paket versi barunya. |
-| Versi baru tidak bisa dipasang (*detail*). … | Misalnya disk penuh. | Periksa ruang kosong di disk, lalu coba lagi. |
+| File ini bukan file update GasDist yang utuh ... | File salah, rusak, atau terpotong saat disalin. | Salin ulang file update-nya. |
+| Tanda tangan file ini tidak cocok dengan pembuat GasDist ... | File bukan dari pembuat GasDist, atau diubah. | Jangan dipakai. Minta file yang asli. |
+| File update ini untuk aplikasi lain ... / untuk sistem lain ... | File aplikasi atau sistem lain. | Pilih file GasDist untuk sistem PC ini. |
+| File ini berisi versi *x*, sedangkan versi terinstall *y*. ... | Versi sama atau lebih lama. | GasDist sudah terbaru. |
+| GasDist ini tidak bisa di-update dari file. ... | Di-install dari paket `.deb`. | Install paket versi barunya. |
+| Versi baru tidak bisa di-install (*detail*). ... | Misalnya disk penuh. | Periksa ruang kosong di disk, lalu coba lagi. |
 
-Penjelasan lengkap dan pesan lainnya ada di [Memperbarui GasDist](/gasdist-site/panduan/mulai/memperbarui/#bila-file-ditolak).
+Penjelasan lengkap dan pesan lainnya ada di [Update GasDist](/gasdist-site/panduan/mulai/memperbarui/#kalau-file-ditolak).
 
 ## Lisensi
 
 | Pesan | Artinya | Yang dilakukan |
 |---|---|---|
-| Masa percobaan sudah berakhir. Data tetap bisa dilihat, dicetak, dan di-backup; tambahkan lisensi untuk mencatat lagi. | Tujuh hari percobaan sudah lewat dan belum ada lisensi, jadi GasDist hanya baca. | Owner menambahkan file lisensi. Lihat [Lisensi dan masa percobaan](/gasdist-site/panduan/mulai/lisensi/). |
-| Nama perusahaan dan NPWP mengikuti lisensi. Hubungi penjual GasDist untuk mengubahnya. | Keduanya terkunci selama lisensi terpasang. | Hubungi penjual GasDist untuk file lisensi pengganti. |
-| File ini bukan file lisensi GasDist yang utuh. / File lisensi ini tidak asli atau sudah diubah. / File lisensi ini bukan untuk GasDist. | File yang dipilih di jendela **Lisensi GasDist** ditolak; tidak ada yang berubah. | Lihat [Bila file ditolak](/gasdist-site/panduan/mulai/lisensi/#bila-file-ditolak). |
+| Masa trial sudah berakhir. Data tetap bisa dilihat, dicetak, dan di-backup; tambahkan lisensi untuk mencatat lagi. | Tujuh hari trial sudah lewat dan belum ada lisensi, jadi data di GasDist hanya bisa dilihat. | Owner menambahkan file lisensi. Lihat [Lisensi dan masa trial](/gasdist-site/panduan/mulai/lisensi/). |
+| Nama perusahaan dan NPWP mengikuti lisensi. Hubungi penjual GasDist untuk mengubahnya. | Keduanya terkunci selama lisensi terinstall. | Hubungi penjual GasDist untuk file lisensi pengganti. |
+| File ini bukan file lisensi GasDist yang utuh. / File lisensi ini tidak asli atau sudah diubah. / File lisensi ini bukan untuk GasDist. | File yang dipilih di jendela **Lisensi GasDist** ditolak; tidak ada yang berubah. | Lihat [Kalau file ditolak](/gasdist-site/panduan/mulai/lisensi/#kalau-file-ditolak). |
 
 ## Saat GasDist dibuka
 
-Bila database tidak bisa dibuka, GasDist tidak menampilkan layar masuk, melainkan layar **GasDist tidak bisa dibuka** berisi pesan, kalimat **Hubungi pengelola aplikasi dan sebutkan kode di bawah.**, tautan **Detail teknis**, dan sebuah kode seperti `DB_CORRUPT`.
+Kalau database tidak bisa dibuka, GasDist tidak menampilkan layar login, tapi layar **GasDist tidak bisa dibuka** berisi pesan, kalimat **Hubungi penjual GasDist dan sebutkan kode di bawah.**, link **Detail teknis**, dan sebuah kode seperti `DB_CORRUPT`.
 
 <Steps>
 
 1. Catat kodenya, atau foto layarnya dengan ponsel.
 
-2. Klik **Detail teknis** dan foto juga teksnya. Teks ini membantu pengelola aplikasi mencari penyebabnya.
+2. Klik **Detail teknis** dan foto juga teksnya. Teks ini membantu penjual GasDist mencari penyebabnya.
 
-3. Lakukan saran di tabel di bawah. Bila tidak berhasil, hubungi pengelola aplikasi dengan kode dan foto tadi.
+3. Lakukan saran di tabel di bawah. Kalau tidak berhasil, hubungi penjual GasDist dengan kode dan foto tadi.
 
 </Steps>
 
 | Kode | Pesan | Yang dilakukan |
 |---|---|---|
 | `ALREADY_RUNNING` | GasDist sudah terbuka di jendela lain. | Cari jendela GasDist yang sudah terbuka di taskbar dan pakai yang itu. |
-| `DB_KEY_UNAVAILABLE` | Penyimpanan kunci sistem tidak bisa diakses, ... Data Anda tidak hilang ... | Data aman. Di Linux, buka kunci dompet kunci (keyring) desktop Anda. Di Windows, mulai ulang PC dan masuk dengan akun Windows yang biasa. Lalu buka GasDist lagi. |
-| `DB_KEY_MISSING` | Database ada, tetapi kuncinya tidak ditemukan di komputer ini. Pulihkan dari backup. | Pastikan Anda masuk Windows dengan akun yang biasa dipakai untuk GasDist. Bila tetap muncul, hubungi pengelola aplikasi: data harus dipulihkan dari backup. |
-| `DB_KEY_INVALID` | Kunci tidak cocok dengan database, atau berkas database rusak. | Hubungi pengelola aplikasi. Data dipulihkan dari backup terakhir. |
-| `DB_CORRUPT` | Berkas database rusak. Pulihkan dari backup. | Hubungi pengelola aplikasi. Data dipulihkan dari backup terakhir. |
-| `SCHEMA_TOO_NEW` | Database ini dibuat oleh aplikasi yang lebih baru ... Pasang versi terbaru. | Ada versi GasDist lebih lama yang terpasang. Pasang versi terbaru. |
-| `MIGRATION_FAILED` | Pembaruan database ke versi *n* gagal. Database tidak diubah. | Data tidak berubah. Hubungi pengelola aplikasi dengan kode dan detail teknisnya. |
-| `STORAGE` | Berkas aplikasi tidak bisa dibaca atau ditulis. | Periksa ruang kosong di disk, mulai ulang PC, lalu buka GasDist lagi. |
+| `DB_KEY_UNAVAILABLE` | GasDist tidak bisa membuka kunci database, jadi data belum bisa dibuka. Data Anda tidak hilang. Login ulang ke Windows (atau buka KWallet di Linux), lalu buka GasDist lagi. | Data aman. Di Windows, mulai ulang PC dan login dengan akun Windows yang biasa. Di Linux, buka KWallet atau keyring desktop Anda. Lalu buka GasDist lagi. |
+| `DB_KEY_MISSING` | Database ada, tapi kuncinya tidak ditemukan di PC ini. Restore dari backup. | Pastikan Anda login ke Windows dengan akun yang biasa dipakai untuk GasDist. Kalau tetap muncul, hubungi penjual GasDist: data harus di-restore dari backup. |
+| `DB_KEY_INVALID` | Kunci tidak cocok dengan database, atau file database rusak. | Hubungi penjual GasDist. Data di-restore dari backup terakhir. |
+| `DB_CORRUPT` | File database rusak. Restore dari backup. | Hubungi penjual GasDist. Data di-restore dari backup terakhir. |
+| `SCHEMA_TOO_NEW` | Database ini dibuat oleh aplikasi yang lebih baru ... Install versi terbaru. | Ada versi GasDist lebih lama yang terinstall. Install versi terbaru. |
+| `MIGRATION_FAILED` | Update database ke versi *n* gagal. Database tidak diubah. | Data tidak berubah. Hubungi penjual GasDist dengan kode dan detail teknisnya. |
+| `STORAGE` | File aplikasi tidak bisa dibaca atau ditulis. | Periksa ruang kosong di disk, mulai ulang PC, lalu buka GasDist lagi. |
 
-<Aside type="caution" title="Jangan menghapus atau memindahkan berkas GasDist sendiri">
-Database GasDist terenkripsi dengan kunci yang tersimpan di PC itu. Menyalin atau memindahkan berkasnya ke PC lain tidak akan berhasil dibuka. Cara aman memindahkan data selalu lewat [backup](/gasdist-site/panduan/backup/membuat-backup/) dan [pemulihan](/gasdist-site/panduan/backup/memulihkan/).
+<Aside type="caution" title="Jangan menghapus atau memindahkan file GasDist sendiri">
+Database GasDist terenkripsi dengan kunci yang tersimpan di PC itu. Kalau file-nya disalin atau dipindah ke PC lain, GasDist di sana tidak bisa membukanya. Cara aman memindahkan data selalu lewat [backup](/gasdist-site/panduan/backup/membuat-backup/) dan [restore](/gasdist-site/panduan/backup/memulihkan/).
 </Aside>
 
 ### Peringatan di Linux tanpa penyimpanan kunci
 
-Di sebagian Linux yang tidak punya penyimpanan kunci sistem (Secret Service), GasDist tetap terbuka tetapi menampilkan pita kuning di atas: **Sistem ini tidak punya penyimpanan kunci (Secret Service). Kunci database disimpan di berkas pribadi db.key di folder aplikasi. ...** Klik **Tutup** untuk menyembunyikannya. Jangan hapus berkas `db.key`, dan jangan salin database tanpa berkas itu. Di Windows peringatan ini tidak pernah muncul.
+Di sebagian Linux yang tidak punya penyimpanan kunci sistem (Secret Service), GasDist tetap terbuka tapi menampilkan pita kuning di atas: **Sistem ini tidak punya penyimpanan kunci (Secret Service). Kunci database disimpan di file pribadi db.key di folder aplikasi. ...** Klik **Tutup** untuk menyembunyikannya. Jangan hapus file `db.key`, dan jangan salin database tanpa file itu. Di Windows peringatan ini tidak pernah muncul.

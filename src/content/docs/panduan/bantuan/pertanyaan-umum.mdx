@@ -18,13 +18,13 @@ Hampir tidak. Begitu diposting, surat jalan mendapat nomor, stok berkurang, dan 
 
 Satu pengecualian: selama statusnya masih **Diposting**, Owner atau Admin bisa [mengoreksi](/gasdist-site/panduan/surat-jalan/mengoreksi/) kendaraan, sopir, dan catatannya, dengan alasan. Stok tidak berubah.
 
-Bila yang salah jumlah, produk, atau pelanggan, Owner atau Admin [membatalkan](/gasdist-site/panduan/surat-jalan/membatalkan/) surat jalan itu dengan alasan dan kata sandi. Stok kembali, nomornya tetap tercatat sebagai batal. Dengan **Batalkan & buat ulang**, formulir surat jalan baru langsung terbuka berisi data yang sama, tinggal diperbaiki.
+Kalau yang salah jumlah, produk, atau pelanggan, Owner atau Admin [membatalkan](/gasdist-site/panduan/surat-jalan/membatalkan/) surat jalan itu dengan alasan dan password. Stok kembali, nomornya tetap tercatat sebagai batal. Dengan **Batalkan & buat ulang**, form surat jalan baru langsung terbuka berisi data yang sama, tinggal diperbaiki.
 
-Selama masih **draf**, surat jalan bebas diubah atau dihapus.
+Selama masih **draft**, surat jalan bebas diubah atau dihapus.
 
 ## Lembar bertanda tangan sudah kembali. Apa yang dicatat?
 
-Buka surat jalannya dan klik **Tandai terkirim**: isi nama penerima, tanggal tanda tangan, dan bila ada, foto atau scan lembarnya. Statusnya menjadi **Terkirim** dan final: tidak bisa dikoreksi atau dibatalkan lagi. Lihat [Menandai surat jalan terkirim](/gasdist-site/panduan/surat-jalan/menandai-terkirim/).
+Buka surat jalannya dan klik **Tandai terkirim**: isi nama penerima, tanggal tanda tangan, dan kalau ada, foto atau scan lembarnya. Statusnya menjadi **Terkirim** dan final: tidak bisa dikoreksi atau dibatalkan lagi. Lihat [Menandai surat jalan terkirim](/gasdist-site/panduan/surat-jalan/menandai-terkirim/).
 
 Lembar mana yang belum kembali? Kartu **Belum kembali** di [Beranda](/gasdist-site/panduan/mulai/beranda/) menyebut jumlahnya; daftarnya ada di **Laporan**, tab **Surat jalan belum kembali**. Lihat [Surat jalan belum kembali](/gasdist-site/panduan/surat-jalan/belum-kembali/).
 
@@ -36,7 +36,7 @@ Dengan [retur](/gasdist-site/panduan/surat-jalan/retur/). Surat jalan yang sudah
 
 Buka **Laporan**, tab [Tabung dipinjam](/gasdist-site/panduan/laporan/tabung-dipinjam/): per pelanggan dan produk, tabung isi yang dikirim dikurangi tabung kosong yang kembali, retur, dan hitungan.
 
-Surat jalan dari sebelum GasDist 0.13.0 tidak ikut dihitung, karena tabung kosongnya tidak pernah dicatat. Setelah pembaruan, catat dulu hitungan awal setiap pelanggan dengan **Hitung tabung**.
+Surat jalan dari sebelum GasDist 0.13.0 tidak ikut dihitung, karena tabung kosongnya tidak pernah dicatat. Setelah update, catat dulu hitungan awal setiap pelanggan dengan **Hitung tabung**.
 
 ## Berapa tabung yang dikirim ke satu pangkalan bulan ini?
 
@@ -44,31 +44,31 @@ Buka **Laporan**, tab **Pengiriman**, dengan **Kelompokkan** **Per pelanggan**, 
 
 ## Siapa yang mengubah data ini?
 
-Owner dan Admin bisa membuka **Laporan**, tab **Jejak audit**, lalu menyaring per pengguna, aksi, atau entitas. Setiap catatan menunjukkan siapa, kapan, dan nilai lama serta barunya. Lihat [Jejak audit](/gasdist-site/panduan/laporan/jejak-audit/).
+Owner dan Admin bisa membuka **Laporan**, tab **Riwayat perubahan**, lalu menyaring per user, aksi, atau jenis data. Setiap catatan menunjukkan siapa, kapan, dan nilai lama serta barunya. Lihat [Riwayat perubahan](/gasdist-site/panduan/laporan/jejak-audit/).
 
-## Apakah jejak audit dan stok masih utuh?
+## Apakah riwayat perubahan dan stok masih utuh?
 
-Owner dan Admin bisa membuka **Laporan**, tab **Periksa data**, lalu klik **Periksa sekarang**. GasDist memeriksa setiap catatan audit dan membandingkan saldo stok setiap produk dengan buku besarnya, tanpa mengubah apa pun. Bila ada yang merah, layar itu menyebut apa yang harus dilakukan. Lihat [Periksa data](/gasdist-site/panduan/alat-data/periksa-data/).
+Owner dan Admin bisa membuka **Laporan**, tab **Periksa data**, lalu klik **Periksa sekarang**. GasDist memeriksa setiap catatan di riwayat perubahan dan membandingkan saldo stok setiap produk di Beranda dengan kartu stoknya, tanpa mengubah apa pun. Kalau ada yang merah, layar itu menyebut apa yang harus dilakukan. Lihat [Periksa data](/gasdist-site/panduan/alat-data/periksa-data/).
 
 ## Bisakah daftar pelanggan dari Excel dimasukkan sekaligus?
 
-Bisa, oleh Owner atau Admin: **Pelanggan** → **Impor**. Unduh templatnya, isi di Excel, lalu pilih filenya. GasDist menampilkan setiap baris dulu dan menyebut alasan baris yang ditolak, misalnya kode yang sudah dipakai atau nomor telepon yang diketik sebagai angka sehingga 0 di depannya hilang. Lihat [Impor pelanggan](/gasdist-site/panduan/alat-data/impor-pelanggan/).
+Bisa, oleh Owner atau Admin: **Pelanggan** → **Import**. Download template-nya, isi di Excel, lalu pilih file-nya. GasDist menampilkan setiap baris dulu dan menyebut alasan baris yang ditolak, misalnya kode yang sudah dipakai atau nomor telepon yang diketik sebagai angka sehingga 0 di depannya hilang. Lihat [Import pelanggan](/gasdist-site/panduan/alat-data/impor-pelanggan/).
 
 ## Akuntan minta semua data. Apa yang diberikan?
 
-Owner bisa membuat satu file Excel berisi semua tabel di **Pengaturan** → **Ekspor semua data**. File itu tidak terenkripsi dan tidak berisi kata sandi; berikan hanya kepada orang yang berhak. Untuk berjaga-jaga dari kerusakan, tetap pakai backup. Lihat [Ekspor semua data](/gasdist-site/panduan/alat-data/ekspor-semua-data/).
+Owner bisa membuat satu file Excel berisi semua tabel di **Pengaturan** → **Export semua data**. File itu tidak terenkripsi dan tidak berisi password; berikan hanya kepada orang yang berhak. Untuk berjaga-jaga dari kerusakan, tetap pakai backup. Lihat [Export semua data](/gasdist-site/panduan/alat-data/ekspor-semua-data/).
 
 ## Kenapa laporan hanya bisa satu tahun?
 
-Ringkasan stok, register surat jalan, pengiriman, dan jejak audit mencakup paling lama 366 hari sekaligus, supaya tetap cepat walaupun riwayatnya sudah bertahun-tahun. Untuk beberapa tahun, buka atau ekspor laporannya per tahun. Kartu stok dan Surat jalan belum kembali tidak dibatasi.
+Ringkasan stok, register surat jalan, pengiriman, dan riwayat perubahan mencakup paling lama 366 hari sekaligus, supaya tetap cepat walaupun riwayatnya sudah bertahun-tahun. Untuk beberapa tahun, buka atau export laporannya per tahun. Kartu stok dan Surat jalan belum kembali tidak dibatasi.
 
 ## Kalau data pelanggan atau sopir diubah, apakah surat jalan lama ikut berubah?
 
-Tidak. Saat diposting, surat jalan menyimpan data pelanggan (kode, nama, alamat, kota, telepon), nomor polisi, nama sopir, serta kode dan nama produk saat itu. Surat jalan lama tetap tampil dan tercetak seperti aslinya. Perubahan data hanya berlaku untuk draf dan surat jalan baru.
+Tidak. Saat diposting, surat jalan menyimpan data pelanggan (kode, nama, alamat, kota, telepon), nomor polisi, nama sopir, serta kode dan nama produk saat itu. Surat jalan lama tetap tampil dan tercetak seperti aslinya. Perubahan data hanya berlaku untuk draft dan surat jalan baru.
 
 ## Saya sudah menyimpan surat jalan, kenapa stok belum berkurang?
 
-Karena yang Anda simpan masih draf. **Simpan draf** tidak mengubah stok dan belum memberi nomor. Stok baru berkurang setelah Anda klik **Posting** dan mengonfirmasinya. Lihat [Membuat surat jalan](/gasdist-site/panduan/surat-jalan/membuat/).
+Karena yang Anda simpan masih draft. **Simpan draft** tidak mengubah stok dan belum memberi nomor. Stok baru berkurang setelah Anda klik **Posting** dan mengonfirmasinya. Lihat [Membuat surat jalan](/gasdist-site/panduan/surat-jalan/membuat/).
 
 ## Kenapa saya tidak bisa memposting?
 
@@ -76,45 +76,45 @@ Ada beberapa kemungkinan:
 
 | Yang terlihat | Penyebab | Jalan keluar |
 |---|---|---|
-| Ada baris merah bertanda **Minus**, tombol **Posting** tidak bisa diklik | Stok produk itu tidak cukup | Kurangi jumlahnya atau hapus barisnya. Bila tabungnya memang sudah datang, [catat penerimaan stok](/gasdist-site/panduan/stok/terima-stok/) dulu. |
-| Tidak ada tombol **Posting** atau **Buat surat jalan** sama sekali | Peran Anda (Gudang atau Pemantau) tidak boleh membuat surat jalan | Minta staf Penjualan, Admin, atau Owner. |
+| Ada baris merah bertanda **Minus**, tombol **Posting** tidak bisa diklik | Stok produk itu tidak cukup | Kurangi jumlahnya atau hapus barisnya. Kalau tabungnya memang sudah datang, [catat penerimaan stok](/gasdist-site/panduan/stok/terima-stok/) dulu. |
+| Tidak ada tombol **Posting** atau **Buat surat jalan** sama sekali | Role Anda (Gudang atau Viewer) tidak boleh membuat surat jalan | Minta staf Penjualan, Admin, atau Owner. |
 | Muncul pesan **Nomor ... sudah dipakai surat jalan lain** | Format nomor menghasilkan nomor yang sudah ada | Minta Owner memeriksa [format nomor](/gasdist-site/panduan/pengaturan/format-nomor/). |
 
 ## Kenapa ada menu atau tombol yang tidak muncul di layar saya?
 
-GasDist menyembunyikan menu dan tombol yang tidak boleh dipakai oleh peran Anda. Misalnya, Gudang tidak melihat **Buat surat jalan**, dan hanya Owner yang melihat menu **Pengaturan**. Daftar lengkapnya ada di [Peran pengguna](/gasdist-site/panduan/mulai/peran/). Bila Anda memang perlu izin itu, minta Admin atau Owner mengubah peran Anda.
+GasDist menyembunyikan menu dan tombol yang tidak boleh dipakai oleh role Anda. Misalnya, Gudang tidak melihat **Buat surat jalan**, dan hanya Owner yang melihat menu **Pengaturan**. Daftar lengkapnya ada di [Role user](/gasdist-site/panduan/mulai/peran/). Kalau Anda memang perlu akses itu, minta Admin atau Owner mengubah role Anda.
 
 ## Kenapa layar tiba-tiba terkunci?
 
-GasDist mengunci layar sendiri bila tidak ada ketikan atau gerakan mouse selama waktu tertentu (bawaannya 15 menit). Ketik kata sandi Anda, lalu klik **Buka**. Owner bisa mengubah lamanya di [Pengaturan](/gasdist-site/panduan/pengaturan/stok-dan-keamanan/). Isian yang belum disimpan tidak ikut tersimpan, jadi biasakan menyimpan draf sebelum meninggalkan meja. Lihat [Masuk, kunci layar, dan kata sandi](/gasdist-site/panduan/mulai/masuk-dan-kunci/).
+GasDist mengunci layar sendiri kalau tidak ada ketikan atau gerakan mouse selama waktu tertentu (default-nya 15 menit). Ketik password Anda, lalu klik **Buka**. Owner bisa mengubah lamanya di [Pengaturan](/gasdist-site/panduan/pengaturan/stok-dan-keamanan/). Isian yang belum disimpan tidak ikut tersimpan, jadi biasakan menyimpan draft sebelum meninggalkan meja. Lihat [Login, kunci layar, dan password](/gasdist-site/panduan/mulai/masuk-dan-kunci/).
 
 ## Di mana data saya disimpan?
 
-Semua data tersimpan di PC tempat GasDist terpasang, tidak di internet. Datanya terenkripsi, dan kuncinya disimpan oleh sistem operasi PC itu (di Windows: Credential Manager milik akun Windows Anda). Akibatnya:
+Semua data tersimpan di PC tempat GasDist ter-install, tidak di internet. Datanya terenkripsi, dan kuncinya disimpan oleh sistem operasi PC itu (di Windows: Credential Manager milik akun Windows Anda). Akibatnya:
 
 - Data hanya bisa dibuka oleh GasDist di PC itu.
-- Menyalin berkas database ke PC lain tidak akan bisa dibuka. Untuk memindahkan data, selalu pakai [backup](/gasdist-site/panduan/backup/membuat-backup/).
+- Kalau file database disalin ke PC lain, GasDist di sana tidak bisa membukanya. Untuk memindahkan data, selalu pakai [backup](/gasdist-site/panduan/backup/membuat-backup/).
 - Backup tersimpan di folder backup GasDist. Lokasinya tertulis di **Pengaturan**, bagian backup, dan Owner bisa menambah folder kedua, misalnya flashdisk.
 
 ## Windows saya berbahasa Inggris. Apakah tanggalnya tertukar bulan dan hari?
 
 Tidak. Semua tanggal di GasDist, di daftar maupun di isian, ditulis hari dulu (`hh/bb/tttt`), apa pun pengaturan wilayah Windows. `03/10/2026` selalu 3 Oktober. Ketik tanggalnya atau pilih dari kalender; lihat [Mengisi tanggal](/gasdist-site/panduan/mulai/tanggal/).
 
-## Backup kami sudah sangat besar. Apakah masih bisa dipulihkan?
+## Backup kami sudah sangat besar. Apakah masih bisa di-restore?
 
-Bisa. Sejak GasDist 0.15.0 backup tidak punya batas ukuran dan bisa dibuat serta dipulihkan di PC dengan RAM 4 GB. Yang perlu diperhatikan adalah ruang disk untuk folder backup, dan flashdisk FAT32 yang tidak bisa menyimpan file di atas 4 GB. Lihat [Ukuran backup](/gasdist-site/panduan/backup/membuat-backup/#ukuran-backup).
+Bisa. Sejak GasDist 0.15.0 backup tidak punya batas ukuran dan bisa dibuat serta di-restore di PC dengan RAM 4 GB. Yang perlu diperhatikan adalah ruang disk untuk folder backup, dan flashdisk FAT32 yang tidak bisa menyimpan file di atas 4 GB. Lihat [Ukuran backup](/gasdist-site/panduan/backup/membuat-backup/#ukuran-backup).
 
-## Apa yang terjadi setelah 7 hari percobaan?
+## Apa yang terjadi setelah 7 hari trial?
 
-GasDist menjadi hanya baca sampai lisensi ditambahkan: semua data tetap bisa dilihat, dicetak, diekspor, dan di-backup, tetapi tidak ada catatan baru. Tidak ada data yang dihapus. Selama percobaan dan sesudahnya, setiap cetakan bertanda **VERSI PERCOBAAN**. Lihat [Lisensi dan masa percobaan](/gasdist-site/panduan/mulai/lisensi/).
+Sampai lisensi ditambahkan, data di GasDist hanya bisa dilihat: semua data tetap bisa dibuka, dicetak, di-export, dan di-backup, tapi tidak bisa ada catatan baru. Tidak ada data yang dihapus. Selama trial dan sesudahnya, setiap cetakan bertanda **VERSI TRIAL**. Lihat [Lisensi dan masa trial](/gasdist-site/panduan/mulai/lisensi/).
 
-## Bagaimana cara memasang versi baru? Apakah GasDist memperbarui diri lewat internet?
+## Bagaimana cara install versi baru? Apakah GasDist meng-update diri lewat internet?
 
-Tidak. GasDist tidak pernah tersambung ke internet, juga tidak untuk memeriksa pembaruan. Setiap versi baru disertai satu file pembaruan (`.gasupdate`) yang diberikan lewat flashdisk; Owner memasangnya di **Pengaturan › Tentang › Perbarui dari file…**. GasDist memeriksa dulu bahwa file itu asli dari penerbit GasDist dan lebih baru, lalu membuat backup sebelum memasangnya. Lihat [Memperbarui GasDist](/gasdist-site/panduan/mulai/memperbarui/).
+Tidak. GasDist tidak pernah tersambung ke internet, juga tidak untuk mengecek update. Setiap versi baru disertai satu file update (`.gasupdate`) yang diberikan lewat flashdisk; Owner meng-install-nya di **Pengaturan › Tentang › Update dari file...**. GasDist mengecek dulu apakah file itu asli dari pembuat GasDist dan lebih baru, lalu membuat backup sebelum meng-install-nya. Lihat [Update GasDist](/gasdist-site/panduan/mulai/memperbarui/).
 
 ## Versi baru bermasalah. Bisakah kembali ke versi sebelumnya?
 
-Bisa. Di Windows, jalankan installer versi sebelumnya; di AppImage, kembalikan nama berkas `…-previous….bak` yang disimpan saat memperbarui. Bila versi baru juga memperbarui susunan data, kembalinya lewat backup yang dibuat tepat sebelum pembaruan. Lihat [Kembali ke versi sebelumnya](/gasdist-site/panduan/mulai/memperbarui/#kembali-ke-versi-sebelumnya).
+Bisa. Di Windows, jalankan installer versi sebelumnya; di AppImage, kembalikan nama file `…-previous….bak` yang disimpan saat update. Kalau versi baru juga mengubah susunan data, kembalinya lewat backup yang dibuat tepat sebelum update. Lihat [Kembali ke versi sebelumnya](/gasdist-site/panduan/mulai/memperbarui/#kembali-ke-versi-sebelumnya).
 
 ## Bagaimana kalau PC-nya rusak atau hilang?
 
@@ -122,15 +122,15 @@ Data bisa dikembalikan dari backup, asal tiga hal ini sudah disiapkan sebelumnya
 
 | Persiapan | Kenapa penting |
 |---|---|
-| [Kata sandi backup](/gasdist-site/panduan/backup/kata-sandi-backup/) sudah diatur | Tanpa kata sandi backup, GasDist tidak membuat backup sama sekali. |
-| Ada salinan backup di luar PC, misalnya flashdisk | Backup yang hanya ada di PC yang rusak ikut hilang. Pakai folder backup kedua atau **Simpan salinan ke…**. Lihat [Membuat dan menyalin backup](/gasdist-site/panduan/backup/membuat-backup/). |
-| Kata sandi backup dicatat di tempat aman | GasDist tidak bisa menampilkannya lagi, dan backup tidak bisa dibuka tanpanya. |
+| [Password backup](/gasdist-site/panduan/backup/kata-sandi-backup/) sudah diatur | Tanpa password backup, GasDist tidak membuat backup sama sekali. |
+| Ada salinan backup di luar PC, misalnya flashdisk | Backup yang hanya ada di PC yang rusak ikut hilang. Pakai folder backup kedua atau **Simpan salinan ke...**. Lihat [Membuat dan menyalin backup](/gasdist-site/panduan/backup/membuat-backup/). |
+| Password backup dicatat di tempat aman | GasDist tidak bisa menampilkannya lagi, dan backup tidak bisa dibuka tanpanya. |
 
-Di PC baru, pasang GasDist. Di layar penyiapan awal, jangan isi formulirnya, tetapi klik **Pulihkan dari backup…**, pilih file backup, dan masukkan kata sandi backupnya. Lihat [Memulihkan dari backup](/gasdist-site/panduan/backup/memulihkan/).
+Di PC baru, install GasDist. Di layar setup awal, jangan isi form-nya, tapi klik **Restore dari backup...**, pilih file backup, dan masukkan password backup-nya. Lihat [Restore dari backup](/gasdist-site/panduan/backup/memulihkan/).
 
 ## Bisakah dua PC memakai data yang sama?
 
-Tidak. GasDist dirancang untuk satu PC per database dan tidak menyinkronkan data lewat jaringan. Bila GasDist dipasang di dua PC, masing-masing punya data sendiri yang tidak saling terhubung dan tidak bisa digabung. Untuk pindah ke PC lain, buat backup di PC lama lalu pulihkan di PC baru.
+Tidak. GasDist memang dibuat untuk satu PC saja, dan datanya tidak disinkronkan lewat jaringan. Kalau GasDist di-install di dua PC, masing-masing punya data sendiri yang tidak saling terhubung dan tidak bisa digabung. Untuk pindah ke PC lain, buat backup di PC lama lalu restore di PC baru.
 
 ## Bagaimana cara menyimpan surat jalan sebagai PDF?
 
@@ -140,18 +140,18 @@ Tidak. GasDist dirancang untuk satu PC per database dan tidak menyinkronkan data
 
 2. Pilih **Kertas**. Di **Lembar**, pilih **Semua lembar** untuk PDF berisi semua lembar berlabel (satu halaman PDF per lembar), atau satu lembar saja. Lalu klik **Cetak** di jendela itu.
 
-3. Di dialog cetak sistem, pilih printer PDF sebagai tujuan, misalnya **Microsoft Print to PDF** di Windows, lalu simpan berkasnya.
+3. Di dialog cetak sistem, pilih printer PDF sebagai tujuan, misalnya **Microsoft Print to PDF** di Windows, lalu simpan file-nya.
 
 </Steps>
 
 <Aside type="caution">
-Menyimpan ke PDF dihitung sebagai satu kali cetak. Bila Anda menyimpan PDF dulu, kertas yang dicetak sesudahnya bertanda **SALINAN**. Lihat [Mencetak surat jalan](/gasdist-site/panduan/cetak/mencetak/) dan [SALINAN dan DRAFT](/gasdist-site/panduan/cetak/salinan-dan-draf/).
+Menyimpan ke PDF dihitung sebagai satu kali cetak. Kalau Anda menyimpan PDF dulu, kertas yang dicetak sesudahnya bertanda **SALINAN**. Lihat [Mencetak surat jalan](/gasdist-site/panduan/cetak/mencetak/) dan [SALINAN dan DRAFT](/gasdist-site/panduan/cetak/salinan-dan-draf/).
 </Aside>
 
 ## Kenapa satu kali Cetak mengeluarkan tiga lembar?
 
-Sejak GasDist 0.10.0, satu kali **Cetak** mengeluarkan semua lembar surat jalan sekaligus: bawaannya **Lembar 1: Pelanggan**, **Lembar 2: Kembali ke kantor**, dan **Lembar 3: Arsip**. Ketiganya dihitung satu cetakan dan semuanya asli. Owner bisa mengubah jumlah lembar dan labelnya, atau memakai formulir karbon (satu lembar), di [Pengaturan cetak](/gasdist-site/panduan/pengaturan/cetak/). Untuk sekali cetak, pilihan **Lembar** di jendela cetak juga bisa dibatasi ke satu lembar.
+Sejak GasDist 0.10.0, satu kali **Cetak** mengeluarkan semua lembar surat jalan sekaligus: default-nya **Lembar 1: Pelanggan**, **Lembar 2: Kembali ke kantor**, dan **Lembar 3: Arsip**. Ketiganya dihitung satu cetakan dan semuanya asli. Owner bisa mengubah jumlah lembar dan labelnya, atau memakai form karbon (satu lembar), di [Pengaturan cetak](/gasdist-site/panduan/pengaturan/cetak/). Untuk sekali cetak, pilihan **Lembar** di jendela cetak juga bisa dibatasi ke satu lembar.
 
-## Saya lupa kata sandi. Apa yang harus dilakukan?
+## Saya lupa password. Apa yang harus dilakukan?
 
-Minta Admin atau Owner mengatur ulang kata sandi Anda. Anda akan menerima kata sandi sementara yang wajib diganti saat masuk. Owner yang lupa kata sandinya bisa memakai kode pemulihan. Lihat [Masuk, kunci layar, dan kata sandi](/gasdist-site/panduan/mulai/masuk-dan-kunci/).
+Minta Admin atau Owner me-reset password Anda. Anda akan menerima password sementara yang wajib diganti saat login. Owner yang lupa password-nya bisa memakai kode pemulihan. Lihat [Login, kunci layar, dan password](/gasdist-site/panduan/mulai/masuk-dan-kunci/).

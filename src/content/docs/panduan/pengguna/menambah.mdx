@@ -1,6 +1,6 @@
 ---
-title: Menambah pengguna
-description: Buat akun untuk setiap karyawan, pilih perannya, dan nonaktifkan akun yang tidak dipakai lagi.
+title: Menambah user
+description: Buat akun untuk setiap karyawan, pilih role-nya, dan nonaktifkan akun yang tidak dipakai lagi.
 sidebar:
   order: 1
 ---
@@ -9,73 +9,73 @@ import { Steps, Aside } from "@astrojs/starlight/components";
 import Shot from "../../../../components/Shot.astro";
 import Roles from "../../../../components/Roles.astro";
 
-Setiap orang yang memakai GasDist sebaiknya punya akun sendiri. Dengan begitu peran menentukan apa yang boleh dia kerjakan, dan setiap surat jalan atau penerimaan stok tercatat atas nama orang yang benar.
+Setiap orang yang memakai GasDist sebaiknya punya akun sendiri. Dengan begitu role menentukan apa yang boleh dia kerjakan, dan setiap surat jalan atau penerimaan stok tercatat atas nama orang yang benar.
 
 <Roles can={["OWNER", "ADMIN"]} />
 
-## Daftar pengguna
+## Daftar user
 
-Buka **Pengguna** di menu samping. Tabel menampilkan username, nama lengkap, peran, bahasa, dan status setiap akun. Tombol **Tambah pengguna** <span class="pin">1</span> ada di kanan atas.
+Buka **User** di menu samping. Tabel menampilkan username, nama lengkap, role, bahasa, dan status setiap akun. Tombol **Tambah user** <span class="pin">1</span> ada di kanan atas.
 
-<Shot name="users-list" alt="Halaman Pengguna berisi lima akun, salah satunya bertanda Wajib ganti kata sandi" />
+<Shot name="users-list" alt="Halaman User berisi lima akun, salah satunya bertanda Wajib ganti password" />
 
 Di kolom **Status** bisa muncul tanda berikut:
 
 | Tanda | Artinya |
 |---|---|
-| **Aktif** (hijau) | Akun bisa dipakai untuk masuk |
-| **Nonaktif** (abu-abu) | Akun dimatikan dan tidak bisa masuk |
-| **Terkunci** (merah) | Kata sandi salah 5 kali berturut-turut. Akun terbuka sendiri setelah 5 menit, atau langsung terbuka bila kata sandinya [diatur ulang](/gasdist-site/panduan/pengguna/kata-sandi-dan-kode-pemulihan/) |
-| **Wajib ganti kata sandi** <span class="pin">2</span> (kuning) | Akun masih memakai kata sandi sementara. Pemiliknya harus menggantinya saat masuk berikutnya |
+| **Aktif** (hijau) | Akun bisa dipakai untuk login |
+| **Nonaktif** (abu-abu) | Akun dimatikan dan tidak bisa login |
+| **Terkunci** (merah) | Password salah 5 kali berturut-turut. Akun terbuka sendiri setelah 5 menit, atau langsung terbuka kalau password-nya [di-reset](/gasdist-site/panduan/pengguna/kata-sandi-dan-kode-pemulihan/) |
+| **Wajib ganti password** <span class="pin">2</span> (kuning) | Akun masih memakai password sementara. Orangnya harus menggantinya saat login berikutnya |
 
-Di ujung kanan setiap baris ada tombol **Ubah**, **Atur ulang kata sandi** <span class="pin">3</span>, dan **Nonaktifkan**.
+Di ujung kanan setiap baris ada tombol **Edit**, **Reset password** <span class="pin">3</span>, dan **Nonaktifkan**.
 
 ### Siapa boleh mengatur siapa
 
-| Anda masuk sebagai | Bisa mengatur akun | Tidak bisa mengatur |
+| Anda login sebagai | Bisa mengatur akun | Tidak bisa mengatur |
 |---|---|---|
-| Owner | Semua peran: Owner, Admin, Gudang, Penjualan, Pemantau | Status dan kata sandi akun sendiri |
-| Admin | Gudang, Penjualan, Pemantau | Akun Owner dan Admin (barisnya tampil tanpa tombol) |
+| Owner | Semua role: Owner, Admin, Gudang, Penjualan, Viewer | Status dan password akun sendiri |
+| Admin | Gudang, Penjualan, Viewer | Akun Owner dan Admin (barisnya tampil tanpa tombol) |
 
-Di baris akun Anda sendiri hanya ada tombol **Ubah**, seperti baris `hendra` pada gambar di atas. Lewat tombol itu Anda bisa mengganti nama lengkap dan bahasa, tetapi tidak peran Anda sendiri. Untuk mengganti kata sandi sendiri, pakai **Ganti kata sandi** di bagian atas layar (lihat [Masuk, kunci layar, dan kata sandi](/gasdist-site/panduan/mulai/masuk-dan-kunci/)).
+Di baris akun Anda sendiri hanya ada tombol **Edit**, seperti baris `hendra` pada gambar di atas. Lewat tombol itu Anda bisa mengganti nama lengkap dan bahasa, tapi tidak role Anda sendiri. Untuk mengganti password sendiri, pakai **Ganti password** di bagian atas layar (lihat [Login, kunci layar, dan password](/gasdist-site/panduan/mulai/masuk-dan-kunci/)).
 
-## Menambah pengguna baru
+## Menambah user baru
 
 <Steps>
 
-1. Klik **Tambah pengguna**. Jendela **Tambah pengguna** terbuka.
+1. Klik **Tambah user**. Jendela **Tambah user** terbuka.
 
-2. Isi **Username**, yaitu nama yang diketik saat masuk, misalnya `wawan`. Panjangnya 3 sampai 32 huruf, angka, titik, garis bawah, atau tanda hubung, tanpa spasi. Username tidak bisa diubah setelah disimpan.
+2. Isi **Username**, yaitu nama yang diketik saat login, misalnya `wawan`. Panjangnya 3 sampai 32 huruf, angka, titik, garis bawah (_), atau strip (-), tanpa spasi. Username tidak bisa diubah setelah disimpan.
 
-3. Isi **Nama lengkap**. Nama ini tampil di bagian atas layar saat orang itu masuk.
+3. Isi **Nama lengkap**. Nama ini tampil di bagian atas layar saat orang itu login.
 
-4. Pilih **Peran** <span class="pin">1</span>. Pilihan awalnya **Pemantau**, peran dengan hak paling sedikit, jadi pastikan Anda memilih peran yang benar. Penjelasan setiap peran ada di [Peran pengguna](/gasdist-site/panduan/mulai/peran/).
+4. Pilih **Role** <span class="pin">1</span>. Pilihan awalnya **Viewer**, role dengan akses paling sedikit, jadi pastikan Anda memilih role yang benar. Penjelasan setiap role ada di [Role user](/gasdist-site/panduan/mulai/peran/).
 
-5. Pilih **Bahasa**. Biarkan **Ikuti bawaan perusahaan** bila orang ini memakai bahasa yang sama dengan kantor, atau pilih **Bahasa Indonesia** atau **English** untuk dia saja.
+5. Pilih **Bahasa**. Biarkan **Ikuti default perusahaan** kalau orang ini memakai bahasa yang sama dengan kantor, atau pilih **Bahasa Indonesia** atau **English** untuk dia saja.
 
-6. Isi **Kata sandi sementara** <span class="pin">2</span> dan ketik sekali lagi di **Ulangi kata sandi**. Minimal 8 karakter.
+6. Isi **Password sementara** <span class="pin">2</span> dan ketik sekali lagi di **Ulangi password**. Minimal 8 karakter.
 
-   <Shot name="users-add" alt="Jendela Tambah pengguna untuk wawan dengan peran Gudang dan kata sandi sementara terisi" />
+   <Shot name="users-add" alt="Jendela Tambah user untuk wawan dengan role Gudang dan password sementara terisi" />
 
-7. Klik **Simpan**. Akun baru muncul di daftar dengan tanda **Wajib ganti kata sandi**.
+7. Klik **Simpan**. Akun baru muncul di daftar dengan tanda **Wajib ganti password**.
 
-8. Berikan username dan kata sandi sementara kepada orangnya. Saat pertama masuk, GasDist memintanya membuat kata sandi sendiri. Setelah itu tanda **Wajib ganti kata sandi** hilang.
+8. Kasih username dan password sementara ke orangnya. Saat pertama login, GasDist memintanya membuat password sendiri. Setelah itu tanda **Wajib ganti password** hilang.
 
 </Steps>
 
 <Aside type="tip">
-Sampaikan kata sandi sementara secara langsung atau lewat telepon, jangan ditempel di monitor. Kata sandi itu hanya berlaku sampai orangnya masuk pertama kali.
+Sampaikan password sementara secara langsung atau lewat telepon, jangan ditempel di monitor. Password itu hanya berlaku sampai orangnya login pertama kali.
 </Aside>
 
-Bila muncul pesan **Username ... sudah dipakai.**, pilih username lain. Username milik akun yang sudah dinonaktifkan pun tetap terpakai, dan huruf besar atau kecil dianggap sama.
+Kalau muncul pesan **Username ... sudah dipakai.**, pilih username lain. Username milik akun yang sudah dinonaktifkan pun tetap terpakai, dan huruf besar atau kecil dianggap sama.
 
-## Mengubah peran, nama, atau bahasa
+## Mengubah role, nama, atau bahasa
 
-Klik **Ubah** di baris orang itu, ganti **Nama lengkap**, **Peran**, atau **Bahasa**, lalu klik **Simpan**.
+Klik **Edit** di baris orang itu, ganti **Nama lengkap**, **Role**, atau **Bahasa**, lalu klik **Simpan**.
 
-Setiap orang juga bisa mengganti bahasanya sendiri lewat pilihan **Bahasa** di bagian atas layar. Pilihan itu tersimpan untuk akunnya dan berlaku lagi saat dia masuk berikutnya. Bahasa untuk akun yang memakai **Ikuti bawaan perusahaan** diatur Owner di [Pengaturan](/gasdist-site/panduan/pengaturan/stok-dan-keamanan/).
+Setiap orang juga bisa mengganti bahasanya sendiri lewat pilihan **Bahasa** di bagian atas layar. Pilihan itu tersimpan untuk akunnya dan berlaku lagi saat dia login berikutnya. Bahasa untuk akun yang memakai **Ikuti default perusahaan** diatur Owner di [Pengaturan](/gasdist-site/panduan/pengaturan/stok-dan-keamanan/).
 
-## Menonaktifkan pengguna
+## Menonaktifkan user
 
 Karyawan keluar atau pindah tugas? Nonaktifkan akunnya. Akun tidak dihapus, sehingga semua yang pernah dia kerjakan tetap tercatat atas namanya.
 
@@ -83,12 +83,12 @@ Karyawan keluar atau pindah tugas? Nonaktifkan akunnya. Akun tidak dihapus, sehi
 
 1. Klik **Nonaktifkan** di baris orang itu.
 
-2. GasDist menampilkan pesan bahwa orang itu tidak bisa masuk sampai diaktifkan lagi. Klik **Nonaktifkan** untuk melanjutkan.
+2. GasDist menampilkan pesan bahwa orang itu tidak bisa login sampai diaktifkan lagi. Klik **Nonaktifkan** untuk melanjutkan.
 
 </Steps>
 
-Statusnya berubah menjadi **Nonaktif**, dan tombolnya berganti menjadi **Aktifkan**. Klik **Aktifkan** bila orang itu perlu masuk lagi.
+Statusnya berubah menjadi **Nonaktif**, dan tombolnya berganti menjadi **Aktifkan**. Klik **Aktifkan** kalau orang itu perlu login lagi.
 
 <Aside type="caution">
-Anda tidak bisa menonaktifkan akun sendiri. GasDist juga menolak menonaktifkan atau menurunkan peran Owner terakhir yang masih aktif, karena harus selalu ada minimal satu Owner yang aktif.
+Anda tidak bisa menonaktifkan akun sendiri. GasDist juga menolak menonaktifkan atau menurunkan role Owner terakhir yang masih aktif, karena harus selalu ada minimal satu Owner yang aktif.
 </Aside>

@@ -9,26 +9,26 @@ import { Steps, Aside } from "@astrojs/starlight/components";
 import Shot from "../../../../components/Shot.astro";
 import Roles from "../../../../components/Roles.astro";
 
-Backup adalah satu file berisi **seluruh** data GasDist: stok dan riwayatnya, surat jalan, pelanggan, produk, kendaraan, sopir, pengguna, serta pengaturan termasuk logo. Hanya scan lembar kembali yang disimpan terpisah, di folder `scans` di sebelahnya (lihat [di bawah](#scan-lembar-kembali)). File itu dikunci dengan [kata sandi backup](/gasdist-site/panduan/backup/kata-sandi-backup/) dan bisa dipulihkan di PC mana pun, juga di PC dengan sistem operasi lain.
+Backup adalah satu file berisi **seluruh** data GasDist: stok dan riwayatnya, surat jalan, pelanggan, produk, kendaraan, sopir, user, serta pengaturan termasuk logo. Hanya scan lembar kembali yang disimpan terpisah, di folder `scans` di sebelahnya (lihat [di bawah](#scan-lembar-kembali)). File itu dikunci dengan [password backup](/gasdist-site/panduan/backup/kata-sandi-backup/) dan bisa di-restore di PC mana pun, juga di PC dengan sistem operasi lain.
 
 <Roles can={["OWNER", "ADMIN"]} />
 
 <Aside type="note">
-Backup baru dibuat setelah Owner mengatur [kata sandi backup](/gasdist-site/panduan/backup/kata-sandi-backup/). Sebelum itu, tidak ada backup sama sekali.
+Backup baru dibuat setelah Owner mengatur [password backup](/gasdist-site/panduan/backup/kata-sandi-backup/). Sebelum itu, tidak ada backup sama sekali.
 </Aside>
 
 ## Backup otomatis
 
-Setelah kata sandi backup diatur, GasDist membuat backup sendiri:
+Setelah password backup diatur, GasDist membuat backup sendiri:
 
 - setiap kali aplikasi ditutup, dan
 - sekali sehari selama aplikasi terbuka, begitu backup terakhir sudah berumur satu hari.
 
-Backup disimpan di **folder backup utama** di PC ini. Lokasinya tertulis di kotak **Backup dan pemulihan** di halaman **Pengaturan**.
+Backup disimpan di **folder backup utama** di PC ini. Lokasinya tertulis di kotak **Backup dan restore** di halaman **Pengaturan**.
 
 ## Kotak Backup di halaman Beranda
 
-Di halaman **Beranda**, layar pertama setelah masuk, ada kotak **Backup** yang menunjukkan kapan backup terakhir dibuat. Warnanya memberi tahu apakah Anda perlu bertindak.
+Di halaman **Beranda**, layar pertama setelah login, ada kotak **Backup** yang menunjukkan kapan backup terakhir dibuat. Dari warnanya kelihatan perlu backup sekarang atau tidak.
 
 <Shot name="home-backup-card" alt="Kotak Backup berwarna hijau dengan tulisan Backup terakhir 13/10/2026 09.00 dan tombol Backup sekarang" />
 
@@ -38,7 +38,7 @@ Di halaman **Beranda**, layar pertama setelah masuk, ada kotak **Backup** yang m
 | Kuning | Backup terakhir lebih dari 3 hari, sampai 7 hari lalu | Ditambah **Sudah ... hari tanpa backup.** |
 | Merah | Backup terakhir lebih dari 7 hari lalu | Ditambah **Sudah ... hari tanpa backup.** |
 | Merah | Belum pernah ada backup | **Belum pernah ada backup.** |
-| Merah | Kata sandi backup belum diatur | **Backup belum aktif: belum ada kata sandi backup.** |
+| Merah | Password backup belum diatur | **Backup belum aktif: belum ada password backup.** |
 
 Kuning atau merah berarti sudah lama tidak ada backup baru. Klik **Backup sekarang** agar kotaknya hijau lagi.
 
@@ -48,9 +48,9 @@ Buat backup sendiri sebelum pekerjaan besar, misalnya sebelum stok opname atau s
 
 <Steps>
 
-1. Klik **Backup sekarang** <span class="pin">1</span> di kotak **Backup** di halaman **Beranda**. Owner juga bisa memakai tombol **Backup sekarang** <span class="pin">2</span> di kotak **Backup dan pemulihan** di halaman **Pengaturan**.
+1. Klik **Backup sekarang** <span class="pin">1</span> di kotak **Backup** di halaman **Beranda**. Owner juga bisa memakai tombol **Backup sekarang** <span class="pin">2</span> di kotak **Backup dan restore** di halaman **Pengaturan**.
 
-   <Shot name="settings-backup" alt="Kotak Backup dan pemulihan di halaman Pengaturan dengan tombol Backup sekarang dan Simpan salinan ke" marks={[null, 2, 3, null]} />
+   <Shot name="settings-backup" alt="Kotak Backup dan restore di halaman Pengaturan dengan tombol Backup sekarang dan Simpan salinan ke" marks={[null, 2, 3, null]} />
 
 2. Tunggu sebentar. Muncul pesan **Backup dibuat:** diikuti nama file backup, dan kotak **Backup** di halaman **Beranda** kembali hijau.
 
@@ -60,11 +60,11 @@ Buat backup sendiri sebelum pekerjaan besar, misalnya sebelum stok opname atau s
 
 <Roles can={["OWNER"]} />
 
-Backup di folder utama ikut hilang bila PC rusak atau hilang. Simpan salinan di tempat lain secara rutin, misalnya seminggu sekali ke flashdisk yang disimpan di luar kantor.
+Backup di folder utama ikut hilang kalau PC rusak atau hilang. Simpan salinan di tempat lain secara rutin, misalnya seminggu sekali ke flashdisk yang disimpan di luar kantor.
 
 <Steps>
 
-1. Colokkan flashdisk. Buka **Pengaturan**, gulir ke paling bawah, lalu klik **Simpan salinan ke…** <span class="pin">3</span> di kotak **Backup dan pemulihan** (lihat gambar di atas).
+1. Colokkan flashdisk. Buka **Pengaturan**, scroll ke paling bawah, lalu klik **Simpan salinan ke...** <span class="pin">3</span> di kotak **Backup dan restore** (lihat gambar di atas).
 
 2. Jendela penyimpanan file terbuka dengan nama file berisi tanggal hari ini, misalnya `GasDist-2026-10-13.gasbak`. Pilih flashdisk atau folder tujuan, lalu simpan.
 
@@ -72,10 +72,10 @@ Backup di folder utama ikut hilang bila PC rusak atau hilang. Simpan salinan di 
 
 </Steps>
 
-Bila salinan gagal ditulis, misalnya flashdisk tercabut, muncul pesan **Salinan ke ... tidak bisa ditulis. Backup tetap ada di folder backup.** Backup-nya tetap ada; coba simpan salinan lagi.
+Kalau salinan gagal ditulis, misalnya flashdisk tercabut, muncul pesan **Salinan ke ... tidak bisa ditulis. Backup tetap ada di folder backup.** Backup-nya tetap ada; coba simpan salinan lagi.
 
 <Aside type="tip">
-Salinan yang Anda simpan lewat **Simpan salinan ke…** tidak pernah dihapus oleh GasDist. Hapus sendiri salinan lama di flashdisk bila tempatnya sudah penuh.
+Salinan yang Anda simpan lewat **Simpan salinan ke...** tidak pernah dihapus oleh GasDist. Hapus sendiri salinan lama di flashdisk kalau tempatnya sudah penuh.
 </Aside>
 
 ## Folder backup kedua
@@ -90,11 +90,11 @@ Agar setiap backup, termasuk yang otomatis, langsung punya salinan di tempat lai
 
 2. Di bawah **Folder backup kedua**, klik **Pilih folder**, lalu pilih folder tujuan.
 
-3. Gulir ke paling bawah dan klik **Simpan**.
+3. Scroll ke paling bawah dan klik **Simpan**.
 
 </Steps>
 
-Setiap kali folder itu tersedia, salinan backup juga disimpan di sana. Bila folder itu tidak ditemukan (misalnya flashdisk sedang tidak tercolok), backup tetap dibuat di folder utama dan kotak **Backup** di halaman **Beranda** menulis **Folder backup kedua tidak ditemukan:** diikuti lokasinya. Untuk berhenti memakai folder kedua, klik **Hapus pilihan folder**, lalu **Simpan**.
+Setiap kali folder itu tersedia, salinan backup juga disimpan di sana. Kalau folder itu tidak ditemukan (misalnya flashdisk sedang tidak tercolok), backup tetap dibuat di folder utama dan kotak **Backup** di halaman **Beranda** menulis **Folder backup kedua tidak ditemukan:** diikuti lokasinya. Untuk berhenti memakai folder kedua, klik **Hapus pilihan folder**, lalu **Simpan**.
 
 ## Ukuran backup
 
@@ -102,45 +102,45 @@ Backup tidak punya batas ukuran. Satu backup kira-kira sebesar data GasDist: den
 
 | Perhatikan | Karena |
 |---|---|
-| Ruang kosong di disk | Setiap backup sebesar data, dan folder backup menyimpan beberapa jenis sekaligus (lihat di bawah). Bila disk mulai penuh, turunkan **Simpan berapa backup**. |
-| Flashdisk berformat FAT32 | FAT32 tidak bisa menyimpan file di atas 4 GB. Bila backup mendekati ukuran itu, format flashdisk sebagai exFAT atau NTFS. |
-| Versi GasDist lain | Backup yang dibuat GasDist 0.15.0 atau lebih baru tidak bisa dipulihkan di GasDist 0.14.0 atau lebih lama (lihat [Memulihkan dari backup](/gasdist-site/panduan/backup/memulihkan/#bila-ada-pesan-kesalahan)). Backup dari versi lama tetap bisa dipulihkan di versi baru. |
+| Ruang kosong di disk | Setiap backup sebesar data, dan folder backup menyimpan beberapa jenis sekaligus (lihat di bawah). Kalau disk mulai penuh, turunkan **Simpan berapa backup**. |
+| Flashdisk berformat FAT32 | FAT32 tidak bisa menyimpan file di atas 4 GB. Kalau backup mendekati ukuran itu, format flashdisk sebagai exFAT atau NTFS. |
+| Versi GasDist lain | Backup yang dibuat GasDist 0.15.0 atau lebih baru tidak bisa di-restore di GasDist 0.14.0 atau lebih lama (lihat [Restore dari backup](/gasdist-site/panduan/backup/memulihkan/#kalau-ada-pesan-kesalahan)). Backup dari versi lama tetap bisa di-restore di versi baru. |
 
 ## Berapa banyak backup yang disimpan
 
-Isian **Simpan berapa backup** di bagian **Backup** menentukan jumlahnya. Bawaannya 14, boleh diisi 1 sampai 365.
+Isian **Simpan berapa backup** di bagian **Backup** menentukan jumlahnya. Default-nya 14, boleh diisi 1 sampai 365.
 
 Jumlah itu berlaku **untuk tiap jenis** backup **di tiap folder**. Backup yang lebih lama dari itu dihapus otomatis.
 
-| Jenis backup | Dibuat saat | Dengan bawaan 14, yang disimpan |
+| Jenis backup | Dibuat saat | Dengan default 14, yang disimpan |
 |---|---|---|
 | otomatis | Aplikasi ditutup, dan sekali sehari | 14 backup otomatis terbaru |
-| manual | **Backup sekarang** atau **Simpan salinan ke…** diklik, tepat sebelum [memperbarui GasDist](/gasdist-site/panduan/mulai/memperbarui/), dan tepat sebelum [Hapus semua data](/gasdist-site/panduan/pengaturan/hapus-semua-data/) | 14 backup manual terbaru |
-| sebelum pemulihan | Tepat sebelum [memulihkan dari backup](/gasdist-site/panduan/backup/memulihkan/) | 14 backup sebelum pemulihan terbaru |
+| manual | **Backup sekarang** atau **Simpan salinan ke...** diklik, tepat sebelum [meng-update GasDist](/gasdist-site/panduan/mulai/memperbarui/), dan tepat sebelum [Hapus semua data](/gasdist-site/panduan/pengaturan/hapus-semua-data/) | 14 backup manual terbaru |
+| sebelum restore | Tepat sebelum [restore dari backup](/gasdist-site/panduan/backup/memulihkan/) | 14 backup sebelum restore terbaru |
 
 <Aside type="note">
-Setiap kali GasDist ditutup, satu backup otomatis dibuat. Bila aplikasi ditutup beberapa kali sehari, 14 backup otomatis bisa mencakup kurang dari 14 hari. Naikkan angkanya bila Anda ingin menyimpan riwayat lebih panjang.
+Setiap kali GasDist ditutup, satu backup otomatis dibuat. Kalau aplikasi ditutup beberapa kali sehari, 14 backup otomatis bisa mencakup kurang dari 14 hari. Naikkan angkanya kalau Anda ingin menyimpan riwayat lebih panjang.
 </Aside>
 
-## Backup atau ekspor?
+## Backup atau export?
 
-| | Backup | [Ekspor semua data](/gasdist-site/panduan/alat-data/ekspor-semua-data/) |
+| | Backup | [Export semua data](/gasdist-site/panduan/alat-data/ekspor-semua-data/) |
 |---|---|---|
-| Untuk | Memulihkan GasDist bila PC rusak atau data salah | Akuntan, arsip, atau pindah ke program lain |
-| Terenkripsi | Ya, dengan kata sandi backup | Tidak |
-| Bisa dipulihkan ke GasDist | Ya | Tidak |
-| Isinya | Semua, termasuk pengguna dan logo | Semua tabel, tanpa kata sandi, kunci, sesi, dan logo |
+| Untuk | Me-restore GasDist kalau PC rusak atau data salah | Akuntan, arsip, atau pindah ke program lain |
+| Terenkripsi | Ya, dengan password backup | Tidak |
+| Bisa di-restore ke GasDist | Ya | Tidak |
+| Isinya | Semua, termasuk user dan logo | Semua tabel, tanpa password, kunci, sesi, dan logo |
 | Siapa | Owner dan Admin | Owner |
 
 ## Scan lembar kembali
 
-Scan dari [Tandai terkirim](/gasdist-site/panduan/surat-jalan/menandai-terkirim/) tidak masuk ke file backup. Setiap scan sudah berupa file terenkripsi tersendiri, dan dalam beberapa tahun jumlahnya bisa puluhan ribu; bila ikut di setiap backup, backup menjadi sangat besar dan lambat. Karena itu:
+Scan dari [Tandai terkirim](/gasdist-site/panduan/surat-jalan/menandai-terkirim/) tidak masuk ke file backup. Setiap scan sudah berupa file terenkripsi tersendiri, dan dalam beberapa tahun jumlahnya bisa puluhan ribu; kalau ikut di setiap backup, backup menjadi sangat besar dan lambat. Karena itu:
 
 | Saat | Yang terjadi dengan scan |
 |---|---|
-| Setiap backup, otomatis atau manual | Scan yang belum ada di folder backup disalin ke folder `scans` di dalamnya. Scan yang sudah ada tidak disalin lagi, jadi backup tetap secepat biasanya. Bila ada scan yang tidak bisa disalin, pesan backup menyebut jumlahnya; backup-nya sendiri tetap utuh. |
+| Setiap backup, otomatis atau manual | Scan yang belum ada di folder backup disalin ke folder `scans` di dalamnya. Scan yang sudah ada tidak disalin lagi, jadi backup tetap secepat biasanya. Kalau ada scan yang tidak bisa disalin, pesan backup menyebut jumlahnya; backup-nya sendiri tetap utuh. |
 | Folder backup kedua | Mendapat folder `scans` sendiri dengan cara yang sama |
-| **Simpan salinan ke…** | Folder `scans` ikut disalin ke sebelah file salinan |
+| **Simpan salinan ke...** | Folder `scans` ikut disalin ke sebelah file salinan |
 | Backup lama dihapus otomatis | Folder `scans` tidak pernah dihapus: setiap scan disimpan sekali dan dipakai semua backup |
 
 ```
@@ -154,6 +154,6 @@ Folder backup
 ```
 
 <Aside type="caution" title="Salin folder scans bersama backup">
-Saat memindahkan backup ke flashdisk atau PC lain dengan cara sendiri, salin juga folder `scans` di sebelahnya. Tanpa folder itu, datanya tetap pulih lengkap, hanya scan lembar kembali yang tidak bisa dibuka.
+Saat memindahkan backup ke flashdisk atau PC lain dengan cara sendiri, salin juga folder `scans` di sebelahnya. Tanpa folder itu, datanya tetap kembali lengkap, hanya scan lembar kembali yang tidak bisa dibuka.
 </Aside>
 
