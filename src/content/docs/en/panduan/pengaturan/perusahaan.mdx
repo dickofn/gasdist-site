@@ -17,18 +17,22 @@ The company details print at the top of every surat jalan, so make sure they are
 
 <Steps>
 
-1. Open **Settings** in the sidebar. The **Company** section is at the top left.
+1. Open **Settings** in the sidebar. The **Company** tab opens first.
 
-   <Shot name="settings-company" alt="The Settings page with the Company and Documents sections" marks={[1, 2, 3, null]} />
+   <Shot name="settings-company" alt="The Settings page on the Company tab: name, address, phone, NPWP and logo" marks={[1, 2, 3]} />
 
 2. Change the **Address**, **Phone** or logo as needed. **Company name** <span class="pin">1</span> and **NPWP** follow the license and are locked (see below); until a license is added, they can be changed here too.
 
-3. Scroll to the bottom of the page and click **Save**. The message **Settings saved.** appears.
+3. Click **Save** in the bar that appears at the bottom of the screen. The message **Settings saved.** appears.
 
 </Steps>
 
+The bar shows up as soon as you change something and reads **You have unsaved changes.** **Cancel** puts every field back to what is saved.
+
+<Shot name="settings-save-bar" alt="The bar at the bottom of Settings: You have unsaved changes, with the Cancel and Save buttons" marks={false} />
+
 <Aside type="note">
-There is one **Save** button for the whole page, at the very bottom. It saves every field at once, including the [number format](/gasdist-site/en/panduan/pengaturan/format-nomor/), [negative stock, the automatic lock and language](/gasdist-site/en/panduan/pengaturan/stok-dan-keamanan/), and the backup folder. If you leave the page before clicking **Save**, your changes are not kept.
+One **Save** button covers every tab: company details, the [number format and printing](/gasdist-site/en/panduan/pengaturan/format-nomor/), [negative stock, the automatic lock and language](/gasdist-site/en/panduan/pengaturan/stok-dan-keamanan/), and the backup folder. Moving from one tab to another does not throw changes away. If **Save** is refused because a field is wrong, GasDist opens the tab that holds the mistake. If you leave the page before clicking **Save**, your changes are not kept.
 </Aside>
 
 ### The company name and NPWP from the license
@@ -51,7 +55,7 @@ If the company name or NPWP changes, for example with a new deed, contact your G
 
 <Steps>
 
-1. Click **Choose logo** <span class="pin">2</span> in the **Company** section.
+1. Click **Choose logo** <span class="pin">2</span> on the **Company** tab.
 
 2. A file picker opens that shows only PNG and JPEG files. Pick the logo file and confirm.
 
@@ -67,6 +71,12 @@ To change the logo, click **Choose logo** again and pick a new file. To drop it,
 A logo on a white or transparent background looks neatest on paper. If your logo file is over 512 KB, make it smaller first in an image editor.
 </Aside>
 
-## Other parts of the Settings page
+## The other tabs of the Settings page
 
-On the right is the **Documents** section <span class="pin">3</span>. There you set the [surat jalan number format](/gasdist-site/en/panduan/pengaturan/format-nomor/). Next comes the **Surat jalan printing** section for the template, paper size and number of sheets (see [Print settings](/gasdist-site/en/panduan/pengaturan/cetak/)), then the **Stock**, **Security**, **Language** and **Backup** sections. Below the form are the **Backup and restore** box (see [Making and copying backups](/gasdist-site/en/panduan/backup/membuat-backup/)), **Export all data**, **About**, with the GasDist version, its license (see [License and trial](/gasdist-site/en/panduan/mulai/lisensi/)) and the update button (see [Updating GasDist](/gasdist-site/en/panduan/mulai/memperbarui/)), then, at the very bottom, **Danger zone** (see [Delete all data](/gasdist-site/en/panduan/pengaturan/hapus-semua-data/)).
+| Tab | What it holds | Guide |
+|---|---|---|
+| **Company** | Name, address, phone, NPWP and logo | This page |
+| **Surat jalan** <span class="pin">3</span> | Number format, template, paper size, number of sheets | [Number format](/gasdist-site/en/panduan/pengaturan/format-nomor/), [Print settings](/gasdist-site/en/panduan/pengaturan/cetak/) |
+| **General** | Negative stock, automatic lock, language, CSV separator | [Negative stock, lock, language](/gasdist-site/en/panduan/pengaturan/stok-dan-keamanan/) |
+| **Data** | Second backup folder, **Backup and restore**, **Export all data**, and **Danger zone** at the very bottom | [Making and copying backups](/gasdist-site/en/panduan/backup/membuat-backup/), [Export all data](/gasdist-site/en/panduan/alat-data/ekspor-semua-data/), [Delete all data](/gasdist-site/en/panduan/pengaturan/hapus-semua-data/) |
+| **About** | The GasDist version, the license and the update button | [License and trial](/gasdist-site/en/panduan/mulai/lisensi/), [Updating GasDist](/gasdist-site/en/panduan/mulai/memperbarui/) |

@@ -9,19 +9,17 @@ import { Steps, Aside } from "@astrojs/starlight/components";
 import Shot from "../../../../../components/Shot.astro";
 import Roles from "../../../../../components/Roles.astro";
 
-These settings apply to every user in the office: whether stock may go negative, when the screen locks itself, the default language, and the column separator of CSV files. They are all on the **Settings** page, below the **Company**, **Documents** and **Surat jalan printing** sections.
+These settings apply to every user in the office: whether stock may go negative, when the screen locks itself, the default language, and the column separator of CSV files. They are all on the **General** tab of the **Settings** page.
 
 <Roles can={["OWNER"]} />
 
-<Shot name="settings-stock-security" alt="The Security section with a 15-minute lock, the Language section set to Bahasa Indonesia with CSV separator Follow the language, and the Backup section with its Choose folder button" marks={[2, 3, 4, 5]} />
+<Shot name="settings-general" alt="The General tab with the negative stock checkbox, a 15-minute lock, Default language Bahasa Indonesia, and CSV separator Follow the language" />
 
-After changing anything on this page, scroll to the very bottom and click **Save**. The message **Settings saved.** appears.
+After changing anything on this tab, click **Save** in the bar that appears at the bottom of the screen. The message **Settings saved.** appears.
 
 ## Negative stock
 
-<Shot name="settings-stock" alt="The Stock section with the Allow negative stock when posting a surat jalan checkbox" />
-
-The **Stock** section has the checkbox **Allow negative stock when posting a surat jalan** <span class="pin">1</span>. It is unticked by default.
+The **General** tab has the checkbox **Allow negative stock when posting a surat jalan** <span class="pin">1</span>. It is unticked by default.
 
 | Checkbox | When the stock is not enough for a surat jalan |
 |---|---|
@@ -36,7 +34,7 @@ Negative stock means the records in GasDist no longer match the warehouse. The u
 
 ## Automatic lock
 
-The **Security** section (to the right of the **Stock** section) has the field **Lock after (minutes)** <span class="pin">2</span>. When GasDist is not used for that long, the screen locks itself and the user must enter their password to continue. Save any draft or form you are working on before leaving the computer. How to unlock is explained in [Signing in, locking and passwords](/gasdist-site/en/panduan/mulai/masuk-dan-kunci/).
+Below the negative stock checkbox is the field **Lock after (minutes)** <span class="pin">2</span>. When GasDist is not used for that long, the screen locks itself and the user must enter their password to continue. Save any draft or form you are working on before leaving the computer. How to unlock is explained in [Signing in, locking and passwords](/gasdist-site/en/panduan/mulai/masuk-dan-kunci/).
 
 | Automatic lock | Minutes |
 |---|---|
@@ -49,7 +47,7 @@ A computer on a busy desk is better off with a short time, for example 5 minutes
 
 ## Default language
 
-In the **Language** section, choose the **Default language** <span class="pin">3</span>: **Bahasa Indonesia** or **English**.
+On the **General** tab, choose the **Default language** <span class="pin">3</span>: **Bahasa Indonesia** or **English**.
 
 | Where | Language used |
 |---|---|
@@ -61,7 +59,7 @@ The language for each user is set on the **Users** page (see [Adding users](/gas
 
 ## CSV separator
 
-In the **Language** section, under **Default language**, is **CSV separator** <span class="pin">4</span>. It sets the mark between the columns of every csv file GasDist exports (the surat jalan list, the kartu stok and every report). The decimal mark of kg figures goes with it.
+On the **General** tab, under **Default language**, is **CSV separator** <span class="pin">4</span>. It sets the mark between the columns of every csv file GasDist exports (the surat jalan list, the kartu stok and every report). The decimal mark of kg figures goes with it.
 
 | Choice | Column separator, decimal mark | Suits |
 |---|---|---|
@@ -75,4 +73,4 @@ xlsx files (**Export xlsx** or **Export Excel**) are not affected and open corre
 
 ## Second backup folder
 
-The **Backup** section on the same page holds **Second backup folder** (its **Choose folder** button <span class="pin">5</span>) and **Backups to keep**. Both are explained in [Making and copying backups](/gasdist-site/en/panduan/backup/membuat-backup/).
+The **Data** tab holds **Second backup folder** (with its **Choose folder** button) and **Backups to keep**. Both are explained in [Making and copying backups](/gasdist-site/en/panduan/backup/membuat-backup/).

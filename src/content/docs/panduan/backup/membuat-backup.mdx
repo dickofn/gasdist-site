@@ -24,7 +24,7 @@ Setelah password backup diatur, GasDist membuat backup sendiri:
 - setiap kali aplikasi ditutup, dan
 - sekali sehari selama aplikasi terbuka, begitu backup terakhir sudah berumur satu hari.
 
-Backup disimpan di **folder backup utama** di PC ini. Lokasinya tertulis di kotak **Backup dan restore** di halaman **Pengaturan**.
+Backup disimpan di **folder backup utama** di PC ini. Lokasinya tertulis di kotak **Backup dan restore** di tab **Data** pada halaman **Pengaturan**.
 
 ## Kotak Backup di halaman Beranda
 
@@ -48,7 +48,7 @@ Buat backup sendiri sebelum pekerjaan besar, misalnya sebelum stok opname atau s
 
 <Steps>
 
-1. Klik **Backup sekarang** <span class="pin">1</span> di kotak **Backup** di halaman **Beranda**. Owner juga bisa memakai tombol **Backup sekarang** <span class="pin">2</span> di kotak **Backup dan restore** di halaman **Pengaturan**.
+1. Klik **Backup sekarang** <span class="pin">1</span> di kotak **Backup** di halaman **Beranda**. Owner juga bisa memakai tombol **Backup sekarang** <span class="pin">2</span> di kotak **Backup dan restore** di tab **Data** pada halaman **Pengaturan**.
 
    <Shot name="settings-backup" alt="Kotak Backup dan restore di halaman Pengaturan dengan tombol Backup sekarang dan Simpan salinan ke" marks={[null, 2, 3, null]} />
 
@@ -64,7 +64,7 @@ Backup di folder utama ikut hilang kalau PC rusak atau hilang. Simpan salinan di
 
 <Steps>
 
-1. Colokkan flashdisk. Buka **Pengaturan**, scroll ke paling bawah, lalu klik **Simpan salinan ke...** <span class="pin">3</span> di kotak **Backup dan restore** (lihat gambar di atas).
+1. Colokkan flashdisk. Buka **Pengaturan**, klik tab **Data**, lalu klik **Simpan salinan ke...** <span class="pin">3</span> di kotak **Backup dan restore** (lihat gambar di atas).
 
 2. Jendela penyimpanan file terbuka dengan nama file berisi tanggal hari ini, misalnya `GasDist-2026-10-13.gasbak`. Pilih flashdisk atau folder tujuan, lalu simpan.
 
@@ -86,11 +86,13 @@ Agar setiap backup, termasuk yang otomatis, langsung punya salinan di tempat lai
 
 <Steps>
 
-1. Buka **Pengaturan** dan cari bagian **Backup**.
+1. Buka **Pengaturan**, klik tab **Data**, dan cari bagian **Tempat simpan backup**.
 
-2. Di bawah **Folder backup kedua**, klik **Pilih folder**, lalu pilih folder tujuan.
+   <Shot name="settings-backup-folder" alt="Bagian Tempat simpan backup dengan Folder backup kedua, tombol Pilih folder, dan Simpan berapa backup" marks={[1, null]} />
 
-3. Scroll ke paling bawah dan klik **Simpan**.
+2. Di bawah **Folder backup kedua**, klik **Pilih folder** <span class="pin">1</span>, lalu pilih folder tujuan.
+
+3. Klik **Simpan** di bar di bagian bawah layar.
 
 </Steps>
 
@@ -108,7 +110,7 @@ Backup tidak punya batas ukuran. Satu backup kira-kira sebesar data GasDist: den
 
 ## Berapa banyak backup yang disimpan
 
-Isian **Simpan berapa backup** di bagian **Backup** menentukan jumlahnya. Default-nya 14, boleh diisi 1 sampai 365.
+Isian **Simpan berapa backup** di bagian **Tempat simpan backup** menentukan jumlahnya. Default-nya 14, boleh diisi 1 sampai 365.
 
 Jumlah itu berlaku **untuk tiap jenis** backup **di tiap folder**. Backup yang lebih lama dari itu dihapus otomatis.
 

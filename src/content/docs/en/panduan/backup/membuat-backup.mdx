@@ -24,7 +24,7 @@ Once the backup password is set, GasDist makes backups by itself:
 - every time the app is closed, and
 - once a day while the app is open, as soon as the last backup is a day old.
 
-Backups are kept in the **main backup folder** on this PC. Its location is written in the **Backup and restore** box on the **Settings** page.
+Backups are kept in the **main backup folder** on this PC. Its location is written in the **Backup and restore** box on the **Data** tab of the **Settings** page.
 
 ## The Backup box on the Home page
 
@@ -48,7 +48,7 @@ Make a backup yourself before a big job, for example before a stok opname or bef
 
 <Steps>
 
-1. Click **Back up now** <span class="pin">1</span> in the **Backup** box on the **Home** page. The Owner can also use the **Back up now** button <span class="pin">2</span> in the **Backup and restore** box on the **Settings** page.
+1. Click **Back up now** <span class="pin">1</span> in the **Backup** box on the **Home** page. The Owner can also use the **Back up now** button <span class="pin">2</span> in the **Backup and restore** box on the **Data** tab of the **Settings** page.
 
    <Shot name="settings-backup" alt="The Backup and restore box on the Settings page with the Back up now and Save a copy to buttons" marks={[null, 2, 3, null]} />
 
@@ -64,7 +64,7 @@ Backups in the main folder are lost along with the PC if it breaks or goes missi
 
 <Steps>
 
-1. Plug in the USB stick. Open **Settings**, scroll to the very bottom, then click **Save a copy to…** <span class="pin">3</span> in the **Backup and restore** box (see the picture above).
+1. Plug in the USB stick. Open **Settings**, click the **Data** tab, then click **Save a copy to…** <span class="pin">3</span> in the **Backup and restore** box (see the picture above).
 
 2. A save window opens with a file name holding today's date, for example `GasDist-2026-10-13.gasbak`. Choose the USB stick or the folder you want, then save.
 
@@ -86,11 +86,13 @@ To give every backup, automatic ones included, a copy somewhere else straight aw
 
 <Steps>
 
-1. Open **Settings** and find the **Backup** section.
+1. Open **Settings**, click the **Data** tab, and find the **Where backups are kept** section.
 
-2. Under **Second backup folder**, click **Choose folder**, then pick the folder.
+   <Shot name="settings-backup-folder" alt="The Where backups are kept section with Second backup folder, the Choose folder button, and Backups to keep" marks={[1, null]} />
 
-3. Scroll to the very bottom and click **Save**.
+2. Under **Second backup folder**, click **Choose folder** <span class="pin">1</span>, then pick the folder.
+
+3. Click **Save** in the bar at the bottom of the screen.
 
 </Steps>
 
@@ -108,7 +110,7 @@ Backups have no size limit. One backup is about as large as the GasDist data: at
 
 ## How many backups are kept
 
-The **Backups to keep** field in the **Backup** section sets the number. The default is 14, and it accepts 1 to 365.
+The **Backups to keep** field in the **Where backups are kept** section sets the number. The default is 14, and it accepts 1 to 365.
 
 That number applies **to each kind** of backup **in each folder**. Backups older than that are deleted automatically.
 

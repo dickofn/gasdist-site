@@ -9,19 +9,17 @@ import { Steps, Aside } from "@astrojs/starlight/components";
 import Shot from "../../../../components/Shot.astro";
 import Roles from "../../../../components/Roles.astro";
 
-Pengaturan ini berlaku untuk semua user di kantor: apakah stok boleh minus, kapan layar terkunci sendiri, bahasa default, dan pemisah kolom file CSV. Semuanya ada di halaman **Pengaturan**, di bawah bagian **Perusahaan**, **Dokumen**, dan **Cetak surat jalan**.
+Pengaturan ini berlaku untuk semua user di kantor: apakah stok boleh minus, kapan layar terkunci sendiri, bahasa default, dan pemisah kolom file CSV. Semuanya ada di tab **Umum** pada halaman **Pengaturan**.
 
 <Roles can={["OWNER"]} />
 
-<Shot name="settings-stock-security" alt="Bagian Keamanan dengan kunci otomatis 15 menit, bagian Bahasa dengan Bahasa Indonesia dan Pemisah CSV Ikuti bahasa, dan bagian Backup dengan tombol Pilih folder" marks={[2, 3, 4, 5]} />
+<Shot name="settings-general" alt="Tab Umum dengan kotak centang stok minus, kunci otomatis 15 menit, Bahasa default Bahasa Indonesia, dan Pemisah CSV Ikuti bahasa" />
 
-Setelah mengubah apa pun di halaman ini, scroll ke paling bawah dan klik **Simpan**. Muncul pesan **Pengaturan disimpan.**
+Setelah mengubah apa pun di tab ini, klik **Simpan** di bar yang muncul di bagian bawah layar. Muncul pesan **Pengaturan disimpan.**
 
 ## Stok minus
 
-<Shot name="settings-stock" alt="Bagian Stok dengan kotak centang Izinkan stok minus saat posting surat jalan" />
-
-Di bagian **Stok** ada kotak centang **Izinkan stok minus saat posting surat jalan** <span class="pin">1</span>. Default-nya tidak dicentang.
+Di tab **Umum** ada kotak centang **Izinkan stok minus saat posting surat jalan** <span class="pin">1</span>. Default-nya tidak dicentang.
 
 | Kotak centang | Kalau stok tidak cukup untuk sebuah surat jalan |
 |---|---|
@@ -36,7 +34,7 @@ Stok minus berarti catatan di GasDist sudah tidak cocok dengan isi gudang. Biasa
 
 ## Kunci otomatis
 
-Di bagian **Keamanan** (di sebelah kanan bagian **Stok**) ada kolom **Kunci otomatis setelah (menit)** <span class="pin">2</span>. Kalau GasDist tidak dipakai selama itu, layar terkunci sendiri dan user harus memasukkan password-nya untuk melanjutkan. Sebaiknya simpan dulu draft atau isian yang sedang dikerjakan sebelum meninggalkan PC. Cara membuka kunci dijelaskan di [Login, kunci layar, dan password](/gasdist-site/panduan/mulai/masuk-dan-kunci/).
+Di bawah kotak centang stok minus ada kolom **Kunci otomatis setelah (menit)** <span class="pin">2</span>. Kalau GasDist tidak dipakai selama itu, layar terkunci sendiri dan user harus memasukkan password-nya untuk melanjutkan. Sebaiknya simpan dulu draft atau isian yang sedang dikerjakan sebelum meninggalkan PC. Cara membuka kunci dijelaskan di [Login, kunci layar, dan password](/gasdist-site/panduan/mulai/masuk-dan-kunci/).
 
 | Kunci otomatis | Menit |
 |---|---|
@@ -49,7 +47,7 @@ PC di meja yang ramai dilewati orang sebaiknya memakai waktu pendek, misalnya 5 
 
 ## Bahasa default
 
-Di bagian **Bahasa**, pilih **Bahasa default** <span class="pin">3</span>: **Bahasa Indonesia** atau **English**.
+Di tab **Umum**, pilih **Bahasa default** <span class="pin">3</span>: **Bahasa Indonesia** atau **English**.
 
 | Tempat | Bahasa yang dipakai |
 |---|---|
@@ -61,7 +59,7 @@ Bahasa per user diatur di halaman **User** (lihat [Menambah user](/gasdist-site/
 
 ## Pemisah CSV
 
-Di bagian **Bahasa**, di bawah **Bahasa default**, ada **Pemisah CSV** <span class="pin">4</span>. Pilihan ini menentukan tanda pemisah kolom di setiap file csv yang di-export GasDist (daftar surat jalan, kartu stok, dan semua laporan). Tanda desimal angka kg ikut dengan pemisahnya.
+Di tab **Umum**, di bawah **Bahasa default**, ada **Pemisah CSV** <span class="pin">4</span>. Pilihan ini menentukan tanda pemisah kolom di setiap file csv yang di-export GasDist (daftar surat jalan, kartu stok, dan semua laporan). Tanda desimal angka kg ikut dengan pemisahnya.
 
 | Pilihan | Pemisah kolom, tanda desimal | Cocok untuk |
 |---|---|---|
@@ -75,4 +73,4 @@ File Excel (**Export Excel**) tidak terpengaruh dan terbuka dengan benar di PC m
 
 ## Folder backup kedua
 
-Bagian **Backup** di halaman yang sama berisi **Folder backup kedua** (tombol **Pilih folder** <span class="pin">5</span>) dan **Simpan berapa backup**. Keduanya dijelaskan di [Membuat dan menyalin backup](/gasdist-site/panduan/backup/membuat-backup/).
+Tab **Data** berisi **Folder backup kedua** (tombol **Pilih folder**) dan **Simpan berapa backup**. Keduanya dijelaskan di [Membuat dan menyalin backup](/gasdist-site/panduan/backup/membuat-backup/).
