@@ -36,7 +36,7 @@ export default defineConfig({
         section("Laporan", { en: "Reports" }, "laporan"),
         section("Pelanggan", { en: "Customers" }, "pelanggan"),
         section("Data master", { en: "Master data" }, "data-master"),
-        section("Pengguna", { en: "Users" }, "pengguna"),
+        section("User", { en: "Users" }, "pengguna"),
         section("Pengaturan", { en: "Settings" }, "pengaturan"),
         section("Backup", { en: "Backup" }, "backup"),
         section("Alat data", { en: "Data tools" }, "alat-data"),

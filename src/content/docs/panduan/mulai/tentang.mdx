@@ -9,27 +9,27 @@ import { Steps, Aside } from "@astrojs/starlight/components";
 import Shot from "../../../../components/Shot.astro";
 import Roles from "../../../../components/Roles.astro";
 
-GasDist mencatat stok LPG dalam kg dan surat jalan dalam tabung untuk distributor. Aplikasi ini bekerja sepenuhnya **offline** di satu PC: tidak butuh internet, dan semua data tersimpan di PC itu dalam keadaan **terenkripsi**. Halaman ini mengenalkan jendela utama supaya Anda tahu di mana mencari setiap fitur. Baru mulai? [Langkah pertama](/gasdist-site/panduan/mulai/mulai-cepat/) membawa Anda dari pemasangan sampai satu surat jalan terkirim.
+GasDist mencatat stok LPG dalam kg dan surat jalan dalam tabung untuk distributor. Aplikasi ini bekerja sepenuhnya **offline** di satu PC: tidak butuh internet, dan semua data tersimpan di PC itu dalam keadaan **terenkripsi**. Halaman ini mengenalkan jendela utama supaya Anda tahu di mana mencari setiap fitur. Baru mulai? Ikuti [Langkah pertama](/gasdist-site/panduan/mulai/mulai-cepat/), dari instalasi sampai satu surat jalan terkirim.
 
 <Roles can={["OWNER", "ADMIN", "GUDANG", "PENJUALAN", "VIEWER"]} />
 
 ## Jendela utama
 
-Setelah masuk, GasDist selalu membuka halaman **Beranda**. Jendela utama terdiri dari menu samping di kiri dan baris atas di kanan.
+Setelah login, GasDist selalu membuka halaman **Beranda**. Jendela utama terdiri dari menu samping di kiri dan baris atas di kanan.
 
 <Shot name="home" alt="Jendela utama GasDist: menu samping di kiri, nama perusahaan dan tombol akun di atas, Beranda dengan kartu surat jalan hari ini dan kartu stok per produk di tengah" />
 
 | Bagian | Gunanya |
 |---|---|
-| Menu samping <span class="pin">1</span> | Pindah antarhalaman. Menu yang tampil tergantung [peran](/gasdist-site/panduan/mulai/peran/) Anda. Nomor versi GasDist ada di bawahnya; versi yang sama ada di **Pengaturan › Tentang**, tempat Owner [memperbarui GasDist](/gasdist-site/panduan/mulai/memperbarui/). |
-| Nama perusahaan | Di kiri baris atas, misalnya **PT Sumber Gas Sejahtera**. Owner mengubahnya di [Pengaturan](/gasdist-site/panduan/pengaturan/perusahaan/); selama lisensi terpasang, nama ini mengikuti lisensi. |
-| **Percobaan · *n* hari lagi** | Hanya tampil tanpa lisensi: sisa masa percobaan, lalu **Percobaan berakhir** (hanya baca). Owner mengkliknya untuk menambah lisensi. Lihat [Lisensi dan masa percobaan](/gasdist-site/panduan/mulai/lisensi/). |
-| **Bahasa** <span class="pin">2</span> | Pilih **Bahasa Indonesia** atau **English**. Pilihan ini disimpan untuk akun Anda sendiri, jadi pengguna lain tidak terpengaruh. |
+| Menu samping <span class="pin">1</span> | Pindah antarhalaman. Menu yang tampil tergantung [role](/gasdist-site/panduan/mulai/peran/) Anda. Nomor versi GasDist ada di bawahnya; versi yang sama ada di **Pengaturan › Tentang**, tempat Owner [meng-update GasDist](/gasdist-site/panduan/mulai/memperbarui/). |
+| Nama perusahaan | Di kiri baris atas, misalnya **PT Sumber Gas Sejahtera**. Owner mengubahnya di [Pengaturan](/gasdist-site/panduan/pengaturan/perusahaan/); selama lisensi terinstall, nama ini mengikuti lisensi. |
+| **Trial · *n* hari lagi** | Hanya tampil tanpa lisensi: sisa masa trial, lalu **Trial habis** (data hanya bisa dilihat). Owner mengkliknya untuk menambah lisensi. Lihat [Lisensi dan masa trial](/gasdist-site/panduan/mulai/lisensi/). |
+| **Bahasa** <span class="pin">2</span> | Pilih **Bahasa Indonesia** atau **English**. Pilihan ini disimpan untuk akun Anda sendiri, jadi user lain tidak terpengaruh. |
 | **Tampilan** | **Sistem**, **Terang**, atau **Gelap**. Juga disimpan untuk akun Anda sendiri; lihat [Tampilan terang dan gelap](#tampilan-terang-dan-gelap). |
-| Nama dan peran | Siapa yang sedang masuk, misalnya **Hendra Wijaya · Owner**. |
-| **Ganti kata sandi** | Mengganti kata sandi Anda sendiri. Lihat [Masuk, kunci layar, dan kata sandi](/gasdist-site/panduan/mulai/masuk-dan-kunci/). |
-| **Kunci** <span class="pin">3</span> | Mengunci layar saat Anda meninggalkan meja. Anda tetap masuk; membukanya cukup dengan kata sandi. |
-| **Keluar** | Mengakhiri sesi Anda, lalu kembali ke layar masuk. |
+| Nama dan role | Siapa yang sedang login, misalnya **Hendra Wijaya · Owner**. |
+| **Ganti password** | Mengganti password Anda sendiri. Lihat [Login, kunci layar, dan password](/gasdist-site/panduan/mulai/masuk-dan-kunci/). |
+| **Kunci** <span class="pin">3</span> | Mengunci layar saat Anda meninggalkan meja. Anda tetap login; membukanya cukup dengan password. |
+| **Logout** | Mengakhiri sesi Anda, lalu kembali ke layar login. |
 
 Di Beranda sendiri ada kartu surat jalan hari ini, lembar yang belum kembali, dan backup, tombol seperti **Terima stok** <span class="pin">4</span>, dan satu kartu per produk. Label **Menipis** <span class="pin">5</span> menandai produk yang stoknya di bawah batas. Penjelasan lengkapnya ada di [Beranda](/gasdist-site/panduan/mulai/beranda/) dan [Stok di Beranda](/gasdist-site/panduan/stok/ringkasan/).
 
@@ -38,15 +38,15 @@ Di Beranda sendiri ada kartu surat jalan hari ini, lembar yang belum kembali, da
 | Menu | Untuk apa | Panduan |
 |---|---|---|
 | **Beranda** | Halaman awal: surat jalan hari ini, lembar yang belum kembali, status backup, stok tiap produk dalam kg dan tabung, terima stok, stok opname, surat jalan terbaru | [Beranda](/gasdist-site/panduan/mulai/beranda/) |
-| **Surat Jalan** | Daftar surat jalan, membuat, memposting, mencetak, membatalkan | [Daftar dan ekspor surat jalan](/gasdist-site/panduan/surat-jalan/daftar/) |
+| **Surat Jalan** | Daftar surat jalan, membuat, memposting, mencetak, membatalkan | [Daftar dan export surat jalan](/gasdist-site/panduan/surat-jalan/daftar/) |
 | **Pelanggan** | Data pangkalan dan pelanggan lain, pencarian, riwayat surat jalan per pelanggan | [Daftar dan pencarian pelanggan](/gasdist-site/panduan/pelanggan/daftar/) |
 | **Master Data** | Produk, kendaraan, dan sopir | [Produk](/gasdist-site/panduan/data-master/produk/) |
-| **Laporan** | Kartu stok, ringkasan stok, register surat jalan, pengiriman, surat jalan belum kembali, dan jejak audit (Owner dan Admin); bisa diekspor dan dicetak | [Ringkasan stok](/gasdist-site/panduan/laporan/ringkasan-stok/) |
-| **Pengguna** | Menambah akun, mengatur ulang kata sandi | [Menambah pengguna](/gasdist-site/panduan/pengguna/menambah/) |
+| **Laporan** | Kartu stok, ringkasan stok, register surat jalan, pengiriman, surat jalan belum kembali, dan riwayat perubahan (Owner dan Admin); bisa di-export dan dicetak | [Ringkasan stok](/gasdist-site/panduan/laporan/ringkasan-stok/) |
+| **User** | Menambah akun, me-reset password | [Menambah user](/gasdist-site/panduan/pengguna/menambah/) |
 | **Pengaturan** | Data perusahaan, format nomor, stok minus, kunci otomatis, bahasa, backup | [Perusahaan dan logo](/gasdist-site/panduan/pengaturan/perusahaan/) |
 
 <Aside type="note">
-Tidak melihat salah satu menu di atas? Itu wajar: menu disembunyikan bila peran Anda tidak berhak memakainya. Lihat [Peran pengguna](/gasdist-site/panduan/mulai/peran/).
+Tidak melihat salah satu menu di atas? Itu wajar: menu disembunyikan kalau role Anda tidak berhak memakainya. Lihat [Role user](/gasdist-site/panduan/mulai/peran/).
 </Aside>
 
 ## Tampilan terang dan gelap
@@ -57,10 +57,10 @@ Pilih **Tampilan** di baris atas:
 
 | Pilihan | Hasilnya |
 |---|---|
-| **Sistem** <span class="pin">1</span> | Bawaan. GasDist mengikuti tema Windows (atau Linux): bila sistem memakai mode gelap, GasDist ikut gelap, dan ikut berganti saat sistem berganti. |
+| **Sistem** <span class="pin">1</span> | Default. GasDist mengikuti tema Windows (atau Linux): kalau sistem memakai mode gelap, GasDist ikut gelap, dan ikut berganti saat sistem berganti. |
 | **Terang** | Selalu terang. |
 | **Gelap** | Selalu gelap. |
 
-Isinya sama persis di setiap tampilan; hanya warnanya yang berubah. Pilihan ini disimpan untuk akun Anda sendiri di PC ini, jadi pengguna lain di PC yang sama tetap dengan pilihannya masing-masing. Layar masuk memakai pilihan terakhir yang dipakai di PC ini. Lembar cetak selalu putih.
+Isinya sama persis di setiap tampilan; hanya warnanya yang berubah. Pilihan ini disimpan untuk akun Anda sendiri di PC ini, jadi user lain di PC yang sama tetap dengan pilihannya masing-masing. Layar login memakai pilihan terakhir yang dipakai di PC ini. Lembar cetak selalu putih.
 
 <Shot name="home.dark" alt="Jendela utama GasDist dalam tema gelap" marks={false} />

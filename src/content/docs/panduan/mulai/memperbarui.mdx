@@ -1,6 +1,6 @@
 ---
-title: Memperbarui GasDist
-description: Pasang versi baru dari satu file pembaruan tanpa internet, apa arti setiap penolakan, dan cara kembali ke versi sebelumnya.
+title: Update GasDist
+description: Install versi baru dari satu file update tanpa internet, apa arti setiap penolakan, dan cara kembali ke versi sebelumnya.
 sidebar:
   order: 9
 ---
@@ -9,127 +9,127 @@ import { Steps, Aside } from "@astrojs/starlight/components";
 import Shot from "../../../../components/Shot.astro";
 import Roles from "../../../../components/Roles.astro";
 
-Setiap versi baru GasDist disertai satu **file pembaruan**, berakhiran `.gasupdate`. File ini diberikan seperti installer, misalnya lewat flashdisk, dan dipasang oleh Owner dari dalam GasDist. Tidak butuh internet: GasDist tidak pernah memeriksa pembaruan sendiri lewat internet.
+Setiap versi baru GasDist disertai satu **file update**, berakhiran `.gasupdate`. File ini diberikan seperti installer, misalnya lewat flashdisk, dan di-install oleh Owner dari dalam GasDist. Tidak butuh internet: GasDist tidak pernah mencari update sendiri lewat internet.
 
 <Roles can={["OWNER"]} />
 
-## File pembaruan yang dipakai
+## File update yang dipakai
 
-| GasDist dipasang dengan | File pembaruan |
+| GasDist di-install dengan | File update |
 |---|---|
 | Installer Windows | `GasDist_<versi>_windows-x86_64.gasupdate` |
 | AppImage di Linux | `GasDist_<versi>_linux-x86_64.gasupdate` |
-| Paket `.deb` di Linux | Tidak ada. Pasang paket `.deb` versi barunya dengan pemasang paket; kotak **Tentang** mengatakan hal yang sama |
+| Paket `.deb` di Linux | Tidak ada. Install paket `.deb` versi barunya dengan installer paket; kotak **Tentang** mengatakan hal yang sama |
 
 <Aside type="note" title="Dari versi sebelum 0.14.0">
-Pembaruan dari file ada mulai GasDist 0.14.0. Untuk pindah dari versi yang lebih lama ke 0.14.0, jalankan installernya sekali (Windows) atau ganti berkas AppImage-nya. Sesudah itu, setiap versi berikutnya bisa dipasang dari file pembaruan.
+Update dari file ada mulai GasDist 0.14.0. Untuk pindah dari versi yang lebih lama ke 0.14.0, jalankan installernya sekali (Windows) atau ganti file AppImage-nya. Sesudah itu, setiap versi berikutnya bisa di-install dari file update.
 </Aside>
 
 ## Cara yang disarankan di kantor
 
-Di Windows, versi baru juga bisa dipasang dengan menjalankan installernya (`GasDist_<versi>_x64-setup.exe`). Untuk kantor, pakai **Perbarui dari file**:
+Di Windows, versi baru juga bisa di-install dengan menjalankan installernya (`GasDist_<versi>_x64-setup.exe`). Untuk kantor, pakai **Update dari file...**:
 
-| | Perbarui dari file (`.gasupdate`) | Menjalankan installer (`.exe`) |
+| | Update dari file (`.gasupdate`) | Menjalankan installer (`.exe`) |
 |---|---|---|
 | Backup dibuat dulu | ✅ otomatis | ❌ buat sendiri dulu |
-| Memeriksa file asli dari GasDist dan lebih baru | ✅ | ❌ installer apa pun terpasang, juga versi lama |
-| Siapa yang bisa | Owner, dengan kata sandinya | Siapa pun yang masuk ke akun Windows itu |
-| Tercatat di jejak audit | ✅ **GasDist diperbarui** | ❌ |
+| Mengecek apakah file asli dari GasDist dan lebih baru | ✅ | ❌ installer apa pun terinstall, juga versi lama |
+| Siapa yang bisa | Owner, dengan password-nya | Siapa pun yang login ke akun Windows itu |
+| Tercatat di riwayat perubahan | ✅ **GasDist di-update** | ❌ |
 
-Installer `.exe` tetap dipakai untuk memasang di PC baru dan untuk [kembali ke versi sebelumnya](#kembali-ke-versi-sebelumnya).
+Installer `.exe` tetap dipakai untuk install di PC baru dan untuk [kembali ke versi sebelumnya](#kembali-ke-versi-sebelumnya).
 
 Langkah ringkas yang bisa dicetak dan ditempel di dekat PC kantor:
 
 ```
-Memperbarui GasDist dari flashdisk
+Update GasDist dari flashdisk
 1. Colokkan flashdisk berisi file GasDist_<versi>_windows-x86_64.gasupdate.
-2. Masuk sebagai Owner. Buka Pengaturan, lalu Tentang, lalu Perbarui dari file….
-3. Pilih file .gasupdate di flashdisk. Pastikan tertulis versi terpasang dan versi baru,
+2. Login sebagai Owner. Buka Pengaturan, lalu Tentang, lalu klik Update dari file...
+3. Pilih file .gasupdate di flashdisk. Pastikan tertulis versi terinstall dan versi baru,
    dan semua pemeriksaan bercentang.
-4. Ketik kata sandi Owner, lalu Perbarui sekarang.
-5. GasDist membuat backup, menutup diri, memasang versi baru, lalu terbuka lagi sendiri
+4. Ketik password Owner, lalu Update sekarang.
+5. GasDist membuat backup, tertutup, meng-install versi baru, lalu terbuka lagi sendiri
    (kurang dari 1 menit). Jangan matikan PC selama itu.
 6. Buka Pengaturan, lalu Tentang: versi baru tertulis di sana.
-Bila GasDist menolak file itu, jangan pakai file lain; hubungi pengelola aplikasi.
+Kalau GasDist menolak file itu, jangan pakai file lain; hubungi penjual GasDist.
 ```
 
-## Memasang pembaruan
+## Install update
 
 <Steps>
 
-1. Colokkan flashdisk berisi file pembaruan, atau salin filenya ke PC.
+1. Colokkan flashdisk berisi file update, atau salin file-nya ke PC.
 
-2. Buka **Pengaturan** dan gulir ke paling bawah. Kotak **Tentang** menampilkan versi yang terpasang <span class="pin">1</span> dan [lisensinya](/gasdist-site/panduan/mulai/lisensi/). Klik **Perbarui dari file…** <span class="pin">2</span>.
+2. Buka **Pengaturan** dan scroll ke paling bawah. Kotak **Tentang** menampilkan versi yang terinstall <span class="pin">1</span> dan [lisensinya](/gasdist-site/panduan/mulai/lisensi/). Klik **Update dari file...** <span class="pin">2</span>.
 
-   <Shot name="settings-about" alt="Kotak Tentang di Pengaturan: versi GasDist, lisensi, dan tombol Perbarui dari file" />
+   <Shot name="settings-about" alt="Kotak Tentang di Pengaturan: versi GasDist, lisensi, dan tombol Update dari file" />
 
-3. Klik **Pilih file pembaruan…**, lalu pilih file `.gasupdate` di jendela pemilih file.
+3. Klik **Pilih file update...**, lalu pilih file `.gasupdate` di jendela pemilih file.
 
-   <Shot name="update-pick" alt="Jendela Perbarui GasDist sebelum file dipilih, dengan tombol Pilih file pembaruan" />
+   <Shot name="update-pick" alt="Jendela Update GasDist sebelum file dipilih, dengan tombol Pilih file update" />
 
-4. GasDist memeriksa file itu dan menampilkan hasilnya: versi terpasang dan **Versi baru** <span class="pin">1</span>, untuk sistem apa, ukuran file, dan lima **Pemeriksaan** <span class="pin">2</span>. Sampai di sini belum ada yang diubah.
+4. GasDist memeriksa file itu dan menampilkan hasilnya: **Versi terinstall** dan **Versi baru** <span class="pin">1</span>, untuk sistem apa, ukuran file, dan lima **Pemeriksaan** <span class="pin">2</span>. Sampai di sini belum ada yang diubah.
 
-   <Shot name="update-checked" alt="Jendela Perbarui GasDist dengan file yang lolos pemeriksaan: versi terpasang, versi baru, lima pemeriksaan bertanda centang, kolom kata sandi, dan tombol Perbarui sekarang" />
+   <Shot name="update-checked" alt="Jendela Update GasDist dengan file yang lolos pemeriksaan: versi terinstall, versi baru, lima pemeriksaan bertanda centang, kolom password, dan tombol Update sekarang" />
 
-5. Isi **Kata sandi Anda** <span class="pin">3</span>, yaitu kata sandi yang Anda pakai untuk masuk ke GasDist, lalu klik **Perbarui sekarang** <span class="pin">4</span>.
+5. Isi **Password Anda** <span class="pin">3</span>, yaitu password yang Anda pakai untuk login ke GasDist, lalu klik **Update sekarang** <span class="pin">4</span>.
 
-6. GasDist membuat backup, memasang versi baru, lalu menutup diri dan terbuka lagi. Di Windows, jendela pemasangan kecil tampil sebentar dan selesai sendiri tanpa pertanyaan. Masuk lagi seperti biasa; kotak **Tentang** kini menampilkan versi baru.
+6. GasDist membuat backup, meng-install versi baru, lalu tertutup dan terbuka lagi sendiri. Di Windows, jendela instalasi kecil tampil sebentar dan selesai sendiri tanpa pertanyaan. Login lagi seperti biasa; kotak **Tentang** kini menampilkan versi baru.
 
 </Steps>
 
 | Pemeriksaan | Artinya |
 |---|---|
-| Ditandatangani penerbit GasDist | File dibuat oleh penerbit GasDist dan tidak diubah siapa pun sesudahnya. File dari sumber lain selalu ditolak |
-| File untuk GasDist | Bukan pembaruan untuk aplikasi lain |
+| Ditandatangani pembuat GasDist | File dibuat oleh pembuat GasDist dan tidak diubah siapa pun sesudahnya. File dari sumber lain selalu ditolak |
+| File untuk GasDist | Bukan update untuk aplikasi lain |
 | Untuk sistem PC ini | File Windows untuk Windows, file Linux untuk AppImage |
-| Lebih baru dari versi terpasang | Pembaruan hanya maju. Untuk mundur, lihat [Kembali ke versi sebelumnya](#kembali-ke-versi-sebelumnya) |
-| File utuh | Tidak terpotong atau rusak saat disalin. GasDist memeriksanya sekali lagi saat memasang |
+| Lebih baru dari versi terinstall | Update hanya maju. Untuk mundur, lihat [Kembali ke versi sebelumnya](#kembali-ke-versi-sebelumnya) |
+| File utuh | Tidak terpotong atau rusak saat disalin. GasDist memeriksanya sekali lagi saat install |
 
 ## Yang terjadi pada data
 
-| Hal | Saat pembaruan |
+| Hal | Saat update |
 |---|---|
-| Backup | Selalu dibuat dulu, sebagai backup **manual** atas nama Owner, di folder backup (dan folder kedua bila tersambung). Tanpa [kata sandi backup](/gasdist-site/panduan/backup/kata-sandi-backup/), pembaruan tidak bisa dijalankan |
-| Data | Tetap di tempatnya. Bila versi baru juga memperbarui susunan data, GasDist membuat salinan pengaman lalu memperbaruinya otomatis saat dibuka pertama kali; dialog sudah memberi tahu dengan kotak kuning |
-| Pengguna | Semua orang masuk lagi setelah GasDist dibuka kembali |
-| Lisensi | Pembaruan dari 1.0.x ke 1.1.0 memulai masa percobaan 7 hari saat GasDist pertama kali dibuka, jadi tambahkan [file lisensi](/gasdist-site/panduan/mulai/lisensi/) dari penjual bersama pembaruannya |
-| Jejak audit | Satu catatan **GasDist diperbarui**: siapa, dari versi berapa ke versi berapa, file pembaruannya, dan backup yang dibuat. Lihat [Jejak audit](/gasdist-site/panduan/laporan/jejak-audit/) |
+| Backup | Selalu dibuat dulu, sebagai backup **manual** atas nama Owner, di folder backup (dan folder kedua kalau tersambung). Tanpa [password backup](/gasdist-site/panduan/backup/kata-sandi-backup/), update tidak bisa dijalankan |
+| Data | Tetap di tempatnya. Kalau versi baru juga mengubah susunan data, GasDist membuat salinan pengaman lalu mengubahnya otomatis saat dibuka pertama kali; dialog sudah memberi tahu dengan kotak kuning |
+| User | Semua orang login lagi setelah GasDist dibuka kembali |
+| Lisensi | Update dari 1.0.x ke 1.1.0 memulai masa trial 7 hari saat GasDist pertama kali dibuka, jadi tambahkan [file lisensi](/gasdist-site/panduan/mulai/lisensi/) dari penjual bersama update-nya |
+| Riwayat perubahan | Satu catatan **GasDist di-update**: siapa, dari versi berapa ke versi berapa, file update-nya, dan backup yang dibuat. Lihat [Riwayat perubahan](/gasdist-site/panduan/laporan/jejak-audit/) |
 
-<Aside type="caution" title="GasDist 1.0.0 memperbarui susunan data">
-Pembaruan ke 1.0.0 menambah satu pengaturan ke susunan data, jadi jendela pembaruan menampilkan kotak kuning. Sesudah 1.0.0 dibuka, GasDist 0.15 atau lebih lama tidak bisa membuka data itu lagi, dan backup yang dibuat 1.0.0 tidak bisa dipulihkan di sana. Satu-satunya jalan kembali adalah memulihkan, di versi lama, backup yang dibuat sebelum pembaruan (lihat [Kembali ke versi sebelumnya](#kembali-ke-versi-sebelumnya)). **Perbarui dari file** membuatnya sendiri; bila Anda menjalankan installer atau paket `.deb`, buat dulu dengan **Backup sekarang**.
+<Aside type="caution" title="GasDist 1.0.0 mengubah susunan data">
+Update ke 1.0.0 menambah satu pengaturan ke susunan data, jadi jendela update menampilkan kotak kuning. Sesudah 1.0.0 dibuka, GasDist 0.15 atau lebih lama tidak bisa membuka data itu lagi, dan backup yang dibuat 1.0.0 tidak bisa di-restore di sana. Satu-satunya cara balik: di versi lama, restore backup yang dibuat sebelum update (lihat [Kembali ke versi sebelumnya](#kembali-ke-versi-sebelumnya)). **Update dari file...** membuat backup itu otomatis; kalau Anda menjalankan installer atau paket `.deb`, buat dulu dengan **Backup sekarang**.
 </Aside>
 
-<Aside type="caution" title="Tunggu ekspor dan pemeriksaan data selesai">
-Pembaruan tidak bisa dijalankan selama [Ekspor semua data](/gasdist-site/panduan/alat-data/ekspor-semua-data/) atau [Periksa data](/gasdist-site/panduan/alat-data/periksa-data/) sedang berjalan. Tunggu sampai selesai, lalu klik **Perbarui sekarang** lagi.
+<Aside type="caution" title="Tunggu export dan pemeriksaan data selesai">
+Update tidak bisa dijalankan selama [Export semua data](/gasdist-site/panduan/alat-data/ekspor-semua-data/) atau [Periksa data](/gasdist-site/panduan/alat-data/periksa-data/) sedang berjalan. Tunggu sampai selesai, lalu klik **Update sekarang** lagi.
 </Aside>
 
-## Bila file ditolak
+## Kalau file ditolak
 
-File yang tidak lolos pemeriksaan tidak dipasang, dan tidak ada yang berubah. Jendela menyebut nama file dan alasannya <span class="pin">1</span>; pilih file yang benar dengan **Pilih file lain…** <span class="pin">2</span>.
+File yang tidak lolos pemeriksaan tidak di-install, dan tidak ada yang berubah. Jendela menyebut nama file dan alasannya <span class="pin">1</span>; pilih file yang benar dengan **Pilih file lain...** <span class="pin">2</span>.
 
-<Shot name="update-refused" alt="Jendela Perbarui GasDist dengan file versi lama yang ditolak: nama file, pesan bahwa versinya tidak lebih baru, dan tombol Pilih file lain" />
+<Shot name="update-refused" alt="Jendela Update GasDist dengan file versi lama yang ditolak: nama file, pesan bahwa versinya tidak lebih baru, dan tombol Pilih file lain" />
 
 | Pesan | Artinya | Yang dilakukan |
 |---|---|---|
-| File ini bukan file pembaruan GasDist yang utuh: rusak, terpotong, atau bukan file .gasupdate. | Filenya salah, atau rusak saat disalin. | Salin ulang file pembaruannya dari sumber aslinya, lalu coba lagi. |
-| Tanda tangan file ini tidak cocok dengan penerbit GasDist, jadi file ini tidak dipasang. | File tidak berasal dari penerbit GasDist, atau isinya diubah. | Jangan pakai file itu. Minta file pembaruan yang asli dari pengelola aplikasi. |
-| File pembaruan ini untuk aplikasi lain (*nama*), bukan GasDist. | File pembaruan aplikasi lain. | Pilih file `GasDist_…gasupdate`. |
-| File pembaruan ini untuk sistem lain (*sistem*). | File Linux dipilih di Windows, atau sebaliknya. | Pakai file yang namanya diakhiri sistem PC ini, misalnya `windows-x86_64.gasupdate`. |
-| File ini berisi versi *x*, sedangkan versi terpasang *y*. | File versi yang sama atau lebih lama. | GasDist sudah terbaru. Untuk mundur, lihat di bawah. |
-| GasDist ini tidak bisa diperbarui dari file. | GasDist dipasang dari paket `.deb`. | Pasang paket `.deb` versi barunya. |
-| Kata sandi backup belum diatur. | Tanpa kata sandi backup, backup sebelum pembaruan tidak bisa dibuat. | Atur [kata sandi backup](/gasdist-site/panduan/backup/kata-sandi-backup/), lalu perbarui lagi. |
-| Ekspor atau pemeriksaan data sedang berjalan. | Ekspor semua data atau Periksa data belum selesai. | Tunggu sampai selesai. |
-| Kata sandi salah. | Kata sandi masuk yang diketik tidak cocok. | Ketik kata sandi masuk Anda (bukan kata sandi backup). |
-| Versi baru tidak bisa dipasang (*detail*). Versi yang terpasang tidak berubah. | Misalnya disk penuh atau folder program tidak bisa ditulis. | Periksa ruang kosong di disk, lalu coba lagi. Bila tetap gagal, hubungi pengelola aplikasi dengan detailnya. |
+| File ini bukan file update GasDist yang utuh: rusak, terpotong, atau bukan file .gasupdate. | File-nya salah, atau rusak saat disalin. | Salin ulang file update-nya dari sumber aslinya, lalu coba lagi. |
+| Tanda tangan file ini tidak cocok dengan pembuat GasDist, jadi file ini tidak di-install. | File tidak berasal dari pembuat GasDist, atau isinya diubah. | Jangan pakai file itu. Minta file update yang asli dari penjual GasDist. |
+| File update ini untuk aplikasi lain (*nama*), bukan GasDist. | File update aplikasi lain. | Pilih file `GasDist_...gasupdate`. |
+| File update ini untuk sistem lain (*sistem*). | File Linux dipilih di Windows, atau sebaliknya. | Pakai file yang namanya diakhiri sistem PC ini, misalnya `windows-x86_64.gasupdate`. |
+| File ini berisi versi *x*, sedangkan versi terinstall *y*. | File versi yang sama atau lebih lama. | GasDist sudah terbaru. Untuk mundur, lihat di bawah. |
+| GasDist ini tidak bisa di-update dari file. | GasDist di-install dari paket `.deb`. | Install paket `.deb` versi barunya. |
+| Password backup belum diatur. | Tanpa password backup, backup sebelum update tidak bisa dibuat. | Atur [password backup](/gasdist-site/panduan/backup/kata-sandi-backup/), lalu update lagi. |
+| Export atau pemeriksaan data sedang berjalan. | Export semua data atau Periksa data belum selesai. | Tunggu sampai selesai. |
+| Password salah. | Password login yang diketik tidak cocok. | Ketik password login Anda (bukan password backup). |
+| Versi baru tidak bisa di-install (*detail*). Versi yang terinstall tidak berubah. | Misalnya disk penuh atau folder program tidak bisa ditulis. | Periksa ruang kosong di disk, lalu coba lagi. Kalau tetap gagal, hubungi penjual GasDist dengan detailnya. |
 
 ## Kembali ke versi sebelumnya
 
-| GasDist dipasang dengan | Caranya |
+| GasDist di-install dengan | Caranya |
 |---|---|
-| Installer Windows | Jalankan installer versi sebelumnya (`GasDist_<versi lama>_x64-setup.exe`). Installer itu memasang versi lama di atas versi baru; data tetap di tempatnya. |
-| AppImage | Saat memperbarui, GasDist menyimpan berkas lama di sebelahnya dengan nama `<nama>-previous<akhiran>.bak`, misalnya `gasdist-previous.appimage.bak`. Tutup GasDist, lalu kembalikan nama berkas itu ke nama semula. |
-| Paket `.deb` | Pasang paket `.deb` versi lama. |
+| Installer Windows | Jalankan installer versi sebelumnya (`GasDist_<versi lama>_x64-setup.exe`). Installer itu meng-install versi lama di atas versi baru; data tetap di tempatnya. |
+| AppImage | Saat update, GasDist menyimpan file lama di sebelahnya dengan nama `<nama>-previous<akhiran>.bak`, misalnya `gasdist-previous.appimage.bak`. Tutup GasDist, lalu kembalikan nama file itu ke nama semula. |
+| Paket `.deb` | Install paket `.deb` versi lama. |
 
-Bila kedua versi memakai susunan data yang sama, data langsung terbuka di versi lama. Bila versi baru tadi memperbarui susunan data (kotak kuning di jendela pembaruan), versi lama menolak membuka data itu dengan pesan **Database ini dibuat oleh aplikasi yang lebih baru**. Untuk kembali dalam keadaan itu, hubungi pengelola aplikasi: folder data GasDist dipindahkan dulu, lalu di layar penyiapan awal versi lama dipilih **Pulihkan dari backup…** dengan backup yang dibuat tepat sebelum pembaruan (lihat [Memulihkan dari backup](/gasdist-site/panduan/backup/memulihkan/)). Yang dicatat sesudah pembaruan tidak ikut kembali.
+Kalau kedua versi memakai susunan data yang sama, data langsung terbuka di versi lama. Kalau versi baru tadi mengubah susunan data (kotak kuning di jendela update), versi lama menolak membuka data itu dengan pesan **Database ini dibuat oleh aplikasi yang lebih baru**. Kalau begitu, hubungi penjual GasDist. Dia akan memindahkan folder data GasDist dulu, lalu di layar setup awal versi lama memilih **Restore dari backup...** dengan backup yang dibuat tepat sebelum update (lihat [Restore dari backup](/gasdist-site/panduan/backup/memulihkan/)). Yang dicatat sesudah update tidak ikut kembali.
 
-Backup yang dibuat tepat sebelum pembaruan dibuat oleh versi lama, jadi selalu bisa dipulihkan di versi lama. Backup yang dibuat oleh versi baru belum tentu: GasDist 0.14.0 menolak backup dari GasDist 0.15.0 karena dibuat oleh GasDist yang lebih baru.
+Backup yang dibuat tepat sebelum update dibuat oleh versi lama, jadi selalu bisa di-restore di versi lama. Backup yang dibuat oleh versi baru belum tentu: GasDist 0.14.0 menolak backup dari GasDist 0.15.0 karena dibuat oleh GasDist yang lebih baru.

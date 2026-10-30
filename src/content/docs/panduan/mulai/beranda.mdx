@@ -1,6 +1,6 @@
 ---
 title: Beranda
-description: "Layar pertama setelah masuk: surat jalan hari ini, lembar yang belum kembali, backup terakhir, stok tiap produk, dan surat jalan terbaru."
+description: "Layar pertama setelah login: surat jalan hari ini, lembar yang belum kembali, backup terakhir, stok tiap produk, dan surat jalan terbaru."
 sidebar:
   order: 7
 ---
@@ -9,7 +9,7 @@ import { Steps, Aside } from "@astrojs/starlight/components";
 import Shot from "../../../../components/Shot.astro";
 import Roles from "../../../../components/Roles.astro";
 
-**Beranda** adalah layar pertama setelah Anda masuk. Sekali lihat, Anda tahu apa yang keluar hari ini, lembar bertanda tangan mana yang masih ditunggu, kapan backup terakhir, dan berapa sisa stok.
+**Beranda** adalah layar pertama setelah Anda login. Sekali lihat, Anda tahu apa yang keluar hari ini, lembar bertanda tangan mana yang masih ditunggu, kapan backup terakhir, dan berapa sisa stok.
 
 <Roles can={["OWNER", "ADMIN", "GUDANG", "PENJUALAN", "VIEWER"]} />
 
@@ -21,7 +21,7 @@ import Roles from "../../../../components/Roles.astro";
 
 | Kartu | Isinya | Tombolnya |
 |---|---|---|
-| **Surat jalan hari ini** | Jumlah surat jalan bertanggal hari ini per status, lalu tabung dan kg yang keluar hari ini (yang diposting dan terkirim) | **Lihat surat jalan hari ini** <span class="pin">1</span> membuka daftar surat jalan dengan tanggal hari ini. **Buat surat jalan** <span class="pin">2</span> membuka formulir baru, hanya untuk yang boleh membuat surat jalan. |
+| **Surat jalan hari ini** | Jumlah surat jalan bertanggal hari ini per status, lalu tabung dan kg yang keluar hari ini (yang diposting dan terkirim) | **Lihat surat jalan hari ini** <span class="pin">1</span> membuka daftar surat jalan dengan tanggal hari ini. **Buat surat jalan** <span class="pin">2</span> membuka form baru, hanya untuk yang boleh membuat surat jalan. |
 | **Belum kembali** | Berapa surat jalan yang lembar bertanda tangannya belum kembali, dari tanggal berapa pun, dan berapa hari yang paling lama sudah menunggu. Angka hari berwarna kuning setelah 7 hari. | **Lihat laporan** <span class="pin">3</span> membuka [Surat jalan belum kembali](/gasdist-site/panduan/surat-jalan/belum-kembali/). |
 | **Backup** | Kapan backup terakhir dibuat; hijau, kuning, atau merah | **Backup sekarang** <span class="pin">4</span>. Lihat [Membuat dan menyalin backup](/gasdist-site/panduan/backup/membuat-backup/). |
 
@@ -31,15 +31,15 @@ Di bawah kartu ada satu kartu per produk dengan sisa stok dalam kg dan setara ta
 
 ## Surat jalan terbaru
 
-Paling bawah ada delapan surat jalan terbaru, menurut tanggal surat jalannya, apa pun statusnya. Klik satu untuk membukanya di **Surat Jalan**. Draf terbuka di formulir bagi yang boleh mengubahnya.
+Paling bawah ada delapan surat jalan terbaru, menurut tanggal surat jalannya, apa pun statusnya. Klik satu untuk membukanya di **Surat Jalan**. Draft terbuka di form bagi yang boleh mengubahnya.
 
 <Shot name="home-recent" alt="Daftar surat jalan terbaru dengan nomor, tanggal, pelanggan, status, dan jumlah tabung" />
 
 ## Siapa melihat apa
 
-Semua peran melihat kartu dan daftar yang sama, karena semua peran boleh melihat laporan. Yang berbeda hanya tombolnya:
+Semua role melihat kartu dan daftar yang sama, karena semua role boleh melihat laporan. Yang berbeda hanya tombolnya:
 
-| Tombol | Owner | Admin | Gudang | Penjualan | Pemantau |
+| Tombol | Owner | Admin | Gudang | Penjualan | Viewer |
 |---|---|---|---|---|---|
 | **Buat surat jalan** | ✅ | ✅ | ❌ | ✅ | ❌ |
 | **Terima stok**, **Stok opname** | ✅ | ✅ | ✅ | ❌ | ❌ |

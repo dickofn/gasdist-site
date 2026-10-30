@@ -9,7 +9,7 @@ import { Aside } from "@astrojs/starlight/components";
 import Shot from "../../../../components/Shot.astro";
 import Roles from "../../../../components/Roles.astro";
 
-Setiap isian tanggal di GasDist, di formulir surat jalan, terima stok, stok opname, retur, tandai terkirim, hitung tabung, dan di filter daftar serta laporan, ditulis sebagai **hari/bulan/tahun**, misalnya `03/10/2026` untuk 3 Oktober 2026. Ini sama di bahasa Indonesia dan Inggris, dan sama di setiap PC, juga di Windows yang wilayahnya diatur ke English (United States). Anda tidak perlu mengubah pengaturan wilayah Windows.
+Semua tanggal di GasDist ditulis **hari/bulan/tahun**, misalnya `03/10/2026` untuk 3 Oktober 2026. Ini berlaku di form surat jalan, terima stok, stok opname, retur, tandai terkirim, dan hitung tabung, juga di filter daftar dan laporan. Formatnya sama di bahasa Indonesia dan Inggris, dan sama di setiap PC, juga di Windows yang wilayahnya diatur ke English (United States). Anda tidak perlu mengubah pengaturan wilayah Windows.
 
 <Roles can={["OWNER", "ADMIN", "GUDANG", "PENJUALAN", "VIEWER"]} />
 
@@ -30,7 +30,7 @@ Hari selalu ditulis lebih dulu, jadi `03/10/2026` selalu 3 Oktober, tidak pernah
 
 Klik tombol kalender di ujung kanan isian, atau tekan <kbd>Alt</kbd>+<kbd>↓</kbd> (atau <kbd>F4</kbd>) saat isian tanggal aktif.
 
-<Shot name="date-calendar" alt="Kalender terbuka di bawah isian Tanggal pada formulir surat jalan, menampilkan Oktober 2026 dengan tanggal 13 terpilih dan tombol Hari ini" />
+<Shot name="date-calendar" alt="Kalender terbuka di bawah isian Tanggal pada form surat jalan, menampilkan Oktober 2026 dengan tanggal 13 terpilih dan tombol Hari ini" />
 
 | | |
 |---|---|
@@ -41,7 +41,7 @@ Klik tombol kalender di ujung kanan isian, atau tekan <kbd>Alt</kbd>+<kbd>↓</k
 
 Dengan keyboard: panah kiri dan kanan pindah satu hari, panah atas dan bawah satu minggu, <kbd>Page Up</kbd> dan <kbd>Page Down</kbd> satu bulan, <kbd>Enter</kbd> memilih, dan <kbd>Esc</kbd> menutup kalender tanpa mengubah tanggal. Minggu dimulai hari Minggu.
 
-## Bila tanggalnya tidak bisa dibaca
+## Kalau tanggalnya tidak bisa dibaca
 
 | Pesan di bawah isian | Artinya |
 |---|---|
@@ -51,5 +51,5 @@ Dengan keyboard: panah kiri dan kanan pindah satu hari, panah atas dan bawah sat
 | **Wajib diisi.** | Isian ini tidak boleh kosong. |
 
 <Aside type="note">
-Di filter daftar dan laporan, tanggal baru dipakai setelah Anda menekan <kbd>Enter</kbd>, pindah ke isian lain, atau memilih dari kalender. Bila tanggalnya tidak terbaca, pesan di bawah isian memberi tahu apa yang salah.
+Di filter daftar dan laporan, tanggal baru dipakai setelah Anda menekan <kbd>Enter</kbd>, pindah ke isian lain, atau memilih dari kalender. Kalau tanggalnya tidak terbaca, pesan di bawah isian memberi tahu apa yang salah.
 </Aside>

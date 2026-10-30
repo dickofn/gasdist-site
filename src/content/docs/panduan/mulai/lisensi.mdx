@@ -1,6 +1,6 @@
 ---
-title: Lisensi dan masa percobaan
-description: Tujuh hari percobaan, apa yang masih bisa dikerjakan sesudahnya, cara menambah file lisensi, dan data perusahaan yang dikunci lisensi.
+title: Lisensi dan masa trial
+description: Tujuh hari trial, apa yang masih bisa dikerjakan sesudahnya, cara menambah file lisensi, dan data perusahaan yang dikunci lisensi.
 sidebar:
   order: 4
 ---
@@ -9,55 +9,55 @@ import { Steps, Aside } from "@astrojs/starlight/components";
 import Shot from "../../../../components/Shot.astro";
 import Roles from "../../../../components/Roles.astro";
 
-GasDist dipakai dengan **file lisensi** dari penjual GasDist. File ini atas nama perusahaan Anda: nama perusahaan dan NPWP-nya tertulis di dalamnya. Satu lisensi berlaku untuk semua PC milik perusahaan itu, tanpa batas waktu. Tanpa lisensi, GasDist berjalan sebagai **versi percobaan** selama 7 hari.
+GasDist dipakai dengan **file lisensi** dari penjual GasDist. File ini atas nama perusahaan Anda: nama perusahaan dan NPWP-nya tertulis di dalamnya. Satu lisensi berlaku untuk semua PC milik perusahaan itu, tanpa batas waktu. Tanpa lisensi, GasDist berjalan sebagai **versi trial** selama 7 hari.
 
-Semua pengguna melihat status percobaan di baris atas. Lisensinya sendiri ditambahkan dan diganti oleh Owner, di **Pengaturan › Tentang**.
+Semua user melihat status trial di baris atas. Lisensinya sendiri ditambahkan dan diganti oleh Owner, di **Pengaturan › Tentang**.
 
 <Roles can={["OWNER"]} />
 
-## Masa percobaan 7 hari
+## Masa trial 7 hari
 
-Begitu GasDist dibuka pertama kali, masa percobaan berjalan 7 hari. Selama itu semuanya bisa dipakai seperti biasa. Baris atas menampilkan sisa harinya, misalnya **Percobaan · 7 hari lagi** <span class="pin">1</span>.
+Begitu GasDist dibuka pertama kali, masa trial berjalan 7 hari. Selama itu semuanya bisa dipakai seperti biasa. Baris atas menampilkan sisa harinya, misalnya **Trial · 7 hari lagi** <span class="pin">1</span>.
 
-<Shot name="topbar-trial" alt="Baris atas GasDist dengan label Percobaan · 7 hari lagi di kiri pilihan Bahasa" />
+<Shot name="topbar-trial" alt="Baris atas GasDist dengan label Trial · 7 hari lagi di kiri pilihan Bahasa" />
 
-Owner bisa mengklik label itu untuk membuka kotak **Tentang** di **Pengaturan**. Di sana tertulis sisa masa percobaan <span class="pin">1</span> dan tombol **Tambah lisensi…** <span class="pin">2</span>.
+Owner bisa mengklik label itu untuk membuka kotak **Tentang** di **Pengaturan**. Di sana tertulis sisa masa trial <span class="pin">1</span> dan tombol **Tambah lisensi...** <span class="pin">2</span>.
 
-<Shot name="settings-about-trial" alt="Kotak Tentang di Pengaturan: Lisensi, Percobaan: 7 hari lagi, dan tombol Tambah lisensi" />
+<Shot name="settings-about-trial" alt="Kotak Tentang di Pengaturan: Lisensi, Trial: 7 hari lagi, dan tombol Tambah lisensi" />
 
-| Bila Anda… | Masa percobaan |
+| Kalau Anda... | Masa trial |
 |---|---|
-| Mencopot lalu memasang GasDist lagi | Tidak diulang dari awal. Sisa harinya tetap. |
+| Uninstall lalu install GasDist lagi | Tidak diulang dari awal. Sisa harinya tetap. |
 | Memakai [Hapus semua data](/gasdist-site/panduan/pengaturan/hapus-semua-data/) | Tidak diulang dari awal. |
 | Memundurkan jam atau tanggal PC | Tidak menambah hari. GasDist hanya menghitung maju. |
-| Memajukan jam PC karena keliru | Hari percobaan ikut terpakai. PC yang sudah berlisensi tidak terpengaruh. |
+| Memajukan jam PC karena keliru | Hari trial ikut terpakai. PC yang sudah berlisensi tidak terpengaruh. |
 
-### Tanda VERSI PERCOBAAN di cetakan
+### Tanda VERSI TRIAL di cetakan
 
-Selama masa percobaan, dan setelah masa itu berakhir, setiap lembar yang dicetak bertanda **VERSI PERCOBAAN**: surat jalan, bukti retur, dan laporan, juga bila dicetak ke PDF. Tanda ini sudah tampil di jendela cetak, jadi tidak ada kejutan di printer. Dengan template **Standar**, tulisannya melintang tipis di tengah lembar, dan isi surat jalan tetap terbaca.
+Selama masa trial, dan setelah masa itu habis, setiap lembar yang dicetak bertanda **VERSI TRIAL**: surat jalan, bukti retur, dan laporan, juga kalau dicetak ke PDF. Tanda ini sudah kelihatan di jendela cetak, jadi tidak kaget waktu kertasnya keluar. Dengan template **Standar**, tulisannya melintang tipis di tengah lembar, dan isi surat jalan tetap terbaca.
 
-<Shot name="print-trial" alt="Surat jalan di jendela cetak dengan tulisan VERSI PERCOBAAN melintang tipis di tengah lembar" max={560} />
+<Shot name="print-trial" alt="Surat jalan di jendela cetak dengan tulisan VERSI TRIAL melintang tipis di tengah lembar" max={560} />
 
-Dengan template **Sederhana** untuk dot-matrix, tanda itu berupa baris `*** VERSI PERCOBAAN ***` di atas dan di bawah lembar.
+Dengan template **Sederhana** untuk dot-matrix, tanda itu berupa baris `*** VERSI TRIAL ***` di atas dan di bawah lembar.
 
-<Shot name="print-trial-simple" alt="Surat jalan dengan template Sederhana dan baris VERSI PERCOBAAN di atas dan di bawah lembar" max={560} />
+<Shot name="print-trial-simple" alt="Surat jalan dengan template Sederhana dan baris VERSI TRIAL di atas dan di bawah lembar" max={560} />
 
-Pada lembar yang dicetak dalam bahasa Inggris, tulisannya **TRIAL VERSION**. Begitu lisensi terpasang, cetakan berikutnya tidak bertanda lagi. Ekspor csv dan xlsx tidak pernah diberi tanda.
+Pada lembar yang dicetak dalam bahasa Inggris, tulisannya **TRIAL VERSION**. Begitu lisensi terinstall, cetakan berikutnya tidak bertanda lagi. Export csv dan xlsx tidak pernah diberi tanda.
 
-## Setelah masa percobaan berakhir
+## Setelah masa trial habis
 
-Setelah 7 hari tanpa lisensi, GasDist menjadi **hanya baca**. Baris atas menampilkan **Percobaan berakhir** dengan warna merah. Tidak ada data yang dihapus: semua yang sudah dicatat tetap aman dan tetap bisa dibuka.
+Setelah 7 hari tanpa lisensi, data GasDist **hanya bisa dilihat**. Baris atas menampilkan **Trial habis** dengan warna merah. Tidak ada data yang dihapus: semua yang sudah dicatat tetap aman dan tetap bisa dibuka.
 
 | Masih bisa | Tidak bisa sampai lisensi ditambahkan |
 |---|---|
-| Melihat semua data, laporan, dan jejak audit | Membuat, memposting, mengoreksi, atau membatalkan surat jalan, dan menandainya terkirim |
-| Mencetak (dengan tanda VERSI PERCOBAAN) dan mengekspor ke xlsx atau csv | Menerima stok dan stok opname |
-| Membuat backup, menyalinnya, dan memulihkan dari backup | Menambah atau mengubah pelanggan, produk, kendaraan, dan sopir, juga impor pelanggan |
-| Memperbarui GasDist dan Hapus semua data | Retur dan Hitung tabung |
-| Masuk, mengganti kata sandi sendiri, mengatur ulang kata sandi staf, mengganti kata sandi backup | Mengubah data perusahaan, logo, dan pengaturan lain |
-| **Tambah lisensi…** | |
+| Melihat semua data, laporan, dan riwayat perubahan | Membuat, memposting, mengoreksi, atau membatalkan surat jalan, dan menandainya terkirim |
+| Mencetak (dengan tanda VERSI TRIAL) dan export ke xlsx atau csv | Menerima stok dan stok opname |
+| Membuat backup, menyalinnya, dan restore dari backup | Menambah atau mengubah pelanggan, produk, kendaraan, dan sopir, juga import pelanggan |
+| Update GasDist dan Hapus semua data | Retur dan Hitung tabung |
+| Login, mengganti password sendiri, me-reset password staf, mengganti password backup | Mengubah data perusahaan, logo, dan pengaturan lain |
+| **Tambah lisensi...** | |
 
-Tindakan yang tidak bisa dikerjakan ditolak dengan pesan **Masa percobaan sudah berakhir. Data tetap bisa dilihat, dicetak, dan di-backup; tambahkan lisensi untuk mencatat lagi.** Setelah lisensi ditambahkan, semuanya langsung bisa dipakai lagi, tanpa memasang ulang.
+Pekerjaan yang tidak bisa dikerjakan ditolak dengan pesan **Masa trial sudah berakhir. Data tetap bisa dilihat, dicetak, dan di-backup; tambahkan lisensi untuk mencatat lagi.** Setelah lisensi ditambahkan, semuanya langsung bisa dipakai lagi, tanpa install ulang.
 
 ## Menambah lisensi
 
@@ -65,51 +65,51 @@ File lisensi diberikan oleh penjual GasDist, misalnya lewat flashdisk atau chat.
 
 <Steps>
 
-1. Masuk sebagai Owner. Buka **Pengaturan**, gulir ke kotak **Tentang**, lalu klik **Tambah lisensi…**. Bisa juga dengan mengklik label **Percobaan** di baris atas.
+1. Login sebagai Owner. Buka **Pengaturan**, scroll ke kotak **Tentang**, lalu klik **Tambah lisensi...**. Bisa juga dengan mengklik label **Trial** di baris atas.
 
-2. Klik **Pilih file lisensi…**, lalu pilih file `.gaslicense` di jendela pemilih file.
+2. Klik **Pilih file lisensi...**, lalu pilih file `.gaslicense` di jendela pemilih file.
 
-3. GasDist memeriksa bahwa file itu asli dari penjual GasDist dan tidak diubah. Bila lolos, GasDist menampilkan **nama perusahaan dan NPWP** yang akan dipakai <span class="pin">1</span>: yang sekarang di kiri, yang dari lisensi di kanan. Sampai di sini belum ada yang diubah.
+3. GasDist mengecek apakah file itu asli dari penjual GasDist dan tidak diubah. Kalau lolos, GasDist menampilkan **nama perusahaan dan NPWP** yang akan dipakai <span class="pin">1</span>: yang sekarang di kiri, yang dari lisensi di kanan. Sampai di sini belum ada yang diubah.
 
-   <Shot name="license-dialog" alt="Jendela Lisensi GasDist: nama perusahaan dan NPWP sekarang dan dari lisensi, kolom Kata sandi Anda, dan tombol Pasang lisensi" />
+   <Shot name="license-dialog" alt="Jendela Lisensi GasDist: nama perusahaan dan NPWP sekarang dan dari lisensi, kolom Password Anda, dan tombol Install lisensi" />
 
-4. Periksa bahwa nama dan NPWP itu benar milik perusahaan Anda. Isi **Kata sandi Anda** <span class="pin">2</span>, yaitu kata sandi untuk masuk GasDist, lalu klik **Pasang lisensi** <span class="pin">3</span>.
+4. Pastikan nama dan NPWP itu benar milik perusahaan Anda. Isi **Password Anda** <span class="pin">2</span>, yaitu password untuk login ke GasDist, lalu klik **Install lisensi** <span class="pin">3</span>.
 
 </Steps>
 
-Lisensi langsung berlaku: label **Percobaan** di baris atas hilang, dan cetakan berikutnya tidak bertanda VERSI PERCOBAAN. Pemasangan lisensi tercatat di [jejak audit](/gasdist-site/panduan/laporan/jejak-audit/) sebagai **Lisensi dipasang**, lengkap dengan nama dan NPWP sebelum dan sesudahnya.
+Lisensi langsung berlaku: label **Trial** di baris atas hilang, dan cetakan berikutnya tidak bertanda VERSI TRIAL. Instalasi lisensi tercatat di [riwayat perubahan](/gasdist-site/panduan/laporan/jejak-audit/) sebagai **Lisensi di-install**, lengkap dengan nama dan NPWP sebelum dan sesudahnya.
 
 <Aside type="tip" title="Punya lebih dari satu PC, atau pindah PC?">
-Pasang file lisensi yang sama di setiap PC perusahaan Anda, dengan langkah yang sama; tidak perlu file baru per PC. Lisensi tidak ikut di dalam backup, jadi setelah [memulihkan backup](/gasdist-site/panduan/backup/memulihkan/) di PC baru, tambahkan juga file lisensinya. Simpan satu salinan file lisensi di flashdisk, bersama backup Anda.
+Install file lisensi yang sama di setiap PC perusahaan Anda, dengan langkah yang sama; tidak perlu file baru per PC. Lisensi tidak ikut di dalam backup, jadi setelah [restore backup](/gasdist-site/panduan/backup/memulihkan/) di PC baru, tambahkan juga file lisensinya. Simpan satu salinan file lisensi di flashdisk, bersama backup Anda.
 </Aside>
 
-### Bila file ditolak
+### Kalau file ditolak
 
 | Pesan | Artinya |
 |---|---|
 | File ini bukan file lisensi GasDist yang utuh. | File yang dipilih bukan file lisensi, atau rusak saat disalin. Salin lagi dari sumber aslinya. |
 | File lisensi ini tidak asli atau sudah diubah. | Isi file tidak cocok dengan tanda tangan penjual GasDist. Minta file baru dari penjual. |
 | File lisensi ini bukan untuk GasDist. | File itu untuk aplikasi lain. |
-| Kata sandi salah. Masukkan kata sandi Anda sendiri untuk masuk GasDist. | Kata sandi yang diketik bukan kata sandi masuk Anda. Ini bukan kata sandi backup. |
+| Password salah. Masukkan password Anda sendiri untuk login ke GasDist. | Password yang diketik bukan password login Anda. Ini bukan password backup. |
 
-Bila file ditolak, tidak ada yang berubah.
+Kalau file ditolak, tidak ada yang berubah.
 
-## Setelah lisensi terpasang
+## Setelah lisensi terinstall
 
-Kotak **Tentang** kini bertuliskan **Dilisensikan untuk** <span class="pin">1</span>, diikuti nama perusahaan <span class="pin">2</span>, NPWP, serta nomor dan tanggal terbit lisensi <span class="pin">3</span>. Owner melihat tombol **Ganti lisensi…** <span class="pin">4</span> untuk memasang file pengganti dari penjual.
+Kotak **Tentang** kini bertuliskan **Lisensi atas nama** <span class="pin">1</span>, diikuti nama perusahaan <span class="pin">2</span>, NPWP, serta nomor dan tanggal terbit lisensi <span class="pin">3</span>. Owner melihat tombol **Ganti lisensi...** <span class="pin">4</span> untuk meng-install file pengganti dari penjual.
 
-<Shot name="settings-about-licensed" alt="Kotak Tentang: Dilisensikan untuk PT Sumber Gas Sejahtera, NPWP, No. 0005 terbit 13/10/2026, dan tombol Ganti lisensi" />
+<Shot name="settings-about-licensed" alt="Kotak Tentang: Lisensi atas nama PT Sumber Gas Sejahtera, NPWP, No. 0005 terbit 13/10/2026, dan tombol Ganti lisensi" />
 
 ### Nama perusahaan dan NPWP dikunci
 
-Selama lisensi terpasang, **Nama perusahaan** <span class="pin">1</span> dan **NPWP** <span class="pin">2</span> di **Pengaturan › Perusahaan** mengikuti lisensi dan tidak bisa diubah. Di bawahnya tertulis **Dari lisensi. Untuk mengubah, hubungi penjual GasDist.** <span class="pin">3</span> Alamat, telepon, logo, dan pengaturan lain tetap bisa diubah seperti biasa.
+Selama lisensi terinstall, **Nama perusahaan** <span class="pin">1</span> dan **NPWP** <span class="pin">2</span> di **Pengaturan › Perusahaan** mengikuti lisensi dan tidak bisa diubah. Di bawahnya tertulis **Dari lisensi. Untuk mengubah, hubungi penjual GasDist.** <span class="pin">3</span> Alamat, telepon, logo, dan pengaturan lain tetap bisa diubah seperti biasa.
 
 <Shot name="settings-company-locked" alt="Bagian Perusahaan di Pengaturan: Nama perusahaan dan NPWP terkunci dengan keterangan Dari lisensi, Alamat dan Telepon tetap bisa diisi" />
 
-Nama dan NPWP itulah yang tercetak di kepala setiap surat jalan, jadi hanya penjual GasDist yang bisa mengubahnya. Bila nama perusahaan atau NPWP Anda berubah, hubungi penjual GasDist. Anda akan menerima file lisensi pengganti; pasang dengan **Ganti lisensi…** seperti langkah di atas, dan jendelanya menunjukkan apa yang berubah sebelum Anda mengonfirmasi.
+Nama dan NPWP itulah yang tercetak di kepala setiap surat jalan, jadi hanya penjual GasDist yang bisa mengubahnya. Kalau nama perusahaan atau NPWP Anda berubah, hubungi penjual GasDist. Anda akan menerima file lisensi pengganti; install dengan **Ganti lisensi...** seperti langkah di atas, dan jendelanya menunjukkan apa yang berubah sebelum Anda mengonfirmasi.
 
-Lisensi tetap tersimpan di PC setelah Hapus semua data dan setelah memulihkan backup. Setelah Hapus semua data, layar penyiapan awal sudah terisi nama dan NPWP dari lisensi, dan keduanya terkunci.
+Lisensi tetap tersimpan di PC setelah Hapus semua data dan setelah restore backup. Setelah Hapus semua data, layar setup awal sudah terisi nama dan NPWP dari lisensi, dan keduanya terkunci.
 
 ## Masalah lisensi
 
-Bila PC yang sudah berlisensi tidak bisa membaca file lisensinya lagi (misalnya file terhapus, dikarantina antivirus, atau rusak), baris atas menampilkan **Masalah lisensi · hubungi penjual**. GasDist **tetap bisa dipakai sepenuhnya**, dan nama serta NPWP tetap terkunci. Pasang lagi file lisensi Anda dengan **Ganti lisensi…**, misalnya dari salinan di flashdisk. Bila tidak punya salinan, hubungi penjual GasDist.
+Kalau PC yang sudah berlisensi tidak bisa membaca file lisensinya lagi (misalnya file terhapus, dikarantina antivirus, atau rusak), baris atas menampilkan **Masalah lisensi · hubungi penjual**. GasDist **tetap bisa dipakai sepenuhnya**, dan nama serta NPWP tetap terkunci. Install lagi file lisensi Anda dengan **Ganti lisensi...**, misalnya dari salinan di flashdisk. Kalau tidak punya salinan, hubungi penjual GasDist.

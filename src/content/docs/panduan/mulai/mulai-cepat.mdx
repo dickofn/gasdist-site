@@ -1,6 +1,6 @@
 ---
 title: Langkah pertama
-description: Dari GasDist pertama kali dibuka sampai satu surat jalan terkirim, langkah demi langkah, dengan tautan ke penjelasan lengkap setiap langkah.
+description: Dari GasDist pertama kali dibuka sampai satu surat jalan terkirim, langkah demi langkah, dengan link ke penjelasan lengkap setiap langkah.
 sidebar:
   order: 2
 ---
@@ -8,7 +8,7 @@ sidebar:
 import { Steps, Aside } from "@astrojs/starlight/components";
 import Shot from "../../../../components/Shot.astro";
 
-Halaman ini membawa Anda dari GasDist yang baru terpasang sampai satu pekerjaan selesai: tabung terkirim ke pelanggan dan lembar bertanda tangannya kembali ke kantor. Setiap langkah singkat saja; tautannya membuka penjelasan lengkap. Semuanya dikerjakan sebagai **Owner**, orang yang menyiapkan GasDist.
+Halaman ini mengikuti satu pekerjaan dari GasDist baru terinstall sampai selesai: tabung terkirim ke pelanggan dan lembar bertanda tangannya kembali ke kantor. Setiap langkah singkat saja; link-nya membuka penjelasan lengkap. Semuanya dikerjakan sebagai **Owner**, orang yang melakukan setup GasDist.
 
 <Aside type="tip" title="Mau mencoba dulu?">
 Di langkah 3, **Isi data contoh** di halaman **Beranda** mengisi produk, pelanggan, stok, dan beberapa surat jalan sekaligus, untuk berlatih. Data contoh tidak bisa dihapus satu per satu; selesai berlatih, [Hapus semua data](/gasdist-site/panduan/pengaturan/hapus-semua-data/) mengosongkan semuanya dan Anda mulai lagi dari langkah 2 di bawah. Lihat [Mencoba data contoh](/gasdist-site/panduan/mulai/penyiapan-awal/#mencoba-data-contoh).
@@ -18,19 +18,19 @@ Di langkah 3, **Isi data contoh** di halaman **Beranda** mengisi produk, pelangg
 
 <Steps>
 
-1. **Pasang.** Jalankan installer dari flashdisk. Di Windows 11, matikan Smart App Control lebih dulu. Lihat [Memasang GasDist](/gasdist-site/panduan/mulai/penyiapan-awal/#memasang-gasdist).
+1. **Install.** Jalankan installer dari flashdisk. Di Windows 11, matikan Smart App Control lebih dulu. Lihat [Install GasDist](/gasdist-site/panduan/mulai/penyiapan-awal/#install-gasdist).
 
-2. **Isi data perusahaan dan akun Owner** di layar pertama, lalu klik **Selesai dan masuk**.
+2. **Isi data perusahaan dan akun Owner** di layar pertama, lalu klik **Selesai dan login**.
 
-   <Shot name="setup-filled" alt="Formulir penyiapan awal yang sudah terisi: nama perusahaan dan akun Owner" marks={false} />
+   <Shot name="setup-filled" alt="Form setup awal yang sudah terisi: nama perusahaan dan akun Owner" marks={false} />
 
 3. **Catat kode pemulihan** di kertas dan simpan jauh dari PC. Kode ini tampil sekali saja. Lihat [Menyimpan kode pemulihan](/gasdist-site/panduan/mulai/penyiapan-awal/#menyimpan-kode-pemulihan).
 
-4. **Tambah lisensi.** GasDist baru terpasang berjalan sebagai percobaan 7 hari; label **Percobaan** tampil di baris atas. Salin file `.gaslicense` dari penjual GasDist ke PC, lalu buka **Pengaturan › Tentang › Tambah lisensi…**, pilih filenya, isi kata sandi Anda, dan klik **Pasang lisensi**. Lihat [Menambah lisensi](/gasdist-site/panduan/mulai/lisensi/#menambah-lisensi).
+4. **Tambah lisensi.** GasDist yang baru terinstall berjalan sebagai trial 7 hari; label **Trial** tampil di baris atas. Salin file `.gaslicense` dari penjual GasDist ke PC, lalu buka **Pengaturan › Tentang › Tambah lisensi...**, pilih file-nya, isi password Anda, dan klik **Install lisensi**. Lihat [Menambah lisensi](/gasdist-site/panduan/mulai/lisensi/#menambah-lisensi).
 
-   <Shot name="license-dialog" alt="Jendela Lisensi GasDist dengan nama perusahaan dan NPWP dari lisensi, siap dipasang" marks={false} />
+   <Shot name="license-dialog" alt="Jendela Lisensi GasDist dengan nama perusahaan dan NPWP dari lisensi, siap di-install" marks={false} />
 
-5. **Atur kata sandi backup** dari kartu **Backup** di halaman **Beranda**. Tanpa kata sandi ini, GasDist tidak membuat backup sama sekali. Lihat [Kata sandi backup](/gasdist-site/panduan/backup/kata-sandi-backup/).
+5. **Atur password backup** dari kartu **Backup** di halaman **Beranda**. Tanpa password ini, GasDist tidak membuat backup sama sekali. Lihat [Password backup](/gasdist-site/panduan/backup/kata-sandi-backup/).
 
 </Steps>
 
@@ -44,11 +44,11 @@ Di langkah 3, **Isi data contoh** di halaman **Beranda** mengisi produk, pelangg
 
 3. **Catat stok awal** dengan **Terima stok** di halaman **Beranda**: tanggal, produk, dan jumlahnya. Lihat [Menerima stok](/gasdist-site/panduan/stok/terima-stok/).
 
-   <Shot name="stock-receive-filled" alt="Formulir Terima stok yang sudah terisi" marks={false} />
+   <Shot name="stock-receive-filled" alt="Form Terima stok yang sudah terisi" marks={false} />
 
 </Steps>
 
-Kendaraan dan sopir boleh ditambah nanti, langsung dari formulir surat jalan.
+Kendaraan dan sopir boleh ditambah nanti, langsung dari form surat jalan.
 
 ## Satu pekerjaan: kirim tabung ke pelanggan
 
@@ -56,21 +56,21 @@ Kendaraan dan sopir boleh ditambah nanti, langsung dari formulir surat jalan.
 
 1. **Buat surat jalan:** **Surat Jalan › Buat surat jalan** (atau <kbd>F2</kbd>). Pilih pelanggan, kendaraan dan sopir, lalu isi produk dan jumlah tabung per baris. Lihat [Membuat surat jalan](/gasdist-site/panduan/surat-jalan/membuat/).
 
-   <Shot name="sj-form-filled" alt="Formulir surat jalan yang sudah terisi dengan pelanggan, kendaraan, sopir, dan baris produk" marks={false} />
+   <Shot name="sj-form-filled" alt="Form surat jalan yang sudah terisi dengan pelanggan, kendaraan, sopir, dan baris produk" marks={false} />
 
 2. **Posting.** Klik **Posting** (<kbd>Ctrl</kbd>+<kbd>Enter</kbd>) dan periksa ringkasannya. Surat jalan mendapat nomor dan stok berkurang.
 
-3. **Cetak** dari surat jalan yang sudah diposting. Dengan pengaturan bawaan keluar tiga lembar: untuk pelanggan, untuk kembali ke kantor, dan arsip. Lihat [Mencetak surat jalan](/gasdist-site/panduan/cetak/mencetak/).
+3. **Cetak** dari surat jalan yang sudah diposting. Dengan pengaturan default keluar tiga lembar: untuk pelanggan, untuk kembali ke kantor, dan arsip. Lihat [Mencetak surat jalan](/gasdist-site/panduan/cetak/mencetak/).
 
 4. **Sopir mengantar** tabung bersama lembar-lembarnya. Penerima menandatangani, lalu **Lembar 2: Kembali ke kantor** dibawa pulang.
 
-5. **Tandai terkirim** saat lembar itu sudah di kantor: buka surat jalannya, klik **Tandai terkirim**, isi nama penerima dan tanggal tanda tangan, dan bila ada, pilih foto atau scan lembarnya. Lihat [Menandai surat jalan terkirim](/gasdist-site/panduan/surat-jalan/menandai-terkirim/).
+5. **Tandai terkirim** saat lembar itu sudah di kantor: buka surat jalannya, klik **Tandai terkirim**, isi nama penerima dan tanggal tanda tangan, dan kalau ada, pilih foto atau scan lembarnya. Lihat [Menandai surat jalan terkirim](/gasdist-site/panduan/surat-jalan/menandai-terkirim/).
 
    <Shot name="sj-deliver-dialog" alt="Jendela Tandai terkirim dengan nama penerima, tanggal tanda tangan, dan scan lembar" marks={false} />
 
 </Steps>
 
-Selesai: surat jalan itu kini berstatus **Terkirim**, stok sudah berkurang, dan semuanya tercatat di [jejak audit](/gasdist-site/panduan/laporan/jejak-audit/).
+Selesai: surat jalan itu kini berstatus **Terkirim**, stok sudah berkurang, dan semuanya tercatat di [riwayat perubahan](/gasdist-site/panduan/laporan/jejak-audit/).
 
 ## Setiap hari sesudahnya
 
