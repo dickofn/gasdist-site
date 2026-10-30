@@ -13,7 +13,7 @@ Setiap surat jalan yang sudah diposting menunggu lembar bertanda tangannya kemba
 
 <Roles can={["OWNER", "ADMIN", "GUDANG", "PENJUALAN", "VIEWER"]} />
 
-Semua peran bisa melihat dan mengekspor laporan ini. Menandai terkirim hanya bisa dilakukan Owner, Admin, dan Penjualan.
+Semua role bisa melihat dan meng-export laporan ini. Menandai terkirim hanya bisa dilakukan Owner, Admin, dan Penjualan.
 
 ## Membuka laporan
 
@@ -23,7 +23,7 @@ Semua peran bisa melihat dan mengekspor laporan ini. Menandai terkirim hanya bis
 
 2. Laporan langsung tampil: semua surat jalan berstatus **Diposting**, dari tanggal berapa pun sampai hari ini. Kalimat di atas tabel <span class="pin">3</span> menyebut jumlahnya dan berapa hari yang paling lama sudah menunggu.
 
-   <Shot name="reports-outstanding" alt="Laporan Surat jalan belum kembali dengan jumlah, lama menunggu per surat jalan, dan tombol ekspor" />
+   <Shot name="reports-outstanding" alt="Laporan Surat jalan belum kembali dengan jumlah, lama menunggu per surat jalan, dan tombol export" />
 
 3. Untuk sebagian waktu saja, isi **Dari tanggal** <span class="pin">2</span> dan **Sampai tanggal** ([Mengisi tanggal](/gasdist-site/panduan/mulai/tanggal/)). Kosongkan **Dari tanggal** untuk melihat semua tanggal lagi.
 
@@ -36,16 +36,16 @@ Semua peran bisa melihat dan mengekspor laporan ini. Menandai terkirim hanya bis
 | Pelanggan, Kendaraan, Sopir | Untuk tahu siapa yang perlu ditanya |
 | Tabung, Berat | Isi surat jalan |
 
-Surat jalan yang **Terkirim** atau **Dibatalkan** tidak masuk laporan. Draf juga tidak: draf belum dicetak dan belum dibawa sopir.
+Surat jalan yang **Terkirim** atau **Dibatalkan** tidak masuk laporan. Draft juga tidak: draft belum dicetak dan belum dibawa sopir.
 
 ## Menandai terkirim dari laporan
 
-Klik baris surat jalan yang lembarnya sudah kembali. Halaman surat jalannya terbuka di dalam **Laporan**; klik **Tandai terkirim** dan ikuti [Menandai surat jalan terkirim](/gasdist-site/panduan/surat-jalan/menandai-terkirim/). Tombol kembali di kiri atas membawa Anda ke laporan lagi, dan surat jalan itu sudah hilang dari daftar.
+Klik baris surat jalan yang lembarnya sudah kembali. Halaman surat jalannya terbuka di dalam **Laporan**; klik **Tandai terkirim** dan ikuti [Menandai surat jalan terkirim](/gasdist-site/panduan/surat-jalan/menandai-terkirim/). Klik tombol kembali di kiri atas untuk balik ke laporan; surat jalan itu sudah hilang dari daftar.
 
-## Mengekspor laporan
+## Meng-export laporan
 
-Klik **Ekspor xlsx** <span class="pin">5</span> atau **Ekspor csv**, lalu pilih tempat menyimpannya. File berisi semua baris yang cocok dengan tanggalnya, termasuk lebih dari 1.000 baris, dengan kolom Nomor, Tanggal, Menunggu (hari), Kode pelanggan, Pelanggan, Kendaraan, Sopir, Tabung, dan Berat (kg).
+Klik **Export Excel** <span class="pin">5</span> atau **Export CSV**, lalu pilih tempat menyimpannya. File berisi semua baris yang cocok dengan tanggalnya, termasuk lebih dari 1.000 baris, dengan kolom Nomor, Tanggal, Menunggu (hari), Kode pelanggan, Pelanggan, Kendaraan, Sopir, Tabung, dan Berat (kg).
 
 <Aside type="tip" title="Rapat mingguan">
-Ekspor laporan ini setiap minggu dan bagikan ke sopir: urutkan per sopir di Excel, lalu tanyakan lembar yang sudah lebih dari seminggu.
+Export laporan ini setiap minggu dan bagikan ke sopir: urutkan per sopir di Excel, lalu tanyakan lembar yang sudah lebih dari seminggu.
 </Aside>

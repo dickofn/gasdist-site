@@ -1,6 +1,6 @@
 ---
 title: Membatalkan surat jalan
-description: Batalkan surat jalan yang sudah diposting dengan alasan dan kata sandi, lalu stoknya kembali.
+description: Batalkan surat jalan yang sudah diposting dengan alasan dan password, lalu stoknya kembali.
 sidebar:
   order: 4
 ---
@@ -9,11 +9,11 @@ import { Steps, Aside } from "@astrojs/starlight/components";
 import Shot from "../../../../components/Shot.astro";
 import Roles from "../../../../components/Roles.astro";
 
-Surat jalan yang sudah diposting tidak bisa diubah, kecuali kendaraan, sopir, dan catatannya yang bisa [dikoreksi](/gasdist-site/panduan/surat-jalan/mengoreksi/). Bila isinya salah atau pengirimannya batal, surat jalan itu dibatalkan: stoknya kembali, dan nomornya tetap tercatat sebagai batal sehingga riwayatnya selalu bisa ditelusuri.
+Surat jalan yang sudah diposting tidak bisa diubah, kecuali kendaraan, sopir, dan catatannya yang bisa [dikoreksi](/gasdist-site/panduan/surat-jalan/mengoreksi/). Kalau isinya salah atau pengirimannya batal, surat jalan itu dibatalkan: stoknya kembali, dan nomornya tetap tercatat sebagai batal sehingga riwayatnya selalu bisa ditelusuri.
 
 <Roles can={["OWNER", "ADMIN"]} />
 
-Penjualan bisa membuat dan memposting surat jalan, tetapi tidak bisa membatalkannya. Bila perlu membatalkan, minta Owner atau Admin.
+Penjualan bisa membuat dan memposting surat jalan, tapi tidak bisa membatalkannya. Kalau perlu membatalkan, minta Owner atau Admin.
 
 ## Membatalkan surat jalan
 
@@ -23,15 +23,15 @@ Penjualan bisa membuat dan memposting surat jalan, tetapi tidak bisa membatalkan
 
 2. Tulis alasannya di kolom **Alasan** <span class="pin">1</span>, misalnya `Pelanggan menunda pengiriman`. Alasan wajib diisi, paling banyak 200 huruf.
 
-3. Ketik kata sandi Anda sendiri, yang dipakai untuk masuk ke GasDist, di kolom **Kata sandi** <span class="pin">2</span>.
+3. Ketik password Anda sendiri, yang dipakai untuk login ke GasDist, di kolom **Password** <span class="pin">2</span>.
 
-   <Shot name="sj-cancel-dialog" alt="Dialog Batalkan surat jalan SJ/2026/10/0031 dengan kolom Alasan dan Kata sandi" />
+   <Shot name="sj-cancel-dialog" alt="Dialog Batalkan surat jalan SJ/2026/10/0031 dengan kolom Alasan dan Password" />
 
-4. Klik **Batalkan surat jalan**. Bila surat jalannya perlu dibuat lagi dengan isi yang diperbaiki, klik **Batalkan & buat ulang** <span class="pin">3</span> (lihat [di bawah](#batalkan--buat-ulang)). Klik **Batal** bila Anda berubah pikiran; tidak ada yang berubah.
+4. Klik **Batalkan surat jalan**. Kalau surat jalannya perlu dibuat lagi dengan isi yang diperbaiki, klik **Batalkan & buat ulang** <span class="pin">3</span> (lihat [di bawah](#batalkan--buat-ulang)). Klik **Batal** kalau Anda berubah pikiran; tidak ada yang berubah.
 
 </Steps>
 
-Bila kata sandinya keliru, muncul pesan **Kata sandi salah.** dan surat jalan belum dibatalkan. Ketik ulang lalu coba lagi.
+Kalau password-nya keliru, muncul pesan **Password salah.** dan surat jalan belum dibatalkan. Ketik ulang lalu coba lagi.
 
 ## Setelah dibatalkan
 
@@ -45,39 +45,39 @@ Muncul pesan **Surat jalan ... dibatalkan.**, statusnya menjadi **Dibatalkan** <
 | Nomor | `SJ/2026/10/0031` | Tetap `SJ/2026/10/0031`, tidak dipakai ulang |
 | Stok | Sudah berkurang | Dikembalikan |
 | [Tabung dipinjam](/gasdist-site/panduan/laporan/tabung-dipinjam/) | Tabung isi keluar, tabung kosong kembali | Keduanya dibatalkan |
-| Tombol | **Cetak**, **Batalkan surat jalan** | Hanya **Pratinjau** |
+| Tombol | **Cetak**, **Batalkan surat jalan** | Hanya **Preview** |
 | Cetak | Bisa | Tidak bisa lagi |
 
 ## Batalkan & buat ulang
 
-Salah jumlah tabung, salah barang, atau salah pelanggan biasanya berarti surat jalan yang sama dibuat lagi dengan satu perbaikan. **Batalkan & buat ulang** mengerjakan keduanya sekaligus: surat jalan dibatalkan seperti biasa, lalu formulir surat jalan baru terbuka berisi pelanggan <span class="pin">2</span>, kendaraan, sopir, catatan, dan barang <span class="pin">3</span> yang sama, bertanggal hari ini. Pesan di atas <span class="pin">1</span> mengingatkan bahwa ini draf baru.
+Kalau salah jumlah tabung, barang, atau pelanggan, biasanya surat jalannya dibuat lagi dengan satu perbaikan. **Batalkan & buat ulang** mengerjakan keduanya sekaligus: surat jalan dibatalkan seperti biasa, lalu form surat jalan baru terbuka berisi pelanggan <span class="pin">2</span>, kendaraan, sopir, catatan, dan barang <span class="pin">3</span> yang sama, bertanggal hari ini. Pesan di atas <span class="pin">1</span> mengingatkan bahwa ini draft baru.
 
-<Shot name="sj-form-recreated" alt="Formulir surat jalan baru berisi data dari surat jalan yang baru dibatalkan, dengan pesan bahwa ini draf baru" />
+<Shot name="sj-form-recreated" alt="Form surat jalan baru berisi data dari surat jalan yang baru dibatalkan, dengan pesan bahwa ini draft baru" />
 
-Perbaiki yang salah, lalu klik **Simpan draf** atau **Posting** di bawah formulir. Surat jalan baru mendapat nomor berikutnya saat diposting.
+Perbaiki yang salah, lalu klik **Simpan draft** atau **Posting** di bawah form. Surat jalan baru mendapat nomor berikutnya saat diposting.
 
-<Aside type="caution" title="Draf baru belum tersimpan">
-Formulir itu belum tersimpan sampai Anda menyimpannya. Bila Anda menutupnya, GasDist bertanya dulu; bila dibuang, pembatalannya tetap berlaku dan tidak ada draf baru.
+<Aside type="caution" title="Draft baru belum tersimpan">
+Draft baru itu belum tersimpan. Kalau Anda menutupnya, GasDist bertanya dulu; kalau dibuang, pembatalannya tetap berlaku dan tidak ada draft baru.
 </Aside>
 
-Tombol **Batalkan & buat ulang** hanya muncul untuk peran yang boleh membuat surat jalan, yaitu Owner dan Admin.
+Tombol **Batalkan & buat ulang** hanya muncul untuk role yang boleh membuat surat jalan, yaitu Owner dan Admin.
 
 ### Ke mana stoknya kembali
 
 Setiap baris surat jalan dikembalikan ke stok sebagai baris **Pembatalan** di [kartu stok](/gasdist-site/panduan/stok/kartu-stok/), bertanggal hari pembatalan, bukan tanggal surat jalan. Dengan begitu, catatan hari-hari sebelumnya, termasuk hasil stok opname, tidak berubah.
 
-### Pratinjau surat jalan yang dibatalkan
+### Preview surat jalan yang dibatalkan
 
-**Pratinjau** masih bisa dibuka untuk melihat isinya. Halamannya diberi tanda air DIBATALKAN (CANCELLED bila bahasa bawaan perusahaan adalah English), dan di atasnya tertulis **Surat jalan yang dibatalkan tidak dicetak lagi.** Tombol **Cetak** tidak ada.
+**Preview** masih bisa dibuka untuk melihat isinya. Halamannya diberi tanda air DIBATALKAN (CANCELLED kalau bahasa default perusahaan English), dan di atasnya tertulis **Surat jalan yang dibatalkan tidak dicetak lagi.** Tombol **Cetak** tidak ada.
 
-<Aside type="caution" title="Pembatalan tidak bisa diurungkan">
-Surat jalan yang sudah dibatalkan tidak bisa diaktifkan lagi. Bila pengirimannya ternyata jadi, [buat surat jalan baru](/gasdist-site/panduan/surat-jalan/membuat/), atau pakai **Batalkan & buat ulang** sejak awal; surat jalan baru itu mendapat nomor berikutnya.
+<Aside type="caution" title="Pembatalan tidak bisa ditarik lagi">
+Surat jalan yang sudah dibatalkan tidak bisa diaktifkan lagi. Kalau pengirimannya ternyata jadi, [buat surat jalan baru](/gasdist-site/panduan/surat-jalan/membuat/), atau pakai **Batalkan & buat ulang** sejak awal; surat jalan baru itu mendapat nomor berikutnya.
 </Aside>
 
 <Aside type="caution" title="Surat jalan Terkirim tidak bisa dibatalkan">
 Begitu [ditandai terkirim](/gasdist-site/panduan/surat-jalan/menandai-terkirim/), lembar bertanda tangannya sudah ada, jadi tombol **Batalkan surat jalan** tidak muncul lagi. Tabung yang kembali setelah diterima pelanggan dicatat dengan [stok opname](/gasdist-site/panduan/stok/stok-opname/) beserta alasannya.
 </Aside>
 
-<Aside type="tip" title="Draf tidak dibatalkan, tetapi dihapus">
-Draf belum bernomor dan belum mengurangi stok, jadi tidak perlu dibatalkan. Owner, Admin, atau Penjualan cukup membuka drafnya, klik **Hapus draf**, lalu klik **Hapus draf** sekali lagi di dialog **Hapus draf ini?**. Draf yang dihapus tidak bisa dikembalikan.
+<Aside type="tip" title="Draft tidak dibatalkan, tapi dihapus">
+Draft belum bernomor dan belum mengurangi stok, jadi tidak perlu dibatalkan. Owner, Admin, atau Penjualan cukup membuka draft-nya, klik **Hapus draft**, lalu klik **Hapus draft** sekali lagi di dialog **Hapus draft ini?**. Draft yang dihapus tidak bisa dikembalikan.
 </Aside>

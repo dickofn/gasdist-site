@@ -1,6 +1,6 @@
 ---
 title: Membuat surat jalan
-description: Buat surat jalan baru, isi baris tabung, lalu simpan sebagai draf atau posting.
+description: Buat surat jalan baru, isi baris tabung, lalu simpan sebagai draft atau posting.
 sidebar:
   order: 2
 ---
@@ -9,7 +9,7 @@ import { Steps, Aside } from "@astrojs/starlight/components";
 import Shot from "../../../../components/Shot.astro";
 import Roles from "../../../../components/Roles.astro";
 
-Surat jalan menyertai setiap pengiriman tabung ke pelanggan. Selama masih **draf**, isinya bebas diubah dan stok belum berkurang. Begitu **diposting**, surat jalan mendapat nomor dan stok langsung berkurang.
+Setiap kirim tabung ke pelanggan, harus ada surat jalannya. Selama masih **draft**, isinya bebas diubah dan stok belum berkurang. Begitu **diposting**, surat jalan mendapat nomor dan stok langsung berkurang.
 
 <Roles can={["OWNER", "ADMIN", "PENJUALAN"]} />
 
@@ -17,21 +17,21 @@ Surat jalan menyertai setiap pengiriman tabung ke pelanggan. Selama masih **draf
 
 <Steps>
 
-1. Buka **Surat Jalan** di menu samping, lalu klik **Buat surat jalan** (atau tekan <kbd>F2</kbd>). Tanggal terisi hari ini <span class="pin">1</span>; ketik tanggal lain sebagai hh/bb/tttt atau pilih dari kalender (lihat [Mengisi tanggal](/gasdist-site/panduan/mulai/tanggal/)). Baris pintasan keyboard <span class="pin">2</span> selalu tampil di atas formulir.
+1. Buka **Surat Jalan** di menu samping, lalu klik **Buat surat jalan** (atau tekan <kbd>F2</kbd>). Tanggal terisi hari ini <span class="pin">1</span>; ketik tanggal lain sebagai hh/bb/tttt atau pilih dari kalender (lihat [Mengisi tanggal](/gasdist-site/panduan/mulai/tanggal/)). Baris pintasan keyboard <span class="pin">2</span> selalu tampil di atas form.
 
-   <Shot name="sj-form-empty" alt="Formulir surat jalan baru yang masih kosong" marks={[1, null, 2]} />
+   <Shot name="sj-form-empty" alt="Form surat jalan baru yang masih kosong" marks={[1, null, 2]} />
 
 2. Ketik sebagian kode, nama, nomor telepon, atau kota pelanggan di kolom **Pelanggan** <span class="pin">1</span>. Pilih dari daftar <span class="pin">2</span> dengan panah atas/bawah lalu <kbd>Enter</kbd>, atau klik.
 
    <Shot name="sj-form-customer" alt="Kolom pelanggan menampilkan daftar pelanggan yang cocok dengan kata sri" />
 
-3. Pilih **Kendaraan** dan **Sopir** bila sudah diketahui. Keduanya boleh dikosongkan. Lihat [Kendaraan dan sopir](#kendaraan-dan-sopir) di bawah.
+3. Pilih **Kendaraan** dan **Sopir** kalau sudah diketahui. Keduanya boleh dikosongkan. Lihat [Kendaraan dan sopir](#kendaraan-dan-sopir) di bawah.
 
 4. Isi baris barang: di **Produk** <span class="pin">1</span>, ketik sebagian nama atau kode produk lalu pilih dengan <kbd>Enter</kbd> atau klik, kemudian ketik jumlah **Tabung** <span class="pin">2</span>. Klik **Tambah baris** untuk produk berikutnya; menekan <kbd>Enter</kbd> di baris terakhir juga menambah baris.
 
    Kolom **Stok setelah** <span class="pin">3</span> menunjukkan sisa stok produk itu jika surat jalan ini diposting. Total tabung dan kg <span class="pin">4</span> ikut berubah saat Anda mengetik.
 
-   <Shot name="sj-form-filled" alt="Formulir surat jalan dengan dua baris: LPG 3 kg 200 tabung dan LPG 5,5 kg 10 tabung" marks={[1, 2, 3, 4, null]} />
+   <Shot name="sj-form-filled" alt="Form surat jalan dengan dua baris: LPG 3 kg 200 tabung dan LPG 5,5 kg 10 tabung" marks={[1, 2, 3, 4, null]} />
 
 </Steps>
 
@@ -39,27 +39,27 @@ Surat jalan menyertai setiap pengiriman tabung ke pelanggan. Selama masih **draf
 
 Pangkalan biasanya langsung menukar tabung: menerima tabung isi dan menyerahkan tabung kosong. Catat tabung kosong yang diserahkan untuk setiap baris di kolom **Kosong kembali** <span class="pin">1</span>, sebelum memposting, sehingga jumlahnya ikut tercetak di lembar yang ditandatangani pelanggan.
 
-<Shot name="sj-form-empties" alt="Formulir surat jalan dengan kolom Kosong kembali terisi 150 dan 1, tombol Kosong = isi, dan jumlah tabung kosong di bawah total" />
+<Shot name="sj-form-empties" alt="Form surat jalan dengan kolom Kosong kembali terisi 150 dan 1, tombol Kosong = isi, dan jumlah tabung kosong di bawah total" />
 
-- **Kosong = isi** <span class="pin">3</span> mengisi kolom **Kosong kembali** setiap baris dengan jumlah tabungnya. Ubah baris yang berbeda <span class="pin">2</span>, misalnya bila pangkalan menyerahkan 1 tabung kosong untuk 2 tabung isi.
-- Kosong berarti tidak ada tabung kosong. Jumlahnya boleh lebih besar dari tabung yang dikirim, bila pangkalan menyerahkan tabung dari kiriman sebelumnya.
+- **Kosong = isi** <span class="pin">3</span> mengisi kolom **Kosong kembali** setiap baris dengan jumlah tabungnya. Ubah baris yang berbeda <span class="pin">2</span>, misalnya kalau pangkalan menyerahkan 1 tabung kosong untuk 2 tabung isi.
+- Kosong berarti tidak ada tabung kosong. Jumlahnya boleh lebih besar dari tabung yang dikirim, kalau pangkalan menyerahkan tabung dari kiriman sebelumnya.
 - Di bawah total tampil berapa tabung kosong yang kembali <span class="pin">4</span>.
 
 Tabung kosong ikut terkunci saat surat jalan diposting, seperti isi barisnya. Salah jumlah setelah diposting? Selama masih **Diposting**, [batalkan & buat ulang](/gasdist-site/panduan/surat-jalan/membatalkan/#batalkan--buat-ulang). Setelah **Terkirim**, betulkan dengan [Hitung tabung](/gasdist-site/panduan/laporan/tabung-dipinjam/#hitung-tabung). Jumlah tabung kosong menjadi dasar laporan [Tabung dipinjam](/gasdist-site/panduan/laporan/tabung-dipinjam/).
 
 ## Kendaraan dan sopir
 
-Kolom **Kendaraan** <span class="pin">1</span> dan **Sopir** bekerja seperti kolom pelanggan: klik, atau ketik sebagian nomor polisi atau nama. Daftarnya diawali **Tanpa kendaraan** <span class="pin">2</span>, lalu kendaraan yang **terakhir dipakai** di surat jalan, lalu sisanya urut abjad. Kendaraan yang biasa dipakai jadi selalu ada di atas.
+Kolom **Kendaraan** <span class="pin">1</span> dan **Sopir** sama dengan kolom pelanggan: klik, atau ketik sebagian nomor polisi atau nama. Daftarnya diawali **Tanpa kendaraan** <span class="pin">2</span>, lalu kendaraan yang **terakhir dipakai** di surat jalan, lalu sisanya urut abjad. Kendaraan yang biasa dipakai jadi selalu ada di atas.
 
 <Shot name="sj-form-vehicle" alt="Daftar Kendaraan terbuka: Tanpa kendaraan, kendaraan yang terakhir dipakai, dan + Tambah kendaraan di bawah" />
 
-Kendaraan atau sopir belum terdaftar? Ketik nomor polisinya, lalu pilih **+ Tambah kendaraan** <span class="pin">3</span> di ujung daftar. Dialog **Tambah kendaraan** terbuka dengan nomor polisi yang Anda ketik <span class="pin">1</span>. Lengkapi bila perlu, lalu klik **Simpan** <span class="pin">2</span>: kendaraan itu tersimpan di Master Data dan langsung terpilih di surat jalan. **+ Tambah sopir** bekerja sama.
+Kendaraan atau sopir belum terdaftar? Ketik nomor polisinya, lalu pilih **+ Tambah kendaraan** <span class="pin">3</span> di ujung daftar. Dialog **Tambah kendaraan** terbuka dengan nomor polisi yang Anda ketik <span class="pin">1</span>. Lengkapi kalau perlu, lalu klik **Simpan** <span class="pin">2</span>: kendaraan itu tersimpan di Master Data dan langsung terpilih di surat jalan. **+ Tambah sopir** juga begitu.
 
 <Shot name="sj-add-vehicle" alt="Dialog Tambah kendaraan dengan nomor polisi B 9911 KXA yang diketik di kolom Kendaraan" />
 
 <Roles can={["OWNER", "ADMIN", "PENJUALAN"]} />
 
-Penjualan bisa **menambah** kendaraan dan sopir dari sini, tetapi mengubah dan menonaktifkannya tetap lewat [Master Data](/gasdist-site/panduan/data-master/kendaraan-dan-sopir/) oleh Owner atau Admin.
+Penjualan bisa **menambah** kendaraan dan sopir dari sini, tapi mengubah dan menonaktifkannya tetap lewat [Master Data](/gasdist-site/panduan/data-master/kendaraan-dan-sopir/) oleh Owner atau Admin.
 
 ### Arti warna di kolom Stok setelah
 
@@ -69,19 +69,19 @@ Penjualan bisa **menambah** kendaraan dan sopir dari sini, tetapi mengubah dan m
 | Oranye, `22 kg (Menipis)` | Sisa stok di bawah batas stok menipis produk itu | ✅, tapi segera pesan ulang |
 | Merah, `-250 kg (Minus)` | Stok tidak cukup untuk baris ini | ❌ tombol **Posting** dikunci |
 
-<Shot name="sj-form-negative" alt="Baris LPG 50 kg berwarna merah dengan tulisan Minus dan pesan bahwa posting dikunci" />
+<Shot name="sj-form-negative" alt="Baris LPG 50 kg berwarna merah dengan tulisan Minus dan pesan bahwa baris itu belum bisa diposting" />
 
 Baris merah <span class="pin">1</span> disertai pesan <span class="pin">2</span>, dan tombol **Posting** <span class="pin">3</span> tidak bisa diklik. Kurangi jumlahnya atau hapus barisnya dengan tombol **×**.
 
 <Aside type="note">
-Owner dapat mengizinkan stok minus di [Pengaturan](/gasdist-site/panduan/pengaturan/stok-dan-keamanan/). Biasanya lebih baik tidak: stok minus berarti catatan dan gudang sudah tidak cocok.
+Owner bisa mengizinkan stok minus di [Pengaturan](/gasdist-site/panduan/pengaturan/stok-dan-keamanan/). Biasanya lebih baik tidak: stok minus berarti catatan dan gudang sudah tidak cocok.
 </Aside>
 
-## Menyimpan draf
+## Menyimpan draft
 
-Klik **Simpan draf** (<kbd>Ctrl</kbd>+<kbd>S</kbd>) bila pengiriman belum pasti. Muncul pesan **Draf tersimpan.** <span class="pin">1</span>. Draf belum punya nomor dan tidak mengurangi stok. Lewat **Pratinjau** <span class="pin">2</span> Anda bisa melihat tampilan cetaknya, dengan tanda air DRAFT. Draf belum bisa dicetak: posting dulu agar mendapat nomor (lihat [SALINAN dan DRAFT](/gasdist-site/panduan/cetak/salinan-dan-draf/)).
+Klik **Simpan draft** (<kbd>Ctrl</kbd>+<kbd>S</kbd>) kalau pengiriman belum pasti. Muncul pesan **Draft tersimpan.** <span class="pin">1</span>. Draft belum punya nomor dan tidak mengurangi stok. Lewat **Preview** <span class="pin">2</span> Anda bisa melihat tampilan cetaknya, dengan tanda air DRAFT. Draft belum bisa dicetak: posting dulu agar mendapat nomor (lihat [SALINAN dan DRAFT](/gasdist-site/panduan/cetak/salinan-dan-draf/)).
 
-<Shot name="sj-form-saved" alt="Formulir surat jalan setelah disimpan sebagai draf" />
+<Shot name="sj-form-saved" alt="Form surat jalan setelah disimpan sebagai draft" />
 
 ## Memposting
 
@@ -95,12 +95,12 @@ Klik **Simpan draf** (<kbd>Ctrl</kbd>+<kbd>S</kbd>) bila pengiriman belum pasti.
 
    <Shot name="sj-detail-posted" alt="Halaman surat jalan yang sudah diposting dengan nomor, tombol Cetak dan Batalkan" />
 
-   Dari halaman ini Anda bisa langsung **Cetak** <span class="pin">2</span> atau, bila ada kesalahan, **Batalkan surat jalan** <span class="pin">3</span>. Owner dan Admin juga melihat tombol **Koreksi** untuk [mengganti kendaraan, sopir, atau catatan](/gasdist-site/panduan/surat-jalan/mengoreksi/).
+   Dari halaman ini Anda bisa langsung **Cetak** <span class="pin">2</span> atau, kalau ada kesalahan, **Batalkan surat jalan** <span class="pin">3</span>. Owner dan Admin juga melihat tombol **Koreksi** untuk [mengganti kendaraan, sopir, atau catatan](/gasdist-site/panduan/surat-jalan/mengoreksi/).
 
 </Steps>
 
 <Aside type="caution" title="Isi surat jalan yang sudah diposting tidak bisa diubah">
-Hanya kendaraan, sopir, dan catatan yang masih bisa [dikoreksi](/gasdist-site/panduan/surat-jalan/mengoreksi/). Salah jumlah atau salah pelanggan? [Batalkan](/gasdist-site/panduan/surat-jalan/membatalkan/) surat jalan itu dengan **Batalkan & buat ulang**, lalu perbaiki di draf barunya. Pembatalan mengembalikan stok dan tetap tercatat, sehingga riwayatnya selalu bisa ditelusuri.
+Hanya kendaraan, sopir, dan catatan yang masih bisa [dikoreksi](/gasdist-site/panduan/surat-jalan/mengoreksi/). Salah jumlah atau salah pelanggan? [Batalkan](/gasdist-site/panduan/surat-jalan/membatalkan/) surat jalan itu dengan **Batalkan & buat ulang**, lalu perbaiki di draft barunya. Pembatalan mengembalikan stok dan tetap tercatat, sehingga riwayatnya selalu bisa ditelusuri.
 </Aside>
 
 ## Pintasan keyboard
@@ -108,8 +108,8 @@ Hanya kendaraan, sopir, dan catatan yang masih bisa [dikoreksi](/gasdist-site/pa
 | Tombol | Fungsi |
 |---|---|
 | <kbd>F2</kbd> | Surat jalan baru |
-| <kbd>Ctrl</kbd>+<kbd>S</kbd> | Simpan draf |
+| <kbd>Ctrl</kbd>+<kbd>S</kbd> | Simpan draft |
 | <kbd>Ctrl</kbd>+<kbd>Enter</kbd> | Posting |
-| <kbd>Ctrl</kbd>+<kbd>P</kbd> | Pratinjau cetak |
+| <kbd>Ctrl</kbd>+<kbd>P</kbd> | Preview cetak |
 | <kbd>Enter</kbd> di baris terakhir | Tambah baris |
 | <kbd>Esc</kbd> | Kembali |

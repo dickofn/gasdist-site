@@ -11,7 +11,7 @@ import Roles from "../../../../components/Roles.astro";
 
 Kadang pelanggan mengembalikan tabung **isi**: tabungnya bocor, pesanannya kelebihan, atau pangkalan batal menerima. Barang yang kembali **setelah surat jalan terkirim** dicatat dengan **retur**. Surat jalan yang sudah terkirim tidak bisa dibatalkan, karena lembar bertanda tangannya sudah kembali.
 
-Menyimpan retur memberi nomor `RT/2026/10/0001` dan langsung **menambah stok**, seperti [terima stok](/gasdist-site/panduan/stok/terima-stok/). Tabung yang kembali juga mengurangi [tabung yang dipinjam pelanggan](/gasdist-site/panduan/laporan/tabung-dipinjam/). Retur yang tersimpan tidak bisa diubah, hanya dibatalkan.
+Begitu disimpan, retur dapat nomor, misalnya `RT/2026/10/0001`, dan stok langsung **bertambah**, seperti [terima stok](/gasdist-site/panduan/stok/terima-stok/). Tabung yang kembali juga mengurangi [tabung yang dipinjam pelanggan](/gasdist-site/panduan/laporan/tabung-dipinjam/). Retur yang tersimpan tidak bisa diubah, hanya dibatalkan.
 
 <Roles can={["OWNER", "ADMIN", "GUDANG", "PENJUALAN"]} />
 
@@ -23,15 +23,15 @@ Tabung **kosong** yang diserahkan pangkalan saat menerima kiriman dicatat di kol
 
 <Steps>
 
-1. Buka surat jalan yang sudah **Terkirim**, lalu klik **Buat retur** <span class="pin">2</span>. Bila surat jalan itu mencatat tabung kosong, kolom **Kosong kembali** <span class="pin">1</span> ikut tampil di rinciannya.
+1. Buka surat jalan yang sudah **Terkirim**, lalu klik **Buat retur** <span class="pin">2</span>. Kalau surat jalan itu mencatat tabung kosong, kolom **Kosong kembali** <span class="pin">1</span> ikut tampil di rinciannya.
 
    <Shot name="sj-detail-empties" alt="Rincian surat jalan terkirim dengan kolom Kosong kembali dan tombol Buat retur" />
 
-2. Formulir **Retur baru** terbuka dengan **Pelanggan** <span class="pin">1</span> dan **Surat jalan asal** <span class="pin">2</span> sudah terisi. Produk surat jalan itu sudah ada di baris, dan kolom **Bisa diretur** <span class="pin">3</span> menunjukkan berapa tabung yang masih boleh kembali: jumlah yang dikirim dikurangi retur sebelumnya.
+2. Form **Retur baru** terbuka dengan **Pelanggan** <span class="pin">1</span> dan **Surat jalan asal** <span class="pin">2</span> sudah terisi. Produk surat jalan itu sudah ada di baris, dan kolom **Bisa diretur** <span class="pin">3</span> menunjukkan berapa tabung yang masih boleh kembali: jumlah yang dikirim dikurangi retur sebelumnya.
 
 3. Hapus baris produk yang tidak ikut kembali, isi jumlah **Tabung**, lalu tulis **Alasan** <span class="pin">4</span>. Alasan wajib diisi dan ikut tercetak.
 
-   <Shot name="return-form" alt="Formulir retur baru dengan pelanggan, surat jalan asal, kolom Bisa diretur, alasan, dan tombol Simpan & beri nomor" />
+   <Shot name="return-form" alt="Form retur baru dengan pelanggan, surat jalan asal, kolom Bisa diretur, alasan, dan tombol Simpan & beri nomor" />
 
 4. Klik **Simpan & beri nomor** <span class="pin">5</span>. Aplikasi menanyakan sekali lagi berapa tabung dan kg yang masuk stok.
 
@@ -71,12 +71,12 @@ Bukti retur dicetak lewat jendela cetak yang sama dengan surat jalan: template, 
 
 <Roles can={["OWNER", "ADMIN"]} />
 
-Salah pelanggan atau salah jumlah? Buka returnya, klik **Batalkan retur**, tulis alasannya, dan masukkan kata sandi Anda. Stok retur itu keluar lagi, tabungnya kembali tercatat dipinjam pelanggan, dan retur tetap tercatat dengan nomornya, berstatus **Dibatalkan**. Lalu buat retur yang benar.
+Salah pelanggan atau salah jumlah? Buka returnya, klik **Batalkan retur**, tulis alasannya, dan masukkan password Anda. Stok retur itu keluar lagi, tabungnya kembali tercatat dipinjam pelanggan, dan retur tetap tercatat dengan nomornya, berstatus **Dibatalkan**. Lalu buat retur yang benar.
 
-Bila stok produk itu sudah terpakai sehingga pembatalan membuat stok minus, pembatalan ditolak, kecuali Owner mengizinkan stok minus di [Pengaturan](/gasdist-site/panduan/pengaturan/stok-dan-keamanan/).
+Kalau stok produk itu sudah terpakai sehingga pembatalan membuat stok minus, pembatalan ditolak, kecuali Owner mengizinkan stok minus di [Pengaturan](/gasdist-site/panduan/pengaturan/stok-dan-keamanan/).
 
 <Aside type="caution" title="Retur tidak bisa diubah">
-Retur yang sudah tersimpan tidak bisa diubah atau dihapus, sama seperti surat jalan yang sudah diposting. Riwayat stok dan [jejak audit](/gasdist-site/panduan/laporan/jejak-audit/) selalu menunjukkan retur itu, pembatalannya, dan siapa yang melakukannya.
+Retur yang sudah tersimpan tidak bisa diubah atau dihapus, sama seperti surat jalan yang sudah diposting. Riwayat stok dan [riwayat perubahan](/gasdist-site/panduan/laporan/jejak-audit/) selalu menunjukkan retur itu, pembatalannya, dan siapa yang melakukannya.
 </Aside>
 
 ## Di kartu stok

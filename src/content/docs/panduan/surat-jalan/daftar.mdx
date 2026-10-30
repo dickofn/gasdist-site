@@ -1,6 +1,6 @@
 ---
-title: Daftar dan ekspor surat jalan
-description: Cari surat jalan dengan filter tanggal, pelanggan, sopir, status, atau nomor, lalu ekspor daftarnya ke xlsx atau csv.
+title: Daftar dan export surat jalan
+description: Cari surat jalan dengan filter tanggal, pelanggan, sopir, status, atau nomor, lalu export daftarnya ke Excel atau CSV.
 sidebar:
   order: 1
 ---
@@ -13,7 +13,7 @@ Halaman **Surat Jalan** menampilkan semua surat jalan, yang terbaru di atas. Dar
 
 <Roles can={["OWNER", "ADMIN", "GUDANG", "PENJUALAN", "VIEWER"]} />
 
-Semua peran bisa melihat dan mengekspor daftar ini. Tombol **Buat surat jalan** <span class="pin">1</span> hanya muncul untuk Owner, Admin, dan Penjualan (lihat [Membuat surat jalan](/gasdist-site/panduan/surat-jalan/membuat/)).
+Semua role bisa melihat dan meng-export daftar ini. Tombol **Buat surat jalan** <span class="pin">1</span> hanya muncul untuk Owner, Admin, dan Penjualan (lihat [Membuat surat jalan](/gasdist-site/panduan/surat-jalan/membuat/)).
 
 <Shot name="sj-list" alt="Daftar surat jalan bulan ini dengan filter tanggal, pelanggan, sopir, status, dan cari nomor" marks={[1, 2, 3, 4, null]} />
 
@@ -28,11 +28,11 @@ Saat dibuka, daftar menampilkan surat jalan dari tanggal 1 bulan ini sampai hari
 | **Dari tanggal** <span class="pin">2</span> dan **Sampai tanggal** | Rentang tanggal surat jalan, ditulis hh/bb/tttt ([Mengisi tanggal](/gasdist-site/panduan/mulai/tanggal/)). **Sampai tanggal** tidak boleh sebelum **Dari tanggal**. |
 | **Pelanggan** | Ketik kode, nama, telepon, atau kota, lalu pilih satu pelanggan. |
 | **Sopir** | Ketik sebagian nama, lalu pilih satu sopir. Sopir yang sudah nonaktif juga ada, bertanda *(Nonaktif)*, supaya surat jalan lamanya tetap bisa dicari. **Semua sopir** di baris pertama menghapus filter ini. |
-| **Status** <span class="pin">3</span> | **Semua status**, atau hanya satu status: **Draf**, **Diposting**, **Terkirim**, atau **Dibatalkan**. |
+| **Status** <span class="pin">3</span> | **Semua status**, atau hanya satu status: **Draft**, **Diposting**, **Terkirim**, atau **Dibatalkan**. |
 | **Cari nomor** <span class="pin">4</span> | Ketik sebagian nomor, misalnya `0029`. |
 
 <Aside type="tip" title="Cari nomor mengabaikan tanggal">
-Begitu Anda mengetik di **Cari nomor**, pencarian berlaku untuk semua tanggal (muncul keterangan **Nomor dicari di semua tanggal.**). Jadi surat jalan bulan lalu tetap ketemu tanpa mengubah filter tanggal. Draf belum bernomor, sehingga tidak muncul dalam pencarian nomor.
+Begitu Anda mengetik di **Cari nomor**, pencarian berlaku untuk semua tanggal (muncul keterangan **Nomor dicari di semua tanggal.**). Jadi surat jalan bulan lalu tetap ketemu tanpa mengubah filter tanggal. Draft belum bernomor, sehingga tidak muncul dalam pencarian nomor.
 </Aside>
 
 Contoh di bawah menampilkan semua surat jalan yang dibatalkan sejak 1 September: **Status** <span class="pin">1</span> diubah menjadi **Dibatalkan**, dan **Dari tanggal** dimundurkan.
@@ -43,35 +43,35 @@ Contoh berikutnya menampilkan surat jalan bulan ini yang dibawa Supriyadi: **Sop
 
 <Shot name="sj-list-driver" alt="Daftar surat jalan yang disaring per sopir, dengan status Terkirim dan Diposting" />
 
-Daftar menampilkan paling banyak 1.000 baris. Bila hasilnya lebih banyak, muncul pesan **Menampilkan ... dari ...**: persempit tanggal atau filter lain untuk melihat sisanya.
+Daftar menampilkan paling banyak 1.000 baris. Kalau hasilnya lebih banyak, muncul pesan **Menampilkan ... dari ...**: persempit tanggal atau filter lain untuk melihat sisanya.
 
 ## Arti warna status
 
 | Status | Tampilan di daftar | Artinya |
 |---|---|---|
-| **Draf** | Label abu-abu, kolom nomor bertuliskan *Draf* miring | Belum diposting: belum bernomor, stok belum berkurang, isi masih bisa diubah |
+| **Draft** | Label abu-abu, kolom nomor bertuliskan *Draft* miring | Belum diposting: belum bernomor, stok belum berkurang, isi masih bisa diubah |
 | **Diposting** | Label biru, nomor tampil lengkap | Sudah bernomor dan stok sudah berkurang; lembar bertanda tangannya belum kembali |
 | **Terkirim** | Label hijau | Lembar bertanda tangan sudah kembali dan dicatat. Final: tidak bisa dikoreksi atau dibatalkan. Lihat [Menandai surat jalan terkirim](/gasdist-site/panduan/surat-jalan/menandai-terkirim/). |
 | **Dibatalkan** | Label merah, nomor dan status dicoret | Sudah dibatalkan; stoknya sudah dikembalikan, nomornya tetap tercatat |
 
-Klik sebuah baris untuk membukanya. Draf terbuka di formulir sehingga bisa dilanjutkan (bagi Owner, Admin, dan Penjualan); surat jalan yang sudah diposting, terkirim, atau dibatalkan terbuka di halaman detail.
+Klik satu baris untuk membukanya. Draft terbuka di form sehingga bisa dilanjutkan (bagi Owner, Admin, dan Penjualan); surat jalan yang sudah diposting, terkirim, atau dibatalkan terbuka di halaman detail.
 
-## Mengekspor daftar
+## Meng-export daftar
 
 <Steps>
 
 1. Atur filter sampai daftar berisi surat jalan yang Anda perlukan.
 
-2. Klik **Ekspor xlsx** <span class="pin">1</span> untuk file Excel, atau **Ekspor csv** di sebelahnya untuk file teks yang bisa dibuka program lain.
+2. Klik **Export Excel** <span class="pin">1</span> untuk file Excel, atau **Export CSV** di sebelahnya untuk file teks yang bisa dibuka program lain.
 
-   <Shot name="sj-list" alt="Tombol Ekspor xlsx dan Ekspor csv di kanan atas daftar surat jalan" marks={[null, null, null, null, 1]} />
+   <Shot name="sj-list" alt="Tombol Export Excel dan Export CSV di kanan atas daftar surat jalan" marks={[null, null, null, null, 1]} />
 
-3. Pilih folder dan nama file di jendela simpan, lalu simpan. Muncul pesan **Daftar tersimpan di ...** berisi lokasi filenya.
+3. Pilih folder dan nama file di jendela simpan, lalu simpan. Muncul pesan **Daftar tersimpan di ...** berisi lokasi file-nya.
 
 </Steps>
 
 File berisi semua surat jalan yang cocok dengan filter, termasuk yang tidak tampil karena batas 1.000 baris. Kolomnya: Nomor, Tanggal, Kode pelanggan, Pelanggan, Kendaraan, Sopir, Status, Tabung, Berat (kg), dan Dicetak (berapa kali surat jalan itu dicetak).
 
 <Aside type="note">
-Judul kolom dan status di file mengikuti bahasa yang sedang Anda pakai di aplikasi. Pemisah kolom file csv diatur Owner di [Pemisah CSV](/gasdist-site/panduan/pengaturan/stok-dan-keamanan/#pemisah-csv): bawaannya titik koma dengan koma desimal untuk bahasa Indonesia. Bila file csv terbuka dalam satu kolom di Excel, minta Owner memilih pemisah lain. File xlsx terbuka dengan benar di PC mana pun.
+Judul kolom dan status di file mengikuti bahasa yang sedang Anda pakai di aplikasi. Pemisah kolom file csv diatur Owner di [Pemisah CSV](/gasdist-site/panduan/pengaturan/stok-dan-keamanan/#pemisah-csv): default-nya titik koma dengan koma desimal untuk bahasa Indonesia. Kalau file csv terbuka dalam satu kolom di Excel, minta Owner memilih pemisah lain. File xlsx terbuka dengan benar di PC mana pun.
 </Aside>

@@ -1,6 +1,6 @@
 ---
 title: SALINAN dan DRAFT
-description: Kenali lembar asli, cetak ulang bertanda SALINAN, dan pratinjau draf bertanda air DRAFT.
+description: Kenali lembar asli, cetak ulang bertanda SALINAN, dan preview draft bertanda air DRAFT.
 sidebar:
   order: 2
 ---
@@ -9,11 +9,11 @@ import { Aside } from "@astrojs/starlight/components";
 import Shot from "../../../../components/Shot.astro";
 import Roles from "../../../../components/Roles.astro";
 
-GasDist menandai setiap lembar surat jalan, sehingga lembar asli selalu bisa dibedakan dari cetak ulang, dan draf tidak pernah beredar sebagai surat jalan sungguhan.
+GasDist menandai setiap lembar surat jalan, sehingga lembar asli selalu bisa dibedakan dari cetak ulang, dan draft tidak pernah beredar sebagai surat jalan sungguhan.
 
 <Roles can={["OWNER", "ADMIN", "PENJUALAN"]} />
 
-Peran lain bisa membuka pratinjau semua lembar di halaman ini, tetapi tidak bisa mencetaknya.
+Role lain bisa membuka preview semua lembar di halaman ini, tapi tidak bisa mencetaknya.
 
 ## Empat tanda di jendela cetak
 
@@ -23,8 +23,8 @@ Di kiri atas jendela cetak, sesudah nomor surat jalan, tertulis tanda lembar yan
 |---|---|---|---|
 | **Asli** | Surat jalan diposting dan belum pernah dicetak | Tanpa tanda tambahan | ✅ |
 | **Salinan** | Surat jalan diposting dan sudah pernah dicetak | Kotak **SALINAN** di bawah judul SURAT JALAN | ✅ |
-| **Draf** | Surat jalan masih draf | Tanda air miring **DRAFT**, **No.** berisi `-` | ❌ hanya pratinjau |
-| **Dibatalkan** | Surat jalan sudah dibatalkan | Tanda air **DIBATALKAN** | ❌ hanya pratinjau |
+| **Draft** | Surat jalan masih draft | Tanda air miring **DRAFT**, **No.** berisi `-` | ❌ hanya preview |
+| **Dibatalkan** | Surat jalan sudah dibatalkan | Tanda air **DIBATALKAN** | ❌ hanya preview |
 
 ## Asli dan SALINAN
 
@@ -32,11 +32,11 @@ Cetakan pertama adalah lembar **asli**. Setiap kali surat jalan yang sama diceta
 
 <Shot name="print-copy" alt="Cetak ulang surat jalan SJ/2026/10/0029 dengan kotak SALINAN di bawah judul SURAT JALAN" />
 
-Dengan begitu hanya ada satu set asli yang beredar. Bila lembar yang ditandatangani hilang lalu dicetak ulang, semua orang tahu bahwa lembar baru itu salinan.
+Dengan begitu hanya ada satu set asli yang beredar. Kalau lembar yang ditandatangani hilang lalu dicetak ulang, semua orang tahu bahwa lembar baru itu salinan.
 
 ## Satu kali cetak, beberapa lembar
 
-Satu kali **Cetak** bisa mengeluarkan beberapa lembar berlabel (bawaannya tiga: Pelanggan, Kembali ke kantor, Arsip; lihat [Mencetak surat jalan](/gasdist-site/panduan/cetak/mencetak/)). Tanda pada lembar-lembar itu mengikuti cetakannya, bukan lembarnya:
+Satu kali **Cetak** bisa mengeluarkan beberapa lembar berlabel (default-nya tiga: Pelanggan, Kembali ke kantor, Arsip; lihat [Mencetak surat jalan](/gasdist-site/panduan/cetak/mencetak/)). Tanda pada lembar-lembar itu mengikuti cetakannya, bukan lembarnya:
 
 | Cetakan | Lembar yang keluar | Tandanya |
 |---|---|---|
@@ -46,37 +46,37 @@ Satu kali **Cetak** bisa mengeluarkan beberapa lembar berlabel (bawaannya tiga: 
 Jadi **Lembar 2: Kembali ke kantor** yang ditandatangani penerima adalah lembar asli, sama seperti lembar pelanggan dan arsip dari cetakan yang sama. **Jumlah cetak** di halaman detail bertambah satu per kali **Cetak**, berapa pun lembar yang keluar.
 
 <Aside type="tip" title="Mencetak ulang satu lembar saja">
-Bila hanya satu lembar yang hilang, pilih lembar itu di pilihan **Lembar** jendela cetak, misalnya **Lembar 1: Pelanggan**. Hanya lembar itu yang keluar, bertanda SALINAN.
+Kalau hanya satu lembar yang hilang, pilih lembar itu di pilihan **Lembar** jendela cetak, misalnya **Lembar 1: Pelanggan**. Hanya lembar itu yang keluar, bertanda SALINAN.
 </Aside>
 
-Untuk melihat berapa kali sebuah surat jalan sudah dicetak:
+Untuk melihat berapa kali satu surat jalan sudah dicetak:
 
 - Buka surat jalannya: halaman detail menampilkan **Jumlah cetak: ...**.
 - Di lembar yang dicetak, tulisan kecil di bawah kotak tanda tangan menunjukkan cetakan keberapa, misalnya **Cetakan ke-2**.
-- File ekspor [daftar surat jalan](/gasdist-site/panduan/surat-jalan/daftar/) punya kolom **Dicetak**.
+- File export [daftar surat jalan](/gasdist-site/panduan/surat-jalan/daftar/) punya kolom **Dicetak**.
 
 <Aside type="caution" title="Menutup dialog cetak tetap terhitung">
-Cetakan dihitung begitu Anda mengklik **Cetak**, sebelum dialog cetak terbuka. Bila dialog cetak ditutup tanpa mencetak, cetakan berikutnya sudah bertanda SALINAN. Siapkan printer dan kertas dulu sebelum mengklik **Cetak**.
+Cetakan dihitung begitu Anda mengklik **Cetak**, sebelum dialog cetak terbuka. Kalau dialog cetak ditutup tanpa mencetak, cetakan berikutnya sudah bertanda SALINAN. Siapkan printer dan kertas dulu sebelum mengklik **Cetak**.
 </Aside>
 
-## Pratinjau draf (DRAFT)
+## Preview draft (DRAFT)
 
-Draf bisa dilihat tampilan cetaknya lewat **Pratinjau** di formulir surat jalan (atau <kbd>Ctrl</kbd>+<kbd>P</kbd>). Pratinjau menyimpan draf lebih dulu, lalu membuka jendela cetak.
+Draft bisa dilihat tampilan cetaknya lewat **Preview** di form surat jalan (atau <kbd>Ctrl</kbd>+<kbd>P</kbd>). Preview menyimpan draft lebih dulu, lalu membuka jendela cetak.
 
-<Shot name="print-draft" alt="Pratinjau draf surat jalan dengan tanda air DRAFT besar dan nomor kosong" />
+<Shot name="print-draft" alt="Preview draft surat jalan dengan tanda air DRAFT besar dan nomor kosong" />
 
-Lembar draf mudah dikenali:
+Lembar draft mudah dikenali:
 
-- Tanda air besar **DRAFT** melintang di tengah lembar.
-- **No.** berisi `-`, karena draf belum bernomor.
-- Di kiri atas jendela tertulis **Draf · Draf**, dan di kanan atas **Draf tidak bisa dicetak. Posting dulu agar mendapat nomor.** Tombol **Cetak** tidak ada.
+- Tanda air besar **DRAFT** miring di tengah lembar.
+- **No.** berisi `-`, karena draft belum bernomor.
+- Di kiri atas jendela tertulis **Draft · Draft**, dan di kanan atas **Draft tidak bisa dicetak. Posting dulu agar mendapat nomor.** Tombol **Cetak** tidak ada.
 
-Gunakan pratinjau draf untuk memeriksa isi dan tata letak sebelum memposting. Setelah [diposting](/gasdist-site/panduan/surat-jalan/membuat/), surat jalan mendapat nomor dan cetakan pertamanya menjadi lembar asli.
+Pakai preview draft untuk memeriksa isi dan tata letak sebelum memposting. Setelah [diposting](/gasdist-site/panduan/surat-jalan/membuat/), surat jalan mendapat nomor dan cetakan pertamanya menjadi lembar asli.
 
 ## Surat jalan yang dibatalkan
 
-Surat jalan yang sudah [dibatalkan](/gasdist-site/panduan/surat-jalan/membatalkan/) masih bisa dibuka lewat **Pratinjau**, dengan tanda air **DIBATALKAN** dan pesan **Surat jalan yang dibatalkan tidak dicetak lagi.** Lembar ini tidak bisa dicetak.
+Surat jalan yang sudah [dibatalkan](/gasdist-site/panduan/surat-jalan/membatalkan/) masih bisa dibuka lewat **Preview**, dengan tanda air **DIBATALKAN** dan pesan **Surat jalan yang dibatalkan tidak dicetak lagi.** Lembar ini tidak bisa dicetak.
 
 <Aside type="note">
-Tulisan SALINAN, DRAFT, dan DIBATALKAN mengikuti bahasa bawaan perusahaan, sama seperti seluruh lembar surat jalan. Bila bahasa bawaannya English, tulisannya menjadi COPY, DRAFT, dan CANCELLED.
+Tulisan SALINAN, DRAFT, dan DIBATALKAN mengikuti bahasa default perusahaan, sama seperti seluruh lembar surat jalan. Kalau bahasa default-nya English, tulisannya menjadi COPY, DRAFT, dan CANCELLED.
 </Aside>
