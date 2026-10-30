@@ -1,6 +1,6 @@
 ---
-title: Impor pelanggan
-description: "Memasukkan banyak pelanggan sekaligus dari file Excel atau CSV, dengan pratinjau setiap baris sebelum ada yang disimpan."
+title: Import pelanggan
+description: "Memasukkan banyak pelanggan sekaligus dari file Excel atau CSV, dengan preview setiap baris sebelum ada yang disimpan."
 sidebar:
   order: 1
 ---
@@ -9,23 +9,23 @@ import { Steps, Aside } from "@astrojs/starlight/components";
 import Shot from "../../../../components/Shot.astro";
 import Roles from "../../../../components/Roles.astro";
 
-Punya daftar pelanggan di Excel? Impor memasukkannya sekaligus, tanpa mengetik satu per satu. GasDist menampilkan setiap baris lebih dulu, lengkap dengan alasan bila ada baris yang ditolak. Tidak ada yang disimpan sampai Anda menekan tombol impor.
+Punya daftar pelanggan di Excel? Import memasukkannya sekaligus, tanpa mengetik satu per satu. GasDist menampilkan setiap baris lebih dulu, lengkap dengan alasan kalau ada baris yang ditolak. Tidak ada yang disimpan sampai Anda menekan tombol import.
 
 <Roles can={["OWNER", "ADMIN"]} />
 
-Penjualan tetap bisa [menambah pelanggan](/gasdist-site/panduan/pelanggan/menambah/) satu per satu, tetapi tidak melihat tombol **Impor**. Satu impor bisa menambah ratusan pelanggan, dan pelanggan tidak bisa dihapus, hanya dinonaktifkan; karena itu impor hanya untuk Owner dan Admin.
+Penjualan tetap bisa [menambah pelanggan](/gasdist-site/panduan/pelanggan/menambah/) satu per satu, tapi tidak melihat tombol **Import**. Satu import bisa menambah ratusan pelanggan, dan pelanggan tidak bisa dihapus, hanya dinonaktifkan; karena itu import hanya untuk Owner dan Admin.
 
 ## Menyiapkan file
 
 <Steps>
 
-1. Klik **Pelanggan** di menu samping, lalu **Impor** di kanan atas. Jendela **Impor pelanggan** terbuka, dengan **Unduh templat (xlsx)** <span class="pin">1</span> dan **Pilih file...** <span class="pin">2</span>.
+1. Klik **Pelanggan** di menu samping, lalu **Import** di kanan atas. Jendela **Import pelanggan** terbuka, dengan **Download template (xlsx)** <span class="pin">1</span> dan **Pilih file...** <span class="pin">2</span>.
 
-2. Klik **Unduh templat (xlsx)** dan simpan filenya.
+2. Klik **Download template (xlsx)** dan simpan file-nya.
 
-   <Shot name="customers-import" alt="Jendela Impor pelanggan sebelum file dipilih, dengan tombol Unduh templat dan Pilih file" />
+   <Shot name="customers-import" alt="Jendela Import pelanggan sebelum file dipilih, dengan tombol Download template dan Pilih file" />
 
-3. Buka templat di Excel dan isi satu pelanggan per baris. Baris judulnya jangan diubah.
+3. Buka template di Excel dan isi satu pelanggan per baris. Baris judulnya jangan diubah.
 
 </Steps>
 
@@ -33,55 +33,55 @@ Penjualan tetap bisa [menambah pelanggan](/gasdist-site/panduan/pelanggan/menamb
 |---|---|
 | **Kode** | Wajib. 1 sampai 20 huruf, angka, atau `. _ - /`, belum dipakai pelanggan lain |
 | **Nama** | Wajib |
-| **Jenis** | Wajib: **Pangkalan**, **Pengecer**, **Industri**, atau **Lainnya**. Templat menyediakan pilihannya |
+| **Jenis** | Wajib: **Pangkalan**, **Pengecer**, **Industri**, atau **Lainnya**. Template menyediakan pilihannya |
 | **Alamat**, **Kota**, **Telepon**, **Kontak**, **NPWP**, **Catatan** | Boleh kosong |
 | **NIK** | Kosong, atau tepat 16 angka |
 
-Aturannya sama dengan formulir [Tambah pelanggan](/gasdist-site/panduan/pelanggan/menambah/). Semua kolom di templat berformat Teks, sehingga angka 0 di depan nomor telepon dan ke-16 angka NIK tetap seperti yang diketik. Petunjuk dan contoh ada di sheet kedua, **Petunjuk**.
+Aturannya sama dengan form [Tambah pelanggan](/gasdist-site/panduan/pelanggan/menambah/). Semua kolom di template berformat Teks, sehingga angka 0 di depan nomor telepon dan ke-16 angka NIK tetap seperti yang diketik. Petunjuk dan contoh ada di sheet kedua, **Petunjuk**.
 
-File sendiri juga bisa dipakai, tanpa templat: file xlsx (sheet pertamanya), atau CSV, termasuk CSV yang disimpan Excel dengan titik koma (`;`). Urutan kolom bebas, asalkan baris judulnya menyebut **Kode**, **Nama**, dan **Jenis**. Judul dalam bahasa Inggris (*Code*, *Name*, *Type*) juga dikenali. Kolom lain yang tidak dikenal dilewati dan disebutkan di pratinjau.
+File sendiri juga bisa dipakai, tanpa template: file xlsx (sheet pertamanya), atau CSV, termasuk CSV yang disimpan Excel dengan titik koma (`;`). Urutan kolom bebas, asalkan baris judulnya menyebut **Kode**, **Nama**, dan **Jenis**. Judul dalam bahasa Inggris (*Code*, *Name*, *Type*) juga dikenali. Kolom lain yang tidak dikenal dilewati dan disebutkan di preview.
 
-## Pratinjau dan impor
+## Preview dan import
 
 <Steps>
 
 1. Di jendela yang sama, klik **Pilih file...** dan pilih file xlsx atau CSV Anda.
 
-2. Pratinjau menampilkan setiap baris, dengan nomor barisnya di file. Ringkasannya <span class="pin">1</span> menyebut berapa baris yang siap dan berapa yang ditolak. Baris yang ditolak menyebut alasannya di kolom **Status** <span class="pin">2</span>.
+2. Preview menampilkan setiap baris, dengan nomor barisnya di file. Ringkasannya <span class="pin">1</span> menyebut berapa baris yang siap dan berapa yang ditolak. Baris yang ditolak menyebut alasannya di kolom **Status** <span class="pin">2</span>.
 
-   <Shot name="customers-import-preview" alt="Pratinjau impor: 10 baris, 5 siap diimpor dan 5 ditolak, satu baris ditolak karena kodenya sudah dipakai" />
+   <Shot name="customers-import-preview" alt="Preview import: 10 baris, 5 siap di-import dan 5 ditolak, satu baris ditolak karena kodenya sudah dipakai" />
 
 3. Klik tab **Ditolak** <span class="pin">3</span> untuk melihat baris yang ditolak saja.
 
    <Shot name="customers-import-refused" alt="Hanya baris yang ditolak: kode dipakai dua kali, kode sudah dipakai, nama kosong, NIK salah" />
 
-4. Klik **Impor 5 pelanggan** <span class="pin">4</span>. Semua baris yang siap masuk sekaligus; baris yang ditolak tidak disimpan. Pesan di atas daftar <span class="pin">1</span> menyebut hasilnya, dan pelanggan baru langsung ada di daftar <span class="pin">2</span>.
+4. Klik **Import 5 pelanggan** <span class="pin">4</span>. Semua baris yang siap masuk sekaligus; baris yang ditolak tidak disimpan. Pesan di atas daftar <span class="pin">1</span> menyebut hasilnya, dan pelanggan baru langsung ada di daftar <span class="pin">2</span>.
 
-   <Shot name="customers-import-done" alt="Daftar pelanggan setelah impor, dengan pesan 5 pelanggan diimpor dan 5 baris ditolak" />
+   <Shot name="customers-import-done" alt="Daftar pelanggan setelah import, dengan pesan 5 pelanggan di-import dan 5 baris ditolak" />
 
 </Steps>
 
-Untuk baris yang ditolak, perbaiki filenya, lalu impor file itu lagi. Baris yang sudah masuk akan ditolak kali ini karena kodenya sudah dipakai, jadi tidak ada yang masuk dua kali.
+Untuk baris yang ditolak, perbaiki file-nya, lalu import file itu lagi. Baris yang sudah masuk akan ditolak kali ini karena kodenya sudah dipakai, jadi tidak ada yang masuk dua kali.
 
 ## Kenapa sebuah baris ditolak
 
 | Alasan di kolom Status | Artinya | Yang dilakukan |
 |---|---|---|
-| **Nama pelanggan wajib diisi**, **... terlalu panjang**, **... berisi karakter yang tidak diizinkan**, **NIK harus kosong atau tepat 16 angka** | Isian itu melanggar aturan yang sama dengan formulir | Perbaiki isian itu di file |
-| **Kode ... sudah dipakai ...** | Kode itu milik pelanggan yang sudah ada, termasuk yang nonaktif | Impor tidak mengubah pelanggan yang ada. Pakai kode lain, atau ubah pelanggan itu lewat [detailnya](/gasdist-site/panduan/pelanggan/detail/) |
+| **Nama pelanggan wajib diisi**, **... terlalu panjang**, **... berisi karakter yang tidak diizinkan**, **NIK harus kosong atau tepat 16 angka** | Isian itu melanggar aturan yang sama dengan form | Perbaiki isian itu di file |
+| **Kode ... sudah dipakai ...** | Kode itu milik pelanggan yang sudah ada, termasuk yang nonaktif | Import tidak mengubah pelanggan yang ada. Pakai kode lain, atau ubah pelanggan itu lewat [detailnya](/gasdist-site/panduan/pelanggan/detail/) |
 | **Kode ... juga ada di baris ...** | Kode yang sama dipakai dua baris di file (huruf besar dan kecil dianggap sama) | Semua baris dengan kode itu ditolak, karena GasDist tidak tahu mana yang benar. Sisakan satu |
-| **Telepon diketik sebagai angka...** (juga Kode, NPWP, dan NIK) | Excel menyimpan isian itu sebagai angka, sehingga angka 0 di depan atau digit terakhirnya hilang, misalnya kode `007` menjadi `7` | Format kolom itu sebagai Teks di Excel, lalu ketik ulang. Templat sudah berformat Teks |
+| **Telepon diketik sebagai angka...** (juga Kode, NPWP, dan NIK) | Excel menyimpan isian itu sebagai angka, sehingga angka 0 di depan atau digit terakhirnya hilang, misalnya kode `007` menjadi `7` | Format kolom itu sebagai Teks di Excel, lalu ketik ulang. Template sudah berformat Teks |
 | **... terbaca sebagai tanggal** | Excel mengubah isian menjadi tanggal, misalnya `1-2` menjadi 1 Februari | Format kolom itu sebagai Teks, lalu ketik ulang |
-| **... berisi galat rumus Excel (#N/A)** | Sel itu berisi rumus yang gagal | Perbaiki rumusnya atau ketik nilainya, lalu simpan lagi |
+| **... berisi error rumus Excel (#N/A)** | Sel itu berisi rumus yang gagal | Perbaiki rumusnya atau ketik nilainya, lalu simpan lagi |
 
-<Aside type="note" title="Bila file berubah setelah pratinjau">
-Bila file diubah dan disimpan lagi setelah pratinjau dibuat, GasDist tidak menyimpan apa pun dan meminta Anda memilih file itu lagi. Yang diimpor selalu persis yang tampil di pratinjau.
+<Aside type="note" title="Kalau file berubah setelah preview">
+Kalau file diubah dan disimpan lagi setelah preview dibuat, GasDist tidak menyimpan apa pun dan meminta Anda memilih file itu lagi. Yang di-import selalu persis yang tampil di preview.
 </Aside>
 
 ## Batas dan jejaknya
 
-- Satu impor paling banyak 5.000 baris dan 10 MB. Daftar yang lebih besar dibagi menjadi beberapa file.
-- Setiap pelanggan yang diimpor tercatat di [jejak audit](/gasdist-site/panduan/laporan/jejak-audit/) sebagai **Pelanggan ditambah**, sama seperti lewat formulir, ditambah satu catatan **Pelanggan diimpor** yang menyebut nama file dan jumlah baris yang masuk dan ditolak.
+- Satu import paling banyak 5.000 baris dan 10 MB. Daftar yang lebih besar dibagi menjadi beberapa file.
+- Setiap pelanggan yang di-import tercatat di [riwayat perubahan](/gasdist-site/panduan/laporan/jejak-audit/) sebagai **Pelanggan ditambah**, sama seperti lewat form, ditambah satu catatan **Pelanggan di-import** yang menyebut nama file dan jumlah baris yang masuk dan ditolak.
 - File Excel lama (`.xls`), PDF, dan file kosong tidak bisa dibaca. Simpan ulang sebagai `.xlsx` atau CSV.
-- Judul atau tanggal di atas baris judul kolom tidak masalah: GasDist mencari baris judul di sepuluh baris pertama. Bila sheet pertama kosong, sheet berikutnya yang berisi data yang dibaca.
-- Bila ada baris yang tampil siap di pratinjau tetapi ditolak saat impor (misalnya kodenya baru saja dipakai pelanggan lain), jendela impor menampilkan baris itu dengan alasannya.
+- Judul atau tanggal di atas baris judul kolom tidak masalah: GasDist mencari baris judul di sepuluh baris pertama. Kalau sheet pertama kosong, sheet berikutnya yang berisi data yang dibaca.
+- Kalau ada baris yang tampil siap di preview tapi ditolak saat import (misalnya kodenya baru saja dipakai pelanggan lain), jendela import menampilkan baris itu dengan alasannya.

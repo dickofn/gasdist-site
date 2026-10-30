@@ -1,6 +1,6 @@
 ---
 title: Periksa data
-description: "Memastikan jejak audit utuh dan saldo stok sama dengan buku besarnya. Hanya membaca, tidak memperbaiki apa pun."
+description: "Memastikan riwayat perubahan utuh dan saldo stok sama dengan kartu stoknya. Hanya membaca, tidak memperbaiki apa pun."
 sidebar:
   order: 3
 ---
@@ -9,7 +9,7 @@ import { Steps, Aside } from "@astrojs/starlight/components";
 import Shot from "../../../../components/Shot.astro";
 import Roles from "../../../../components/Roles.astro";
 
-GasDist menyimpan catatan yang tidak boleh diubah: [jejak audit](/gasdist-site/panduan/laporan/jejak-audit/), yang setiap catatannya membawa sidik catatan sebelumnya, buku besar stok, yang menjadi dasar saldo setiap produk, dan buku besar [tabung dipinjam](/gasdist-site/panduan/laporan/tabung-dipinjam/). Periksa data memastikan semuanya masih seperti yang ditulis GasDist.
+Ada tiga catatan di GasDist yang tidak boleh diubah: [riwayat perubahan](/gasdist-site/panduan/laporan/jejak-audit/) (setiap catatannya menyimpan sidik catatan sebelumnya), kartu stok (dasar saldo setiap produk), dan riwayat [tabung dipinjam](/gasdist-site/panduan/laporan/tabung-dipinjam/). Periksa data memastikan semuanya masih seperti yang ditulis GasDist.
 
 <Roles can={["OWNER", "ADMIN"]} />
 
@@ -21,38 +21,38 @@ GasDist menyimpan catatan yang tidak boleh diubah: [jejak audit](/gasdist-site/p
 
 2. Klik **Periksa sekarang** <span class="pin">2</span>. Pemeriksaan berjalan di latar belakang dengan bilah kemajuan; GasDist tetap bisa dipakai.
 
-3. Hasilnya tampil dalam tiga kotak <span class="pin">3</span>: **Jejak audit**, **Stok: buku besar dan saldo tersimpan**, dan **Tabung dipinjam: buku besar dan saldo**. Hijau berarti tidak ada masalah.
+3. Hasilnya tampil dalam tiga kotak <span class="pin">3</span>: **Riwayat perubahan**, **Stok: kartu stok dan saldo di Beranda**, dan **Tabung dipinjam: riwayat pinjaman dan saldo pinjaman**. Hijau berarti tidak ada masalah.
 
-   <Shot name="reports-verify" alt="Hasil Periksa data: jejak audit utuh dan saldo stok sama dengan buku besar" />
+   <Shot name="reports-verify" alt="Hasil Periksa data: riwayat perubahan utuh dan saldo stok sama dengan kartu stok" />
 
 </Steps>
 
-Dengan riwayat sepuluh tahun (lebih dari satu juta catatan audit), pemeriksaan memakan beberapa detik. Hasil terakhir tetap tampil di tab ini sampai GasDist ditutup.
+Dengan riwayat sepuluh tahun (lebih dari satu juta catatan riwayat perubahan), pemeriksaan memakan beberapa detik. Hasil terakhir tetap tampil di tab ini sampai GasDist ditutup.
 
 ## Yang diperiksa
 
 | Kotak | Yang diperiksa |
 |---|---|
-| **Jejak audit** | Setiap catatan dari yang pertama sampai yang terbaru: tidak ada yang hilang, isinya tidak diubah, dan setiap catatan tersambung ke catatan sebelumnya |
-| **Stok** | Untuk setiap produk, saldo yang tersimpan sama dengan jumlah semua pergerakan di buku besar (penerimaan, surat jalan, retur, opname, pembatalan) |
-| **Tabung dipinjam** | Untuk setiap pelanggan, produk, dan sumber (dikirim, kosong kembali, retur isi, hitungan), saldo tersimpan yang dibaca laporan sama dengan jumlah di buku besarnya |
+| **Riwayat perubahan** | Setiap catatan dari yang pertama sampai yang terbaru: tidak ada yang hilang, isinya tidak diubah, dan setiap catatan tersambung ke catatan sebelumnya |
+| **Stok** | Untuk setiap produk, saldo di Beranda sama dengan jumlah semua stok masuk atau keluar di kartu stok (penerimaan, surat jalan, retur, opname, pembatalan) |
+| **Tabung dipinjam** | Untuk setiap pelanggan, produk, dan sumber (dikirim, kosong kembali, retur isi, hitungan), saldo pinjaman yang dibaca laporan sama dengan jumlah di riwayat pinjamannya |
 
-Pemeriksaan hanya membaca. Tidak ada yang diubah atau diperbaiki, dan pemeriksaan tidak tercatat di jejak audit.
+Pemeriksaan hanya membaca. Tidak ada yang diubah atau diperbaiki, dan pemeriksaan tidak tercatat di riwayat perubahan.
 
-## Bila ada masalah
+## Kalau ada masalah
 
 Kotak yang bermasalah berwarna merah dan mendaftar setiap masalah.
 
 | Masalah | Artinya | Yang dilakukan |
 |---|---|---|
-| **Isi diubah** | Isi catatan audit itu tidak lagi cocok dengan sidiknya | Data diubah di luar GasDist. Hubungi dukungan. [Backup](/gasdist-site/panduan/backup/memulihkan/) yang dibuat sebelum perubahan itu masih menyimpan riwayat yang utuh; layar menyebut kapan catatan utuh terakhir sebelum masalah pertama ditulis |
-| **... entri hilang** | Ada catatan yang dihapus dari tengah jejak audit. Baris ini hanya menyebut nomor catatan pertama yang hilang dan jumlahnya | Sama |
+| **Isi diubah** | Isi catatan riwayat perubahan itu sudah tidak cocok dengan sidiknya | Data diubah di luar GasDist. Hubungi penjual GasDist. [Backup](/gasdist-site/panduan/backup/memulihkan/) yang dibuat sebelum perubahan itu masih menyimpan riwayat yang utuh; layar menyebut kapan catatan utuh terakhir sebelum masalah pertama ditulis |
+| **... entri hilang** | Ada catatan yang dihapus dari tengah riwayat perubahan. Baris ini hanya menyebut nomor catatan pertama yang hilang dan jumlahnya | Sama |
 | **Tidak tersambung ke entri sebelumnya** | Catatan sebelumnya diganti, walaupun sidiknya ikut dihitung ulang | Sama |
-| Selisih stok per produk | Saldo tersimpan berbeda dari buku besarnya, lengkap dengan selisihnya dalam kg | Beranda dan pemeriksaan stok saat posting memakai saldo tersimpan; kartu stok dan laporan memakai buku besar. Hubungi dukungan sebelum memposting lagi |
-| Selisih tabung dipinjam | Saldo tersimpan satu pelanggan, produk, dan sumber berbeda dari buku besarnya, dengan selisihnya dalam tabung | Laporan Tabung dipinjam memakai saldo tersimpan. Hubungi dukungan sebelum mencatat retur atau hitungan lagi |
+| Selisih stok per produk | Saldo di Beranda berbeda dari kartu stoknya, lengkap dengan selisihnya dalam kg | Beranda dan pengecekan stok saat posting memakai saldo di Beranda; kartu stok dan laporan memakai catatan kartu stok. Hubungi penjual GasDist sebelum memposting lagi |
+| Selisih tabung dipinjam | Saldo pinjaman satu pelanggan, produk, dan sumber berbeda dari riwayat pinjamannya, dengan selisihnya dalam tabung | Laporan Tabung dipinjam memakai saldo pinjaman. Hubungi penjual GasDist sebelum mencatat retur atau hitungan lagi |
 
 Daftar menampilkan 100 masalah pertama dan menyebut jumlah seluruhnya.
 
 <Aside type="note" title="Batas pemeriksaan">
-Pemeriksaan tidak bisa melihat catatan yang dihapus dari ujung terbaru jejak audit, karena tidak ada catatan sesudahnya yang membawa sidiknya. Backup terbaru adalah salinan pembandingnya, jadi biasakan [menyimpan salinan backup](/gasdist-site/panduan/backup/membuat-backup/) di luar PC.
+Entri terbaru yang dihapus tidak bisa terlihat di pemeriksaan ini, karena tidak ada catatan sesudahnya yang menyimpan sidiknya. Bandingkan dengan backup terbaru, jadi biasakan [menyimpan salinan backup](/gasdist-site/panduan/backup/membuat-backup/) di luar PC.
 </Aside>

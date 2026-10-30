@@ -1,6 +1,6 @@
 ---
 title: Hapus semua data
-description: Kosongkan GasDist di PC ini dan mulai lagi dari penyiapan awal, misalnya setelah berlatih dengan data contoh. Backup dibuat dulu, jadi masih bisa dikembalikan.
+description: Kosongkan GasDist di PC ini dan mulai lagi dari setup awal, misalnya setelah berlatih dengan data contoh. Backup dibuat dulu, jadi masih bisa dikembalikan.
 sidebar:
   order: 5
 ---
@@ -9,55 +9,55 @@ import { Steps, Aside } from "@astrojs/starlight/components";
 import Shot from "../../../../components/Shot.astro";
 import Roles from "../../../../components/Roles.astro";
 
-**Hapus semua data** mengosongkan GasDist di PC ini dan membawanya kembali ke layar penyiapan awal, seperti baru dipasang. Pakai ini misalnya setelah berlatih dengan [data contoh](/gasdist-site/panduan/mulai/penyiapan-awal/#mencoba-data-contoh) dan ingin mulai dengan data sungguhan.
+**Hapus semua data** mengosongkan GasDist di PC ini, lalu kembali ke layar setup awal, seperti baru di-install. Pakai ini misalnya setelah berlatih dengan [data contoh](/gasdist-site/panduan/mulai/penyiapan-awal/#mencoba-data-contoh) dan ingin mulai dengan data sungguhan.
 
 <Roles can={["OWNER"]} />
 
 | Yang dihapus | Yang tetap |
 |---|---|
-| Semua data: produk, pelanggan, kendaraan, sopir, stok, surat jalan, retur, pengguna, jejak audit | Folder backup dan semua isinya |
-| Pengaturan, termasuk kata sandi backup dan folder backup kedua | Backup yang dibuat tepat sebelum menghapus, beserta salinan scan di sampingnya |
-| Scan lembar bertanda tangan di folder data GasDist | [Lisensi](/gasdist-site/panduan/mulai/lisensi/) dan masa percobaan: penyiapan awal sesudahnya memakai nama perusahaan dan NPWP dari lisensi |
+| Semua data: produk, pelanggan, kendaraan, sopir, stok, surat jalan, retur, user, riwayat perubahan | Folder backup dan semua isinya |
+| Pengaturan, termasuk password backup dan folder backup kedua | Backup yang dibuat tepat sebelum menghapus, beserta salinan scan di sampingnya |
+| Scan lembar bertanda tangan di folder data GasDist | [Lisensi](/gasdist-site/panduan/mulai/lisensi/) dan masa trial: setup awal sesudahnya memakai nama perusahaan dan NPWP dari lisensi |
 
-GasDist membuat backup lebih dulu, jadi semuanya masih bisa dikembalikan dengan [memulihkan backup itu](#mengembalikan-data). Karena itu Hapus semua data **ditolak bila kata sandi backup belum diatur**; atur dulu di [Kata sandi backup](/gasdist-site/panduan/backup/kata-sandi-backup/).
+GasDist membuat backup lebih dulu, jadi semuanya masih bisa dikembalikan dengan [me-restore backup itu](#mengembalikan-data). Karena itu Hapus semua data **ditolak kalau password backup belum diatur**; atur dulu di [Password backup](/gasdist-site/panduan/backup/kata-sandi-backup/).
 
 ## Menghapus semua data
 
 <Steps>
 
-1. Buka **Pengaturan** dan gulir ke paling bawah, ke kotak merah **Zona berbahaya**. Klik **Hapus semua data…** <span class="pin">1</span>.
+1. Buka **Pengaturan** dan scroll ke paling bawah, ke kotak merah **Hati-hati**. Klik **Hapus semua data...** <span class="pin">1</span>.
 
-   <Shot name="settings-danger" alt="Kotak Zona berbahaya di bagian bawah Pengaturan dengan tombol merah Hapus semua data" />
+   <Shot name="settings-danger" alt="Kotak Hati-hati di bagian bawah Pengaturan dengan tombol merah Hapus semua data" />
 
 2. Baca kotak merah di jendela yang terbuka: apa yang dihapus <span class="pin">1</span> dan apa yang tetap <span class="pin">2</span>.
 
-3. Isi kata sandi masuk Anda <span class="pin">3</span>, lalu ketik nama perusahaan persis seperti yang tertulis di bawah kolomnya <span class="pin">4</span>, termasuk huruf besar dan kecilnya. Tombol **Hapus semua data** <span class="pin">5</span> baru bisa diklik setelah namanya sama persis.
+3. Isi password login Anda <span class="pin">3</span>, lalu ketik nama perusahaan persis seperti yang tertulis di bawah kolomnya <span class="pin">4</span>, termasuk huruf besar dan kecilnya. Tombol **Hapus semua data** <span class="pin">5</span> baru bisa diklik setelah namanya sama persis.
 
-   <Shot name="reset-dialog" alt="Jendela Hapus semua data: kotak merah berisi yang dihapus dan yang tetap, kolom kata sandi, kolom nama perusahaan yang sudah terisi, dan tombol merah Hapus semua data" />
+   <Shot name="reset-dialog" alt="Jendela Hapus semua data: kotak merah berisi yang dihapus dan yang tetap, kolom password, kolom nama perusahaan yang sudah terisi, dan tombol merah Hapus semua data" />
 
-4. Klik **Hapus semua data**. GasDist membuat backup, lalu menghapus data. Jangan tutup GasDist selama itu; dengan data bertahun-tahun, backupnya bisa makan waktu beberapa menit.
+4. Klik **Hapus semua data**. GasDist membuat backup, lalu menghapus data. Jangan tutup GasDist selama itu; dengan data bertahun-tahun, backup-nya bisa makan waktu beberapa menit.
 
 </Steps>
 
-Setelah selesai, GasDist menampilkan layar penyiapan awal. Semua pengguna yang tadi masuk ikut keluar. Jejak audit yang baru dimulai dengan satu catatan **Semua data dihapus**, berisi siapa yang menghapus dan nama backupnya; jejak audit lama tetap utuh di dalam backup itu.
+Setelah selesai, GasDist menampilkan layar setup awal. Semua user yang tadi login ikut logout. Riwayat perubahan yang baru dimulai dengan satu catatan **Semua data dihapus**, berisi siapa yang menghapus dan nama backup-nya; riwayat perubahan lama tetap utuh di dalam backup itu.
 
-<Aside type="caution" title="Catat kata sandi backup sekarang">
-Backup yang dibuat sebelum menghapus dikunci dengan kata sandi backup yang berlaku saat ini. Tanpa kata sandi itu, data lama tidak bisa dikembalikan.
+<Aside type="caution" title="Catat password backup sekarang">
+Backup yang dibuat sebelum menghapus dikunci dengan password backup yang berlaku saat ini. Tanpa password itu, data lama tidak bisa dikembalikan.
 
-Backup ini disimpan seperti backup manual lainnya: GasDist menyimpan [14 backup manual terbaru](/gasdist-site/panduan/backup/membuat-backup/) dan menghapus yang lebih lama. Bila data lama perlu disimpan lama, salin backup itu beserta folder `scans` di sampingnya ke flashdisk.
+Backup ini disimpan seperti backup manual lainnya: GasDist menyimpan [14 backup manual terbaru](/gasdist-site/panduan/backup/membuat-backup/) dan menghapus yang lebih lama. Kalau data lama perlu disimpan lama, salin backup itu beserta folder `scans` di sampingnya ke flashdisk.
 </Aside>
 
-## Bila ada pesan kesalahan
+## Kalau ada pesan kesalahan
 
 | Pesan | Artinya |
 |---|---|
-| **Kata sandi Anda salah.** | Kata sandi masuk tidak cocok. Tidak ada yang dihapus. Kesalahan ini dihitung seperti saat masuk: lima kali salah mengunci akun selama 5 menit. |
+| **Password Anda salah.** | Password login tidak cocok. Tidak ada yang dihapus. Kesalahan ini dihitung seperti saat login: lima kali salah mengunci akun selama 5 menit. |
 | **Nama perusahaan tidak sama persis.** | Nama yang diketik berbeda dengan nama di Pengaturan. Tidak ada yang dihapus. |
-| Kata sandi backup belum diatur | Atur [kata sandi backup](/gasdist-site/panduan/backup/kata-sandi-backup/) dulu. |
-| Ekspor atau pemeriksaan data masih berjalan | Tunggu sampai selesai, lalu coba lagi. |
+| Password backup belum diatur | Atur [password backup](/gasdist-site/panduan/backup/kata-sandi-backup/) dulu. |
+| Export atau pemeriksaan data masih berjalan | Tunggu sampai selesai, lalu coba lagi. |
 
 ## Mengembalikan data
 
-Di layar penyiapan awal, klik **Pulihkan dari backup…** di bawah formulir. Backup yang dibuat sebelum menghapus ada paling atas di daftar, berjenis manual. Isi kata sandi backup, lalu pulihkan. Lihat [Memulihkan di PC baru](/gasdist-site/panduan/backup/memulihkan/#memulihkan-di-pc-baru).
+Di layar setup awal, klik **Restore dari backup...** di bawah form. Backup yang dibuat sebelum menghapus ada paling atas di daftar, berjenis manual. Isi password backup, lalu restore. Lihat [Restore di PC baru](/gasdist-site/panduan/backup/memulihkan/#restore-di-pc-baru).
 
-Untuk memulai dengan data sungguhan, isi saja formulir penyiapan awal seperti pertama kali. Lihat [Pemasangan dan penyiapan awal](/gasdist-site/panduan/mulai/penyiapan-awal/).
+Untuk memulai dengan data sungguhan, isi saja form setup awal seperti pertama kali. Lihat [Instalasi dan setup awal](/gasdist-site/panduan/mulai/penyiapan-awal/).

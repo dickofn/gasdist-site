@@ -1,6 +1,6 @@
 ---
 title: Pengaturan cetak
-description: Pilih template dan ukuran kertas bawaan, jumlah lembar dan labelnya, serta formulir karbon.
+description: Pilih template dan ukuran kertas default, jumlah lembar dan labelnya, serta form karbon.
 sidebar:
   order: 3
 ---
@@ -9,11 +9,11 @@ import { Steps, Aside } from "@astrojs/starlight/components";
 import Shot from "../../../../components/Shot.astro";
 import Roles from "../../../../components/Roles.astro";
 
-Bagian **Cetak surat jalan** di halaman **Pengaturan** menentukan apa yang keluar saat surat jalan dicetak. Semua pengaturan ini menjadi pilihan bawaan di jendela cetak; di jendela cetak, template, kertas, dan lembar masih bisa diganti untuk satu kali cetak (lihat [Mencetak surat jalan](/gasdist-site/panduan/cetak/mencetak/)).
+Bagian **Cetak surat jalan** di halaman **Pengaturan** menentukan apa yang keluar saat surat jalan dicetak. Semua pengaturan ini menjadi pilihan default di jendela cetak; di jendela cetak, template, kertas, dan lembar masih bisa diganti untuk satu kali cetak (lihat [Mencetak surat jalan](/gasdist-site/panduan/cetak/mencetak/)).
 
 <Roles can={["OWNER"]} />
 
-<Shot name="settings-print" alt="Bagian Cetak surat jalan dengan Template Standar, Ukuran kertas A4, kotak centang Formulir karbon, Jumlah lembar 3, dan label tiap lembar" />
+<Shot name="settings-print" alt="Bagian Cetak surat jalan dengan Template Standar, Ukuran kertas A4, kotak centang Form karbon, Jumlah lembar 3, dan label tiap lembar" />
 
 <Steps>
 
@@ -21,46 +21,46 @@ Bagian **Cetak surat jalan** di halaman **Pengaturan** menentukan apa yang kelua
 
 2. Pilih **Template** <span class="pin">1</span>: **Standar (printer biasa)** untuk printer inkjet atau laser, **Sederhana (dot-matrix)** untuk printer dot-matrix.
 
-3. Pilih **Ukuran kertas** <span class="pin">2</span> sesuai kertas yang biasa ada di printer: **A4**, **Kertas continuous 9,5 × 11 inci**, **A5 melintang**, atau **Kertas continuous setengah, 9,5 × 5,5 inci**.
+3. Pilih **Ukuran kertas** <span class="pin">2</span> sesuai kertas yang biasa ada di printer: **A4**, **Kertas continuous 9,5 × 11 inci**, **A5 landscape**, atau **Kertas continuous setengah, 9,5 × 5,5 inci**.
 
-4. Centang **Formulir karbon: satu lembar per surat jalan** <span class="pin">3</span> bila kantor Anda mencetak di formulir rangkap karbon. Biarkan kosong bila mencetak di kertas biasa.
+4. Centang **Form karbon: satu lembar per surat jalan** <span class="pin">3</span> kalau kantor Anda mencetak di form rangkap karbon. Biarkan kosong kalau mencetak di kertas biasa.
 
 5. Pilih **Jumlah lembar** <span class="pin">4</span> (1 sampai 5), lalu periksa label tiap lembar <span class="pin">5</span>.
 
-6. Gulir ke paling bawah dan klik **Simpan**. Muncul pesan **Pengaturan disimpan.**
+6. Scroll ke paling bawah dan klik **Simpan**. Muncul pesan **Pengaturan disimpan.**
 
 </Steps>
 
 ## Jumlah lembar dan labelnya
 
-Tanpa formulir karbon, satu kali **Cetak** mengeluarkan sebanyak **Jumlah lembar**, masing-masing dengan labelnya di bawah judul **SURAT JALAN**. Bawaannya tiga lembar:
+Tanpa form karbon, satu kali **Cetak** mengeluarkan sebanyak **Jumlah lembar**, masing-masing dengan labelnya di bawah judul **SURAT JALAN**. Default-nya tiga lembar:
 
-| Kolom | Isi bawaan |
+| Kolom | Isi default |
 |---|---|
 | **Label lembar 1** | `Lembar 1: Pelanggan` |
 | **Label lembar 2** | `Lembar 2: Kembali ke kantor` |
 | **Label lembar 3** | `Lembar 3: Arsip` |
 
-| Bila Anda | Yang terjadi |
+| Kalau Anda | Yang terjadi |
 |---|---|
 | Menaikkan **Jumlah lembar** | Kolom label baru muncul, berisi `Lembar 4` dan seterusnya; ubah sesuai kebutuhan |
 | Menurunkan **Jumlah lembar** | Label lembar yang dibuang hilang dari layar dan tidak disimpan |
 | Mengosongkan sebuah label | Lembar itu tetap dicetak, tanpa label |
 | Menulis label lebih dari 40 karakter | Ditolak dengan pesan **Terlalu panjang.** |
 
-Label dicetak persis seperti yang Anda tulis, apa pun bahasa bawaan perusahaan.
+Label dicetak persis seperti yang Anda tulis, apa pun bahasa default perusahaan.
 
 <Aside type="tip" title="Ingin satu lembar saja seperti dulu?">
-Sebelum GasDist versi 0.10.0, satu kali **Cetak** mengeluarkan satu lembar. Bila kantor Anda memang hanya butuh satu lembar, pilih **Jumlah lembar** 1 dan kosongkan labelnya.
+Sebelum GasDist versi 0.10.0, satu kali **Cetak** mengeluarkan satu lembar. Kalau kantor Anda memang hanya butuh satu lembar, pilih **Jumlah lembar** 1 dan kosongkan labelnya.
 </Aside>
 
-## Formulir karbon
+## Form karbon
 
-| **Formulir karbon** | Satu kali **Cetak** mengeluarkan |
+| **Form karbon** | Satu kali **Cetak** mengeluarkan |
 |---|---|
-| Tidak dicentang (bawaan) | Semua lembar sesuai **Jumlah lembar**, masing-masing berlabel |
+| Tidak dicentang (default) | Semua lembar sesuai **Jumlah lembar**, masing-masing berlabel |
 | Dicentang | Satu lembar tanpa label. Rangkap karbon membuat salinannya sendiri |
 
-Jumlah lembar dan label tetap tersimpan saat formulir karbon dicentang, karena di jendela cetak Anda masih bisa memilih **Semua lembar** untuk sekali cetak di kertas biasa.
+Jumlah lembar dan label tetap tersimpan saat form karbon dicentang, karena di jendela cetak Anda masih bisa memilih **Semua lembar** untuk sekali cetak di kertas biasa.
 
 Semua lembar dari satu kali **Cetak** dihitung satu cetakan. Lihat [SALINAN dan DRAFT](/gasdist-site/panduan/cetak/salinan-dan-draf/) untuk tanda di lembar cetakan ulang.

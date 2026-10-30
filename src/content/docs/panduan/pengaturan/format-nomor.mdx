@@ -9,7 +9,7 @@ import { Steps, Aside } from "@astrojs/starlight/components";
 import Shot from "../../../../components/Shot.astro";
 import Roles from "../../../../components/Roles.astro";
 
-Setiap surat jalan mendapat nomor saat diposting, misalnya `SJ/2026/10/0031`. Bentuk nomor itu bisa Anda atur sendiri. Bawaannya `SJ/{YYYY}/{MM}/{0000}`.
+Setiap surat jalan mendapat nomor saat diposting, misalnya `SJ/2026/10/0031`. Bentuk nomor itu bisa Anda atur sendiri. Default-nya `SJ/{YYYY}/{MM}/{0000}`.
 
 <Roles can={["OWNER"]} />
 
@@ -26,13 +26,13 @@ Setiap surat jalan mendapat nomor saat diposting, misalnya `SJ/2026/10/0031`. Be
 3. Periksa baris di bawah kolom saat Anda mengetik:
    - **Contoh nomor** menunjukkan nomor pertama untuk hari ini, misalnya `SJ-261013-001`.
    - Kalimat berikutnya <span class="pin">2</span> menyebut kapan nomor mulai dari 1 lagi.
-   - Kalimat **Muat ... nomor** menyebut berapa nomor yang muat sebelum nomornya bertambah satu digit.
+   - Kalimat **Cukup untuk ... nomor** menyebut berapa nomor yang cukup sebelum nomornya jadi satu digit lebih panjang.
 
-4. Gulir ke bawah halaman, lalu klik **Simpan**. Format baru berlaku untuk surat jalan yang diposting sesudahnya.
+4. Scroll ke bawah halaman, lalu klik **Simpan**. Format baru berlaku untuk surat jalan yang diposting sesudahnya.
 
 </Steps>
 
-Bila baris contoh tiba-tiba hilang, format yang Anda ketik belum benar. Saat Anda mengklik **Simpan**, GasDist juga menampilkan aturannya di bawah kolom. Lihat [Aturan format](#aturan-format) di bawah.
+Kalau baris contoh tiba-tiba hilang, format yang Anda ketik belum benar. Saat Anda mengklik **Simpan**, GasDist juga menampilkan aturannya di bawah kolom. Lihat [Aturan format](#aturan-format) di bawah.
 
 ## Arti setiap simbol
 
@@ -44,7 +44,7 @@ Contoh di tabel memakai tanggal 13 Oktober 2026.
 | `{YY}` | tahun, 2 digit | `26` |
 | `{MM}` | bulan | `10` |
 | `{DD}` | tanggal | `13` |
-| `{0000}` | nomor urut; jumlah nol adalah digit minimal | `0001`. Dengan `{000}` hasilnya `001`, dengan `{00000}` hasilnya `00001` |
+| `{0000}` | nomor urut; banyaknya nol = jumlah digit paling sedikit | `0001`. Dengan `{000}` hasilnya `001`, dengan `{00000}` hasilnya `00001` |
 | Teks lain, misalnya `SJ`, `/`, `-` | Ditulis apa adanya | `SJ`, `/`, `-` |
 
 Tahun, bulan, dan tanggal diambil dari **tanggal surat jalan**, bukan dari hari saat Anda mengklik **Posting**.
@@ -60,15 +60,15 @@ Nomor urut mulai dari 1 lagi mengikuti simbol tanggal **terkecil** di format And
 | `{YYYY}` atau `{YY}` | setiap tahun | **Nomor mulai dari 1 lagi setiap tahun.** |
 | Tidak ada simbol tanggal | tidak pernah | **Nomor tidak pernah mulai dari 1 lagi.** |
 
-Banyaknya nol di nomor urut menentukan berapa nomor yang muat per periode. `{0000}` muat 9.999 nomor. Bila lebih, nomornya bertambah satu digit: setelah `9999` datang `10000`. Nomor tidak pernah dipotong, jadi tidak ada nomor yang terulang.
+Banyaknya nol di nomor urut menentukan berapa nomor yang cukup per periode. `{0000}` cukup untuk 9.999 nomor. Kalau lebih, nomornya jadi satu digit lebih panjang: setelah `9999` datang `10000`. Nomor tidak pernah dipotong, jadi tidak ada nomor yang terulang.
 
 ## Contoh siap pakai
 
 Salin salah satu format ini ke kolom **Format nomor surat jalan**.
 
-| Format | Nomor pertama pada 13 Oktober 2026 | Mulai dari 1 lagi | Muat per periode |
+| Format | Nomor pertama pada 13 Oktober 2026 | Mulai dari 1 lagi | Cukup untuk per periode |
 |---|---|---|---|
-| `SJ/{YYYY}/{MM}/{0000}` (bawaan) | `SJ/2026/10/0001` | setiap bulan | 9.999 |
+| `SJ/{YYYY}/{MM}/{0000}` (default) | `SJ/2026/10/0001` | setiap bulan | 9.999 |
 | `SJ-{YY}{MM}{DD}-{000}` | `SJ-261013-001` | setiap hari | 999 |
 | `SJ/{YYYY}/{00000}` | `SJ/2026/00001` | setiap tahun | 99.999 |
 | `SJ-{000000}` | `SJ-000001` | tidak pernah | 999.999 |
@@ -78,7 +78,7 @@ Salin salah satu format ini ke kolom **Format nomor surat jalan**.
 GasDist menolak format yang bisa menghasilkan nomor kembar. Format harus:
 
 - memuat tepat **satu** nomor urut, misalnya `{0000}`;
-- memuat tahun bila ada `{MM}`, serta bulan dan tahun bila ada `{DD}`;
+- memuat tahun kalau ada `{MM}`, serta bulan dan tahun kalau ada `{DD}`;
 - memakai setiap simbol paling banyak sekali (jadi `{YYYY}` dan `{YY}` tidak boleh bersamaan);
 - paling panjang 40 karakter.
 
@@ -90,9 +90,9 @@ GasDist menolak format yang bisa menghasilkan nomor kembar. Format harus:
 | `SJ/{YYYY}/{DD}/{0000}` | ❌ | `{DD}` tanpa bulan |
 
 <Aside type="caution" title="Sebaiknya ganti format di awal bulan atau awal tahun">
-Nomor yang sudah diberikan tidak pernah berubah. Bila Anda hanya mengubah tampilannya (misalnya `/` menjadi `-`) di tengah bulan, nomor urut melanjutkan hitungan bulan itu. Bila format baru ternyata menghasilkan nomor yang sudah dipakai, posting ditolak dengan pesan **Nomor ... sudah dipakai surat jalan lain. Ubah format nomor di Pengaturan, lalu posting lagi.**
+Nomor yang sudah diberikan tidak pernah berubah. Kalau Anda hanya mengubah tampilannya (misalnya `/` menjadi `-`) di tengah bulan, nomor urut melanjutkan hitungan bulan itu. Kalau format baru ternyata menghasilkan nomor yang sudah dipakai, posting ditolak dengan pesan **Nomor ... sudah dipakai surat jalan lain. Ubah format nomor di Pengaturan, lalu posting lagi.**
 </Aside>
 
 ## Ukuran kertas
 
-**Ukuran kertas** pindah ke bagian **Cetak surat jalan** sejak GasDist 0.10.0, bersama template, jumlah lembar, dan formulir karbon. Lihat [Pengaturan cetak](/gasdist-site/panduan/pengaturan/cetak/).
+**Ukuran kertas** pindah ke bagian **Cetak surat jalan** sejak GasDist 0.10.0, bersama template, jumlah lembar, dan form karbon. Lihat [Pengaturan cetak](/gasdist-site/panduan/pengaturan/cetak/).

@@ -1,6 +1,6 @@
 ---
 title: Stok minus, kunci otomatis, bahasa, pemisah CSV
-description: Tentukan apakah surat jalan boleh membuat stok minus, berapa menit sebelum layar terkunci sendiri, bahasa bawaan kantor, dan pemisah kolom file CSV.
+description: Tentukan apakah surat jalan boleh membuat stok minus, berapa menit sebelum layar terkunci sendiri, bahasa default kantor, dan pemisah kolom file CSV.
 sidebar:
   order: 4
 ---
@@ -9,24 +9,24 @@ import { Steps, Aside } from "@astrojs/starlight/components";
 import Shot from "../../../../components/Shot.astro";
 import Roles from "../../../../components/Roles.astro";
 
-Pengaturan ini berlaku untuk semua pengguna di kantor: apakah stok boleh minus, kapan layar terkunci sendiri, bahasa bawaan, dan pemisah kolom file CSV. Semuanya ada di halaman **Pengaturan**, di bawah bagian **Perusahaan**, **Dokumen**, dan **Cetak surat jalan**.
+Pengaturan ini berlaku untuk semua user di kantor: apakah stok boleh minus, kapan layar terkunci sendiri, bahasa default, dan pemisah kolom file CSV. Semuanya ada di halaman **Pengaturan**, di bawah bagian **Perusahaan**, **Dokumen**, dan **Cetak surat jalan**.
 
 <Roles can={["OWNER"]} />
 
 <Shot name="settings-stock-security" alt="Bagian Keamanan dengan kunci otomatis 15 menit, bagian Bahasa dengan Bahasa Indonesia dan Pemisah CSV Ikuti bahasa, dan bagian Backup dengan tombol Pilih folder" marks={[2, 3, 4, 5]} />
 
-Setelah mengubah apa pun di halaman ini, gulir ke paling bawah dan klik **Simpan**. Muncul pesan **Pengaturan disimpan.**
+Setelah mengubah apa pun di halaman ini, scroll ke paling bawah dan klik **Simpan**. Muncul pesan **Pengaturan disimpan.**
 
 ## Stok minus
 
 <Shot name="settings-stock" alt="Bagian Stok dengan kotak centang Izinkan stok minus saat posting surat jalan" />
 
-Di bagian **Stok** ada kotak centang **Izinkan stok minus saat posting surat jalan** <span class="pin">1</span>. Bawaannya tidak dicentang.
+Di bagian **Stok** ada kotak centang **Izinkan stok minus saat posting surat jalan** <span class="pin">1</span>. Default-nya tidak dicentang.
 
-| Kotak centang | Bila stok tidak cukup untuk sebuah surat jalan |
+| Kotak centang | Kalau stok tidak cukup untuk sebuah surat jalan |
 |---|---|
-| Tidak dicentang (bawaan) | Baris itu merah bertanda **Minus** dan tombol **Posting** dikunci. Kurangi jumlahnya dulu. ✅ Disarankan |
-| Dicentang | Baris itu tetap merah bertanda **Minus**, tetapi surat jalan tetap bisa diposting. GasDist hanya memberi peringatan, lalu stok produk itu menjadi minus |
+| Tidak dicentang (default) | Baris itu merah bertanda **Minus** dan tombol **Posting** tidak bisa diklik. Kurangi jumlahnya dulu. ✅ Disarankan |
+| Dicentang | Baris itu tetap merah bertanda **Minus**, tapi surat jalan tetap bisa diposting. GasDist hanya memberi peringatan, lalu stok produk itu menjadi minus |
 
 Lihat juga [Membuat surat jalan](/gasdist-site/panduan/surat-jalan/membuat/) untuk arti warna di kolom **Stok setelah**.
 
@@ -36,42 +36,42 @@ Stok minus berarti catatan di GasDist sudah tidak cocok dengan isi gudang. Biasa
 
 ## Kunci otomatis
 
-Di bagian **Keamanan** (di sebelah kanan bagian **Stok**) ada kolom **Kunci otomatis setelah (menit)** <span class="pin">2</span>. Bila GasDist tidak dipakai selama itu, layar terkunci sendiri dan pengguna harus memasukkan kata sandinya untuk melanjutkan. Sebaiknya simpan dulu draf atau isian yang sedang dikerjakan sebelum meninggalkan komputer. Cara membuka kunci dijelaskan di [Masuk, kunci layar, dan kata sandi](/gasdist-site/panduan/mulai/masuk-dan-kunci/).
+Di bagian **Keamanan** (di sebelah kanan bagian **Stok**) ada kolom **Kunci otomatis setelah (menit)** <span class="pin">2</span>. Kalau GasDist tidak dipakai selama itu, layar terkunci sendiri dan user harus memasukkan password-nya untuk melanjutkan. Sebaiknya simpan dulu draft atau isian yang sedang dikerjakan sebelum meninggalkan PC. Cara membuka kunci dijelaskan di [Login, kunci layar, dan password](/gasdist-site/panduan/mulai/masuk-dan-kunci/).
 
 | Kunci otomatis | Menit |
 |---|---|
-| Bawaan | 15 |
+| Default | 15 |
 | Yang boleh diisi | 1 sampai 240 |
 
 <Aside type="tip">
-Komputer di meja yang ramai dilewati orang sebaiknya memakai waktu pendek, misalnya 5 menit. Siapa pun juga bisa mengunci layar kapan saja dengan tombol **Kunci** di bagian atas layar.
+PC di meja yang ramai dilewati orang sebaiknya memakai waktu pendek, misalnya 5 menit. Siapa pun juga bisa mengunci layar kapan saja dengan tombol **Kunci** di bagian atas layar.
 </Aside>
 
-## Bahasa bawaan
+## Bahasa default
 
-Di bagian **Bahasa**, pilih **Bahasa bawaan** <span class="pin">3</span>: **Bahasa Indonesia** atau **English**.
+Di bagian **Bahasa**, pilih **Bahasa default** <span class="pin">3</span>: **Bahasa Indonesia** atau **English**.
 
 | Tempat | Bahasa yang dipakai |
 |---|---|
-| Layar masuk | Bahasa bawaan |
-| Pengguna dengan bahasa **Ikuti bawaan perusahaan** | Bahasa bawaan |
-| Pengguna yang memilih bahasanya sendiri | Bahasa pilihannya, apa pun bahasa bawaannya |
+| Layar login | Bahasa default |
+| User dengan bahasa **Ikuti default perusahaan** | Bahasa default |
+| User yang memilih bahasanya sendiri | Bahasa pilihannya, apa pun bahasa default-nya |
 
-Bahasa per pengguna diatur di halaman **Pengguna** (lihat [Menambah pengguna](/gasdist-site/panduan/pengguna/menambah/)), atau oleh pengguna itu sendiri lewat pilihan **Bahasa** di bagian atas layar.
+Bahasa per user diatur di halaman **User** (lihat [Menambah user](/gasdist-site/panduan/pengguna/menambah/)), atau oleh user itu sendiri lewat pilihan **Bahasa** di bagian atas layar.
 
 ## Pemisah CSV
 
-Di bagian **Bahasa**, di bawah **Bahasa bawaan**, ada **Pemisah CSV** <span class="pin">4</span>. Pilihan ini menentukan tanda pemisah kolom di setiap file csv yang diekspor GasDist (daftar surat jalan, kartu stok, dan semua laporan). Tanda desimal angka kg ikut dengan pemisahnya.
+Di bagian **Bahasa**, di bawah **Bahasa default**, ada **Pemisah CSV** <span class="pin">4</span>. Pilihan ini menentukan tanda pemisah kolom di setiap file csv yang di-export GasDist (daftar surat jalan, kartu stok, dan semua laporan). Tanda desimal angka kg ikut dengan pemisahnya.
 
 | Pilihan | Pemisah kolom, tanda desimal | Cocok untuk |
 |---|---|---|
-| **Ikuti bahasa** (bawaan) | Titik koma dan koma (`;` `,`) bagi pengguna berbahasa Indonesia, koma dan titik (`,` `.`) bagi yang berbahasa Inggris | Kantor yang pengaturan wilayah Windows-nya sama dengan bahasa GasDist |
-| **; (Excel Indonesia)** | `;` dan `,` untuk semua pengguna | Windows dengan wilayah Indonesia |
-| **, (Excel English)** | `,` dan `.` untuk semua pengguna | Windows dengan wilayah berbahasa Inggris, misalnya English (Indonesia) atau English (United States) |
+| **Ikuti bahasa** (default) | Titik koma dan koma (`;` `,`) bagi user berbahasa Indonesia, koma dan titik (`,` `.`) bagi yang berbahasa Inggris | Kantor yang pengaturan wilayah Windows-nya sama dengan bahasa GasDist |
+| **; (Excel Indonesia)** | `;` dan `,` untuk semua user | Windows dengan wilayah Indonesia |
+| **, (Excel English)** | `,` dan `.` untuk semua user | Windows dengan wilayah berbahasa Inggris, misalnya English (Indonesia) atau English (United States) |
 
-Excel memisahkan kolom file csv menurut pengaturan wilayah Windows (Settings › Time & language › Region), bukan menurut bahasa GasDist. Cara mengujinya: ekspor satu file csv, misalnya kartu stok, lalu buka di Excel. Bila setiap baris tampil dalam satu kolom, pilih pemisah yang lain di sini, simpan, lalu ekspor lagi.
+Excel memisahkan kolom file csv menurut pengaturan wilayah Windows (Settings › Time & language › Region), bukan menurut bahasa GasDist. Cara mengujinya: export satu file csv, misalnya kartu stok, lalu buka di Excel. Kalau setiap baris tampil dalam satu kolom, pilih pemisah yang lain di sini, simpan, lalu export lagi.
 
-File xlsx (**Ekspor xlsx** atau **Ekspor Excel**) tidak terpengaruh dan terbuka dengan benar di PC mana pun. [Impor pelanggan](/gasdist-site/panduan/alat-data/impor-pelanggan/) juga tidak terpengaruh: GasDist mengenali sendiri pemisah file csv yang diimpor.
+File Excel (**Export Excel**) tidak terpengaruh dan terbuka dengan benar di PC mana pun. [Import pelanggan](/gasdist-site/panduan/alat-data/impor-pelanggan/) juga tidak terpengaruh: GasDist mengenali sendiri pemisah file csv yang di-import.
 
 ## Folder backup kedua
 
