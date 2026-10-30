@@ -7,7 +7,7 @@ interface Props {
 }
 
 const NAMES: Record<"id" | "en", Record<Role, string>> = {
-  id: { OWNER: "Owner", ADMIN: "Admin", GUDANG: "Gudang", PENJUALAN: "Penjualan", VIEWER: "Pemantau" },
+  id: { OWNER: "Owner", ADMIN: "Admin", GUDANG: "Gudang", PENJUALAN: "Penjualan", VIEWER: "Viewer" },
   en: { OWNER: "Owner", ADMIN: "Admin", GUDANG: "Warehouse", PENJUALAN: "Sales", VIEWER: "Viewer" },
 };
 const ORDER: Role[] = ["OWNER", "ADMIN", "GUDANG", "PENJUALAN", "VIEWER"];
@@ -16,7 +16,7 @@ const lang = Astro.locals.starlightRoute?.lang === "en" ? "en" : "id";
 const { can } = Astro.props;
 const all = can.length === ORDER.length;
 const label = lang === "en" ? "Who can do this" : "Siapa yang bisa";
-const everyone = lang === "en" ? "Every role" : "Semua peran";
+const everyone = lang === "en" ? "Every role" : "Semua role";
 ---
 
 <p class="roles not-content">
